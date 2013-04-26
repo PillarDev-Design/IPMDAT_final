@@ -1,0 +1,205 @@
+/******************************************************************************\
+ * IPMDAT_style.css                                                           *
+ * -------------------------------------------------------------------------- *
+ * Styling properties for the IPMDAT project.                                 *
+\******************************************************************************/
+
+body, html{
+    height: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+.clear{
+    clear: both;
+}
+#site_container{
+    /* Light Green */
+    background: #CBE5C0;
+    height: 100%;
+    position: relative;
+    width: 100%;
+}
+#footer_container{
+    border-top: 3px solid #8E8E8E;
+    bottom: 0;
+    height: 50px;
+    position: absolute;
+    text-align: right;
+    width: 100%;
+}
+#site_content{
+    background-image:url('/static/img/green_background.JPG');
+    background-repeat: repeat-x;
+    height: 600px;
+    left: 13%;
+    position: relative;
+    top: 14%;
+    width: 960px;
+}
+#site_nav_container{
+    background: white;
+    height: 19%;
+    position: relative;
+    width: 100%;
+}
+#site_nav_left_side{
+    float: left;
+}
+    #site_nav_left_logo{
+        background-image:url('/static/img/logo.JPG');
+        height: 110px;
+        width: 425px;
+    }
+#site_nav_right_side{
+    float: right;
+}
+    .site_nav_link{
+        color: #6D965B;
+        cursor: pointer;
+        float: left;
+        font-weight: bold;
+        margin-right: 45px;
+        margin-top: 5px;
+        position: relative;
+    }
+.progress_bar_base_style{
+    border: 1px solid black;
+    color: white;
+    cursor: pointer;
+    float: left;
+    font-weight: bold;
+    height: 20px;
+    margin-left: 5px;
+    padding: 10px;
+    position: relative;
+    text-align: center;
+    width: 22%;
+    border-radius: 15px;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+}
+    #content_progress_bar_strategy_exploration{
+        font-size: 1em;
+        padding-top: 3px;
+        height: 27px;
+    }
+    #content_progress_bar_summary_recommendation{
+        font-size: 1em;
+        padding-top: 3px;
+        height: 27px;
+    }
+    .progress_bar_inactive{
+        background: #8A8A8A;
+        box-shadow: -22px 6px 10px #ACACAC inset;
+        -moz-box-shadow: -22px 6px 10px #ACACAC inset;
+        -webkit-box-shadow: -22px 6px 10px #ACACAC inset;
+    }
+    .progress_bar_active{
+        background: #62A5D0;
+        box-shadow: -22px 6px 10px #A3CBE4 inset;
+        -moz-box-shadow: -22px 6px 10px #A3CBE4 inset;
+        -webkit-box-shadow: -22px 6px 10px #A3CBE4 inset;
+    }
+    .progress_bar_available{
+        background: #6D965B;
+        box-shadow: -22px 6px 10px #CBE5C0 inset;
+        -moz-box-shadow: -22px 6px 10px #CBE5C0 inset;
+        -webkit-box-shadow: -22px 6px 10px #CBE5C0 inset;
+    }
+#content_container{
+    background: white;
+    height: 387px;
+    left: 3%;
+    position: relative;
+    width: 94%;
+    z-index: 2;
+}
+#content_nav_container{
+    background: #62A5D0;
+    border-bottom: 1px solid black;
+    height: 57px;
+    position: relative;
+    z-index: 1;
+    border-radius: 20px;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    box-shadow: 0px -6px 13px #A3CBE4;
+    -moz-box-shadow: 0px -6px 13px #A3CBE4;
+    -webkit-box-shadow: 0px -6px 13px #A3CBE4;
+}
+    .content_nav_base_style{
+        background: #8A8A8A;
+        cursor: pointer;
+        top: -23px;
+        font-size: 3em;
+        text-align: center;
+        height: 50px;
+        width: 125px;
+        padding-bottom: 11px;
+        position: relative;
+        box-shadow: 0px -10px 24px #ACACAC inset;
+        -moz-box-shadow: 0px -10px 24px #ACACAC inset;
+        -webkit-box-shadow: 0px -10px 24px #ACACAC inset;
+    }
+    .content_nav_base_inactive{
+        color: #8E8E8E;
+    }
+    .content_nav_base_active{
+        color: black;
+    }
+    #content_nav_forward{
+        float: right;
+        right: 28px;
+    }
+    #content_nav_back{
+        float: left;
+        top: -4px;
+        left: 29px;
+    }
+    #content_nav_substep_container{
+    }
+        .content_substep_container_scheme{
+            background: #FEFEFE;
+            border: 1px solid #8E8E8E;
+            height: 20px;
+            left: 34%;
+            position: relative;
+            top: 17px;
+            width: 30%;
+            border-radius: 15px;
+            -moz-border-radius: 15px;
+            -webkit-border-radius: 15px;
+            box-shadow: 5px 5px 20px #CCC;
+            -moz-box-shadow: 5px 5px 20px #CCC;
+            -webkit-box-shadow: 5px 5px 20px #CCC;
+        }
+        .content_substep_container_active{
+            display: block;
+        }
+        .content_substep_container_inactive{
+            display: none;
+        }
+            .content_substep_scheme{
+                border-left: 2px solid black;
+                border-right: 2px solid black;
+                cursor: pointer;
+                float: left;
+                margin: 3px;
+                margin-left: 9%;
+                position: relative;
+                text-align: center;
+                top: -12px;
+                width: 11%;
+                border-radius: 15px;
+                -moz-border-radius: 15px;
+                -webkit-border-radius: 15px;
+            }
+            .content_substep_active{
+                background: #62A5D0;
+            }
+            .content_substep_inactive{
+                background: #8A8A8A;
+            }
+            .content_substep_available{
+                background: #6D965B;
+            }

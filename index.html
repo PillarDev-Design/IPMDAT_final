@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8' />
+    <title>IPMDAT [dev]</title>
+    <!-- JavaScript Imports -->
+    <script type='text/javascript' src='/static/js/jquery-1.9.1.min.js'></script>
+    <script type='text/javascript' src='/static/js/JSON_Cookie_Steps_util.js'></script>
+    <script type='text/javascript' src='/static/js/IPMDAT_HTML.js'></script>
+    <script type='text/javascript' src='/static/js/IPMDAT_custom.js'></script>
+    <script type='text/javascript' src='/static/js/jsDatePick.min.1.3.js'></script>
+    <!-- CSS Imports -->
+    <link href='/static/css/IPMDAT_style.css' rel='stylesheet' type='text/css' />
+    <link href='/static/css/jsDatePick_ltr.min.css' rel='stylesheet' type='text/css' media='all' />
+</head>
+<body>
+<div id='site_container'>
+<div id='site_content'>
+    <div id='site_nav_container'>
+        <div id='site_nav_left_side'>
+            <div id='site_nav_left_logo'></div>
+        </div>
+        <div id='site_nav_right_side'>
+            <div id='site_nav_right_link_container'>
+                <div id='site_nav_right_home' class='site_nav_link'>Home</div>
+                <div id='site_nav_right_about' class='site_nav_link'>About</div>
+                <div id='site_nav_right_sponsers' class='site_nav_link'>Sponsers</div>
+                <div id='site_nav_right_disclaimer' class='site_nav_link'>Disclaimer</div>
+                <div class='clear'></div>
+            </div>
+        </div>
+        <div class='clear'></div>
+    </div> <!-- END site_nav_container -->
+    <div class='clear'></div>
+    <div id='content_progress_bar_container'>
+        <div id='content_progress_bar_project_background'
+            class='progress_bar_base_style progress_bar_active'>
+            PROJECT BACKGROUND
+        </div>
+        <div id='content_progress_bar_strategy_selection'
+            class='progress_bar_base_style progress_bar_inactive'>
+            STRATEGY SELECTION
+        </div>
+        <div id='content_progress_bar_strategy_exploration'
+            class='progress_bar_base_style progress_bar_available'>
+            STRATEGY EXPLORATION
+        </div>
+        <div id='content_progress_bar_summary_recommendation'
+            class='progress_bar_base_style progress_bar_inactive'>
+            SUMMARY & RECOMMENDATION
+        </div>
+        <div class='clear'></div>
+    </div> <!-- END content_progress_bar_container -->
+    <div id='content_container'>
+        <div id='content_step_project_background_container'
+            class'content_step_scheme content_step_inactive'>
+        </div> <!-- END content_step_project_background_container -->
+        <div id='content_step_strategy_selection_container'
+            class='content_step_scheme content_step_inactive'>
+        </div> <!-- END content_step_strategy_selection_container -->
+        <div id='content_step_strategy_exploration_container'
+            class='content_step_scheme content_step_inactive'>
+        </div> <!-- END content_step_strategy_exploration_container -->
+        <div id='content_step_summary_recommendation_container'
+            class='content_step_scheme content_step_inactive'>
+        </div> <!-- END content_step_summary_recommendation_container -->
+    </div> <!-- END content_container -->
+    <div id='content_nav_container'>
+        <div id='content_nav_back' class='content_nav_base_style content_nav_base_inactive'>«</div>
+        <div id='content_nav_substep_container'>
+            <div id='content_substep_project_background_container'
+                class='content_substep_container_scheme content_substep_container_active'>
+                <div id='content_step_project_background_substep_one' class='content_substep_scheme content_substep_active'>•</div>
+                <div id='content_step_project_background_substep_two' class='content_substep_scheme content_substep_inactive'>•</div>
+                <div id='content_step_project_background_substep_three' class='content_substep_scheme content_substep_available'>•</div>
+                <div id='content_step_project_background_substep_four' class='content_substep_scheme content_substep_inactive'>•</div>
+                <div class='clear'></div>
+            </div>
+            <div class='clear'></div>
+            <div id='content_substep_strategy_selection_container'
+                class='content_substep_container_scheme content_substep_container_inactive'>
+            </div>
+            <div id='content_substep_strategy_exploration_container'
+                class='content_substep_container_scheme content_substep_container_inactive'>
+            </div>
+            <div id='content_substep_summary_recommendation_container'
+                class='content_substep_container_scheme content_substep_container_inactive'>
+            </div>
+            <div class='clear'></div>
+        </div>
+        <div id='content_nav_forward' class='content_nav_base_style content_nav_base_active'>»</div>
+        <div class='clear'></div>
+    </div> <!-- END content_nav_container -->
+</div> <!-- END site_content -->
+<div class='clear'></div>
+    <div id='footer_container'>
+        <div id='footer_label'>
+            FREAC - IPMDAT Testing Controls - 
+            <div id='cookie_name_container'>
+                Cookie ID:
+                <input id='cookie_name' type='text' value='FREAC_JSON_Cookie'></input>
+            </div>
+            <button id='console_log'>console.log</button>
+            <button id='clear_cookie'>Clear Cookie</button>
+            <div class='clear'></div>
+        </div>
+    </div> <!-- END footer_container -->
+</div> <!-- END site_container -->
+<script type='text/javascript'>
+    // Init
+</script>
+</body>
+</html>
