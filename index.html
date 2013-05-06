@@ -12,6 +12,8 @@
     <!-- CSS Imports -->
     <link href='/static/css/IPMDAT_style.css' rel='stylesheet' type='text/css' />
     <link href='/static/css/jsDatePick_ltr.min.css' rel='stylesheet' type='text/css' media='all' />
+    <!-- Google Web Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Exo' rel='stylesheet' type='text/css' />
 </head>
 <body>
 <div id='site_container'>
@@ -33,8 +35,9 @@
     </div> <!-- END site_nav_container -->
     <div class='clear'></div>
     <div id='content_progress_bar_container'>
+        <div id='content_progress_bar_white_backdrop'></div>
         <div id='content_progress_bar_project_background'
-            class='progress_bar_base_style progress_bar_active'>
+            class='progress_bar_base_style progress_bar_inactive'>
             PROJECT BACKGROUND
         </div>
         <div id='content_progress_bar_strategy_selection'
@@ -42,7 +45,7 @@
             STRATEGY SELECTION
         </div>
         <div id='content_progress_bar_strategy_exploration'
-            class='progress_bar_base_style progress_bar_available'>
+            class='progress_bar_base_style progress_bar_inactive'>
             STRATEGY EXPLORATION
         </div>
         <div id='content_progress_bar_summary_recommendation'
@@ -52,9 +55,39 @@
         <div class='clear'></div>
     </div> <!-- END content_progress_bar_container -->
     <div id='content_container'>
+        <!-- *** PROJECT BACKGROUND *** -->
         <div id='content_step_project_background_container'
-            class'content_step_scheme content_step_inactive'>
+            class='content_step_scheme content_step_active'>
+            <div id='two_part_assessors'><div class='clear'></div></div>
+            <div id='two_part_scientific_name'><div class='clear'></div></div>
+            <div id='two_part_scale_prism'><div class='clear'></div></div> 
+            <div id='one_part_conservation_target_impacted'><div class='clear'></div></div>
+            <div id='two_part_project_area'><div class='clear'></div></div>
+            <div id='one_part_property_owners'><div class='clear'></div></div>
+            <div id='two_part_project_location'><div class='clear'></div></div>
+            <div id='two_part_project_coord'><div class='clear'></div></div>
+            <div id='one_part_project_coord_system'><div class='clear'></div></div>
         </div> <!-- END content_step_project_background_container -->
+        <div id='content_step_project_timeframe_container'
+            class='content_step_scheme content_step_inactive'>
+            <div id='one_part_project_goal'><div class='clear'></div></div>
+            <div id='one_part_num_years'><div class='clear'></div></div>
+            <div id='two_part_date'><div class='clear'></div></div>
+            <div id='one_part_ongoing'><div class='clear'></div></div>
+            <div id='one_part_control_required'><div class='clear'></div></div>
+        </div> <!-- END content_step_project_timeframe_container -->
+        <div id='content_step_distribution_and_abundance_container'
+            class='content_step_scheme content_step_inactive'>
+            <div id='one_part_gross_area'><div class='clear'></div></div>
+            <div id='one_part_net_area'><div class='clear'></div></div>
+            <div id='one_part_num_occurances'><div class='clear'></div></div>
+        </div> <!-- END content_step_distribution_and_abundance_container -->
+        <div id='content_step_imapinvasives_container'
+            class='content_step_scheme content_step_inactive'>
+            <div id='one_part_imap_share'><div class='clear'></div></div>
+            <div id='one_part_imap_account'><div class='clear'></div></div>
+        </div> <!-- END content_step_imapinvasives_container -->
+        <!-- *** STRATEGY SELECTION *** -->
         <div id='content_step_strategy_selection_container'
             class='content_step_scheme content_step_inactive'>
         </div> <!-- END content_step_strategy_selection_container -->
@@ -70,10 +103,10 @@
         <div id='content_nav_substep_container'>
             <div id='content_substep_project_background_container'
                 class='content_substep_container_scheme content_substep_container_active'>
-                <div id='content_step_project_background_substep_one' class='content_substep_scheme content_substep_active'>•</div>
-                <div id='content_step_project_background_substep_two' class='content_substep_scheme content_substep_inactive'>•</div>
-                <div id='content_step_project_background_substep_three' class='content_substep_scheme content_substep_available'>•</div>
-                <div id='content_step_project_background_substep_four' class='content_substep_scheme content_substep_inactive'>•</div>
+                <div id='content_step_project_background_substep_one' class='content_substep_scheme content_substep_inactive content_substep_one'>•</div>
+                <div id='content_step_project_background_substep_two' class='content_substep_scheme content_substep_inactive content_substep_two'>•</div>
+                <div id='content_step_project_background_substep_three' class='content_substep_scheme content_substep_inactive content_substep_three'>•</div>
+                <div id='content_step_project_background_substep_four' class='content_substep_scheme content_substep_inactive content_substep_four'>•</div>
                 <div class='clear'></div>
             </div>
             <div class='clear'></div>
@@ -88,7 +121,7 @@
             </div>
             <div class='clear'></div>
         </div>
-        <div id='content_nav_forward' class='content_nav_base_style content_nav_base_active'>»</div>
+        <div id='content_nav_forward' class='content_nav_base_style content_nav_base_inactive'>»</div>
         <div class='clear'></div>
     </div> <!-- END content_nav_container -->
 </div> <!-- END site_content -->
@@ -96,10 +129,6 @@
     <div id='footer_container'>
         <div id='footer_label'>
             FREAC - IPMDAT Testing Controls - 
-            <div id='cookie_name_container'>
-                Cookie ID:
-                <input id='cookie_name' type='text' value='FREAC_JSON_Cookie'></input>
-            </div>
             <button id='console_log'>console.log</button>
             <button id='clear_cookie'>Clear Cookie</button>
             <div class='clear'></div>
@@ -108,6 +137,7 @@
 </div> <!-- END site_container -->
 <script type='text/javascript'>
     // Init
+    Create_HTML();
 </script>
 </body>
 </html>

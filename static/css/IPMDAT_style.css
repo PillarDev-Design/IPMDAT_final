@@ -5,6 +5,7 @@
 \******************************************************************************/
 
 body, html{
+    font-family: 'Exo', sans-serif;
     height: 100%;
     margin: 0 !important;
     padding: 0 !important;
@@ -74,10 +75,19 @@ body, html{
     position: relative;
     text-align: center;
     width: 22%;
+    z-index: 2;
     border-radius: 15px;
     -moz-border-radius: 15px;
     -webkit-border-radius: 15px;
 }
+    #content_progress_bar_white_backdrop{
+        background: white;
+        height: 42px;
+        left: 30px;
+        position: absolute;
+        width: 900px;
+        z-index: 1;
+    }
     #content_progress_bar_strategy_exploration{
         font-size: 1em;
         padding-top: 3px;
@@ -130,7 +140,7 @@ body, html{
     .content_nav_base_style{
         background: #8A8A8A;
         cursor: pointer;
-        top: -23px;
+        top: -65px;
         font-size: 3em;
         text-align: center;
         height: 50px;
@@ -165,7 +175,7 @@ body, html{
             left: 34%;
             position: relative;
             top: 17px;
-            width: 30%;
+            width: 290px;
             border-radius: 15px;
             -moz-border-radius: 15px;
             -webkit-border-radius: 15px;
@@ -184,15 +194,28 @@ body, html{
                 border-right: 2px solid black;
                 cursor: pointer;
                 float: left;
+                height: 30px;
                 margin: 3px;
-                margin-left: 9%;
+                padding-top: 10px;
                 position: relative;
                 text-align: center;
                 top: -12px;
-                width: 11%;
+                width: 8%;
                 border-radius: 15px;
                 -moz-border-radius: 15px;
                 -webkit-border-radius: 15px;
+            }
+            .content_substep_one{
+                left: -90px;
+            }
+            .content_substep_two{
+                left: -59px;
+            }
+            .content_substep_three{
+                left: -25px;
+            }
+            .content_substep_four{
+                left: 1px;
             }
             .content_substep_active{
                 background: #62A5D0;
@@ -203,3 +226,47 @@ body, html{
             .content_substep_available{
                 background: #6D965B;
             }
+.content_step_scheme{
+    padding-top: 5px;
+}
+.content_step_question_container_scheme{
+    /* White */
+    background: #FEFEFE;
+    /* Light Grey */
+    border-top: 2px solid #CCC;
+    border-right: 2px solid #CCC;
+    left: 41px;
+    margin-bottom: 5px;
+    padding: 5px;
+    position: relative;
+    width: 90%;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+    .content_step_active{
+        display: block;
+    }
+    .content_step_inactive{
+        display: none;
+    }
+    .content_step_question_label_scheme{
+            float: left;
+            position: relative;
+    }
+    .content_required_field{
+            color: red;
+            float: left;
+            position: relative;
+    }
+    .content_step_question_content_scheme{
+            float: right;
+            position: relative;
+    }
+    .content_step_question_text_input_scheme{
+    }
+    .two_part_question_line{
+            float: left;
+            margin-right: 6px;
+            width: 44%;
+    }
