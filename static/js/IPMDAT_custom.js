@@ -54,8 +54,6 @@ function Save_Cookie(cookieData, stepNumber, completedSteps){
             // SUPPRESSION (STEP 5)
             // RECOMMENDATION SUMMARY (STEP 6)
         };
-    console.log('cookieData.projectBackgroundProjectGoal: ' + cookieData.projectBackgroundProjectGoal);
-    console.log('savedData.projectBackgroundProjectGoal: ' + savedData.projectBackgroundProjectGoal);
 
     for(var i=0; i<completedSteps.length; i++){
         if(completedSteps[i] === "1.1"){
@@ -317,7 +315,6 @@ function Check_Available_Steps(cookieData, completedSteps, currentStep){
             }
             if($('#content_step_strategy_selection_substep_one').hasClass('content_substep_active')){
                 $('#content_step_strategy_selection_substep_one').removeClass('content_substep_active');
-                console.log('Removing');
             }
             if($('#content_step_strategy_selection_substep_one').hasClass('content_substep_inactive')){
                 $('#content_step_strategy_selection_substep_one').removeClass('content_substep_inactive');
@@ -1015,7 +1012,6 @@ function JSON_Cookie_Step_Project_Background(cookieData, completedSteps, current
             }
         }
         if(completedSteps[i] === "1.2"){
-            console.log('cookieData.projectBackgroundProjectGoal: ' + cookieData.projectBackgroundProjectGoal);
             
             projectBackgroundArray.projectBackgroundProjectGoalAnswer = cookieData.projectBackgroundProjectGoal;
             projectBackgroundArray.projectBackgroundNumberOfYearsToCompleteAnswer = cookieData.projectBackgroundNumberOfYearsToComplete;
@@ -1069,7 +1065,6 @@ function JSON_Cookie_Step_Project_Background(cookieData, completedSteps, current
         }
     };
     function Project_Background_Substep_Two_Check(form_array){
-        console.log('projectBackgroundProjectGoalAnswer: ' + form_array.projectBackgroundProjectGoalAnswer);
         if(form_array.projectBackgroundProjectGoalAnswer !== null){
             if($('#content_nav_forward').hasClass('content_nav_base_inactive')){
                 $('#content_nav_forward').removeClass('content_nav_base_inactive').addClass('content_nav_base_active');
