@@ -314,58 +314,51 @@ function Create_HTML(){
         inputType: 'text',
     };
     elementProperties.push(temp);
-    // project_background_
+    // project_background_gross_invaded_area
     temp = {
-        targetContainer: '',
-        mainID: '',
-        labelText: '',
-        required: false,
+        targetContainer: '#one_part_gross_area',
+        mainID: 'project_background_gross_invaded_area',
+        labelText: 'Gross Invaded Area:',
+        required: true,
         inputType: 'text',
     };
-    // project_background_
+    elementProperties.push(temp);
+    // project_background_net_invaded_area
     temp = {
-        targetContainer: '',
-        mainID: '',
-        labelText: '',
-        required: false,
-        inputType: 'text',
-    };
-    // project_background_
-    temp = {
-        targetContainer: '',
-        mainID: '',
-        labelText: '',
-        required: false,
-        inputType: 'text',
-    };
-    // project_background_
-    temp = {
-        targetContainer: '',
-        mainID: '',
-        labelText: '',
-        required: false,
-        inputType: 'text',
-    };
-    // project_background_
-    temp = {
-        targetContainer: '',
-        mainID: '',
-        labelText: '',
+        targetContainer: '#one_part_net_area',
+        mainID: 'project_background_net_invaded_area',
+        labelText: 'Net Invaded Area:',
         required: false,
         inputType: 'text',
     };
     elementProperties.push(temp);
-    // project_background_
+    // project_background_number_of_occurances
     temp = {
-        targetContainer: '',
-        mainID: '',
-        labelText: '',
+        targetContainer: '#one_part_num_occurances',
+        mainID: 'project_background_number_of_occurances',
+        labelText: 'Number Of Occurances:',
         required: false,
         inputType: 'text',
     };
     elementProperties.push(temp);
-    
-
+    // project_background_imap_share_results
+    temp = {
+        targetContainer: '#one_part_imap_share',
+        mainID: 'project_background_imap_share_results',
+        labelText: 'Do you want to share your results on iMapInvasives?:',
+        required: true,
+        inputType: 'text',
+    };
+    elementProperties.push(temp);
+    // project_background_imap_account
+    temp = {
+        targetContainer: '#one_part_imap_account',
+        mainID: 'project_background_imap_account',
+        labelText: 'iMapInvasives Account:',
+        required: false,
+        inputType: 'text',
+    };
+    elementProperties.push(temp);
 
     // Create Elements
     var propertiesLength = elementProperties.length;

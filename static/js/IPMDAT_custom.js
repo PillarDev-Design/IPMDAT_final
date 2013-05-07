@@ -54,6 +54,8 @@ function Save_Cookie(cookieData, stepNumber, completedSteps){
             // SUPPRESSION (STEP 5)
             // RECOMMENDATION SUMMARY (STEP 6)
         };
+    console.log('cookieData.projectBackgroundProjectGoal: ' + cookieData.projectBackgroundProjectGoal);
+    console.log('savedData.projectBackgroundProjectGoal: ' + savedData.projectBackgroundProjectGoal);
 
     for(var i=0; i<completedSteps.length; i++){
         if(completedSteps[i] === "1.1"){
@@ -1013,15 +1015,16 @@ function JSON_Cookie_Step_Project_Background(cookieData, completedSteps, current
             }
         }
         if(completedSteps[i] === "1.2"){
+            console.log('cookieData.projectBackgroundProjectGoal: ' + cookieData.projectBackgroundProjectGoal);
+            
+            projectBackgroundArray.projectBackgroundProjectGoalAnswer = cookieData.projectBackgroundProjectGoal;
             projectBackgroundArray.projectBackgroundNumberOfYearsToCompleteAnswer = cookieData.projectBackgroundNumberOfYearsToComplete;
             projectBackgroundArray.projectBackgroundStartDateAnswer = cookieData.projectBackgroundStartDate;
             projectBackgroundArray.projectBackgroundEndDateAnswer = cookieData.projectBackgroundEndDate;
             projectBackgroundArray.projectBackgroundOngoingProjectAnswer = cookieData.projectBackgroundOngoingProject;
             projectBackgroundArray.projectBackgroundControlRequiredAnswer = cookieData.projectBackgroundControlRequired;
-            projectBackgroundArray.projectBackgroundProjectGoalAnswer = cookieData.projectBackgroundProjectGoal;
 
             // Populate Fields w/ values
-            console.log('val: ' + projectBackgroundArray.projectBackgroundProjectGoalAnswer);
             $('#project_background_project_goal').prop('value', projectBackgroundArray.projectBackgroundProjectGoalAnswer);
             $('#project_background_number_of_years_to_complete').prop('value', projectBackgroundArray.projectBackgroundNumberOfYearsToCompleteAnswer);
             $('#project_background_start_date').prop('value', projectBackgroundArray.projectBackgroundStartDateAnswer);
@@ -1135,8 +1138,7 @@ function JSON_Cookie_Step_Project_Background(cookieData, completedSteps, current
             projectBackgroundProjectCounty: projectBackgroundArray.projectBackgroundProjectCountyAnswer,
             projectBackgroundProjectCoordX: projectBackgroundArray.projectBackgroundProjectCoordXAnswer,
             projectBackgroundProjectCoordY: projectBackgroundArray.projectBackgroundProjectCoordYAnswer,
-            projectBackgroundProjectCoordSystem: projectBackgroundArray.projectBackgroundProjectCoordSystemAnswer,
-            projectBackgroundProjectGoal: projectBackgroundArray.projectBackgroundProjectGoalAnswer
+            projectBackgroundProjectCoordSystem: projectBackgroundArray.projectBackgroundProjectCoordSystemAnswer
         };
         if(projectBackgroundArray.projectBackgroundAssessorsAnswer !== null){
             var addStep = true;
@@ -1166,6 +1168,7 @@ function JSON_Cookie_Step_Project_Background(cookieData, completedSteps, current
         }
         // Populate saveArray
         saveArray = {
+            projectBackgroundProjectGoal: projectBackgroundArray.projectBackgroundProjectGoalAnswer,
             projectBackgroundNumberOfYearsToComplete: projectBackgroundArray.projectBackgroundNumberOfYearsToCompleteAnswer,
             projectBackgroundStartDate: projectBackgroundArray.projectBackgroundStartDateAnswer,
             projectBackgroundEndDate: projectBackgroundArray.projectBackgroundEndDateAnswer,
