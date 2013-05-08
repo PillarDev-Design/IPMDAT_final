@@ -176,7 +176,7 @@ function Create_HTML(){
         mainID: 'project_background_conservation_target_impacted',
         labelText: 'Conservation Target Impacted:',
         required: false,
-        inputType: 'text',
+        inputType: 'text'
     };
     elementProperties.push(temp);
     // project_background_project_area_name
@@ -205,7 +205,7 @@ function Create_HTML(){
         mainID: 'project_background_property_owners',
         labelText: 'Property Owner(s):',
         required: false,
-        inputType: 'text',
+        inputType: 'text'
     };
     elementProperties.push(temp);
     // project_background_project_state
@@ -254,7 +254,7 @@ function Create_HTML(){
         mainID: 'project_background_project_coord_system',
         labelText: 'Coordinate System: (dropdown)',
         required: false,
-        inputType: 'text',
+        inputType: 'text'
     };
     elementProperties.push(temp);
     // project_background_project_goal
@@ -264,7 +264,9 @@ function Create_HTML(){
         labelText: 'Project Goal:',
         required: true,
         inputType: 'text',
-        changeDiv: 'textarea'
+        changeDiv: 'textarea',
+        extraContentClasses: ['content_step_question_textarea_content'],
+        extraInputClasses: ['content_step_question_textarea_input']
     };
     elementProperties.push(temp);
     // project_background_number_of_years_to_complete
@@ -273,7 +275,7 @@ function Create_HTML(){
         mainID: 'project_background_number_of_years_to_complete',
         labelText: 'Number of years to complete project:',
         required: false,
-        inputType: 'text',
+        inputType: 'text'
     };
     elementProperties.push(temp);
     // project_background_start_date
@@ -302,7 +304,7 @@ function Create_HTML(){
         mainID: 'project_background_ongoing_project',
         labelText: 'Ongoing Project:',
         required: false,
-        inputType: 'text',
+        inputType: 'text'
     };
     elementProperties.push(temp);
     // project_background_control_required
@@ -311,7 +313,7 @@ function Create_HTML(){
         mainID: 'project_background_control_required',
         labelText: 'Control Required:',
         required: false,
-        inputType: 'text',
+        inputType: 'text'
     };
     elementProperties.push(temp);
     // project_background_gross_invaded_area
@@ -320,7 +322,7 @@ function Create_HTML(){
         mainID: 'project_background_gross_invaded_area',
         labelText: 'Gross Invaded Area:',
         required: true,
-        inputType: 'text',
+        inputType: 'text'
     };
     elementProperties.push(temp);
     // project_background_net_invaded_area
@@ -329,7 +331,7 @@ function Create_HTML(){
         mainID: 'project_background_net_invaded_area',
         labelText: 'Net Invaded Area:',
         required: false,
-        inputType: 'text',
+        inputType: 'text'
     };
     elementProperties.push(temp);
     // project_background_number_of_occurances
@@ -338,7 +340,7 @@ function Create_HTML(){
         mainID: 'project_background_number_of_occurances',
         labelText: 'Number Of Occurances:',
         required: false,
-        inputType: 'text',
+        inputType: 'text'
     };
     elementProperties.push(temp);
     // project_background_imap_share_results
@@ -347,7 +349,7 @@ function Create_HTML(){
         mainID: 'project_background_imap_share_results',
         labelText: 'Do you want to share your results on iMapInvasives?:',
         required: true,
-        inputType: 'text',
+        inputType: 'text'
     };
     elementProperties.push(temp);
     // project_background_imap_account
@@ -356,9 +358,85 @@ function Create_HTML(){
         mainID: 'project_background_imap_account',
         labelText: 'iMapInvasives Account:',
         required: false,
-        inputType: 'text',
+        inputType: 'text'
     };
     elementProperties.push(temp);
+    /*******************************************\
+     * strategy_selection                      *
+    \*******************************************/
+    // strategy_selection_NYS_score
+    temp = {
+        targetContainer: '#one_part_NYS_score',
+        mainID: 'strategy_selection_NYS_score',
+        labelText: 'Total NYS Ecological Impact Score (Max 40):',
+        required: true,
+        inputType: 'text'
+    };
+    elementProperties.push(temp);
+    // strategy_selection_checkbox_answer
+    temp = {
+        targetContainer: '#one_part_ecological_impact',
+        mainID: 'strategy_selection_ecological_impact',
+        labelText: 'Significant ecological impact:',
+        required: false,
+        inputType: 'checkbox'
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_limited_distribution',
+        mainID: 'strategy_selection_limited_distribution',
+        labelText: 'Ecological impact uncertain, limited state wide distribution:',
+        required: false,
+        inputType: 'checkbox'
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_widespread_distribution',
+        mainID: 'strategy_selection_widespread_distribution',
+        labelText: 'Ecological impact uncertain, widespread state wide distribution:',
+        required: false,
+        inputType: 'checkbox'
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_negligible_impact',
+        mainID: 'strategy_selection_negligible_impact',
+        labelText: 'Negligible impact or harm:',
+        required: false,
+        inputType: 'checkbox'
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_significant_harm',
+        mainID: 'strategy_selection_significant_harm',
+        labelText: 'Significant harm to human health, economy, or other values:',
+        required: false,
+        inputType: 'checkbox'
+    };
+    elementProperties.push(temp);
+    // strategy_selection_documentation
+    temp = {
+        targetContainer: '#one_part_documentation',
+        mainID: 'strategy_selection_NYS_score',
+        labelText: 'Documentation:',
+        required: false,
+        inputType: 'text',
+        changeDiv: 'textarea',
+        extraContentClasses: ['content_step_question_textarea_content'],
+        extraInputClasses: ['content_step_question_textarea_input']
+    };
+    elementProperties.push(temp);
+    /*
+    // strategy_selection_abundance_checkbox
+    temp = {
+        targetContainer: '#one_part_ecological_impact',
+        mainID: 'strategy_selection_ecological_impact',
+        labelText: 'Significant ecological impact:',
+        required: false,
+        inputType: 'checkbox'
+    };
+    elementProperties.push(temp);
+    */
 
     // Create Elements
     var propertiesLength = elementProperties.length;

@@ -88,15 +88,10 @@ body, html{
         width: 900px;
         z-index: 1;
     }
-    #content_progress_bar_strategy_exploration{
-        font-size: 1em;
-        padding-top: 3px;
-        height: 27px;
-    }
     #content_progress_bar_summary_recommendation{
         font-size: 1em;
-        padding-top: 3px;
-        height: 27px;
+        padding-top: 0px;
+        height: 30px;
     }
     .progress_bar_inactive{
         background: #8A8A8A;
@@ -173,7 +168,7 @@ body, html{
             border: 1px solid #8E8E8E;
             height: 20px;
             left: 34%;
-            position: relative;
+            position: absolute;
             top: 17px;
             width: 290px;
             border-radius: 15px;
@@ -196,6 +191,7 @@ body, html{
                 float: left;
                 height: 30px;
                 margin: 3px;
+                margin-left: 34px;
                 padding-top: 10px;
                 position: relative;
                 text-align: center;
@@ -204,18 +200,6 @@ body, html{
                 border-radius: 15px;
                 -moz-border-radius: 15px;
                 -webkit-border-radius: 15px;
-            }
-            .content_substep_one{
-                left: -90px;
-            }
-            .content_substep_two{
-                left: -59px;
-            }
-            .content_substep_three{
-                left: -25px;
-            }
-            .content_substep_four{
-                left: 1px;
             }
             .content_substep_active{
                 background: #62A5D0;
@@ -269,4 +253,29 @@ body, html{
             float: left;
             margin-right: 6px;
             width: 44%;
+    }
+    .content_step_question_textarea_content{
+        height: 75px;
+        width: 100%;
+    }
+    .content_step_question_textarea_input{
+        height: 95%;
+        left: 2%;
+        margin-top: 3px;
+        position: relative;
+        width: 95%;
+    }
+    #strategy_selection_checkbox_container{
+        /* Lighter Blue */
+        background: #BDDCE8;
+        border: 1px solid black;
+        left: 8%;
+        margin-top: 8px;
+        margin-bottom: 8px;
+        padding: 10px;
+        position: relative;
+        width: 82%;
+        border-radius: 5px;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
     }

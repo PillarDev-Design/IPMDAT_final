@@ -242,6 +242,15 @@ function Check_Available_Steps(cookieData, completedSteps, currentStep){
     $('#content_progress_bar_recommendation_summary').unbind('click');
     
     // Make All Steps Unavailable By Default
+    
+    // Clear All Substep Containers
+    if($('#content_substep_project_background_container').hasClass('content_substep_container_active')){
+        $('#content_substep_project_background_container').removeClass('content_substep_container_active').addClass('content_substep_container_inactive');
+    }
+    if($('#content_substep_strategy_selection_container').hasClass('content_substep_container_active')){
+        $('#content_substep_strategy_selection_container').removeClass('content_substep_container_active').addClass('content_substep_container_inactive');
+    }
+    // TODO: UPDATE HERE
 
     // Control Step Progress
     // PROJECT BACKGROUND (STEP 1) - Always available
@@ -393,6 +402,7 @@ function Check_Available_Steps(cookieData, completedSteps, currentStep){
     }
 
     // Clear All Step Containers
+    // PROJECT BACKGROUND
     if($('#content_step_project_background_container').hasClass('content_step_active')){
         $('#content_step_project_background_container').removeClass('content_step_active').addClass('content_step_inactive');
     }
@@ -405,8 +415,23 @@ function Check_Available_Steps(cookieData, completedSteps, currentStep){
     if($('#content_step_imapinvasives_container').hasClass('content_step_active')){
         $('#content_step_imapinvasives_container').removeClass('content_step_active').addClass('content_step_inactive');
     }
+    // STRATEGY SELECTION
     if($('#content_step_strategy_selection_container').hasClass('content_step_active')){
         $('#content_step_strategy_selection_container').removeClass('content_step_active').addClass('content_step_inactive');
+    }
+    if($('#content_step_abundance_and_distribution_container').hasClass('content_step_active')){
+        $('#content_step_abundance_and_distribution_container').removeClass('content_step_active').addClass('content_step_inactive');
+    }
+    if($('#content_step_strategy_confirmation_container').hasClass('content_step_active')){
+        $('#content_step_strategy_confirmation_container').removeClass('content_step_active').addClass('content_step_inactive');
+    }
+    // STRATEGY EXPLORATION
+    if($('#content_step_strategy_exploration_container').hasClass('content_step_active')){
+        $('#content_step_strategy_exploration_container').removeClass('content_step_active').addClass('content_step_inactive');
+    }
+    // SUMMARY RECOMMENDATION
+    if($('#content_step_summary_recommendation_container').hasClass('content_step_active')){
+        $('#content_step_summary_recommendation_container').removeClass('content_step_active').addClass('content_step_inactive');
     }
     // TODO: UPDATE HERE
 
@@ -427,6 +452,11 @@ function Check_Available_Steps(cookieData, completedSteps, currentStep){
         }else{
             $('#content_progress_bar_project_background').addClass('progress_bar_active');
         }
+        // Substep Progress Container
+        if($('#content_substep_project_background_container').hasClass('content_substep_container_inactive')){
+            $('#content_substep_project_background_container').removeClass('content_substep_container_inactive').addClass('content_substep_container_active');
+        }
+
         
         // SubStep Progress Bars & Clear Questions
         if(currentStep === "1.1"){
@@ -522,6 +552,10 @@ function Check_Available_Steps(cookieData, completedSteps, currentStep){
         if($('#content_progress_bar_strategy_selection').hasClass('progress_bar_active')){
         }else{
             $('#content_progress_bar_strategy_selection').addClass('progress_bar_active');
+        }
+        // Substep Progress Container
+        if($('#content_substep_strategy_selection_container').hasClass('content_substep_container_inactive')){
+            $('#content_substep_strategy_selection_container').removeClass('content_substep_container_inactive').addClass('content_substep_container_active');
         }
         
         // SubStep Progress Bars & Clear Questions
@@ -876,18 +910,6 @@ function JSON_Cookie_Step_Project_Background(cookieData, completedSteps, current
     // Ensure Step Container is visible and all others are display:none
     
     // Make sure the correct substep is displayed
-    if($('#content_step_project_background_container').hasClass('content_step_active')){
-        $('#content_step_project_background_container').removeClass('content_step_active').addClass('content_step_inactive');
-    }
-    if($('#content_step_project_timeframe_container').hasClass('content_step_active')){
-        $('#content_step_project_timeframe_container').removeClass('content_step_active').addClass('content_step_inactive');
-    }
-    if($('#content_step_distribution_and_abundance_container').hasClass('content_step_active')){
-        $('#content_step_distribution_and_abundance_container').removeClass('content_step_active').addClass('content_step_inactive');
-    }
-    if($('#content_step_imapinvasives_content_container').hasClass('content_step_active')){
-        $('#content_step_imapinvasives_content_container').removeClass('content_step_active').addClass('content_step_inactive');
-    }
     if(currentStep === "1.1"){
         if($('#content_step_project_background_container').hasClass('content_step_inactive')){
             $('#content_step_project_background_container').removeClass('content_step_inactive').addClass('content_step_active');
@@ -1457,13 +1479,6 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
     }
     
     // Make sure the correct substep is displayed
-    if($('#content_step_strategy_selection_content_container').hasClass('content_step_content_container_active')){
-        $('#content_step_strategy_selection_content_container').removeClass('content_step_content_container_active').addClass('content_step_content_container_inactive');
-    }
-    if($('#content_step_abundance_and_distribution_content_container').hasClass('content_step_content_container_active')){
-        $('#content_step_abundance_and_distribution_content_container').removeClass('content_step_content_container_active').addClass('content_step_content_container_inactive');
-    }
-    // TODO: UPDATE HERE
 
     if(currentStep === "2.1"){
         if($('#content_step_strategy_selection_content_container').hasClass('content_step_content_container_inactive')){
