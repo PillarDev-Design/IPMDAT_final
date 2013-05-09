@@ -36,7 +36,7 @@ function Create_Div(divArray){
         containerClassesLength = 0;
     }
     if(divArray.extraLabelClasses){
-        labelClassesLength = divArray.extraContainerClasses.length;
+        labelClassesLength = divArray.extraLabelClasses.length;
     }else{
         labelClassesLength = 0;
     }
@@ -417,7 +417,7 @@ function Create_HTML(){
     // strategy_selection_documentation
     temp = {
         targetContainer: '#one_part_documentation',
-        mainID: 'strategy_selection_NYS_score',
+        mainID: 'strategy_selection_documentation',
         labelText: 'Documentation:',
         required: false,
         inputType: 'text',
@@ -426,17 +426,64 @@ function Create_HTML(){
         extraInputClasses: ['content_step_question_textarea_input']
     };
     elementProperties.push(temp);
-    /*
     // strategy_selection_abundance_checkbox
     temp = {
-        targetContainer: '#one_part_ecological_impact',
-        mainID: 'strategy_selection_ecological_impact',
-        labelText: 'Significant ecological impact:',
+        targetContainer: '#one_part_eradication_state_scale',
+        mainID: 'strategy_selection_eradication_state_scale',
+        labelText: 'The invasive plant has <strong>limited distribution and abundance</strong> in the state (<4 infestations and <100 gross hectares (247 acres)) and part of a <strong>statewide</strong> initiative:',
         required: false,
-        inputType: 'checkbox'
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
     };
     elementProperties.push(temp);
-    */
+    temp = {
+        targetContainer: '#one_part_containment_state_scale',
+        mainID: 'strategy_selection_containment_state_scale',
+        labelText: 'The invasive plant has <strong>moderate abundance</strong> in the state (<1000 gross hectares (2471 acres)) and part of a <strong>statewide</strong> initiative:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_eradication_project_scale',
+        mainID: 'strategy_selection_eradication_project_scale',
+        labelText: 'The invasive plant has <strong>limited distribution</strong> and abundance in <strong>project</strong> area (<4 infestations) or (<10 gross hectares (24.7 acres)):',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_containment_project_scale',
+        mainID: 'strategy_selection_containment_project_scale',
+        labelText: 'The invasive plant has <strong>moderate abundance</strong> in the <strong>project</strong> area (<100 gross hectares (<47 acres)) or covers < 10% of project area (if project area is <1000 acres):',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_suppression',
+        mainID: 'strategy_selection_suppression',
+        labelText: 'The invasive plant is <strong>widespread</strong> in the <strong>project</strong> area:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    // strategy_selection_abundance_and_distribution_documentation
+    temp = {
+        targetContainer: '#one_part_abundance_and_distribution_documentation',
+        mainID: 'strategy_selection_abundance_and_distribution_documentation',
+        labelText: 'Documentation:',
+        required: false,
+        inputType: 'text',
+        changeDiv: 'textarea',
+        extraContentClasses: ['content_step_question_textarea_content'],
+        extraInputClasses: ['content_step_question_textarea_input']
+    };
+    elementProperties.push(temp);
 
     // Create Elements
     var propertiesLength = elementProperties.length;

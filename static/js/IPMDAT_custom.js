@@ -1474,22 +1474,17 @@ function JSON_Cookie_Step_Project_Background(cookieData, completedSteps, current
 \***********************************************/
 function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, currentStep){
     // Ensure Step Container is visible and all others are display:none
-    if($('#content_step_strategy_selection_container').hasClass('content_step_inactive')){
-        $('#content_step_strategy_selection_container').removeClass('content_step_inactive').addClass('content_step_active');
-    }
-    
     // Make sure the correct substep is displayed
-
     if(currentStep === "2.1"){
-        if($('#content_step_strategy_selection_content_container').hasClass('content_step_content_container_inactive')){
-            $('#content_step_strategy_selection_content_container').removeClass('content_step_content_container_inactive').addClass('content_step_content_container_active');
+        if($('#content_step_strategy_selection_container').hasClass('content_step_inactive')){
+            $('#content_step_strategy_selection_container').removeClass('content_step_inactive').addClass('content_step_active');
         }
         if($('#content_nav_back').hasClass('content_nav_base_inactive')){
             $('#content_nav_back').removeClass('content_nav_base_inactive').addClass('content_nav_base_active');
         }
     }else if(currentStep === "2.2"){
-        if($('#content_step_abundance_and_distribution_content_container').hasClass('content_step_content_container_inactive')){
-            $('#content_step_abundance_and_distribution_content_container').removeClass('content_step_content_container_inactive').addClass('content_step_content_container_active');
+        if($('#content_step_abundance_and_distribution_container').hasClass('content_step_inactive')){
+            $('#content_step_abundance_and_distribution_container').removeClass('content_step_inactive').addClass('content_step_active');
         }
         if($('#content_nav_back').hasClass('content_nav_base_inactive')){
             $('#content_nav_back').removeClass('content_nav_base_inactive').addClass('content_nav_base_active');

@@ -228,6 +228,10 @@ body, html{
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
 }
+    #content_step_abundance_and_distribution_container{
+        overflow-y: scroll;
+        height: 375px;
+    }
     .content_step_active{
         display: block;
     }
@@ -263,6 +267,9 @@ body, html{
         left: 2%;
         margin-top: 3px;
         position: relative;
+        width: 95%;
+    }
+    .content_step_question_extended_length{
         width: 95%;
     }
     #strategy_selection_checkbox_container{
