@@ -232,6 +232,20 @@ body, html{
         overflow-y: scroll;
         height: 375px;
     }
+        #abundance_and_distribution_text_container{
+            /* Lighter Blue */
+            background: #BDDCE8;
+            border: 1px solid black;
+            left: 8%;
+            margin-top: 8px;
+            margin-bottom: 8px;
+            padding: 10px;
+            position: relative;
+            width: 82%;
+            border-radius: 5px;
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
+        }
     .content_step_active{
         display: block;
     }
