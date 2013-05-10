@@ -54,7 +54,6 @@ function Save_Cookie(cookieData, stepNumber, completedSteps){
             // SUPPRESSION (STEP 5)
             // RECOMMENDATION SUMMARY (STEP 6)
         };
-
     for(var i=0; i<completedSteps.length; i++){
         if(completedSteps[i] === "1.1"){
             if(stepNumber === "1.1"){
@@ -101,6 +100,7 @@ function Save_Cookie(cookieData, stepNumber, completedSteps){
                 cookieArray.projectBackgroundEndDate = cookieData.projectBackgroundEndDate;
                 cookieArray.projectBackgroundOngoingProject = cookieData.projectBackgroundOngoingProject;
                 cookieArray.projectBackgroundControlRequired = cookieData.projectBackgroundControlRequired;
+                console.log('NEW 1.2');
             }else{
                 // Recall OLD data from savedData
                 cookieArray.projectBackgroundProjectGoal = savedData.projectBackgroundProjectGoal;
@@ -109,6 +109,7 @@ function Save_Cookie(cookieData, stepNumber, completedSteps){
                 cookieArray.projectBackgroundEndDate = savedData.projectBackgroundEndDate;
                 cookieArray.projectBackgroundOngoingProject = savedData.projectBackgroundOngoingProject;
                 cookieArray.projectBackgroundControlRequired = savedData.projectBackgroundControlRequired;
+                console.log('OLD 1.2');
             }
         }else if(completedSteps[i] === "1.3"){
             if(stepNumber === "1.3"){
@@ -147,8 +148,11 @@ function Save_Cookie(cookieData, stepNumber, completedSteps){
         }else if(completedSteps[i] === "2.2"){
             if(stepNumber === "2.2"){
                 // Entering NEW data from cookieData
+                console.log('INIT');
                 cookieArray.strategySelectionAbundanceAndDistributionCheckbox = cookieData.strategySelectionAbundanceAndDistributionCheckbox;
                 cookieArray.strategySelectionAbundanceAndDistributionDocumentation = cookieData.strategySelectionAbundanceAndDistributionDocumentation;
+                console.log('cookieArray: ' + cookieArray.strategySelectionAbundanceAndDistributionDocumentation);
+                console.log('cookieData: ' + cookieData.strategySelectionAbundanceAndDistributionDocumentation);
             }else{
                 // Recall OLD data from savedData
                 cookieArray.strategySelectionAbundanceAndDistributionCheckbox = savedData.strategySelectionAbundanceAndDistributionCheckbox;
@@ -1550,7 +1554,6 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
             }else if(strategySelectionArray.strategySelectionAbundanceAndDistributionCheckboxAnswer === "suppression"){
                 $('#strategy_selection_suppression').prop('checked', true);
             }
-
             $('#strategy_selection_abundance_and_distribution_documentation').prop('value', strategySelectionArray.strategySelectionAbundanceAndDistributionDocumentationAnswer);
         }
         if(completedSteps[i] === "2.3"){
