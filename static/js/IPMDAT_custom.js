@@ -14,6 +14,7 @@
 function Save_Cookie(cookieData, stepNumber, completedSteps){
     var name = "IPMDAT_cookie",
         savedData = $.JSONCookie(name),
+        completedStepsLength = completedSteps.length,
         cookieArray = {
             // TODO: UPDATE HERE
             // PROJECT BACKGROUND (STEP 1)
@@ -54,156 +55,97 @@ function Save_Cookie(cookieData, stepNumber, completedSteps){
             // SUPPRESSION (STEP 5)
             // RECOMMENDATION SUMMARY (STEP 6)
         };
-    for(var i=0; i<completedSteps.length; i++){
-        if(completedSteps[i] === "1.1"){
-            if(stepNumber === "1.1"){
-                // Entering NEW data from cookieData
-                cookieArray.projectBackgroundAssessors = cookieData.projectBackgroundAssessors;
-                cookieArray.projectBackgroundAssessorsDate = cookieData.projectBackgroundAssessorsDate;
-                cookieArray.projectBackgroundScientificName = cookieData.projectBackgroundScientificName;
-                cookieArray.projectBackgroundCommonName = cookieData.projectBackgroundCommonName;
-                cookieArray.projectBackgroundScale = cookieData.projectBackgroundScale;
-                cookieArray.projectBackgroundPRISMWMA = cookieData.projectBackgroundPRISMWMA;
-                cookieArray.projectBackgroundConservationTargetImpacted = cookieData.projectBackgroundConservationTargetImpacted;
-                cookieArray.projectBackgroundProjectAreaName = cookieData.projectBackgroundProjectAreaName;
-                cookieArray.projectBackgroundProjectAreaSize = cookieData.projectBackgroundProjectAreaSize;
-                cookieArray.projectBackgroundPropertyOwners = cookieData.projectBackgroundPropertyOwners;
-                cookieArray.projectBackgroundProjectState = cookieData.projectBackgroundProjectState;
-                cookieArray.projectBackgroundProjectCounty = cookieData.projectBackgroundProjectCounty;
-                cookieArray.projectBackgroundProjectCoordX = cookieData.projectBackgroundProjectCoordX;
-                cookieArray.projectBackgroundProjectCoordY = cookieData.projectBackgroundProjectCoordY;
-                cookieArray.projectBackgroundProjectCoordSystem = cookieData.projectBackgroundProjectCoordSystem;
-            }else{
-                // Recall OLD data from savedData
-                cookieArray.projectBackgroundAssessors = savedData.projectBackgroundAssessors;
-                cookieArray.projectBackgroundAssessorsDate = savedData.projectBackgroundAssessorsDate;
-                cookieArray.projectBackgroundScientificName = savedData.projectBackgroundScientificName;
-                cookieArray.projectBackgroundCommonName = savedData.projectBackgroundCommonName;
-                cookieArray.projectBackgroundScale = savedData.projectBackgroundScale;
-                cookieArray.projectBackgroundPRISMWMA = savedData.projectBackgroundPRISMWMA;
-                cookieArray.projectBackgroundConservationTargetImpacted = savedData.projectBackgroundConservationTargetImpacted;
-                cookieArray.projectBackgroundProjectAreaName = savedData.projectBackgroundProjectAreaName;
-                cookieArray.projectBackgroundProjectAreaSize = savedData.projectBackgroundProjectAreaSize;
-                cookieArray.projectBackgroundPropertyOwners = savedData.projectBackgroundPropertyOwners;
-                cookieArray.projectBackgroundProjectState = savedData.projectBackgroundProjectState;
-                cookieArray.projectBackgroundProjectCounty = savedData.projectBackgroundProjectCounty;
-                cookieArray.projectBackgroundProjectCoordX = savedData.projectBackgroundProjectCoordX;
-                cookieArray.projectBackgroundProjectCoordY = savedData.projectBackgroundProjectCoordY;
-                cookieArray.projectBackgroundProjectCoordSystem = savedData.projectBackgroundProjectCoordSystem;
-            }
-        }else if(completedSteps[i] === "1.2"){
-            if(stepNumber === "1.2"){
-                // Entering NEW data from cookieData
-                cookieArray.projectBackgroundProjectGoal = cookieData.projectBackgroundProjectGoal;
-                cookieArray.projectBackgroundNumberOfYearsToComplete = cookieData.projectBackgroundNumberOfYearsToComplete;
-                cookieArray.projectBackgroundStartDate = cookieData.projectBackgroundStartDate;
-                cookieArray.projectBackgroundEndDate = cookieData.projectBackgroundEndDate;
-                cookieArray.projectBackgroundOngoingProject = cookieData.projectBackgroundOngoingProject;
-                cookieArray.projectBackgroundControlRequired = cookieData.projectBackgroundControlRequired;
-                console.log('NEW 1.2');
-            }else{
-                // Recall OLD data from savedData
-                cookieArray.projectBackgroundProjectGoal = savedData.projectBackgroundProjectGoal;
-                cookieArray.projectBackgroundNumberOfYearsToComplete = savedData.projectBackgroundNumberOfYearsToComplete;
-                cookieArray.projectBackgroundStartDate = savedData.projectBackgroundStartDate;
-                cookieArray.projectBackgroundEndDate = savedData.projectBackgroundEndDate;
-                cookieArray.projectBackgroundOngoingProject = savedData.projectBackgroundOngoingProject;
-                cookieArray.projectBackgroundControlRequired = savedData.projectBackgroundControlRequired;
-                console.log('OLD 1.2');
-            }
-        }else if(completedSteps[i] === "1.3"){
-            if(stepNumber === "1.3"){
-                // Entering NEW data from cookieData
-                cookieArray.projectBackgroundGrossInvadedArea = cookieData.projectBackgroundGrossInvadedArea;
-                cookieArray.projectBackgroundNetInvadedArea = cookieData.projectBackgroundNetInvadedArea;
-                cookieArray.projectBackgroundNumberOfOccurances = cookieData.projectBackgroundNumberOfOccurances;
-            }else{
-                // Recall OLD data from savedData
-                cookieArray.projectBackgroundGrossInvadedArea = savedData.projectBackgroundGrossInvadedArea;
-                cookieArray.projectBackgroundNetInvadedArea = savedData.projectBackgroundNetInvadedArea;
-                cookieArray.projectBackgroundNumberOfOccurances = savedData.projectBackgroundNumberOfOccurances;
-            }
-        }else if(completedSteps[i] === "1.4"){
-            if(stepNumber === "1.4"){
-                // Entering NEW data from cookieData
-                cookieArray.projectBackgroundImapShareResults = cookieData.projectBackgroundImapShareResults;
-                cookieArray.projectBackgroundImapAccount = cookieData.projectBackgroundImapAccount;
-            }else{
-                // Recall OLD data from savedData
-                cookieArray.projectBackgroundImapShareResults = savedData.projectBackgroundImapShareResults;
-                cookieArray.projectBackgroundImapAccount = savedData.projectBackgroundImapAccount;
-            }
-        }else if(completedSteps[i] === "2.1"){
-            if(stepNumber === "2.1"){
-                // Entering NEW data from cookieData
-                cookieArray.strategySelectionNYSScore = cookieData.strategySelectionNYSScore;
-                cookieArray.strategySelectionCheckbox = cookieData.strategySelectionCheckbox;
-                cookieArray.strategySelectionDocumentation = cookieData.strategySelectionDocumentation;
-            }else{
-                // Recall OLD data from savedData
-                cookieArray.strategySelectionNYSScore = savedData.strategySelectionNYSScore;
-                cookieArray.strategySelectionCheckbox = savedData.strategySelectionCheckbox;
-                cookieArray.strategySelectionDocumentation = savedData.strategySelectionDocumentation;
-            }
-        }else if(completedSteps[i] === "2.2"){
-            if(stepNumber === "2.2"){
-                // Entering NEW data from cookieData
-                console.log('INIT');
-                cookieArray.strategySelectionAbundanceAndDistributionCheckbox = cookieData.strategySelectionAbundanceAndDistributionCheckbox;
-                cookieArray.strategySelectionAbundanceAndDistributionDocumentation = cookieData.strategySelectionAbundanceAndDistributionDocumentation;
-                console.log('cookieArray: ' + cookieArray.strategySelectionAbundanceAndDistributionDocumentation);
-                console.log('cookieData: ' + cookieData.strategySelectionAbundanceAndDistributionDocumentation);
-            }else{
-                // Recall OLD data from savedData
-                cookieArray.strategySelectionAbundanceAndDistributionCheckbox = savedData.strategySelectionAbundanceAndDistributionCheckbox;
-                cookieArray.strategySelectionAbundanceAndDistributionDocumentation = savedData.strategySelectionAbundanceAndDistributionDocumentation;
-            }
-        }else if(completedSteps[i] === "2.3"){
-            if(stepNumber === "2.3"){
-                // Entering NEW data from cookieData
-                // cookieArray.strategySelection = cookieData.strategySelection;
-            }else{
-                // Recall OLD data from savedData
-                // cookieArray.strategySelection = savedData.strategySelection;
-            }
-        }else if(completedSteps[i] === "2.4"){
-            if(stepNumber === "2.4"){
-                // Entering NEW data from cookieData
-                // cookieArray.strategySelection = cookieData.strategySelection;
-            }else{
-                // Recall OLD data from savedData
-                // cookieArray.strategySelection = savedData.strategySelection;
-            }
-        }else if(completedSteps[i] === "3"){
-            // TODO: UPDATE HERE
-            if(stepNumber === "eradication"){
-                // Entering New data from cookieData
-            }else{
-                // Recall OLD data from savedData
-            }
-        }else if(completedSteps[i] === "4"){
-            // TODO: UPDATE HERE
-            if(stepNumber === "containment"){
-                // Entering New data from cookieData
-            }else{
-                // Recall OLD data from savedData
-            }
-        }else if(completedSteps[i] === "5"){
-            // TODO: UPDATE HERE
-            if(stepNumber === "suppression"){
-                // Entering New data from cookieData
-            }else{
-                // Recall OLD data from savedData
-            }
-        }else if(completedSteps[i] === "6"){
-            // TODO: UPDATE HERE
-            if(stepNumber === "recommendationSummary"){
-                // Entering New data from cookieData
-            }else{
-                // Recall OLD data from savedData
-            }
-        }
+    /*===============================================================*\
+     * This next chunk of code ensures that any previous data will   *
+     * not be overwritten when we write to the cookie. It's          *
+     * completely hardcoded, but it does the job. In the future I'll *
+     * devise some way to optimize this.                             *
+    \*===============================================================*/
+    // Recall Saved Data from savedData
+    // 1.1
+    if(savedData.projectBackgroundAssessors !== null){ cookieArray.projectBackgroundAssessors = savedData.projectBackgroundAssessors; }
+    if(savedData.projectBackgroundAssessorsDate !== null){ cookieArray.projectBackgroundAssessorsDate = savedData.projectBackgroundAssessorsDate; }
+    if(savedData.projectBackgroundScientificName !== null){ cookieArray.projectBackgroundScientificName = savedData.projectBackgroundScientificName; }
+    if(savedData.projectBackgroundCommonName !== null){ cookieArray.projectBackgroundCommonName = savedData.projectBackgroundCommonName; }
+    if(savedData.projectBackgroundScale !== null){ cookieArray.projectBackgroundScale = savedData.projectBackgroundScale; }
+    if(savedData.projectBackgroundPRISMWMA !== null){ cookieArray.projectBackgroundPRISMWMA = savedData.projectBackgroundPRISMWMA; }
+    if(savedData.projectBackgroundConservationTargetImpacted !== null){ cookieArray.projectBackgroundConservationTargetImpacted = savedData.projectBackgroundConservationTargetImpacted; }
+    if(savedData.projectBackgroundProjectAreaName !== null){ cookieArray.projectBackgroundProjectAreaName = savedData.projectBackgroundProjectAreaName; }
+    if(savedData.projectBackgroundProjectAreaSize !== null){ cookieArray.projectBackgroundProjectAreaSize = savedData.projectBackgroundProjectAreaSize; }
+    if(savedData.projectBackgroundPropertyOwners !== null){ cookieArray.projectBackgroundPropertyOwners = savedData.projectBackgroundPropertyOwners; }
+    if(savedData.projectBackgroundProjectState !== null){ cookieArray.projectBackgroundProjectState = savedData.projectBackgroundProjectState; }
+    if(savedData.projectBackgroundProjectCounty !== null){ cookieArray.projectBackgroundProjectCounty = savedData.projectBackgroundProjectCounty; }
+    if(savedData.projectBackgroundProjectCoordX !== null){ cookieArray.projectBackgroundProjectCoordX = savedData.projectBackgroundProjectCoordX; }
+    if(savedData.projectBackgroundProjectCoordY !== null){ cookieArray.projectBackgroundProjectCoordY = savedData.projectBackgroundProjectCoordY; }
+    if(savedData.projectBackgroundProjectCoordSystem !== null){ cookieArray.projectBackgroundProjectCoordSystem = savedData.projectBackgroundProjectCoordSystem; }
+    // 1.2
+    if(savedData.projectBackgroundProjectGoal !== null){ cookieArray.projectBackgroundProjectGoal = savedData.projectBackgroundProjectGoal; }
+    if(savedData.projectBackgroundNumberOfYearsToCompleted !== null){ cookieArray.projectBackgroundNumberOfYearsToComplete = savedData.projectBackgroundNumberOfYearsToComplete; }
+    if(savedData.projectBackgroundStartDate !== null){ cookieArray.projectBackgroundStartDate = savedData.projectBackgroundStartDate; }
+    if(savedData.projectBackgroundEndDate !== null){ cookieArray.projectBackgroundEndDate = savedData.projectBackgroundEndDate; }
+    if(savedData.projectBackgroundOngoingProject !== null){ cookieArray.projectBackgroundOngoingProject = savedData.projectBackgroundOngoingProject; }
+    if(savedData.projectBackgroundControlRequired !== null){ cookieArray.projectBackgroundControlRequired = savedData.projectBackgroundControlRequired; }
+    // 1.3
+    if(savedData.projectBackgroundGrossInvadedArea !== null){ cookieArray.projectBackgroundGrossInvadedArea = savedData.projectBackgroundGrossInvadedArea; }
+    if(savedData.projectBackgroundNetInvadedArea !== null){ cookieArray.projectBackgroundNetInvadedArea = savedData.projectBackgroundNetInvadedArea; }
+    if(savedData.projectBackgroundNumberOfOccurances !== null){ cookieArray.projectBackgroundNumberOfOccurances = savedData.projectBackgroundNumberOfOccurances; }
+    // 1.4
+    if(savedData.projectBackgroundImapShareResults !== null){ cookieArray.projectBackgroundImapShareResults = savedData.projectBackgroundImapShareResults; }
+    if(savedData.projectBackgroundImapAccount !== null){ cookieArray.projectBackgroundImapAccount = savedData.projectBackgroundImapAccount; }
+    // 2.1
+    if(savedData.strategySelectionNYSScore !== null){ cookieArray.strategySelectionNYSScore = savedData.strategySelectionNYSScore; }
+    if(savedData.strategySelectionCheckbox !== null){ cookieArray.strategySelectionCheckbox = savedData.strategySelectionCheckbox; }
+    if(savedData.strategySelectionDocumentation !== null){ cookieArray.strategySelectionDocumentation = savedData.strategySelectionDocumentation; }
+    // 2.2
+    if(savedData.strategySelectionAbundanceAndDistributionCheckbox !== null){ cookieArray.strategySelectionAbundanceAndDistributionCheckbox = savedData.strategySelectionAbundanceAndDistributionCheckbox; }
+    if(savedData.strategySelectionAbundanceAndDistributionDocumentation !== null){ cookieArray.strategySelectionAbundanceAndDistributionDocumentation = savedData.strategySelectionAbundanceAndDistributionDocumentation; }
+
+    // Enter New Data from cookieData
+    if(stepNumber === "1.1"){
+        // Entering NEW data from cookieData
+        cookieArray.projectBackgroundAssessors = cookieData.projectBackgroundAssessors;
+        cookieArray.projectBackgroundAssessorsDate = cookieData.projectBackgroundAssessorsDate;
+        cookieArray.projectBackgroundScientificName = cookieData.projectBackgroundScientificName;
+        cookieArray.projectBackgroundCommonName = cookieData.projectBackgroundCommonName;
+        cookieArray.projectBackgroundScale = cookieData.projectBackgroundScale;
+        cookieArray.projectBackgroundPRISMWMA = cookieData.projectBackgroundPRISMWMA;
+        cookieArray.projectBackgroundConservationTargetImpacted = cookieData.projectBackgroundConservationTargetImpacted;
+        cookieArray.projectBackgroundProjectAreaName = cookieData.projectBackgroundProjectAreaName;
+        cookieArray.projectBackgroundProjectAreaSize = cookieData.projectBackgroundProjectAreaSize;
+        cookieArray.projectBackgroundPropertyOwners = cookieData.projectBackgroundPropertyOwners;
+        cookieArray.projectBackgroundProjectState = cookieData.projectBackgroundProjectState;
+        cookieArray.projectBackgroundProjectCounty = cookieData.projectBackgroundProjectCounty;
+        cookieArray.projectBackgroundProjectCoordX = cookieData.projectBackgroundProjectCoordX;
+        cookieArray.projectBackgroundProjectCoordY = cookieData.projectBackgroundProjectCoordY;
+        cookieArray.projectBackgroundProjectCoordSystem = cookieData.projectBackgroundProjectCoordSystem;
+    }else if(stepNumber === "1.2"){
+        // Entering NEW data from cookieData
+        cookieArray.projectBackgroundProjectGoal = cookieData.projectBackgroundProjectGoal;
+        cookieArray.projectBackgroundNumberOfYearsToComplete = cookieData.projectBackgroundNumberOfYearsToComplete;
+        cookieArray.projectBackgroundStartDate = cookieData.projectBackgroundStartDate;
+        cookieArray.projectBackgroundEndDate = cookieData.projectBackgroundEndDate;
+        cookieArray.projectBackgroundOngoingProject = cookieData.projectBackgroundOngoingProject;
+        cookieArray.projectBackgroundControlRequired = cookieData.projectBackgroundControlRequired;
+    }else if(stepNumber === "1.3"){
+        // Entering NEW data from cookieData
+        cookieArray.projectBackgroundGrossInvadedArea = cookieData.projectBackgroundGrossInvadedArea;
+        cookieArray.projectBackgroundNetInvadedArea = cookieData.projectBackgroundNetInvadedArea;
+        cookieArray.projectBackgroundNumberOfOccurances = cookieData.projectBackgroundNumberOfOccurances;
+    }else if(stepNumber === "1.4"){
+        // Entering NEW data from cookieData
+        cookieArray.projectBackgroundImapShareResults = cookieData.projectBackgroundImapShareResults;
+        cookieArray.projectBackgroundImapAccount = cookieData.projectBackgroundImapAccount;
+    }else if(stepNumber === "2.1"){
+        // Entering NEW data from cookieData
+        cookieArray.strategySelectionNYSScore = cookieData.strategySelectionNYSScore;
+        cookieArray.strategySelectionCheckbox = cookieData.strategySelectionCheckbox;
+        cookieArray.strategySelectionDocumentation = cookieData.strategySelectionDocumentation;
+    }else if(stepNumber === "2.2"){
+        // Entering NEW data from cookieData
+        cookieArray.strategySelectionAbundanceAndDistributionCheckbox = cookieData.strategySelectionAbundanceAndDistributionCheckbox;
+        cookieArray.strategySelectionAbundanceAndDistributionDocumentation = cookieData.strategySelectionAbundanceAndDistributionDocumentation;
     }
+    
     $.JSONCookie(name, cookieArray, {path: '/'});
 };
 /***********************************************\
@@ -797,7 +739,7 @@ function IPMDAT_Init(){
     }
     stepFail = false;
 
-    //projectBackgroundNumberOfYearsToComplete
+    //projectBackgroundProjectGoal
     if(savedData.projectBackgroundProjectGoal !== null){
         cookieData.projectBackgroundProjectGoal = savedData.projectBackgroundProjectGoal;
     }else{ stepFail = true; }
@@ -998,80 +940,70 @@ function JSON_Cookie_Step_Project_Background(cookieData, completedSteps, current
     });
 
     // Check if loading data
-    var completedStepsLength = completedSteps.length;
-    for(var i=0; i<completedStepsLength; i++){
-        if(completedSteps[i] === "1.1"){
-            if(currentStep === "1.1"){
-                // Load Question Answers
-                projectBackgroundArray.projectBackgroundAssessorsAnswer = cookieData.projectBackgroundAssessors;
-                projectBackgroundArray.projectBackgroundAssessorsDateAnswer = cookieData.projectBackgroundAssessorsDate;
-                projectBackgroundArray.projectBackgroundScientificNameAnswer = cookieData.projectBackgroundScientificName;
-                projectBackgroundArray.projectBackgroundCommonNameAnswer = cookieData.projectBackgroundCommonName;
-                projectBackgroundArray.projectBackgroundScaleAnswer = cookieData.projectBackgroundScale;
-                projectBackgroundArray.projectBackgroundPRISMWMAAnswer = cookieData.projectBackgroundPRISMWMA;
-                projectBackgroundArray.projectBackgroundConservationTargetImpactedAnswer = cookieData.projectBackgroundConservationTargetImpacted;
-                projectBackgroundArray.projectBackgroundProjectAreaNameAnswer = cookieData.projectBackgroundProjectAreaName;
-                projectBackgroundArray.projectBackgroundProjectAreaSizeAnswer = cookieData.projectBackgroundProjectAreaSize;
-                projectBackgroundArray.projectBackgroundPropertyOwnersAnswer = cookieData.projectBackgroundPropertyOwners;
-                projectBackgroundArray.projectBackgroundProjectStateAnswer = cookieData.projectBackgroundProjectState;
-                projectBackgroundArray.projectBackgroundProjectCountyAnswer = cookieData.projectBackgroundProjectCounty;
-                projectBackgroundArray.projectBackgroundProjectCoordXAnswer = cookieData.projectBackgroundProjectCoordX;
-                projectBackgroundArray.projectBackgroundProjectCoordYAnswer = cookieData.projectBackgroundProjectCoordY;
-                projectBackgroundArray.projectBackgroundProjectCoordSystemAnswer = cookieData.projectBackgroundProjectCoordSystem;
-                
-                // Populate Fields w/ values
-                $('#project_background_assessors').prop('value', projectBackgroundArray.projectBackgroundAssessorsAnswer);
-                $('#project_background_assessors_date').prop('value', projectBackgroundArray.projectBackgroundAssessorsDateAnswer);
-                $('#project_background_scientific_name').prop('value', projectBackgroundArray.projectBackgroundScientificNameAnswer);
-                $('#project_background_common_name').prop('value', projectBackgroundArray.projectBackgroundCommonNameAnswer);
-                $('#project_background_scale').prop('value', projectBackgroundArray.projectBackgroundScaleAnswer);
-                $('#project_background_PRISMWMA').prop('value', projectBackgroundArray.projectBackgroundPRISMWMAAnswer);
-                $('#project_background_conservation_target_impacted').prop('value', projectBackgroundArray.projectBackgroundConservationTargetImpactedAnswer);
-                $('#project_background_project_area_name').prop('value', projectBackgroundArray.projectBackgroundProjectAreaNameAnswer);
-                $('#project_background_project_area_size').prop('value', projectBackgroundArray.projectBackgroundProjectAreaSizeAnswer);
-                $('#project_background_property_owners').prop('value', projectBackgroundArray.projectBackgroundPropertyOwnersAnswer);
-                $('#project_background_project_state').prop('value', projectBackgroundArray.projectBackgroundProjectStateAnswer);
-                $('#project_background_project_county').prop('value', projectBackgroundArray.projectBackgroundProjectCountyAnswer);
-                $('#project_background_project_coord_x').prop('value', projectBackgroundArray.projectBackgroundProjectCoordXAnswer);
-                $('#project_background_project_coord_y').prop('value', projectBackgroundArray.projectBackgroundProjectCoordYAnswer);
-                $('#project_background_project_coord_system').prop('value', projectBackgroundArray.projectBackgroundProjectCoordSystemAnswer);
-            }
-        }
-        if(completedSteps[i] === "1.2"){
-            
-            projectBackgroundArray.projectBackgroundProjectGoalAnswer = cookieData.projectBackgroundProjectGoal;
-            projectBackgroundArray.projectBackgroundNumberOfYearsToCompleteAnswer = cookieData.projectBackgroundNumberOfYearsToComplete;
-            projectBackgroundArray.projectBackgroundStartDateAnswer = cookieData.projectBackgroundStartDate;
-            projectBackgroundArray.projectBackgroundEndDateAnswer = cookieData.projectBackgroundEndDate;
-            projectBackgroundArray.projectBackgroundOngoingProjectAnswer = cookieData.projectBackgroundOngoingProject;
-            projectBackgroundArray.projectBackgroundControlRequiredAnswer = cookieData.projectBackgroundControlRequired;
-
-            // Populate Fields w/ values
-            $('#project_background_project_goal').prop('value', projectBackgroundArray.projectBackgroundProjectGoalAnswer);
-            $('#project_background_number_of_years_to_complete').prop('value', projectBackgroundArray.projectBackgroundNumberOfYearsToCompleteAnswer);
-            $('#project_background_start_date').prop('value', projectBackgroundArray.projectBackgroundStartDateAnswer);
-            $('#project_background_end_date').prop('value', projectBackgroundArray.projectBackgroundEndDateAnswer);
-            $('#project_background_ongoing_project').prop('value', projectBackgroundArray.projectBackgroundOngoingProjectAnswer);
-            $('#project_background_control_required').prop('value', projectBackgroundArray.projectBackgroundControlRequiredAnswer);
-        }
-        if(completedSteps[i] === "1.3"){
-            projectBackgroundArray.projectBackgroundGrossInvadedAreaAnswer = cookieData.projectBackgroundGrossInvadedArea;
-            projectBackgroundArray.projectBackgroundNetInvadedAreaAnswer = cookieData.projectBackgroundNetInvadedArea;
-            projectBackgroundArray.projectBackgroundNumberOfOccurancesAnswer = cookieData.projectBackgroundNumberOfOccurances;
-
-            // Populate Fields w/ values
-            $('#project_background_gross_invaded_area').prop('value', projectBackgroundArray.projectBackgroundGrossInvadedAreaAnswer);
-            $('#project_background_net_invaded_area').prop('value', projectBackgroundArray.projectBackgroundNetInvadedAreaAnswer);
-            $('#project_background_number_of_occurances').prop('value', projectBackgroundArray.projectBackgroundNumberOfOccurancesAnswer);
-        }
-        if(completedSteps[i] === "1.4"){
-            projectBackgroundArray.projectBackgroundImapShareResultsAnswer = cookieData.projectBackgroundImapShareResults;
-            projectBackgroundArray.projectBackgroundImapAccountAnswer = cookieData.projectBackgroundImapAccount;
-
-            // Populate Fields w/ values
-            $('#project_background_imap_share_results').prop('value', projectBackgroundArray.projectBackgroundImapShareResultsAnswer);
-            $('#project_background_imap_account').prop('value', projectBackgroundArray.projectBackgroundImapAccountAnswer);
-        }
+    if(currentStep === "1.1"){
+        // Check if there is any data present
+        if(cookieData.projectBackgroundAssessors !== null){ projectBackgroundArray.projectBackgroundAssessorsAnswer = cookieData.projectBackgroundAssessors; }
+        if(cookieData.projectBackgroundAssessorsDate !== null){ projectBackgroundArray.projectBackgroundAssessorsDateAnswer = cookieData.projectBackgroundAssessorsDate; }
+        if(cookieData.projectBackgroundScientificName !== null){ projectBackgroundArray.projectBackgroundScientificNameAnswer = cookieData.projectBackgroundScientificName; }
+        if(cookieData.projectBackgroundCommonName !== null){ projectBackgroundArray.projectBackgroundCommonNameAnswer = cookieData.projectBackgroundCommonName; }
+        if(cookieData.projectBackgroundScale !== null){ projectBackgroundArray.projectBackgroundScaleAnswer = cookieData.projectBackgroundScale; }
+        if(cookieData.projectBackgroundPRISMWMA !== null){ projectBackgroundArray.projectBackgroundPRISMWMAAnswer = cookieData.projectBackgroundPRISMWMA; }
+        if(cookieData.projectBackgroundConservationTargetImpacted !== null){ projectBackgroundArray.projectBackgroundConservationTargetImpactedAnswer = cookieData.projectBackgroundConservationTargetImpacted; }
+        if(cookieData.projectBackgroundProjectAreaName !== null){ projectBackgroundArray.projectBackgroundProjectAreaNameAnswer = cookieData.projectBackgroundProjectAreaName; }
+        if(cookieData.projectBackgroundProjectAreaSize !== null){ projectBackgroundArray.projectBackgroundProjectAreaSizeAnswer = cookieData.projectBackgroundProjectAreaSize; }
+        if(cookieData.projectBackgroundPropertyOwners !== null){ projectBackgroundArray.projectBackgroundPropertyOwnersAnswer = cookieData.projectBackgroundPropertyOwners; }
+        if(cookieData.projectBackgroundProjectState !== null){ projectBackgroundArray.projectBackgroundProjectStateAnswer = cookieData.projectBackgroundProjectState; }
+        if(cookieData.projectBackgroundProjectCounty !== null){ projectBackgroundArray.projectBackgroundProjectCountyAnswer = cookieData.projectBackgroundProjectCounty; }
+        if(cookieData.projectBackgroundProjectCoordX !== null){ projectBackgroundArray.projectBackgroundProjectCoordXAnswer = cookieData.projectBackgroundProjectCoordX; }
+        if(cookieData.projectBackgroundProjectCoordY !== null){ projectBackgroundArray.projectBackgroundProjectCoordYAnswer = cookieData.projectBackgroundProjectCoordY; }
+        if(cookieData.projectBackgroundProjectCoordSystem !== null){ projectBackgroundArray.projectBackgroundProjectCoordSystemAnswer = cookieData.projectBackgroundProjectCoordSystem; }
+        // Populate Fields w/ values
+        $('#project_background_assessors').prop('value', projectBackgroundArray.projectBackgroundAssessorsAnswer);
+        $('#project_background_assessors_date').prop('value', projectBackgroundArray.projectBackgroundAssessorsDateAnswer);
+        $('#project_background_scientific_name').prop('value', projectBackgroundArray.projectBackgroundScientificNameAnswer);
+        $('#project_background_common_name').prop('value', projectBackgroundArray.projectBackgroundCommonNameAnswer);
+        $('#project_background_scale').prop('value', projectBackgroundArray.projectBackgroundScaleAnswer);
+        $('#project_background_PRISMWMA').prop('value', projectBackgroundArray.projectBackgroundPRISMWMAAnswer);
+        $('#project_background_conservation_target_impacted').prop('value', projectBackgroundArray.projectBackgroundConservationTargetImpactedAnswer);
+        $('#project_background_project_area_name').prop('value', projectBackgroundArray.projectBackgroundProjectAreaNameAnswer);
+        $('#project_background_project_area_size').prop('value', projectBackgroundArray.projectBackgroundProjectAreaSizeAnswer);
+        $('#project_background_property_owners').prop('value', projectBackgroundArray.projectBackgroundPropertyOwnersAnswer);
+        $('#project_background_project_state').prop('value', projectBackgroundArray.projectBackgroundProjectStateAnswer);
+        $('#project_background_project_county').prop('value', projectBackgroundArray.projectBackgroundProjectCountyAnswer);
+        $('#project_background_project_coord_x').prop('value', projectBackgroundArray.projectBackgroundProjectCoordXAnswer);
+        $('#project_background_project_coord_y').prop('value', projectBackgroundArray.projectBackgroundProjectCoordYAnswer);
+        $('#project_background_project_coord_system').prop('value', projectBackgroundArray.projectBackgroundProjectCoordSystemAnswer);
+    }else if(currentStep === "1.2"){
+        // Check if there is any data present
+        if(cookieData.projectBackgroundProjectGoal !== null){ projectBackgroundArray.projectBackgroundProjectGoalAnswer = cookieData.projectBackgroundProjectGoal; }
+        if(cookieData.projectBackgroundNumberOfYearsToComplete !== null){ projectBackgroundArray.projectBackgroundNumberOfYearsToCompleteAnswer = cookieData.projectBackgroundNumberOfYearsToComplete; }
+        if(cookieData.projectBackgroundStartDate !== null){ projectBackgroundArray.projectBackgroundStartDateAnswer = cookieData.projectBackgroundStartDate; }
+        if(cookieData.projectBackgroundEndDate !== null){ projectBackgroundArray.projectBackgroundEndDateAnswer = cookieData.projectBackgroundEndDate; }
+        if(cookieData.projectBackgroundOngoingProject !== null){ projectBackgroundArray.projectBackgroundOngoingProjectAnswer = cookieData.projectBackgroundOngoingProject; }
+        if(cookieData.projectBackgroundControlRequired !== null){ projectBackgroundArray.projectBackgroundControlRequiredAnswer = cookieData.projectBackgroundControlRequired; }
+        // Populate Fields w/ values
+        $('#project_background_project_goal').prop('value', projectBackgroundArray.projectBackgroundProjectGoalAnswer);
+        $('#project_background_number_of_years_to_complete').prop('value', projectBackgroundArray.projectBackgroundNumberOfYearsToCompleteAnswer);
+        $('#project_background_start_date').prop('value', projectBackgroundArray.projectBackgroundStartDateAnswer);
+        $('#project_background_end_date').prop('value', projectBackgroundArray.projectBackgroundEndDateAnswer);
+        $('#project_background_ongoing_project').prop('value', projectBackgroundArray.projectBackgroundOngoingProjectAnswer);
+        $('#project_background_control_required').prop('value', projectBackgroundArray.projectBackgroundControlRequiredAnswer);
+    }else if(currentStep === "1.3"){
+        // Check if there is any data present
+        if(cookieData.projectBackgroundGrossInvadedArea !== null){ projectBackgroundArray.projectBackgroundGrossInvadedAreaAnswer = cookieData.projectBackgroundGrossInvadedArea; }
+        if(cookieData.projectBackgroundNetInvadedArea !== null){ projectBackgroundArray.projectBackgroundNetInvadedAreaAnswer = cookieData.projectBackgroundNetInvadedArea; }
+        if(cookieData.projectBackgroundNumberOfOccurances !== null){ projectBackgroundArray.projectBackgroundNumberOfOccurancesAnswer = cookieData.projectBackgroundNumberOfOccurances; }
+        // Populate Fields w/ values
+        $('#project_background_gross_invaded_area').prop('value', projectBackgroundArray.projectBackgroundGrossInvadedAreaAnswer);
+        $('#project_background_net_invaded_area').prop('value', projectBackgroundArray.projectBackgroundNetInvadedAreaAnswer);
+        $('#project_background_number_of_occurances').prop('value', projectBackgroundArray.projectBackgroundNumberOfOccurancesAnswer);
+    }else if(currentStep === "1.4"){
+        // Check if there is any data present
+        if(cookieData.projectBackgroundImapShareResults !== null){ projectBackgroundArray.projectBackgroundImapShareResultsAnswer = cookieData.projectBackgroundImapShareResults; }
+        if(cookieData.projectBackgroundImapAccount !== null){ projectBackgroundArray.projectBackgroundImapAccountAnswer = cookieData.projectBackgroundImapAccount; }
+        // Populate Fields w/ values
+        $('#project_background_imap_share_results').prop('value', projectBackgroundArray.projectBackgroundImapShareResultsAnswer);
+        $('#project_background_imap_account').prop('value', projectBackgroundArray.projectBackgroundImapAccountAnswer);
     }
 
     // Function Form Checks & Misc Functions
@@ -1196,7 +1128,7 @@ function JSON_Cookie_Step_Project_Background(cookieData, completedSteps, current
             projectBackgroundOngoingProject: projectBackgroundArray.projectBackgroundOngoingProjectAnswer,
             projectBackgroundControlRequired: projectBackgroundArray.projectBackgroundControlRequiredAnswer
         };
-        if(projectBackgroundArray.projectBackgroundProjectGoal !== null){
+        if(projectBackgroundArray.projectBackgroundProjectGoalAnswer !== null){
             var addStep = true;
             for(var i=0; i<completedSteps.length; i++){
                 if(completedSteps[i] === "1.2"){
@@ -1512,60 +1444,44 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
     // Subcategory Values
 
     // Check if loading data
-    var completedStepsLength = completedSteps.length;
-    for(var i=0; i<completedStepsLength; i++){
-        if(completedSteps[i] === "2.1"){
-            // Load Question Answers
-            strategySelectionArray.strategySelectionNYSScoreAnswer = cookieData.strategySelectionNYSScore;
-            strategySelectionArray.strategySelectionCheckboxAnswer = cookieData.strategySelectionCheckbox;
-            strategySelectionArray.strategySelectionDocumentationAnswer = cookieData.strategySelectionDocumentation;
-            
-            // Populate Fields w/ values
-            $('#strategy_selection_NYS_score').prop('value', strategySelectionArray.strategySelectionNYSScoreAnswer);
-
-            if(strategySelectionArray.strategySelectionCheckboxAnswer === "ecologicalImpact"){
-                $('#strategy_selection_ecological_impact').prop('checked', true);
-            }else if(strategySelectionArray.strategySelectionCheckboxAnswer === "limitedDistribution"){
-                $('#strategy_selection_limited_distribution').prop('checked', true);
-            }else if(strategySelectionArray.strategySelectionCheckboxAnswer === "widespreadDistribution"){
-                $('#strategy_selection_widespread_distribution').prop('checked', true);
-            }else if(strategySelectionArray.strategySelectionCheckboxAnswer === "negligibleImpact"){
-                $('#strategy_selection_negligible_impact').prop('checked', true);
-            }else if(strategySelectionArray.strategySelectionCheckboxAnswer === "significantHarm"){
-                $('#strategy_selection_significant_harm').prop('checked', true);
-            }
-
-            $('#strategy_selection_documentation').prop('value', strategySelectionArray.strategySelectionDocumentationAnswer);
+    if(currentStep === "2.1"){
+        // Check if there is any data present
+        if(cookieData.strategySelectionNYSScore !== null){ strategySelectionArray.strategySelectionNYSScoreAnswer = cookieData.strategySelectionNYSScore; }
+        if(cookieData.strategySelectionCheckbox !== null){ strategySelectionArray.strategySelectionCheckboxAnswer = cookieData.strategySelectionCheckbox; }
+        if(cookieData.strategySelectionDocumentation !== null){ strategySelectionArray.strategySelectionDocumentationAnswer = cookieData.strategySelectionDocumentation; }
+        // Populate Fields w/ values
+        $('#strategy_selection_NYS_score').prop('value', strategySelectionArray.strategySelectionNYSScoreAnswer);
+        if(strategySelectionArray.strategySelectionCheckboxAnswer === "ecologicalImpact"){
+            $('#strategy_selection_ecological_impact').prop('checked', true);
+        }else if(strategySelectionArray.strategySelectionCheckboxAnswer === "limitedDistribution"){
+            $('#strategy_selection_limited_distribution').prop('checked', true);
+        }else if(strategySelectionArray.strategySelectionCheckboxAnswer === "widespreadDistribution"){
+            $('#strategy_selection_widespread_distribution').prop('checked', true);
+        }else if(strategySelectionArray.strategySelectionCheckboxAnswer === "negligibleImpact"){
+            $('#strategy_selection_negligible_impact').prop('checked', true);
+        }else if(strategySelectionArray.strategySelectionCheckboxAnswer === "significantHarm"){
+            $('#strategy_selection_significant_harm').prop('checked', true);
         }
-        if(completedSteps[i] === "2.2"){
-            // Load Question Answers
-            strategySelectionArray.strategySelectionAbundanceAndDistributionCheckboxAnswer = cookieData.strategySelectionAbundanceAndDistributionCheckbox;
-            strategySelectionArray.strategySelectionAbundanceAndDistributionDocumentationAnswer = cookieData.strategySelectionAbundanceAndDistributionDocumentation;
-
-            // Populate Fields w/ values
-            if(strategySelectionArray.strategySelectionAbundanceAndDistributionCheckboxAnswer === "eradicationStateScale"){
-                $('#strategy_selection_eradication_state_scale').prop('checked', true);
-            }else if(strategySelectionArray.strategySelectionAbundanceAndDistributionCheckboxAnswer === "containmentStateScale"){
-                $('#strategy_selection_containment_state_scale').prop('checked', true);
-            }else if(strategySelectionArray.strategySelectionAbundanceAndDistributionCheckboxAnswer === "eradicationProjectScale"){
-                $('#strategy_selection_eradication_project_scale').prop('checked', true);
-            }else if(strategySelectionArray.strategySelectionAbundanceAndDistributionCheckboxAnswer === "containmentProjectScale"){
-                $('#strategy_selection_containment_project_scale').prop('checked', true);
-            }else if(strategySelectionArray.strategySelectionAbundanceAndDistributionCheckboxAnswer === "suppression"){
-                $('#strategy_selection_suppression').prop('checked', true);
-            }
-            $('#strategy_selection_abundance_and_distribution_documentation').prop('value', strategySelectionArray.strategySelectionAbundanceAndDistributionDocumentationAnswer);
+        $('#strategy_selection_documentation').prop('value', strategySelectionArray.strategySelectionDocumentationAnswer);
+    }else if(currentStep === "2.2"){
+        // Check if there is any data present
+        if(cookieData.strategySelectionAbundanceAndDistributionCheckbox !== null){ strategySelectionArray.strategySelectionAbundanceAndDistributionCheckboxAnswer = cookieData.strategySelectionAbundanceAndDistributionCheckbox; }
+        if(cookieData.strategySelectionAbundanceAndDistributionDocumentation !== null){ strategySelectionArray.strategySelectionAbundanceAndDistributionDocumentationAnswer = cookieData.strategySelectionAbundanceAndDistributionDocumentation; }
+        // Populate Fields w/ values
+        if(strategySelectionArray.strategySelectionAbundanceAndDistributionCheckboxAnswer === "eradicationStateScale"){
+            $('#strategy_selection_eradication_state_scale').prop('checked', true);
+        }else if(strategySelectionArray.strategySelectionAbundanceAndDistributionCheckboxAnswer === "containmentStateScale"){
+            $('#strategy_selection_containment_state_scale').prop('checked', true);
+        }else if(strategySelectionArray.strategySelectionAbundanceAndDistributionCheckboxAnswer === "eradicationProjectScale"){
+            $('#strategy_selection_eradication_project_scale').prop('checked', true);
+        }else if(strategySelectionArray.strategySelectionAbundanceAndDistributionCheckboxAnswer === "containmentProjectScale"){
+            $('#strategy_selection_containment_project_scale').prop('checked', true);
+        }else if(strategySelectionArray.strategySelectionAbundanceAndDistributionCheckboxAnswer === "suppression"){
+            $('#strategy_selection_suppression').prop('checked', true);
         }
-        if(completedSteps[i] === "2.3"){
-            // Load Question Answers
-
-            // Populate Fields w/ values
-        }
-        if(completedSteps[i] === "2.4"){
-            // Load Question Answers
-
-            // Populate Fields w/ values
-        }
+        $('#strategy_selection_abundance_and_distribution_documentation').prop('value', strategySelectionArray.strategySelectionAbundanceAndDistributionDocumentationAnswer);
+    }else if(currentStep === "2.3"){
+    }else if(currentStep === "2.4"){
     }
 
     // Function Form Checks & Misc Functions
