@@ -49,7 +49,10 @@ function Save_Cookie(cookieData, stepNumber, completedSteps){
             strategySelectionCheckbox: null,
             strategySelectionDocumentation: null,
             strategySelectionAbundanceAndDistributionCheckbox: null,
-            strategySelectionAbundanceAndDistributionDocumentation: null
+            strategySelectionAbundanceAndDistributionDocumentation: null,
+            strategySelectionAbundanceAndDistributionConfirm: null,
+            strategySelectionAbundanceAndDistributionAlternative: null,
+            strategySelectionAbundanceAndDistributionAlternativeDocumentation: null
             // ERADICATION (STEP 3)
             // CONTAINMENT (STEP 4)
             // SUPPRESSION (STEP 5)
@@ -99,6 +102,11 @@ function Save_Cookie(cookieData, stepNumber, completedSteps){
     // 2.2
     if(savedData.strategySelectionAbundanceAndDistributionCheckbox !== null){ cookieArray.strategySelectionAbundanceAndDistributionCheckbox = savedData.strategySelectionAbundanceAndDistributionCheckbox; }
     if(savedData.strategySelectionAbundanceAndDistributionDocumentation !== null){ cookieArray.strategySelectionAbundanceAndDistributionDocumentation = savedData.strategySelectionAbundanceAndDistributionDocumentation; }
+    // 2.3
+    if(savedData.strategySelectionAbundanceAndDistributionConfirm !== null){ cookieArray.strategySelectionAbundanceAndDistributionConfirm = savedData.strategySelectionAbundanceAndDistributionConfirm; }
+    // 2.4
+    if(savedData.strategySelectionAbundanceAndDistributionAlternative !== null){ cookieArray.strategySelectionAbundanceAndDistributionAlternative = savedData.strategySelectionAbundanceAndDistributionAlternative; }
+    if(savedData.strategySelectionAbundanceAndDistributionAlternativeDocumentation !== null){ cookieArray.strategySelectionAbundanceAndDistributionAlternativeDocumentation = savedData.strategySelectionAbundanceAndDistributionAlternativeDocumentation; }
 
     // Enter New Data from cookieData
     if(stepNumber === "1.1"){
@@ -144,6 +152,13 @@ function Save_Cookie(cookieData, stepNumber, completedSteps){
         // Entering NEW data from cookieData
         cookieArray.strategySelectionAbundanceAndDistributionCheckbox = cookieData.strategySelectionAbundanceAndDistributionCheckbox;
         cookieArray.strategySelectionAbundanceAndDistributionDocumentation = cookieData.strategySelectionAbundanceAndDistributionDocumentation;
+    }else if(stepNumber === "2.3"){
+        // Entering NEW data from cookieData
+        cookieArray.strategySelectionAbundanceAndDistributionConfirm = cookieData.strategySelectionAbundanceAndDistributionConfirm;
+    }else if(stepNumber === "2.4"){
+        // Entering NEW data from cookieData
+        cookieArray.strategySelectionAbundanceAndDistributionAlternative = cookieData.strategySelectionAbundanceAndDistributionAlternative;
+        cookieArray.strategySelectionAbundanceAndDistributionAlternativeDocumentation = cookieData.strategySelectionAbundanceAndDistributionAlternativeDocumentation;
     }
     
     $.JSONCookie(name, cookieArray, {path: '/'});
@@ -176,28 +191,13 @@ function Check_Available_Steps(cookieData, completedSteps, currentStep){
     $('#content_step_project_background_substep_two').unbind('click');
     $('#content_step_project_background_substep_three').unbind('click');
     $('#content_step_project_background_substep_four').unbind('click');
-    // TODO: UPDATE HERE
     $('#content_progress_bar_strategy_selection').unbind('click');
+    $('#content_step_strategy_selection_substep_one').unbind('click');
+    $('#content_step_strategy_selection_substep_two').unbind('click');
+    $('#content_step_strategy_selection_substep_three').unbind('click');
+    $('#content_step_strategy_selection_substep_four').unbind('click');
     // TODO: UPDATE HERE
-    $('#content_progress_bar_eradication').unbind('click');
-    // TODO: UPDATE HERE
-    $('#content_progress_bar_containment').unbind('click');
-    // TODO: UPDATE HERE
-    $('#content_progress_bar_suppression').unbind('click');
-    // TODO: UPDATE HERE
-    $('#content_progress_bar_recommendation_summary').unbind('click');
     
-    // Make All Steps Unavailable By Default
-    
-    // Clear All Substep Containers
-    if($('#content_substep_project_background_container').hasClass('content_substep_container_active')){
-        $('#content_substep_project_background_container').removeClass('content_substep_container_active').addClass('content_substep_container_inactive');
-    }
-    if($('#content_substep_strategy_selection_container').hasClass('content_substep_container_active')){
-        $('#content_substep_strategy_selection_container').removeClass('content_substep_container_active').addClass('content_substep_container_inactive');
-    }
-    // TODO: UPDATE HERE
-
     // Control Step Progress
     // PROJECT BACKGROUND (STEP 1) - Always available
     if($('#content_progress_bar_project_background').hasClass('progress_bar_active')){
@@ -303,47 +303,44 @@ function Check_Available_Steps(cookieData, completedSteps, currentStep){
                 $('#content_step_strategy_selection_substep_three').addClass('content_substep_available');
             }
         }
-        if(completedSteps[i] === "3"){
-            // TODO: UPDATE HERE
-            // CONTAINMENT (STEP 4)
-            if($('#content_progress_bar_containment').hasClass('progress_bar_active')){
-                $('#content_progress_bar_containment').removeClass('progress_bar_active');
-            }
-            if($('#content_progress_bar_containment').hasClass('progress_bar_inactive')){
-                $('#content_progress_bar_containment').removeClass('progress_bar_inactive');
-            }
-            if($('#content_progress_bar_containment').hasClass('progress_bar_available')){
+        if(completedSteps[i] === "2.3"){
+            if(cookieData.strategySelectionAbundanceAndDistributionConfirm === "yes"){
+                // Confirm
+                if($('#content_progress_bar_strategy_exploration').hasClass('progress_bar_active')){
+                    $('#content_progress_bar_strategy_exploration').removeClass('progress_bar_active');
+                }
+                if($('#content_progress_bar_strategy_exploration').hasClass('progress_bar_inactive')){
+                    $('#content_progress_bar_strategy_exploration').removeClass('progress_bar_inactive');
+                }
+                if($('#content_progress_bar_strategy_exploration').hasClass('progress_bar_available')){
+                }else{
+                    $('#content_progress_bar_strategy_exploration').addClass('progress_bar_available');
+                }
+                if($('#content_step_strategy_exploration_substep_one').hasClass('content_substep_active')){
+                    $('#content_step_strategy_exploration_substep_one').removeClass('content_substep_active');
+                }
+                if($('#content_step_strategy_exploration_substep_one').hasClass('content_substep_inactive')){
+                    $('#content_step_strategy_exploration_substep_one').removeClass('content_substep_inactive');
+                }
+                if($('#content_step_strategy_exploration_substep_one').hasClass('content_substep_available')){
+                }else{
+                    $('#content_step_strategy_exploration_substep_one').addClass('content_substep_available');
+                }
             }else{
-                $('#content_progress_bar_containment').addClass('progress_bar_available');
+                // Alternative
+                if($('#content_step_strategy_selection_substep_four').hasClass('content_substep_active')){
+                    $('#content_step_strategy_selection_substep_four').removeClass('content_substep_active');
+                }
+                if($('#content_step_strategy_selection_substep_four').hasClass('content_substep_inactive')){
+                    $('#content_step_strategy_selection_substep_four').removeClass('content_substep_inactive');
+                }
+                if($('#content_step_strategy_selection_substep_four').hasClass('content_substep_available')){
+                }else{
+                    $('#content_step_strategy_selection_substep_four').addClass('content_substep_available');
+                }
             }
         }
-        if(completedSteps[i] === "4"){
-            // TODO: UPDATE HERE
-            // SUPPRESSION (STEP 5)
-            if($('#content_progress_bar_suppression').hasClass('progress_bar_active')){
-                $('#content_progress_bar_suppression').removeClass('progress_bar_active');
-            }
-            if($('#content_progress_bar_suppression').hasClass('progress_bar_inactive')){
-                $('#content_progress_bar_suppression').removeClass('progress_bar_inactive');
-            }
-            if($('#content_progress_bar_suppression').hasClass('progress_bar_available')){
-            }else{
-                $('#content_progress_bar_suppression').addClass('progress_bar_available');
-            }
-        }
-        if(completedSteps[i] === "5"){
-            // TODO: UPDATE HERE
-            // RECOMMENDATION SUMMARY (STEP 6)
-            if($('#content_progress_bar_recommendation_summary').hasClass('progress_bar_active')){
-                $('#content_progress_bar_recommendation_summary').removeClass('progress_bar_active');
-            }
-            if($('#content_progress_bar_recommendation_summary').hasClass('progress_bar_inactive')){
-                $('#content_progress_bar_recommendation_summary').removeClass('progress_bar_inactive');
-            }
-            if($('#content_progress_bar_recommendation_summary').hasClass('progress_bar_available')){
-            }else{
-                $('#content_progress_bar_recommendation_summary').addClass('progress_bar_available');
-            }
+        if(completedSteps[i] === "2.4"){
         }
     }
 
@@ -370,6 +367,9 @@ function Check_Available_Steps(cookieData, completedSteps, currentStep){
     }
     if($('#content_step_strategy_confirmation_container').hasClass('content_step_active')){
         $('#content_step_strategy_confirmation_container').removeClass('content_step_active').addClass('content_step_inactive');
+    }
+    if($('#content_step_strategy_alternative_container').hasClass('content_step_active')){
+        $('#content_step_strategy_alternative_container').removeClass('content_step_active').addClass('content_step_inactive');
     }
     // STRATEGY EXPLORATION
     if($('#content_step_strategy_exploration_container').hasClass('content_step_active')){
@@ -546,8 +546,19 @@ function Check_Available_Steps(cookieData, completedSteps, currentStep){
             $('#strategy_selection_abundance_and_distribution_documentation').prop('value', "");
         }else if(currentStep === "2.3"){
             // SubStep Progress Bar
+            if($('#content_step_strategy_selection_substep_three').hasClass('content_substep_inactive')){
+                $('#content_step_strategy_selection_substep_three').removeClass('content_substep_inactive');
+            }
+            if($('#content_step_strategy_selection_substep_three').hasClass('content_substep_available')){
+                $('#content_step_strategy_selection_substep_three').removeClass('content_substep_available');
+            }
+            if($('#content_step_strategy_selection_substep_three').hasClass('content_substep_active')){
+            }else{
+                $('#content_step_strategy_selection_substep_three').addClass('content_substep_active');
+            }
             // Clear Questions
-            // TODO: UPDATE HERE
+            $('#strategy_confirmation_yes').prop('checked', false);
+            $('#strategy_confirmation_no').prop('checked', false);
         }else if(currentStep === "2.4"){
             // SubStep Progress Bar
             // Clear Questions
@@ -659,7 +670,10 @@ function IPMDAT_Init(){
             strategySelectionCheckbox: null,
             strategySelectionDocumentation: null,
             strategySelectionAbundanceAndDistributionCheckbox: null,
-            strategySelectionAbundanceAndDistributionDocumentation: null
+            strategySelectionAbundanceAndDistributionDocumentation: null,
+            strategySelectionAbundanceAndDistributionConfirm: null,
+            strategySelectionAbundanceAndDistributionAlternative: null,
+            strategySelectionAbundanceAndDistributionAlternativeDocumentation: null
             // ERADICATION (STEP 3)
             // CONTAINMENT (STEP 4)
             // SUPPRESSION (STEP 5)
@@ -711,7 +725,10 @@ function IPMDAT_Init(){
             strategySelectionCheckbox: null,
             strategySelectionDocumentation: null,
             strategySelectionAbundanceAndDistributionCheckbox: null,
-            strategySelectionAbundanceAndDistributionDocumentation: null
+            strategySelectionAbundanceAndDistributionDocumentation: null,
+            strategySelectionAbundanceAndDistributionConfirm: null,
+            strategySelectionAbundanceAndDistributionAlternative: null,
+            strategySelectionAbundanceAndDistributionAlternativeDocumentation: null
             // ERADICATION (STEP 3)
             // CONTAINMENT (STEP 4)
             // SUPPRESSION (STEP 5)
@@ -821,25 +838,15 @@ function IPMDAT_Init(){
         completedSteps.push("2.2");
     }
     stepFail = false;
+    
+    // 2.3
+    if(savedData.strategySelectionAbundanceAndDistributionConfirm !== null){
+        cookieData.strategySelectionAbundanceAndDistributionConfirm = savedData.strategySelectionAbundanceAndDistributionConfirm;
+    }else{ stepFail = true; }
 
-
-    // TODO: UPDATE HERE
-    //------------------------------------------------------------------------\\
-    // Eradication                                                            \\
-    //------------------------------------------------------------------------\\
-    // TODO: UPDATE HERE
-    //------------------------------------------------------------------------\\
-    // Containment                                                            \\
-    //------------------------------------------------------------------------\\
-    // TODO: UPDATE HERE
-    //------------------------------------------------------------------------\\
-    // Suppression                                                            \\
-    //------------------------------------------------------------------------\\
-    // TODO: UPDATE HERE
-    //------------------------------------------------------------------------\\
-    // Recommendation Summary                                                 \\
-    //------------------------------------------------------------------------\\
-    // TODO: UPDATE HERE
+    if(stepFail === false){
+        completedSteps.push("2.3");
+    }
 
     // Being Process
     Check_Available_Steps(cookieData, completedSteps, currentStep);
@@ -1426,9 +1433,19 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
             $('#content_nav_back').removeClass('content_nav_base_inactive').addClass('content_nav_base_active');
         }
     }else if(currentStep === "2.3"){
-        // TODO: UPDATE HERE
+        if($('#content_step_strategy_confirmation_container').hasClass('content_step_inactive')){
+            $('#content_step_strategy_confirmation_container').removeClass('content_step_inactive').addClass('content_step_active');
+        }
+        if($('#content_nav_back').hasClass('content_nav_base_inactive')){
+            $('#content_nav_back').removeClass('content_nav_base_inactive').addClass('content_nav_base_active');
+        }
     }else if(currentStep === "2.4"){
-        // TODO: UPDATE HERE
+        if($('#content_step_strategy_alternative_container').hasClass('content_step_inactive')){
+            $('#content_step_strategy_alternative_container').removeClass('content_step_inactive').addClass('content_step_active');
+        }
+        if($('#content_nav_back').hasClass('content_nav_base_inactive')){
+            $('#content_nav_back').removeClass('content_nav_base_inactive').addClass('content_nav_base_active');
+        }
     }
 
     // Declare Variables
@@ -1437,11 +1454,24 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
             strategySelectionCheckboxAnswer: null,
             strategySelectionDocumentationAnswer: null,
             strategySelectionAbundanceAndDistributionCheckboxAnswer: null,
-            strategySelectionAbundanceAndDistributionDocumentationAnswer: null
+            strategySelectionAbundanceAndDistributionDocumentationAnswer: null,
+            strategySelectionAbundanceAndDistributionConfirmAnswer: null,
+            strategySelectionAbundanceAndDistributionAlternativeAnswer: null,
+            strategySelectionAbundanceAndDistributionAlternativeDocumentationAnswer: null
         },
         saveArray = {};
     
     // Subcategory Values
+    var mainTitleEradicationStateScale = '(<strong>Eradication</strong> Recommended)',
+        mainTitleContainmentStateScale = '(<strong>Containment</strong> Recommended)',
+        mainTitleEradicationProjectScale = '(<strong>Eradication</strong> Recommended)',
+        mainTitleContainmentProjectScale = '(<strong>Containment</strong> Recommended)',
+        mainTitleSuppression = '(<strong>Suppression</strong> Recommended)',
+        subtextEradicationStateScale = '<strong>Eradication</strong> at the <strong>state</strong> scale is recommended based on the distribution of the invasive plant.',
+        subtextContainmentStateScale = '<strong>Containment</strong> at the <strong>state</strong> scale is recommended based on the distribution of the invasive plant.',
+        subtextEradicationProjectScale = '<strong>Eradication</strong> at the <strong>project</strong> scale is recommended based on the distribution of the invasive plant.',
+        subtextContainmentProjectScale = '<strong>Containment</strong> at the <strong>project</strong> scale is recommended based on the distribution of the invasive plant.',
+        subtextSuppression = '<strong>Suppression</strong> at the <strong>project</strong> scale is recommended based on the distribution of the invasive plant.';
 
     // Check if loading data
     if(currentStep === "2.1"){
@@ -1481,7 +1511,23 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
         }
         $('#strategy_selection_abundance_and_distribution_documentation').prop('value', strategySelectionArray.strategySelectionAbundanceAndDistributionDocumentationAnswer);
     }else if(currentStep === "2.3"){
+        // Get the Checkbox Answer to determine Path
+        if(cookieData.strategySelectionAbundanceAndDistributionCheckbox !== null){ strategySelectionArray.strategySelectionAbundanceAndDistributionCheckboxAnswer = cookieData.strategySelectionAbundanceAndDistributionCheckbox; }
+
+        // Check if there is any data present
+        if(cookieData.strategySelectionAbundanceAndDistributionConfirm !== null){ strategySelectionArray.strategySelectionAbundanceAndDistributionConfirmAnswer = cookieData.strategySelectionAbundanceAndDistributionConfirm; }
+        // Populate Fields w/ values
+        if(strategySelectionArray.strategySelectionAbundanceAndDistributionConfirmAnswer === "yes"){
+            $('#strategy_confirmation_yes').prop('checked', true);
+        }else if(strategySelectionArray.strategySelectionAbundanceAndDistributionConfirmAnswer === "no"){
+            $('#strategy_confirmation_no').prop('checked', true);
+        }
     }else if(currentStep === "2.4"){
+        // Check if there is any data present
+        if(cookieData.strategySelectionAbundanceAndDistributionAlternative !== null){ strategySelectionArray.strategySelectionAbundanceAndDistributionAlternativeAnswer = cookieData.strategySelectionAbundanceAndDistributionAlternative; }
+        if(cookieData.strategySelectionAbundanceAndDistributionAlternativeDocumentation !== null){ strategySelectionArray.strategySelectionAbundanceAndDistributionAlternativeDocumentationAnswer = cookieData.strategySelectionAbundanceAndDistributionAlternativeDocumentation; }
+        // Populate Fields w/ values
+        $('#strategy_selection_alternative_documentation').prop('value', strategySelectionArray.strategySelectionAbundanceAndDistributionAlternativeDocumentationAnswer);
     }
 
     // Function Form Checks & Misc Functions
@@ -1516,6 +1562,17 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
         }
     };
     function Strategy_Selection_Substep_Three_Check(form_array){
+        if(form_array.strategySelectionAbundanceAndDistributionConfirmAnswer !== null){
+            if($('#content_nav_forward').hasClass('content_nav_base_inactive')){
+                $('#content_nav_forward').removeClass('content_nav_base_inactive').addClass('content_nav_base_active');
+                // Progress Bar
+            }
+        }else if(form_array.strategySelectionAbundanceAndDistributionConfirmAnswer === null){
+            if($('#content_nav_forward').hasClass('content_nav_base_active')){
+                $('#content_nav_forward').removeClass('content_nav_base_active').addClass('content_nav_base_inactive');
+                // Progress Bar
+            } 
+        }
     };
     function Strategy_Selection_Substep_Four_Check(form_array){
     };
@@ -1561,6 +1618,22 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
         Save_Cookie(saveArray, "2.2", completedSteps);
     };
     function Strategy_Selection_Substep_Three_Save(){
+        // Populate saveArray
+        saveArray = {
+            strategySelectionAbundanceAndDistributionConfirm: strategySelectionArray.strategySelectionAbundanceAndDistributionConfirmAnswer
+        };
+        if(strategySelectionArray.strategySelectionAbundanceAndDistributionConfirmAnswer !== null){
+            var addStep = true;
+            for(var i=0; i<completedSteps.length; i++){
+                if(completedSteps[i] === "2.3"){
+                    addStep = false;
+                }
+            }
+            if(addStep === true){
+                completedSteps.push("2.3");
+            }
+        }
+        Save_Cookie(saveArray, "2.3", completedSteps);
     };
     function Strategy_Selection_Substep_Four_Save(){
     };
@@ -1594,20 +1667,33 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
         $('#strategy_selection_containment_project_scale').prop('checked', false);
         $('#strategy_selection_suppression').prop('checked', false);
         $(boxName).prop('checked', true);
-        
+
         if($('#strategy_selection_eradication_state_scale').is(':checked')){
             strategySelectionArray.strategySelectionAbundanceAndDistributionCheckboxAnswer = 'eradicationStateScale';
         }else if($('#strategy_selection_containment_state_scale').is(':checked')){
             strategySelectionArray.strategySelectionAbundanceAndDistributionCheckboxAnswer = 'containmentStateScale';
         }else if($('#strategy_selection_eradication_project_scale').is(':checked')){
             strategySelectionArray.strategySelectionAbundanceAndDistributionCheckboxAnswer = 'eradicationProjectScale';
-        }else if($('#strategy_selection_containment_state_scale').is(':checked')){
+        }else if($('#strategy_selection_containment_project_scale').is(':checked')){
             strategySelectionArray.strategySelectionAbundanceAndDistributionCheckboxAnswer = 'containmentProjectScale';
         }else if($('#strategy_selection_suppression').is(':checked')){
             strategySelectionArray.strategySelectionAbundanceAndDistributionCheckboxAnswer = 'suppression';
         }
         Strategy_Selection_Substep_Two_Check(strategySelectionArray);
     };
+    function Strategy_Selection_Substep_Three_Check_Boxes(boxName){
+        $('#strategy_confirmation_yes').prop('checked', false);
+        $('#strategy_confirmation_no').prop('checked', false);
+        $(boxName).prop('checked', true);
+
+        if($('#strategy_confirmation_yes').is(':checked')){
+            strategySelectionArray.strategySelectionAbundanceAndDistributionConfirmAnswer = 'yes';
+        }else if($('#strategy_confirmation_no').is(':checked')){
+            strategySelectionArray.strategySelectionAbundanceAndDistributionConfirmAnswer = 'no';
+        }
+        
+        Strategy_Selection_Substep_Three_Check(strategySelectionArray);
+    }
 
     function Add_Event_To_Field(fieldLocation, substep){
         var tempHolder;
@@ -1619,7 +1705,8 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
             }
             if(fieldLocation === "#strategy_selection_NYS_score"){ strategySelectionArray.strategySelectionNYSScoreAnswer = tempHolder;
             }else if(fieldLocation === "#strategy_selection_documentation"){ strategySelectionArray.strategySelectionDocumentationAnswer = tempHolder;
-            }else if(fieldLocation === "#strategy_selection_abundance_and_distribution_documentation"){ strategySelectionArray.strategySelectionAbundanceAndDistributionDocumentationAnswer = tempHolder; }
+            }else if(fieldLocation === "#strategy_selection_abundance_and_distribution_documentation"){ strategySelectionArray.strategySelectionAbundanceAndDistributionDocumentationAnswer = tempHolder; 
+            }else if(fieldLocation === "#strategy_selection_alternative_documentation"){ strategySelectionArray.strategySelectionAbundanceAndDistributionAlternativeDocumentationAnswer = tempHolder; }
 
             if(substep === "1"){
                 Strategy_Selection_Substep_One_Check(strategySelectionArray);
@@ -1653,8 +1740,30 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
         $('#strategy_selection_suppression').change(function(){ Strategy_Selection_Substep_Two_Check_Boxes('#strategy_selection_suppression'); });
     }else if(currentStep === "2.3"){
         Strategy_Selection_Substep_Three_Check(strategySelectionArray);
+        var temp = strategySelectionArray.strategySelectionAbundanceAndDistributionCheckboxAnswer;
+        if(temp === 'eradicationStateScale'){
+            $('#strategy_confirmation_main_title_container').empty().append(mainTitleEradicationStateScale);
+            $('#strategy_confirmation_subtext_container').empty().append(subtextEradicationStateScale);
+        }else if(temp === 'containmentStateScale'){
+            $('#strategy_confirmation_main_title_container').empty().append(mainTitleContainmentStateScale);
+            $('#strategy_confirmation_subtext_container').empty().append(subtextContainmentStateScale);
+        }else if(temp === 'eradicationProjectScale'){
+            $('#strategy_confirmation_main_title_container').empty().append(mainTitleEradicationProjectScale);
+            $('#strategy_confirmation_subtext_container').empty().append(subtextEradicationProjectScale);
+        }else if(temp === 'containmentProjectScale'){
+            $('#strategy_confirmation_main_title_container').empty().append(mainTitleContainmentProjectScale);
+            $('#strategy_confirmation_subtext_container').empty().append(subtextContainmentProjectScale);
+        }else if(temp === 'suppression'){
+            $('#strategy_confirmation_main_title_container').empty().append(mainTitleSuppression);
+            $('#strategy_confirmation_subtext_container').empty().append(subtextSuppression);
+        }
+        // Checkbox Array
+        $('#strategy_confirmation_yes').change(function(){ Strategy_Selection_Substep_Three_Check_Boxes('#strategy_confirmation_yes'); });
+        $('#strategy_confirmation_no').change(function(){ Strategy_Selection_Substep_Three_Check_Boxes('#strategy_confirmation_no'); });
     }else if(currentStep === "2.4"){
         Strategy_Selection_Substep_Four_Check(strategySelectionArray);
+        Add_Event_To_Field("#strategy_selection_alternative_documentation", "4");
+        // Checkbox Array
     }
     
     function Add_Event_To_Nav(destinationArray){

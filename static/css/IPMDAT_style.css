@@ -300,3 +300,29 @@ body, html{
         -moz-border-radius: 5px;
         -webkit-border-radius: 5px;
     }
+    #strategy_confirmation_main_title_container{
+        font-size: 2em;
+        text-align: center;
+    }
+    #strategy_confirmation_subtext_container{
+        /* Lighter Blue */
+        background: #BDDCE8;
+        border: 1px solid black;
+        left: 8%;
+        margin-top: 8px;
+        margin-bottom: 8px;
+        padding: 10px;
+        position: relative;
+        width: 82%;
+        border-radius: 5px;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+    }
+    #strategy_confirmation_content_container{
+        text-align: center;
+    }
+        #strategy_confirmation_confirm_radio_container{
+            font-size: 1.5em;
+            left: -15px;
+            position: relative;
+        }

@@ -484,6 +484,46 @@ function Create_HTML(){
         extraInputClasses: ['content_step_question_textarea_input']
     };
     elementProperties.push(temp);
+    // strategy_selection_alternative
+    temp = {
+        targetContainer: '#one_part_alternative_eradication',
+        mainID: 'strategy_selection_alternative_eradication',
+        labelText: 'Eradication:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_alternative_containment',
+        mainID: 'strategy_selection_alternative_containment',
+        labelText: 'Containment:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_alternative_suppression',
+        mainID: 'strategy_selection_alternative_suppression',
+        labelText: 'Suppression:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    // strategy_selection_alternative_documentation
+    temp = {
+        targetContainer: '#one_part_alternative_documentation',
+        mainID: 'strategy_selection_alternative_documentation',
+        labelText: 'Documentation:',
+        required: false,
+        inputType: 'text',
+        changeDiv: 'textarea',
+        extraContentClasses: ['content_step_question_textarea_content'],
+        extraInputClasses: ['content_step_question_textarea_input']
+    };
+    elementProperties.push(temp);
 
     // Create Elements
     var propertiesLength = elementProperties.length;
