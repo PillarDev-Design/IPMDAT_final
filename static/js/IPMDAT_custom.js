@@ -1565,12 +1565,24 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
         if(form_array.strategySelectionAbundanceAndDistributionConfirmAnswer !== null){
             if($('#content_nav_forward').hasClass('content_nav_base_inactive')){
                 $('#content_nav_forward').removeClass('content_nav_base_inactive').addClass('content_nav_base_active');
-                // Progress Bar
+            }
+            // Progress Bar
+            if(form_array.strategySelectionAbundanceAndDistributionConfirmAnswer === "yes"){
+                // 2.4
+                $('#content_progress_bar_strategy_exploration').removeClass('progress_bar_inactive').addClass('progress_bar_available');
+                $('#content_step_strategy_selection_substep_four').removeClass('content_substep_available').addClass('content_substep_inactive');
+
+            }else if(form_array.strategySelectionAbundanceAndDistributionConfirmAnswer === "no"){
+                // 3.1
+                $('#content_progress_bar_strategy_exploration').removeClass('progress_bar_available').addClass('progress_bar_inactive');
+                $('#content_step_strategy_selection_substep_four').removeClass('content_substep_inactive').addClass('content_substep_available');
             }
         }else if(form_array.strategySelectionAbundanceAndDistributionConfirmAnswer === null){
             if($('#content_nav_forward').hasClass('content_nav_base_active')){
                 $('#content_nav_forward').removeClass('content_nav_base_active').addClass('content_nav_base_inactive');
                 // Progress Bar
+                $('#content_step_strategy_selection_substep_four').removeClass('content_substep_available').addClass('content_substep_inactive');
+                $('#content_progress_bar_strategy_exploration').removeClass('progress_bar_active').addClass('progress_bar_inactive');
             } 
         }
     };
@@ -1691,7 +1703,6 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
         }else if($('#strategy_confirmation_no').is(':checked')){
             strategySelectionArray.strategySelectionAbundanceAndDistributionConfirmAnswer = 'no';
         }
-        
         Strategy_Selection_Substep_Three_Check(strategySelectionArray);
     }
 
@@ -1882,7 +1893,19 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
             projectBackground: '1.1',
             strategySelection: 'none'
         };
-    }else if(currentStep === "2.3"){
+    }else if((currentStep === "2.3")&&(strategySelectionArray.strategySelectionAbundanceAndDistributionConfirmAnswer = 'yes')){
+        var destinationArray = {
+            current: '2.3',
+            forward: '3.1',
+            back: '2.2',
+            substep_one: '2.1',
+            substep_two: '2.2',
+            substep_three: 'none',
+            substep_four: '2.4',
+            projectBackground: '1.1',
+            strategySelection: 'none'
+        };
+    }else if((currentStep === "2.3")&&(strategySelectionArray.strategySelectionAbundanceAndDistributionConfirmAnswer = 'no')){
         var destinationArray = {
             current: '2.3',
             forward: '2.4',
@@ -1893,7 +1916,7 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
             substep_four: '2.4',
             projectBackground: '1.1',
             strategySelection: 'none'
-        };
+        }; 
     }else if(currentStep === "2.4"){
         var destinationArray = {
             current: '2.4',
