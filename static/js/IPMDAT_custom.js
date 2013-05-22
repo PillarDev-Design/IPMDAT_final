@@ -161,6 +161,7 @@ function Save_Cookie(cookieData, stepNumber, completedSteps){
         cookieArray.strategySelectionAbundanceAndDistributionAlternativeDocumentation = cookieData.strategySelectionAbundanceAndDistributionAlternativeDocumentation;
     }
     
+    console.log('Save Function - Line164: ' + cookieArray.strategySelectionAbundanceAndDistributionConfirm);
     $.JSONCookie(name, cookieArray, {path: '/'});
 };
 /***********************************************\
@@ -304,6 +305,7 @@ function Check_Available_Steps(cookieData, completedSteps, currentStep){
             }
         }
         if(completedSteps[i] === "2.3"){
+            console.log('Check Available Steps: ' + cookieData.strategySelectionAbundanceAndDistributionConfirm);
             if(cookieData.strategySelectionAbundanceAndDistributionConfirm === "yes"){
                 // Confirm
                 if($('#content_progress_bar_strategy_exploration').hasClass('progress_bar_active')){
@@ -557,12 +559,26 @@ function Check_Available_Steps(cookieData, completedSteps, currentStep){
                 $('#content_step_strategy_selection_substep_three').addClass('content_substep_active');
             }
             // Clear Questions
+            console.log('Clearing questions');
             $('#strategy_confirmation_yes').prop('checked', false);
             $('#strategy_confirmation_no').prop('checked', false);
         }else if(currentStep === "2.4"){
             // SubStep Progress Bar
+            if($('#content_step_strategy_selection_substep_four').hasClass('content_substep_inactive')){
+                $('#content_step_strategy_selection_substep_four').removeClass('content_substep_inactive');
+            }
+            if($('#content_step_strategy_selection_substep_four').hasClass('content_substep_available')){
+                $('#content_step_strategy_selection_substep_four').removeClass('content_substep_available');
+            }
+            if($('#content_step_strategy_selection_substep_four').hasClass('content_substep_active')){
+            }else{
+                $('#content_step_strategy_selection_substep_four').addClass('content_substep_active');
+            }
             // Clear Questions
-            // TODO: UPDATE HERE
+            $('#strategy_selection_alternative_eradication').prop('checked', false);
+            $('#strategy_selection_alternative_containment').prop('checked', false);
+            $('#strategy_selection_alternative_suppression').prop('checked', false);
+            $('#strategy_selection_alternative_documentation').prop('value', "");
         }
         // Execute Step Function
         JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, currentStep);
@@ -843,6 +859,8 @@ function IPMDAT_Init(){
     if(savedData.strategySelectionAbundanceAndDistributionConfirm !== null){
         cookieData.strategySelectionAbundanceAndDistributionConfirm = savedData.strategySelectionAbundanceAndDistributionConfirm;
     }else{ stepFail = true; }
+    console.log('INIT(savedData): ' + savedData.strategySelectionAbundanceAndDistributionConfirm);
+    console.log('INIT(cookieData): ' + cookieData.strategySelectionAbundanceAndDistributionConfirm);
 
     if(stepFail === false){
         completedSteps.push("2.3");
@@ -1515,11 +1533,15 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
         if(cookieData.strategySelectionAbundanceAndDistributionCheckbox !== null){ strategySelectionArray.strategySelectionAbundanceAndDistributionCheckboxAnswer = cookieData.strategySelectionAbundanceAndDistributionCheckbox; }
 
         // Check if there is any data present
+        console.log('Step 2(check if data is present): ' + cookieData.strategySelectionAbundanceAndDistributionConfirm);
         if(cookieData.strategySelectionAbundanceAndDistributionConfirm !== null){ strategySelectionArray.strategySelectionAbundanceAndDistributionConfirmAnswer = cookieData.strategySelectionAbundanceAndDistributionConfirm; }
         // Populate Fields w/ values
+        console.log('Step 2(populate values): ' + strategySelectionArray.strategySelectionAbundanceAndDistributionConfirm);
         if(strategySelectionArray.strategySelectionAbundanceAndDistributionConfirmAnswer === "yes"){
+            console.log('Checking YES');
             $('#strategy_confirmation_yes').prop('checked', true);
         }else if(strategySelectionArray.strategySelectionAbundanceAndDistributionConfirmAnswer === "no"){
+            console.log('Checking NO');
             $('#strategy_confirmation_no').prop('checked', true);
         }
     }else if(currentStep === "2.4"){
@@ -1562,6 +1584,7 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
         }
     };
     function Strategy_Selection_Substep_Three_Check(form_array){
+        console.log('Form check: ' + form_array.strategySelectionAbundanceAndDistributionConfirmAnswer);
         if(form_array.strategySelectionAbundanceAndDistributionConfirmAnswer !== null){
             if($('#content_nav_forward').hasClass('content_nav_base_inactive')){
                 $('#content_nav_forward').removeClass('content_nav_base_inactive').addClass('content_nav_base_active');
@@ -1645,6 +1668,7 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
                 completedSteps.push("2.3");
             }
         }
+        console.log('Substep3 Save: ' + saveArray);
         Save_Cookie(saveArray, "2.3", completedSteps);
     };
     function Strategy_Selection_Substep_Four_Save(){
@@ -1699,10 +1723,13 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
         $(boxName).prop('checked', true);
 
         if($('#strategy_confirmation_yes').is(':checked')){
+            console.log('Setting to YES');
             strategySelectionArray.strategySelectionAbundanceAndDistributionConfirmAnswer = 'yes';
         }else if($('#strategy_confirmation_no').is(':checked')){
+            console.log('Setting to NO');
             strategySelectionArray.strategySelectionAbundanceAndDistributionConfirmAnswer = 'no';
         }
+        console.log('Check boxes, setting: ' + strategySelectionArray.strategySelectionAbundanceAndDistributionConfirmAnswer);
         Strategy_Selection_Substep_Three_Check(strategySelectionArray);
     }
 
@@ -1893,7 +1920,9 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
             projectBackground: '1.1',
             strategySelection: 'none'
         };
-    }else if((currentStep === "2.3")&&(strategySelectionArray.strategySelectionAbundanceAndDistributionConfirmAnswer = 'yes')){
+    }else if((currentStep === "2.3")&&(strategySelectionArray.strategySelectionAbundanceAndDistributionConfirmAnswer === 'yes')){
+        console.log('Moving to 3.1');
+        console.log('strategySelectionAbundanceAndDistributionConfirmAnswer: ' + strategySelectionArray.strategySelectionAbundanceAndDistributionConfirmAnswer);
         var destinationArray = {
             current: '2.3',
             forward: '3.1',
@@ -1905,7 +1934,9 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
             projectBackground: '1.1',
             strategySelection: 'none'
         };
-    }else if((currentStep === "2.3")&&(strategySelectionArray.strategySelectionAbundanceAndDistributionConfirmAnswer = 'no')){
+    }else if((currentStep === "2.3")&&(strategySelectionArray.strategySelectionAbundanceAndDistributionConfirmAnswer === 'no')){
+        console.log('Moving to 2.4');
+        console.log('strategySelectionAbundanceAndDistributionConfirmAnswer: ' + strategySelectionArray.strategySelectionAbundanceAndDistributionConfirmAnswer);
         var destinationArray = {
             current: '2.3',
             forward: '2.4',
