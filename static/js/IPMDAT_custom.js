@@ -364,6 +364,9 @@ function Check_Available_Steps(cookieData, completedSteps, currentStep){
     if($('#content_step_imapinvasives_container').hasClass('content_step_active')){
         $('#content_step_imapinvasives_container').removeClass('content_step_active').addClass('content_step_inactive');
     }
+    if($('#content_substep_project_background_container').hasClass('content_substep_container_active')){
+        $('#content_substep_project_background_container').removeClass('content_substep_container_active').addClass('content_substep_container_inactive');
+    }
     // STRATEGY SELECTION
     if($('#content_step_strategy_selection_container').hasClass('content_step_active')){
         $('#content_step_strategy_selection_container').removeClass('content_step_active').addClass('content_step_inactive');
@@ -376,6 +379,9 @@ function Check_Available_Steps(cookieData, completedSteps, currentStep){
     }
     if($('#content_step_strategy_alternative_container').hasClass('content_step_active')){
         $('#content_step_strategy_alternative_container').removeClass('content_step_active').addClass('content_step_inactive');
+    }
+    if($('#content_substep_strategy_selection_container').hasClass('content_substep_container_active')){
+        $('#content_substep_strategy_selection_container').removeClass('content_substep_container_active').addClass('content_substep_container_inactive');
     }
     // STRATEGY EXPLORATION
     if($('#content_step_strategy_exploration_container').hasClass('content_step_active')){
@@ -408,7 +414,6 @@ function Check_Available_Steps(cookieData, completedSteps, currentStep){
         if($('#content_substep_project_background_container').hasClass('content_substep_container_inactive')){
             $('#content_substep_project_background_container').removeClass('content_substep_container_inactive').addClass('content_substep_container_active');
         }
-
         
         // SubStep Progress Bars & Clear Questions
         if(currentStep === "1.1"){
