@@ -1830,7 +1830,7 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
                 }
             }
         });
-        $('#content_step_strategy_selection__substep_one').click(function(){
+        $('#content_step_strategy_selection_substep_one').click(function(){
             if(destinationArray.substep_one !== "none"){
                 if($('#content_step_strategy_selection_substep_one').hasClass('content_substep_available')){
                     if(destinationArray.current === "2.1"){ Strategy_Selection_Substep_One_Save();
