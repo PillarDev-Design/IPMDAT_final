@@ -1729,7 +1729,19 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
         }
         Strategy_Selection_Substep_Three_Check(strategySelectionArray);
     }
-
+    function Strategy_Selection_Substep_Four_Check_Boxes(boxName){
+        $('#strategy_selection_alternative_eradication').prop('checked', false);
+        $('#strategy_selection_alternative_containment').prop('checked', false);
+        $('#strategy_selection_alternative_suppression').prop('checked', false);
+        $(boxName).prop('checked', true);
+        if($('#strategy_selection_alternative_eradication').is(':checked')){
+            strategySelectionArray.strategySelectionAbundanceAndDistributionAlternativeAnswer = "eradication";
+        }else if($('#strategy_selection_alternative_containment').is(':checked')){
+            strategySelectionArray.strategySelectionAbundanceAndDistributionAlternativeAnswer = "containment";
+        }else if($('#strategy_selection_alternative_suppression').is(':checked')){
+            strategySelectionArray.strategySelectionAbundanceAndDistributionAlternativeAnswer = "suppression";
+        }
+    }
     function Add_Event_To_Field(fieldLocation, substep){
         var tempHolder;
         $(fieldLocation).keyup(function(){
@@ -1799,6 +1811,9 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
         Strategy_Selection_Substep_Four_Check(strategySelectionArray);
         Add_Event_To_Field("#strategy_selection_alternative_documentation", "4");
         // Checkbox Array
+        $('#strategy_selection_alternative_eradication').change(function(){ Strategy_Selection_Substep_Four_Check_Boxes('#strategy_selection_alternative_eradication'); });
+        $('#strategy_selection_alternative_containment').change(function(){ Strategy_Selection_Substep_Four_Check_Boxes('#strategy_selection_alternative_containment'); });
+        $('#strategy_selection_alternative_suppression').change(function(){ Strategy_Selection_Substep_Four_Check_Boxes('#strategy_selection_alternative_suppression'); });
     }
     
     function Add_Event_To_Nav(destinationArray){
