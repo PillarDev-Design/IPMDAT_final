@@ -347,6 +347,26 @@ function Check_Available_Steps(cookieData, completedSteps, currentStep){
             $('#strategy_confirmation_no').prop('disabled', true);
         }
         if(completedSteps[i] === "2.4"){
+            if($('#content_progress_bar_strategy_exploration').hasClass('progress_bar_active')){
+                $('#content_progress_bar_strategy_exploration').removeClass('progress_bar_active');
+            }
+            if($('#content_progress_bar_strategy_exploration').hasClass('progress_bar_inactive')){
+                $('#content_progress_bar_strategy_exploration').removeClass('progress_bar_inactive');
+            }
+            if($('#content_progress_bar_strategy_exploration').hasClass('progress_bar_available')){
+            }else{
+                $('#content_progress_bar_strategy_exploration').addClass('progress_bar_available');
+            }
+            if($('#content_step_strategy_exploration_substep_one').hasClass('content_substep_active')){
+                $('#content_step_strategy_exploration_substep_one').removeClass('content_substep_active');
+            }
+            if($('#content_step_strategy_exploration_substep_one').hasClass('content_substep_inactive')){
+                $('#content_step_strategy_exploration_substep_one').removeClass('content_substep_inactive');
+            }
+            if($('#content_step_strategy_exploration_substep_one').hasClass('content_substep_available')){
+            }else{
+                $('#content_step_strategy_exploration_substep_one').addClass('content_substep_available');
+            }
         }
     }
 
@@ -871,7 +891,18 @@ function IPMDAT_Init(){
     if(stepFail === false){
         completedSteps.push("2.3");
     }
+    stepFail = false;
+    
+    // 2.4
+    if(savedData.strategySelectionAbundanceAndDistributionAlternative !== null){
+        cookieData.strategySelectionAbundanceAndDistributionAlternative = savedData.strategySelectionAbundanceAndDistributionAlternative;
+    }else{ stepFail = true; }
 
+    if(stepFail === false){
+        completedSteps.push("2.4");
+    }
+    stepFail = false;
+    
     // Being Process
     Check_Available_Steps(cookieData, completedSteps, currentStep);
 };
@@ -1551,6 +1582,13 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
         if(cookieData.strategySelectionAbundanceAndDistributionAlternative !== null){ strategySelectionArray.strategySelectionAbundanceAndDistributionAlternativeAnswer = cookieData.strategySelectionAbundanceAndDistributionAlternative; }
         if(cookieData.strategySelectionAbundanceAndDistributionAlternativeDocumentation !== null){ strategySelectionArray.strategySelectionAbundanceAndDistributionAlternativeDocumentationAnswer = cookieData.strategySelectionAbundanceAndDistributionAlternativeDocumentation; }
         // Populate Fields w/ values
+        if(strategySelectionArray.strategySelectionAbundanceAndDistributionAlternativeAnswer === "eradication"){
+            $('#strategy_selection_alternative_eradication').prop('checked', true);
+        }else if(strategySelectionArray.strategySelectionAbundanceAndDistributionAlternativeAnswer === "containment"){
+            $('#strategy_selection_alternative_containment').prop('checked', true);
+        }else if(strategySelectionArray.strategySelectionAbundanceAndDistributionAlternativeAnswer === "suppression"){
+            $('#strategy_selection_alternative_suppression').prop('checked', true);
+        }
         $('#strategy_selection_alternative_documentation').prop('value', strategySelectionArray.strategySelectionAbundanceAndDistributionAlternativeDocumentationAnswer);
     }
 
@@ -1592,12 +1630,12 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
             }
             // Progress Bar
             if(form_array.strategySelectionAbundanceAndDistributionConfirmAnswer === "yes"){
-                // 2.4
+                // 3.1
                 $('#content_progress_bar_strategy_exploration').removeClass('progress_bar_inactive').addClass('progress_bar_available');
                 $('#content_step_strategy_selection_substep_four').removeClass('content_substep_available').addClass('content_substep_inactive');
-
+                $('#content_step_strategy_exploration_substep_one').removeClass('content_substep_inactive').removeClass('content_substep_active').addClass('content_substep_available');
             }else if(form_array.strategySelectionAbundanceAndDistributionConfirmAnswer === "no"){
-                // 3.1
+                // 2.4
                 $('#content_progress_bar_strategy_exploration').removeClass('progress_bar_available').addClass('progress_bar_inactive');
                 $('#content_step_strategy_selection_substep_four').removeClass('content_substep_inactive').addClass('content_substep_available');
             }
@@ -1607,10 +1645,26 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
                 // Progress Bar
                 $('#content_step_strategy_selection_substep_four').removeClass('content_substep_available').addClass('content_substep_inactive');
                 $('#content_progress_bar_strategy_exploration').removeClass('progress_bar_active').addClass('progress_bar_inactive');
+                $('#content_step_strategy_exploration_substep_one').removeClass('content_substep_available').addClass('content_substep_inactive');
             } 
         }
     };
     function Strategy_Selection_Substep_Four_Check(form_array){
+        if(form_array.strategySelectionAbundanceAndDistributionAlternativeAnswer !== null){
+            if($('#content_nav_forward').hasClass('content_nav_base_inactive')){
+                $('#content_nav_forward').removeClass('content_nav_base_inactive').addClass('content_nav_base_active');
+                // Progress Bar
+                $('#content_progress_bar_strategy_exploration').removeClass('progress_bar_inactive').addClass('progress_bar_available');
+                $('#content_step_strategy_exploration_substep_one').removeClass('content_substep_inactive').removeClass('content_substep_active').addClass('content_substep_available');
+            }
+        }else if(form_array.strategySelectionAbundanceAndDistributionAlternativeAnswer === null){
+            if($('#content_nav_forward').hasClass('content_nav_base_active')){
+                $('#content_nav_forward').removeClass('content_nav_base_active').addClass('content_nav_base_inactive');
+                // Progress Bar
+                $('#content_progress_bar_strategy_exploration').removeClass('progress_bar_available').addClass('progress_bar_inactive');
+                $('#content_step_strategy_exploration_substep_one').removeClass('content_substep_available').addClass('content_substep_inactive');
+            } 
+        }
     };
     
     function Strategy_Selection_Substep_One_Save(){
@@ -1672,6 +1726,25 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
         Save_Cookie(saveArray, "2.3", completedSteps);
     };
     function Strategy_Selection_Substep_Four_Save(){
+        console.log('Firing save');
+        // Populate saveArray
+        saveArray = {
+            strategySelectionAbundanceAndDistributionAlternative: strategySelectionArray.strategySelectionAbundanceAndDistributionAlternativeAnswer,
+            strategySelectionAbundanceAndDistributionAlternativeDocumentation: strategySelectionArray.strategySelectionAbundanceAndDistributionAlternativeDocumentationAnswer
+        };
+        if(strategySelectionArray.strategySelectionAbundanceAndDistributionAlternativeAnswer !== null){
+            console.log(strategySelectionArray.strategySelectionAbundanceAndDistributionAlternativeAnswer);
+            var addStep = true;
+            for(var i=0; i<completedSteps.length; i++){
+                if(completedSteps[i] === "2.4"){
+                    addStep = false;
+                }
+            }
+            if(addStep === true){
+                completedSteps.push("2.4");
+            }
+        }
+        Save_Cookie(saveArray, "2.4", completedSteps);
     };
 
     // Base following code on substep number
