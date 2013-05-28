@@ -52,11 +52,26 @@ function Save_Cookie(cookieData, stepNumber, completedSteps){
             strategySelectionAbundanceAndDistributionDocumentation: null,
             strategySelectionAbundanceAndDistributionConfirm: null,
             strategySelectionAbundanceAndDistributionAlternative: null,
-            strategySelectionAbundanceAndDistributionAlternativeDocumentation: null
-            // ERADICATION (STEP 3)
-            // CONTAINMENT (STEP 4)
-            // SUPPRESSION (STEP 5)
-            // RECOMMENDATION SUMMARY (STEP 6)
+            strategySelectionAbundanceAndDistributionAlternativeDocumentation: null,
+            // STRATEGY EXPLORATION (ERADICATION) (STEP 3)
+            eradicationSocialPoliticalA: null,
+            eradicationSocialPoliticalADocumentation: null,
+            eradicationSocialPoliticalB: null,
+            eradicationSocialPoliticalBDocumentation: null,
+            eradicationSocialPoliticalC: null,
+            eradicationSocialPoliticalCDocumentation: null,
+            eradicationPreventingReproductionA: null,
+            eradicationPreventingReproductionADocumentation: null,
+            eradicationPreventingReproductionB: null,
+            eradicationPreventingReproductionBDocumentation: null,
+            eradicationDetection: null,
+            eradicationDetectionDocumentation: null,
+            eradicationEffectiveControlA: null,
+            eradicationEffectiveControlADocumentation: null,
+            eradicationEffectiveControlB: null,
+            eradicationEffectiveControlBDocumentation: null,
+            eradicationNontargetImpacts: null,
+            eradicationNontargetImpactsDocumentation: null
         };
     /*===============================================================*\
      * This next chunk of code ensures that any previous data will   *
@@ -107,10 +122,36 @@ function Save_Cookie(cookieData, stepNumber, completedSteps){
     // 2.4
     if(savedData.strategySelectionAbundanceAndDistributionAlternative !== null){ cookieArray.strategySelectionAbundanceAndDistributionAlternative = savedData.strategySelectionAbundanceAndDistributionAlternative; }
     if(savedData.strategySelectionAbundanceAndDistributionAlternativeDocumentation !== null){ cookieArray.strategySelectionAbundanceAndDistributionAlternativeDocumentation = savedData.strategySelectionAbundanceAndDistributionAlternativeDocumentation; }
+    // 3.1
+    if(savedData.eradicationSocialPoliticalA !== null){ cookieArray.eradicationSocialPoliticalA = savedData.eradicationSocialPoliticalA; }
+    if(savedData.eradicationSocialPoliticalADocumentation !== null){ cookieArray.eradicationSocialPoliticalADocumentation = savedData.eradicationSocialPoliticalADocumentation; }
+    // 3.2
+    if(savedData.eradicationSocialPoliticalB !== null){ cookieArray.eradicationSocialPoliticalB = savedData.eradicationSocialPoliticalB; }
+    if(savedData.eradicationSocialPoliticalBDocumentation !== null){ cookieArray.eradicationSocialPoliticalBDocumentation = savedData.eradicationSocialPoliticalBDocumentation; }
+    // 3.3
+    if(savedData.eradicationSocialPoliticalC !== null){ cookieArray.eradicationSocialPoliticalC = savedData.eradicationSocialPoliticalC; }
+    if(savedData.eradicationSocialPoliticalCDocumentation !== null){ cookieArray.eradicationSocialPoliticalCDocumentation = savedData.eradicationSocialPoliticalCDocumentation; }
+    // 3.4
+    if(savedData.eradicationPreventingReproductionA !== null){ cookieArray.eradicationPreventingReproductionA = savedData.eradicationPreventingReproductionA; }
+    if(savedData.eradicationPreventingReproductionADocumentation !== null){ cookieArray.eradicationPreventingReproductionADocumentation = savedData.eradicationPreventingReproductionADocumentation; }
+    // 3.5
+    if(savedData.eradicationPreventingReproductionB !== null){ cookieArray.eradicationPreventingReproductionB = savedData.eradicationPreventingReproductionB; }
+    if(savedData.eradicationPreventingReproductionBDocumentation !== null){ cookieArray.eradicationPreventingReproductionBDocumentation = savedData.eradicationPreventingReproductionBDocumentation; }
+    // 3.6
+    if(savedData.eradicationDetection !== null){ cookieArray.eradicationDetection = savedData.eradicationDetection; }
+    if(savedData.eradicationDetectionDocumentation !== null){ cookieArray.eradicationDetectionDocumentation = savedData.eradicationDetectionDocumentation; }
+    // 3.7
+    if(savedData.eradicationEffectiveControlA !== null){ cookieArray.eradicationEffectiveControlA = savedData.eradicationEffectiveControlA; }
+    if(savedData.eradicationEffectiveControlADocumentation !== null){ cookieArray.eradicationEffectiveControlADocumentation = savedData.eradicationEffectiveControlADocumentation; }
+    // 3.8
+    if(savedData.eradicationEffectiveControlB !== null){ cookieArray.eradicationEffectiveControlB = savedData.eradicationEffectiveControlB; }
+    if(savedData.eradicationEffectiveControlBDocumentation !== null){ cookieArray.eradicationEffectiveControlBDocumentation = savedData.eradicationEffectiveControlBDocumentation; }
+    // 3.9
+    if(savedData.eradicationNontargetImpacts !== null){ cookieArray.eradicationNontargetImpacts = savedData.eradicationNontargetImpacts; }
+    if(savedData.eradicationNontargetImpactsDocumentation !== null){ cookieArray.eradicationNontargetImpactsDocumentation = savedData.eradicationNontargetImpactsDocumentation; }
 
     // Enter New Data from cookieData
     if(stepNumber === "1.1"){
-        // Entering NEW data from cookieData
         cookieArray.projectBackgroundAssessors = cookieData.projectBackgroundAssessors;
         cookieArray.projectBackgroundAssessorsDate = cookieData.projectBackgroundAssessorsDate;
         cookieArray.projectBackgroundScientificName = cookieData.projectBackgroundScientificName;
@@ -127,7 +168,6 @@ function Save_Cookie(cookieData, stepNumber, completedSteps){
         cookieArray.projectBackgroundProjectCoordY = cookieData.projectBackgroundProjectCoordY;
         cookieArray.projectBackgroundProjectCoordSystem = cookieData.projectBackgroundProjectCoordSystem;
     }else if(stepNumber === "1.2"){
-        // Entering NEW data from cookieData
         cookieArray.projectBackgroundProjectGoal = cookieData.projectBackgroundProjectGoal;
         cookieArray.projectBackgroundNumberOfYearsToComplete = cookieData.projectBackgroundNumberOfYearsToComplete;
         cookieArray.projectBackgroundStartDate = cookieData.projectBackgroundStartDate;
@@ -135,32 +175,52 @@ function Save_Cookie(cookieData, stepNumber, completedSteps){
         cookieArray.projectBackgroundOngoingProject = cookieData.projectBackgroundOngoingProject;
         cookieArray.projectBackgroundControlRequired = cookieData.projectBackgroundControlRequired;
     }else if(stepNumber === "1.3"){
-        // Entering NEW data from cookieData
         cookieArray.projectBackgroundGrossInvadedArea = cookieData.projectBackgroundGrossInvadedArea;
         cookieArray.projectBackgroundNetInvadedArea = cookieData.projectBackgroundNetInvadedArea;
         cookieArray.projectBackgroundNumberOfOccurances = cookieData.projectBackgroundNumberOfOccurances;
     }else if(stepNumber === "1.4"){
-        // Entering NEW data from cookieData
         cookieArray.projectBackgroundImapShareResults = cookieData.projectBackgroundImapShareResults;
         cookieArray.projectBackgroundImapAccount = cookieData.projectBackgroundImapAccount;
     }else if(stepNumber === "2.1"){
-        // Entering NEW data from cookieData
         cookieArray.strategySelectionNYSScore = cookieData.strategySelectionNYSScore;
         cookieArray.strategySelectionCheckbox = cookieData.strategySelectionCheckbox;
         cookieArray.strategySelectionDocumentation = cookieData.strategySelectionDocumentation;
     }else if(stepNumber === "2.2"){
-        // Entering NEW data from cookieData
         cookieArray.strategySelectionAbundanceAndDistributionCheckbox = cookieData.strategySelectionAbundanceAndDistributionCheckbox;
         cookieArray.strategySelectionAbundanceAndDistributionDocumentation = cookieData.strategySelectionAbundanceAndDistributionDocumentation;
     }else if(stepNumber === "2.3"){
-        // Entering NEW data from cookieData
         cookieArray.strategySelectionAbundanceAndDistributionConfirm = cookieData.strategySelectionAbundanceAndDistributionConfirm;
     }else if(stepNumber === "2.4"){
-        // Entering NEW data from cookieData
         cookieArray.strategySelectionAbundanceAndDistributionAlternative = cookieData.strategySelectionAbundanceAndDistributionAlternative;
         cookieArray.strategySelectionAbundanceAndDistributionAlternativeDocumentation = cookieData.strategySelectionAbundanceAndDistributionAlternativeDocumentation;
+    }else if(stepNumber === "3.1"){
+        cookieArray.eradicationSocialPoliticalA = cookieData.eradicationSocialPoliticalA;
+        cookieArray.eradicationSocialPoliticalADocumentation = cookieData.eradicationSocialPoliticalADocumentation;
+    }else if(stepNumber === "3.2"){
+        cookieArray.eradicationSocialPoliticalB = cookieData.eradicationSocialPoliticalB;
+        cookieArray.eradicationSocialPoliticalBDocumentation = cookieData.eradicationSocialPoliticalBDocumentation;
+    }else if(stepNumber === "3.3"){
+        cookieArray.eradicationSocialPoliticalC = cookieData.eradicationSocialPoliticalC;
+        cookieArray.eradicationSocialPoliticalCDocumentation = cookieData.eradicationSocialPoliticalCDocumentation;
+    }else if(stepNumber === "3.4"){
+        cookieArray.eradicationPreventingReproductionA = cookieData.eradicationPreventingReproductionA;
+        cookieArray.eradicationPreventingReproductionADocumentation = cookieData.eradicationPreventingReproductionADocumentation;
+    }else if(stepNumber === "3.5"){
+        cookieArray.eradicationPreventingReproductionB = cookieData.eradicationPreventingReproductionB;
+        cookieArray.eradicationPreventingReproductionBDocumentation = cookieData.eradicationPreventingReproductionBDocumentation;
+    }else if(stepNumber === "3.6"){
+        cookieArray.eradicationDetection = cookieData.eradicationDetection;
+        cookieArray.eradicationDetectionDocumentation = cookieData.eradicationDetectionDocumentation;
+    }else if(stepNumber === "3.7"){
+        cookieArray.eradicationEffectiveControlA = cookieData.eradicationEffectiveControlA;
+        cookieArray.eradicationEffectiveControlADocumentation = cookieData.eradicationEffectiveControlADocumentation;
+    }else if(stepNumber === "3.8"){
+        cookieArray.eradicationEffectiveControlB = cookieData.eradicationEffectiveControlB;
+        cookieArray.eradicationEffectiveControlBDocumentation = cookieData.eradicationEffectiveControlBDocumentation;
+    }else if(stepNumber === "3.9"){
+        cookieArray.eradicationNontargetImpacts = cookieData.eradicationNontargetImpacts;
+        cookieArray.eradicationNontargetImpactsDocumentation = cookieData.eradicationNontargetImpactsDocumentation;
     }
-    
     $.JSONCookie(name, cookieArray, {path: '/'});
 };
 /***********************************************\
@@ -717,11 +777,26 @@ function IPMDAT_Init(){
             strategySelectionAbundanceAndDistributionDocumentation: null,
             strategySelectionAbundanceAndDistributionConfirm: null,
             strategySelectionAbundanceAndDistributionAlternative: null,
-            strategySelectionAbundanceAndDistributionAlternativeDocumentation: null
-            // ERADICATION (STEP 3)
-            // CONTAINMENT (STEP 4)
-            // SUPPRESSION (STEP 5)
-            // RECOMMENDATION SUMMARY (STEP 6)
+            strategySelectionAbundanceAndDistributionAlternativeDocumentation: null,
+            // STRATEGY EXPLORATION (ERADICATION) (STEP 3)
+            eradicationSocialPoliticalA: null,
+            eradicationSocialPoliticalADocumentation: null,
+            eradicationSocialPoliticalB: null,
+            eradicationSocialPoliticalBDocumentation: null,
+            eradicationSocialPoliticalC: null,
+            eradicationSocialPoliticalCDocumentation: null,
+            eradicationPreventingReproductionA: null,
+            eradicationPreventingReproductionADocumentation: null,
+            eradicationPreventingReproductionB: null,
+            eradicationPreventingReproductionBDocumentation: null,
+            eradicationDetection: null,
+            eradicationDetectionDocumentation: null,
+            eradicationEffectiveControlA: null,
+            eradicationEffectiveControlADocumentation: null,
+            eradicationEffectiveControlB: null,
+            eradicationEffectiveControlBDocumentation: null,
+            eradicationNontargetImpacts: null,
+            eradicationNontargetImpactsDocumentation: null
         },
         completedSteps = [],
         currentStep = "1.1",
@@ -772,11 +847,26 @@ function IPMDAT_Init(){
             strategySelectionAbundanceAndDistributionDocumentation: null,
             strategySelectionAbundanceAndDistributionConfirm: null,
             strategySelectionAbundanceAndDistributionAlternative: null,
-            strategySelectionAbundanceAndDistributionAlternativeDocumentation: null
-            // ERADICATION (STEP 3)
-            // CONTAINMENT (STEP 4)
-            // SUPPRESSION (STEP 5)
-            // RECOMMENDATION SUMMARY (STEP 6)
+            strategySelectionAbundanceAndDistributionAlternativeDocumentation: null,
+            // STRATEGY EXPLORATION (ERADICATION) (STEP 3)
+            eradicationSocialPoliticalA: null,
+            eradicationSocialPoliticalADocumentation: null,
+            eradicationSocialPoliticalB: null,
+            eradicationSocialPoliticalBDocumentation: null,
+            eradicationSocialPoliticalC: null,
+            eradicationSocialPoliticalCDocumentation: null,
+            eradicationPreventingReproductionA: null,
+            eradicationPreventingReproductionADocumentation: null,
+            eradicationPreventingReproductionB: null,
+            eradicationPreventingReproductionBDocumentation: null,
+            eradicationDetection: null,
+            eradicationDetectionDocumentation: null,
+            eradicationEffectiveControlA: null,
+            eradicationEffectiveControlADocumentation: null,
+            eradicationEffectiveControlB: null,
+            eradicationEffectiveControlBDocumentation: null,
+            eradicationNontargetImpacts: null,
+            eradicationNontargetImpactsDocumentation: null
         };
         $.JSONCookie(name, cookieData, {path: '/'});
     });
@@ -903,6 +993,7 @@ function IPMDAT_Init(){
     }
     stepFail = false;
     
+    console.log(completedSteps);
     // Being Process
     Check_Available_Steps(cookieData, completedSteps, currentStep);
 };
