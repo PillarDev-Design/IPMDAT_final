@@ -68,6 +68,8 @@ function Save_Cookie(cookieData, stepNumber, completedSteps){
             eradicationDetectionDocumentation: null,
             eradicationEffectiveControlA: null,
             eradicationEffectiveControlADocumentation: null,
+            eradicationEffectiveControlAControlMethod: null,
+            eradicationEffectiveControlAControlMethodDescription: null,
             eradicationEffectiveControlB: null,
             eradicationEffectiveControlBDocumentation: null,
             eradicationNontargetImpacts: null,
@@ -143,6 +145,8 @@ function Save_Cookie(cookieData, stepNumber, completedSteps){
     // 3.7
     if(savedData.eradicationEffectiveControlA !== null){ cookieArray.eradicationEffectiveControlA = savedData.eradicationEffectiveControlA; }
     if(savedData.eradicationEffectiveControlADocumentation !== null){ cookieArray.eradicationEffectiveControlADocumentation = savedData.eradicationEffectiveControlADocumentation; }
+    if(savedData.eradicationEffectiveControlAControlMethod !== null){ cookieArray.eradicationEffectiveControlAControlMethod = savedData.eradicationEffectiveControlAControlMethod; }
+    if(savedData.eradicationEffectiveControlAControlMethodDescription !== null){ cookieArray.eradicationEffectiveControlAControlMethodDescription = savedData.eradicationEffectiveControlAControlMethodDescription; }
     // 3.8
     if(savedData.eradicationEffectiveControlB !== null){ cookieArray.eradicationEffectiveControlB = savedData.eradicationEffectiveControlB; }
     if(savedData.eradicationEffectiveControlBDocumentation !== null){ cookieArray.eradicationEffectiveControlBDocumentation = savedData.eradicationEffectiveControlBDocumentation; }
@@ -214,6 +218,8 @@ function Save_Cookie(cookieData, stepNumber, completedSteps){
     }else if(stepNumber === "3.7"){
         cookieArray.eradicationEffectiveControlA = cookieData.eradicationEffectiveControlA;
         cookieArray.eradicationEffectiveControlADocumentation = cookieData.eradicationEffectiveControlADocumentation;
+        cookieArray.eradicationEffectiveControlAControlMethod = cookieData.eradicationEffectiveControlAControlMethod;
+        cookieArray.eradicationEffectiveControlAControlMethodDescription = cookieData.eradicationEffectiveControlAControlMethodDescription;
     }else if(stepNumber === "3.8"){
         cookieArray.eradicationEffectiveControlB = cookieData.eradicationEffectiveControlB;
         cookieArray.eradicationEffectiveControlBDocumentation = cookieData.eradicationEffectiveControlBDocumentation;
@@ -463,6 +469,37 @@ function Check_Available_Steps(cookieData, completedSteps, currentStep){
     if($('#content_substep_strategy_selection_container').hasClass('content_substep_container_active')){
         $('#content_substep_strategy_selection_container').removeClass('content_substep_container_active').addClass('content_substep_container_inactive');
     }
+    // STRATEGY EXPLORATION (ERADICATION)
+    if($('#content_step_strategy_exploration_eradication_SocialPoliticalA').hasClass('content_step_active')){
+        $('#content_step_strategy_exploration_eradication_SocialPoliticalA').removeClass('content_step_active').addClass('content_step_inactive');
+    }
+    if($('#content_step_strategy_exploration_eradication_SocialPoliticalB').hasClass('content_step_active')){
+        $('#content_step_strategy_exploration_eradication_SocialPoliticalB').removeClass('content_step_active').addClass('content_step_inactive');
+    }
+    if($('#content_step_strategy_exploration_eradication_SocialPoliticalC').hasClass('content_step_active')){
+        $('#content_step_strategy_exploration_eradication_SocialPoliticalC').removeClass('content_step_active').addClass('content_step_inactive');
+    }
+    if($('#content_step_strategy_exploration_eradication_PreventingReproductionA').hasClass('content_step_active')){
+        $('#content_step_strategy_exploration_eradication_PreventingReproductionA').removeClass('content_step_active').addClass('content_step_inactive');
+    }
+    if($('#content_step_strategy_exploration_eradication_PreventingReproductionB').hasClass('content_step_active')){
+        $('#content_step_strategy_exploration_eradication_PreventingReproductionB').removeClass('content_step_active').addClass('content_step_inactive');
+    }
+    if($('#content_step_strategy_exploration_eradication_Detection').hasClass('content_step_active')){
+        $('#content_step_strategy_exploration_eradication_Detection').removeClass('content_step_active').addClass('content_step_inactive');
+    }
+    if($('#content_step_strategy_exploration_eradication_EffectiveControlA').hasClass('content_step_active')){
+        $('#content_step_strategy_exploration_eradication_EffectiveControlA').removeClass('content_step_active').addClass('content_step_inactive');
+    }
+    if($('#content_step_strategy_exploration_eradication_EffectiveControlB').hasClass('content_step_active')){
+        $('#content_step_strategy_exploration_eradication_EffectiveControlB').removeClass('content_step_active').addClass('content_step_inactive');
+    }
+    if($('#content_step_strategy_exploration_eradication_NontargetImpacts').hasClass('content_step_active')){
+        $('#content_step_strategy_exploration_eradication_NontargetImpacts').removeClass('content_step_active').addClass('content_step_inactive');
+    }
+    if($('#content_substep_strategy_exploration_eradication_container').hasClass('content_substep_container_active')){
+        $('#content_substep_strategy_exploration_eradication_container').removeClass('content_substep_container_active').addClass('content_substep_container_inactive');
+    }
     // STRATEGY EXPLORATION
     if($('#content_step_strategy_exploration_container').hasClass('content_step_active')){
         $('#content_step_strategy_exploration_container').removeClass('content_step_active').addClass('content_step_inactive');
@@ -670,66 +707,147 @@ function Check_Available_Steps(cookieData, completedSteps, currentStep){
         }
         // Execute Step Function
         JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, currentStep);
-    } else if(currentStep === "eradication"){
-        // Clear Questions
-        // TODO: UPDATE HERE
-        // Progress Bars
-        if($('#content_progress_bar_eradication').hasClass('progress_bar_inactive')){
-            $('#content_progress_bar_eradication').removeClass('progress_bar_inactive');
+    }else if((currentStep === "3.1")||(currentStep === "3.2")||(currentStep === "3.3")||(currentStep === "3.4")||(currentStep === "3.5")||(currentStep ==="3.6")||(currentStep === "3.7")||(currentStep === "3.8")||(currentStep === "3.9")){
+        // Main Progress Bars
+        if($('#content_progress_bar_strategy_exploration').hasClass('progress_bar_inactive')){
+            $('#content_progress_bar_strategy_exploration').removeClass('progress_bar_inactive');
         }
-        if($('#content_progress_bar_eradication').hasClass('progress_bar_available')){
-            $('#content_progress_bar_eradication').removeClass('progress_bar_available');
+        if($('#content_progress_bar_strategy_exploration').hasClass('progress_bar_available')){
+            $('#content_progress_bar_strategy_exploration').removeClass('progress_bar_available');
         }
-        if($('#content_progress_bar_eradication').hasClass('progress_bar_active')){
+        if($('#content_progress_bar_strategy_exploration').hasClass('progress_bar_active')){
         }else{
-            $('#content_progress_bar_eradication').addClass('progress_bar_active');
+            $('#content_progress_bar_strategy_exploration').addClass('progress_bar_active');
         }
-        JSON_Cookie_Step_Eradication(cookieData, completedSteps, currentStep);
-    } else if(currentStep === "containment"){
-        // Clear Questions
-        // TODO: UPDATE HERE
-        // Progress Bars
-        if($('#content_progress_bar_containment').hasClass('progress_bar_inactive')){
-            $('#content_progress_bar_containment').removeClass('progress_bar_inactive');
+        // Substep Progress Container
+        if($('#content_substep_strategy_exploration_eradication_container').hasClass('content_substep_container_inactive')){
+            $('#content_substep_strategy_exploration_eradication_container').removeClass('content_substep_container_inactive').addClass('content_substep_container_active');
         }
-        if($('#content_progress_bar_containment').hasClass('progress_bar_available')){
-            $('#content_progress_bar_containment').removeClass('progress_bar_available');
+        
+        // SubStep Progress Bars & Clear Questions
+        if(currentStep === "3.1"){
+            // Substep Progress Bar
+            if($('#content_step_strategy_exploration_eradication_substep_one').hasClass('content_substep_inactive')){
+                $('#content_step_strategy_exploration_eradication_substep_one').removeClass('content_substep_inactive');
+            }
+            if($('#content_step_strategy_exploration_eradication_substep_one').hasClass('content_substep_available')){
+                $('#content_step_strategy_exploration_eradication_substep_one').removeClass('content_substep_available');
+            }
+            if($('#content_step_strategy_exploration_eradication_substep_one').hasClass('content_substep_active')){}else{
+                $('#content_step_strategy_exploration_eradication_substep_one').addClass('content_substep_active');
+            }
+            // Clear Questions
+            $('#eradication_SocialPoliticalA_yes').prop('checked', false);
+            $('#eradication_SocialPoliticalA_no').prop('checked', false);
+            $('#eradication_SocialPoliticalA_uncertain').prop('checked', false);
+            $('#eradication_SocialPoliticalA_documentation').prop('value', "");
+        }else if(currentStep === "3.2"){
+            // Substep Progress Bar
+            if($('#content_step_strategy_exploration_eradication_substep_two').hasClass('content_substep_inactive')){
+                $('#content_step_strategy_exploration_eradication_substep_two').removeClass('content_substep_inactive');
+            }
+            if($('#content_step_strategy_exploration_eradication_substep_two').hasClass('content_substep_available')){
+                $('#content_step_strategy_exploration_eradication_substep_two').removeClass('content_substep_available');
+            }
+            if($('#content_step_strategy_exploration_eradication_substep_two').hasClass('content_substep_active')){}else{
+                $('#content_step_strategy_exploration_eradication_substep_two').addClass('content_substep_active');
+            }
+            // Clear Questions
+            // TODO: UPDATE HERE
+        }else if(currentStep === "3.3"){
+            // Substep Progress Bar
+            if($('#content_step_strategy_exploration_eradication_substep_three').hasClass('content_substep_inactive')){
+                $('#content_step_strategy_exploration_eradication_substep_three').removeClass('content_substep_inactive');
+            }
+            if($('#content_step_strategy_exploration_eradication_substep_three').hasClass('content_substep_available')){
+                $('#content_step_strategy_exploration_eradication_substep_three').removeClass('content_substep_available');
+            }
+            if($('#content_step_strategy_exploration_eradication_substep_three').hasClass('content_substep_active')){}else{
+                $('#content_step_strategy_exploration_eradication_substep_three').addClass('content_substep_active');
+            }
+            // Clear Questions
+            // TODO: UPDATE HERE
+        }else if(currentStep === "3.4"){
+            // Substep Progress Bar
+            if($('#content_step_strategy_exploration_eradication_substep_four').hasClass('content_substep_inactive')){
+                $('#content_step_strategy_exploration_eradication_substep_four').removeClass('content_substep_inactive');
+            }
+            if($('#content_step_strategy_exploration_eradication_substep_four').hasClass('content_substep_available')){
+                $('#content_step_strategy_exploration_eradication_substep_four').removeClass('content_substep_available');
+            }
+            if($('#content_step_strategy_exploration_eradication_substep_four').hasClass('content_substep_active')){}else{
+                $('#content_step_strategy_exploration_eradication_substep_four').addClass('content_substep_active');
+            }
+            // Clear Questions
+            // TODO: UPDATE HERE
+        }else if(currentStep === "3.5"){
+            // Substep Progress Bar
+            if($('#content_step_strategy_exploration_eradication_substep_five').hasClass('content_substep_inactive')){
+                $('#content_step_strategy_exploration_eradication_substep_five').removeClass('content_substep_inactive');
+            }
+            if($('#content_step_strategy_exploration_eradication_substep_five').hasClass('content_substep_available')){
+                $('#content_step_strategy_exploration_eradication_substep_five').removeClass('content_substep_available');
+            }
+            if($('#content_step_strategy_exploration_eradication_substep_five').hasClass('content_substep_active')){}else{
+                $('#content_step_strategy_exploration_eradication_substep_five').addClass('content_substep_active');
+            }
+            // Clear Questions
+            // TODO: UPDATE HERE
+        }else if(currentStep === "3.6"){
+            // Substep Progress Bar
+            if($('#content_step_strategy_exploration_eradication_substep_six').hasClass('content_substep_inactive')){
+                $('#content_step_strategy_exploration_eradication_substep_six').removeClass('content_substep_inactive');
+            }
+            if($('#content_step_strategy_exploration_eradication_substep_six').hasClass('content_substep_available')){
+                $('#content_step_strategy_exploration_eradication_substep_six').removeClass('content_substep_available');
+            }
+            if($('#content_step_strategy_exploration_eradication_substep_six').hasClass('content_substep_active')){}else{
+                $('#content_step_strategy_exploration_eradication_substep_six').addClass('content_substep_active');
+            }
+            // Clear Questions
+            // TODO: UPDATE HERE
+        }else if(currentStep === "3.7"){
+            // Substep Progress Bar
+            if($('#content_step_strategy_exploration_eradication_substep_seven').hasClass('content_substep_inactive')){
+                $('#content_step_strategy_exploration_eradication_substep_seven').removeClass('content_substep_inactive');
+            }
+            if($('#content_step_strategy_exploration_eradication_substep_seven').hasClass('content_substep_available')){
+                $('#content_step_strategy_exploration_eradication_substep_seven').removeClass('content_substep_available');
+            }
+            if($('#content_step_strategy_exploration_eradication_substep_seven').hasClass('content_substep_active')){}else{
+                $('#content_step_strategy_exploration_eradication_substep_seven').addClass('content_substep_active');
+            }
+            // Clear Questions
+            // TODO: UPDATE HERE
+        }else if(currentStep === "3.8"){
+            // Substep Progress Bar
+            if($('#content_step_strategy_exploration_eradication_substep_eight').hasClass('content_substep_inactive')){
+                $('#content_step_strategy_exploration_eradication_substep_eight').removeClass('content_substep_inactive');
+            }
+            if($('#content_step_strategy_exploration_eradication_substep_eight').hasClass('content_substep_available')){
+                $('#content_step_strategy_exploration_eradication_substep_eight').removeClass('content_substep_available');
+            }
+            if($('#content_step_strategy_exploration_eradication_substep_eight').hasClass('content_substep_active')){}else{
+                $('#content_step_strategy_exploration_eradication_substep_eight').addClass('content_substep_active');
+            }
+            // Clear Questions
+            // TODO: UPDATE HERE
+        }else if(currentStep === "3.9"){
+            // Substep Progress Bar
+            if($('#content_step_strategy_exploration_eradication_substep_nine').hasClass('content_substep_inactive')){
+                $('#content_step_strategy_exploration_eradication_substep_nine').removeClass('content_substep_inactive');
+            }
+            if($('#content_step_strategy_exploration_eradication_substep_nine').hasClass('content_substep_available')){
+                $('#content_step_strategy_exploration_eradication_substep_nine').removeClass('content_substep_available');
+            }
+            if($('#content_step_strategy_exploration_eradication_substep_nine').hasClass('content_substep_active')){}else{
+                $('#content_step_strategy_exploration_eradication_substep_nine').addClass('content_substep_active');
+            }
+            // Clear Questions
+            // TODO: UPDATE HERE
         }
-        if($('#content_progress_bar_containment').hasClass('progress_bar_active')){
-        }else{
-            $('#content_progress_bar_containment').addClass('progress_bar_active');
-        }
-        JSON_Cookie_Step_Containment(cookieData, completedSteps, currentStep);
-    } else if(currentStep === "suppression"){
-        // Clear Questions
-        // TODO: UPDATE HERE
-        // Progress Bars
-        if($('#content_progress_bar_suppression').hasClass('progress_bar_inactive')){
-            $('#content_progress_bar_suppression').removeClass('progress_bar_inactive');
-        }
-        if($('#content_progress_bar_suppression').hasClass('progress_bar_available')){
-            $('#content_progress_bar_suppression').removeClass('progress_bar_available');
-        }
-        if($('#content_progress_bar_suppression').hasClass('progress_bar_active')){
-        }else{
-            $('#content_progress_bar_suppression').addClass('progress_bar_active');
-        }
-        JSON_Cookie_Step_Suppression(cookieData, completedSteps, currentStep);
-    } else if(currentStep === "recommendationSummary"){
-        // Clear Questions
-        // TODO: UPDATE HERE
-        // Progress Bars
-        if($('#content_progress_bar_recommendation_summary').hasClass('progress_bar_inactive')){
-            $('#content_progress_bar_recommendation_summary').removeClass('progress_bar_inactive');
-        }
-        if($('#content_progress_bar_recommendation_summary').hasClass('progress_bar_available')){
-            $('#content_progress_bar_recommendation_summary').removeClass('progress_bar_available');
-        }
-        if($('#content_progress_bar_recommendation_summary').hasClass('progress_bar_active')){
-        }else{
-            $('#content_progress_bar_recommendation_summary').addClass('progress_bar_active');
-        }
-        JSON_Cookie_Step_Recommendation_Summary(cookieData, completedSteps, currentStep);
+        // Execute Step Function
+        JSON_Cookie_Step_Strategy_Exploration_Eradication(cookieData, completedSteps, currentStep);
     }
 };
 
@@ -793,6 +911,8 @@ function IPMDAT_Init(){
             eradicationDetectionDocumentation: null,
             eradicationEffectiveControlA: null,
             eradicationEffectiveControlADocumentation: null,
+            eradicationEffectiveControlAControlMethod: null,
+            eradicationEffectiveControlAControlMethodDescription: null,
             eradicationEffectiveControlB: null,
             eradicationEffectiveControlBDocumentation: null,
             eradicationNontargetImpacts: null,
@@ -863,6 +983,8 @@ function IPMDAT_Init(){
             eradicationDetectionDocumentation: null,
             eradicationEffectiveControlA: null,
             eradicationEffectiveControlADocumentation: null,
+            eradicationEffectiveControlAControlMethod: null,
+            eradicationEffectiveControlAControlMethodDescription: null,
             eradicationEffectiveControlB: null,
             eradicationEffectiveControlBDocumentation: null,
             eradicationNontargetImpacts: null,
@@ -877,67 +999,48 @@ function IPMDAT_Init(){
         stepFail = false;
     
     //------------------------------------------------------------------------\\
+    // The following section checks for the required field on each step and   \\
+    // determines if the step is completed or not.                            \\
+    //------------------------------------------------------------------------\\
+
+    //------------------------------------------------------------------------\\
     // Project Background                                                     \\
     //------------------------------------------------------------------------\\
+    // *** 1.1 ***
     //projectBackgroundAssessors
     if(savedData.projectBackgroundAssessors !== null){
         cookieData.projectBackgroundAssessors = savedData.projectBackgroundAssessors;
     }else{ stepFail = true; }
-
-    // 1.1
     if(stepFail === false){
         completedSteps.push("1.1");
     }
     stepFail = false;
 
+    // *** 1.2 ***
     //projectBackgroundProjectGoal
     if(savedData.projectBackgroundProjectGoal !== null){
         cookieData.projectBackgroundProjectGoal = savedData.projectBackgroundProjectGoal;
     }else{ stepFail = true; }
-
-
-    // 1.2
     if(stepFail === false){
         completedSteps.push("1.2");
     }
     stepFail = false;
 
+    // *** 1.3 ***
     //projectBackgroundGrossInvadedArea
     if(savedData.projectBackgroundGrossInvadedArea !== null){
         cookieData.projectBackgroundGrossInvadedArea = savedData.projectBackgroundGrossInvadedArea;
     }else{ stepFail = true; }
-    
-    /*
-    //projectBackgroundNetInvadedArea
-    if(savedData.projectBackgroundNetInvadedArea !== null){
-        cookieData.projectBackgroundNetInvadedArea = savedData.projectBackgroundNetInvadedArea;
-    }else{ stepFail = true; }
-
-    //projectBackgroundNumberOfOccurances
-    if(savedData.projectBackgroundNumberOfOccurances !== null){
-        cookieData.projectBackgroundNumberOfOccurances = savedData.projectBackgroundNumberOfOccurances;
-    }else{ stepFail = true; }
-    */
-
-    // 1.3
     if(stepFail === false){
         completedSteps.push("1.3");
     }
     stepFail = false;
 
+    // *** 1.4 ***
     //projectBackgroundImapShareResults
     if(savedData.projectBackgroundImapShareResults !== null){
         cookieData.projectBackgroundImapShareResults = savedData.projectBackgroundImapShareResults;
     }else{ stepFail = true; }
-    
-    /*
-    //projectBackgroundImapAccount
-    if(savedData.projectBackgroundImapAccount !== null){
-        cookieData.projectBackgroundImapAccount = savedData.projectBackgroundImapAccount;
-    }else{ stepFail = true; }
-    */
-
-    // 1.4
     if(stepFail === false){
         completedSteps.push("1.4");
     }
@@ -946,54 +1049,127 @@ function IPMDAT_Init(){
     //------------------------------------------------------------------------\\
     // Strategy Selection                                                     \\
     //------------------------------------------------------------------------\\
-    //strategySelectionEcologicalImpact
-    //strategySelectionLimitedDistribution
-    //strategySelectionWidespreadDistribution
-    //strategySelectionNegligibleImpact
-    //strategySelectionSignificantHarm
-    //strategySelectionDocumentation
-    // 2.1
+    // *** 2.1 ***
     //strategySelectionNYSScore
     if(savedData.strategySelectionNYSScore !== null){
         cookieData.strategySelectionNYSScore = savedData.strategySelectionNYSScore;
     }else{ stepFail = true; }
-
     if(stepFail === false){
         completedSteps.push("2.1");
     }
     stepFail = false;
 
-    // 2.2
+    // *** 2.2 ***
     if(savedData.strategySelectionAbundanceAndDistributionCheckbox !== null){
         cookieData.strategySelectionAbundanceAndDistributionCheckbox = savedData.strategySelectionAbundanceAndDistributionCheckbox;
     }else{ stepFail = true; }
-
     if(stepFail === false){
         completedSteps.push("2.2");
     }
     stepFail = false;
     
-    // 2.3
+    // *** 2.3 ***
     if(savedData.strategySelectionAbundanceAndDistributionConfirm !== null){
         cookieData.strategySelectionAbundanceAndDistributionConfirm = savedData.strategySelectionAbundanceAndDistributionConfirm;
     }else{ stepFail = true; }
-
     if(stepFail === false){
         completedSteps.push("2.3");
     }
     stepFail = false;
     
-    // 2.4
+    // *** 2.4 ***
     if(savedData.strategySelectionAbundanceAndDistributionAlternative !== null){
         cookieData.strategySelectionAbundanceAndDistributionAlternative = savedData.strategySelectionAbundanceAndDistributionAlternative;
     }else{ stepFail = true; }
-
     if(stepFail === false){
         completedSteps.push("2.4");
     }
     stepFail = false;
     
-    console.log(completedSteps);
+    //------------------------------------------------------------------------\\
+    // Strategy Selection                                                     \\
+    //------------------------------------------------------------------------\\
+    // *** 3.1 ***
+    if(savedData.eradicationSocialPoliticalA !== null){
+        cookieData.eradicationSocialPoliticalA = savedData.eradicationSocialPoliticalA;
+    }else{ stepFail = true; }
+    if(stepFail === false){
+        completedSteps.push("3.1");
+    }
+    stepFail = false;
+
+    // *** 3.2 ***
+    if(savedData.eradicationSocialPoliticalB !== null){
+        cookieData.eradicationSocialPoliticalB = savedData.eradicationSocialPoliticalB;
+    }else{ stepFail = true; }
+    if(stepFail === false){
+        completedSteps.push("3.2");
+    }
+    stepFail = false;
+
+    // *** 3.3 ***
+    if(savedData.eradicationSocialPoliticalC !== null){
+        cookieData.eradicationSocialPoliticalC = savedData.eradicationSocialPoliticalC;
+    }else{ stepFail = true; }
+    if(stepFail === false){
+        completedSteps.push("3.3");
+    }
+    stepFail = false;
+    
+    // *** 3.4 ***
+    if(savedData.eradicationPreventingReproductionA !== null){
+        cookieData.eradicationPreventingReproductionA = savedData.eradicationPreventingReproductionA;
+    }else{ stepFail = true; }
+    if(stepFail === false){
+        completedSteps.push("3.4");
+    }
+    stepFail = false;
+
+    // *** 3.5 ***
+    if(savedData.eradicationPreventingReproductionB !== null){
+        cookieData.eradicationPreventingReproductionB = savedData.eradicationPreventingReproductionB;
+    }else{ stepFail = true; }
+    if(stepFail === false){
+        completedSteps.push("3.5");
+    }
+    stepFail = false;
+
+    // *** 3.6 ***
+    if(savedData.eradicationDetection !== null){
+        cookieData.eradicationDetection = savedData.eradicationDetection;
+    }else{ stepFail = true; }
+    if(stepFail === false){
+        completedSteps.push("3.6");
+    }
+    stepFail = false;
+
+    // *** 3.7 ***
+    if(savedData.eradicationEffectiveControlA !== null){
+        cookieData.eradicationEffectiveControlA = savedData.eradicationEffectiveControlA;
+    }else{ stepFail = true; }
+    if(stepFail === false){
+        completedSteps.push("3.7");
+    }
+    stepFail = false;
+
+    // *** 3.8 ***
+    if(savedData.eradicationEffectiveControlB !== null){
+        cookieData.eradicationEffectiveControlB = savedData.eradicationEffectiveControlB;
+    }else{ stepFail = true; }
+    if(stepFail === false){
+        completedSteps.push("3.8");
+    }
+    stepFail = false;
+
+    // *** 3.9 ***
+    if(savedData.eradicationNontargetImpacts !== null){
+        cookieData.eradicationNontargetImpacts = savedData.eradicationNontargetImpacts;
+    }else{ stepFail = true; }
+    if(stepFail === false){
+        completedSteps.push("3.9");
+    }
+    stepFail = false;
+
     // Being Process
     Check_Available_Steps(cookieData, completedSteps, currentStep);
 };
@@ -2173,7 +2349,7 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
  * completedSteps (array of completed step #'s *
  * currentStep (integer)                       *
 \***********************************************/
-function JSON_Cookie_Step_Eradication(cookieData, completedSteps, currentStep){
+function JSON_Cookie_Step_Strategy_Exploration_Eradication(cookieData, completedSteps, currentStep){
 };
 
 /***********************************************\

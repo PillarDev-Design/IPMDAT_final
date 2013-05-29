@@ -524,6 +524,46 @@ function Create_HTML(){
         extraInputClasses: ['content_step_question_textarea_input']
     };
     elementProperties.push(temp);
+    // *** ERADICATION ***
+    // SocialPoliticalA
+    temp = {
+        targetContainer: '#one_part_SocialPoliticalA_yes',
+        mainID: 'eradication_SocialPoliticalA_yes',
+        labelText: 'Yes:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_SocialPoliticalA_no',
+        mainID: 'eradication_SocialPoliticalA_no',
+        labelText: 'No:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_SocialPoliticalA_uncertain',
+        mainID: 'eradication_SocialPoliticalA_uncertain',
+        labelText: 'Uncertain:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_SocialPoliticalA_documentation',
+        mainID: 'eradication_SocialPoliticalA_documentation',
+        labelText: 'Documentation:',
+        required: false,
+        inputType: 'text',
+        changeDiv: 'textarea',
+        extraContentClasses: ['content_step_question_textarea_content'],
+        extraInputClasses: ['content_step_question_textarea_input']
+    };
+    elementProperties.push(temp);
 
     // Create Elements
     var propertiesLength = elementProperties.length;
