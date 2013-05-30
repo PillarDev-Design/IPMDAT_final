@@ -2391,16 +2391,14 @@ function JSON_Cookie_Step_Strategy_Exploration_Eradication(cookieData, completed
             if(cookieData.eradicationSocialPoliticalA !== null){ eradicationArray.eradicationSocialPoliticalA = cookieData.eradicationSocialPoliticalA; }
             if(cookieData.eradicationSocialPoliticalADocumentation !== null){ eradicationArray.eradicationSocialPoliticalADocumentation = cookieData.eradicationSocialPoliticalADocumentation; }
             // Populate Fields
-            // TODO: LEFT ON WEDNESDAY HERE
-            //      Replace 'yes' with div name.
             switch(eradicationArray.eradicationSocialPoliticalA){
-                case "yes":
+                case "#eradication_SocialPoliticalA_yes":
                     $('#eradication_SocialPoliticalA_yes').prop('checked', true);
                     break;
-                case "no":
+                case "#eradication_SocialPoliticalA_no":
                     $('#eradication_SocialPoliticalA_no').prop('checked', true);
                     break;
-                case "uncertain":
+                case "#eradication_SocialPoliticalA_uncertain":
                     $('#eradication_SocialPoliticalA_uncertain').prop('checked', true);
                     break;
             }
