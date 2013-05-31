@@ -564,8 +564,378 @@ function Create_HTML(){
         extraInputClasses: ['content_step_question_textarea_input']
     };
     elementProperties.push(temp);
+    // SocialPoliticalB
+    temp = {
+        targetContainer: '#one_part_SocialPoliticalB_yes',
+        mainID: 'eradication_SocialPoliticalB_yes',
+        labelText: 'Yes:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_SocialPoliticalB_no',
+        mainID: 'eradication_SocialPoliticalB_no',
+        labelText: 'No:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_SocialPoliticalB_uncertain',
+        mainID: 'eradication_SocialPoliticalB_uncertain',
+        labelText: 'Uncertain:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_SocialPoliticalB_documentation',
+        mainID: 'eradication_SocialPoliticalB_documentation',
+        labelText: 'Documentation:',
+        required: false,
+        inputType: 'text',
+        changeDiv: 'textarea',
+        extraContentClasses: ['content_step_question_textarea_content'],
+        extraInputClasses: ['content_step_question_textarea_input']
+    };
+    elementProperties.push(temp);
+    // SocialPoliticalC
+    temp = {
+        targetContainer: '#one_part_SocialPoliticalC_yes',
+        mainID: 'eradication_SocialPoliticalC_yes',
+        labelText: 'Yes:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_SocialPoliticalC_no',
+        mainID: 'eradication_SocialPoliticalC_no',
+        labelText: 'No:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_SocialPoliticalC_uncertain',
+        mainID: 'eradication_SocialPoliticalC_uncertain',
+        labelText: 'Uncertain:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_SocialPoliticalC_documentation',
+        mainID: 'eradication_SocialPoliticalC_documentation',
+        labelText: 'Documentation:',
+        required: false,
+        inputType: 'text',
+        changeDiv: 'textarea',
+        extraContentClasses: ['content_step_question_textarea_content'],
+        extraInputClasses: ['content_step_question_textarea_input']
+    };
+    elementProperties.push(temp);
+    // PreventingReproductionA
+    temp = {
+        targetContainer: '#one_part_PreventingReproductionA_yes',
+        mainID: 'eradication_PreventingReproductionA_yes',
+        labelText: 'Yes:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_PreventingReproductionA_no',
+        mainID: 'eradication_PreventingReproductionA_no',
+        labelText: 'No:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_PreventingReproductionA_uncertain',
+        mainID: 'eradication_PreventingReproductionA_uncertain',
+        labelText: 'Uncertain:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_PreventingReproductionA_documentation',
+        mainID: 'eradication_PreventingReproductionA_documentation',
+        labelText: 'Documentation:',
+        required: false,
+        inputType: 'text',
+        changeDiv: 'textarea',
+        extraContentClasses: ['content_step_question_textarea_content'],
+        extraInputClasses: ['content_step_question_textarea_input']
+    };
+    elementProperties.push(temp);
+    // PreventingReproductionB
+    temp = {
+        targetContainer: '#one_part_PreventingReproductionB_yes',
+        mainID: 'eradication_PreventingReproductionB_yes',
+        labelText: 'Yes:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_PreventingReproductionB_no',
+        mainID: 'eradication_PreventingReproductionB_no',
+        labelText: 'No:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_PreventingReproductionB_uncertain',
+        mainID: 'eradication_PreventingReproductionB_uncertain',
+        labelText: 'Uncertain:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_PreventingReproductionB_documentation',
+        mainID: 'eradication_PreventingReproductionB_documentation',
+        labelText: 'Documentation:',
+        required: false,
+        inputType: 'text',
+        changeDiv: 'textarea',
+        extraContentClasses: ['content_step_question_textarea_content'],
+        extraInputClasses: ['content_step_question_textarea_input']
+    };
+    elementProperties.push(temp);
+    // Detection
+    temp = {
+        targetContainer: '#one_part_Detection_yes',
+        mainID: 'eradication_Detection_yes',
+        labelText: 'Yes:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_Detection_no',
+        mainID: 'eradication_Detection_no',
+        labelText: 'No:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_Detection_uncertain',
+        mainID: 'eradication_Detection_uncertain',
+        labelText: 'Uncertain:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_Detection_documentation',
+        mainID: 'eradication_Detection_documentation',
+        labelText: 'Documentation:',
+        required: false,
+        inputType: 'text',
+        changeDiv: 'textarea',
+        extraContentClasses: ['content_step_question_textarea_content'],
+        extraInputClasses: ['content_step_question_textarea_input']
+    };
+    elementProperties.push(temp);
+    // EffectiveControlA
+    temp = {
+        targetContainer: '#one_part_EffectiveControlA_yes',
+        mainID: 'eradication_EffectiveControlA_yes',
+        labelText: 'Yes:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_EffectiveControlA_no',
+        mainID: 'eradication_EffectiveControlA_no',
+        labelText: 'No:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_EffectiveControlA_uncertain',
+        mainID: 'eradication_EffectiveControlA_uncertain',
+        labelText: 'Uncertain:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_EffectiveControlA_documentation',
+        mainID: 'eradication_EffectiveControlA_documentation',
+        labelText: 'Documentation:',
+        required: false,
+        inputType: 'text',
+        changeDiv: 'textarea',
+        extraContentClasses: ['content_step_question_textarea_content'],
+        extraInputClasses: ['content_step_question_textarea_input']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_EffectiveControlAControlMethod_manual',
+        mainID: 'eradication_EffectiveControlAControlMethod_manual',
+        labelText: 'Manual:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_EffectiveControlAControlMethod_mechanical',
+        mainID: 'eradication_EffectiveControlAControlMethod_mechanical',
+        labelText: 'Mechanical:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_EffectiveControlAControlMethod_herbicide',
+        mainID: 'eradication_EffectiveControlAControlMethod_herbicide',
+        labelText: 'Herbicide:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_EffectiveControlAControlMethod_biological',
+        mainID: 'eradication_EffectiveControlAControlMethod_biological',
+        labelText: 'Biological:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_EffectiveControlAControlMethod_other',
+        mainID: 'eradication_EffectiveControlAControlMethod_other',
+        labelText: 'Other:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_EffectiveControlAControlMethodDescription',
+        mainID: 'eradication_EffectiveControlAControlMethodDescription',
+        labelText: 'Description of Control Method:',
+        required: false,
+        inputType: 'text',
+        changeDiv: 'textarea',
+        extraContentClasses: ['content_step_question_textarea_content'],
+        extraInputClasses: ['content_step_question_textarea_input']
+    };
+    elementProperties.push(temp);
+    // EffectiveControlB
+    temp = {
+        targetContainer: '#one_part_EffectiveControlB_yes',
+        mainID: 'eradication_EffectiveControlB_yes',
+        labelText: 'Yes:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_EffectiveControlB_no',
+        mainID: 'eradication_EffectiveControlB_no',
+        labelText: 'No:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_EffectiveControlB_uncertain',
+        mainID: 'eradication_EffectiveControlB_uncertain',
+        labelText: 'Uncertain:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_EffectiveControlB_documentation',
+        mainID: 'eradication_EffectiveControlB_documentation',
+        labelText: 'Documentation:',
+        required: false,
+        inputType: 'text',
+        changeDiv: 'textarea',
+        extraContentClasses: ['content_step_question_textarea_content'],
+        extraInputClasses: ['content_step_question_textarea_input']
+    };
+    elementProperties.push(temp);
+    // NontargetImpacts
+    temp = {
+        targetContainer: '#one_part_NontargetImpacts_yes',
+        mainID: 'eradication_NontargetImpacts_yes',
+        labelText: 'Yes:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_NontargetImpacts_no',
+        mainID: 'eradication_NontargetImpacts_no',
+        labelText: 'No:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_NontagetImpacts_uncertain',
+        mainID: 'eradication_NontargetImpacts_uncertain',
+        labelText: 'Uncertain:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_NontagetImpacts_documentation',
+        mainID: 'eradication_NontagetImpacts_documentation',
+        labelText: 'Documentation:',
+        required: false,
+        inputType: 'text',
+        changeDiv: 'textarea',
+        extraContentClasses: ['content_step_question_textarea_content'],
+        extraInputClasses: ['content_step_question_textarea_input']
+    };
+    elementProperties.push(temp);
 
-    // Create Elements
+    // ********************************************************
+    // *** Loop through elementProperties array and execute ***
+    // ********************************************************
     var propertiesLength = elementProperties.length;
     for(var i=0; i<propertiesLength; i++){
         Create_Div(elementProperties[i]);
