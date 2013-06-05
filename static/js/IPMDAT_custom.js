@@ -1460,6 +1460,17 @@ function JSON_Cookie_Step_Project_Background(cookieData, completedSteps, current
                 }
             }
         });
+        $('#content_progress_bar_strategy_exploration').click(function(){
+            if(destinationArray.strategyExploration !== "none"){
+                if($('#content_progress_bar_strategy_exploration').hasClass('progress_bar_available')){
+                    if(destinationArray.current === "1.1"){ Project_Background_Substep_One_Save();
+                    }else if(destinationArray.current === "1.2"){ Project_Background_Substep_Two_Save();
+                    }else if(destinationArray.current === "1.3"){ Project_Background_Substep_Three_Save();
+                    }else if(destinationArray.current === "1.4"){ Project_Background_Substep_Four_Save(); }
+                    Check_Available_Steps(cookieData, completedSteps, destinationArray.strategyExploration);
+                }
+            }
+        });
     };
 
     // Assign Events to Nav Buttons
@@ -1473,7 +1484,8 @@ function JSON_Cookie_Step_Project_Background(cookieData, completedSteps, current
             substep_three: '1.3',
             substep_four: '1.4',
             projectBackground: 'none',
-            strategySelection: '2.1'
+            strategySelection: '2.1',
+            strategyExploration: '3.1'
         };
     }else if(currentStep === "1.2"){
         var destinationArray = {
@@ -1485,7 +1497,8 @@ function JSON_Cookie_Step_Project_Background(cookieData, completedSteps, current
             substep_three: '1.3',
             substep_four: '1.4',
             projectBackground: 'none',
-            strategySelection: '2.1'
+            strategySelection: '2.1',
+            strategyExploration: '3.1'
         };
     }else if(currentStep === "1.3"){
         var destinationArray = {
@@ -1497,7 +1510,8 @@ function JSON_Cookie_Step_Project_Background(cookieData, completedSteps, current
             substep_three: 'none',
             substep_four: '1.4',
             projectBackground: 'none',
-            strategySelection: '2.1'
+            strategySelection: '2.1',
+            strategyExploration: '3.1'
         };
     }else if(currentStep === "1.4"){
         var destinationArray = {
@@ -1509,7 +1523,8 @@ function JSON_Cookie_Step_Project_Background(cookieData, completedSteps, current
             substep_three: '1.3',
             substep_four: 'none',
             projectBackground: 'none',
-            strategySelection: '2.1'
+            strategySelection: '2.1',
+            strategyExploration: '3.1'
         };
     }
     Add_Event_To_Nav(destinationArray);
@@ -2033,6 +2048,17 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
                 }
             }
         });
+        $('#content_progress_bar_strategy_exploration').click(function(){
+            if(destinationArray.strategyExploration !== "none"){
+                if($('#content_progress_bar_strategy_exploration').hasClass('progress_bar_available')){
+                    if(destinationArray.current === "2.1"){ Strategy_Selection_Substep_One_Save();
+                    }else if(destinationArray.current === "2.2"){ Strategy_Selection_Substep_Two_Save();
+                    }else if(destinationArray.current === "2.3"){ Strategy_Selection_Substep_Three_Save();
+                    }else if(destinationArray.current === "2.4"){ Strategy_Selection_Substep_Four_Save(); }
+                    Check_Available_Steps(cookieData, completedSteps, destinationArray.strategyExploration);
+                }
+            }
+        });
     };
 
     // Assign Events to Nav Buttons
@@ -2046,7 +2072,8 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
             substep_three: '2.3',
             substep_four: '2.4',
             projectBackground: '1.1',
-            strategySelection: 'none'
+            strategySelection: 'none',
+            strategyExploration: '3.1'
         };
     }else if(currentStep === "2.2"){
         var destinationArray = {
@@ -2058,7 +2085,8 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
             substep_three: '2.3',
             substep_four: '2.4',
             projectBackground: '1.1',
-            strategySelection: 'none'
+            strategySelection: 'none',
+            strategyExploration: '3.1'
         };
     }else if(currentStep === "2.3"){
         // Set Forward for none
@@ -2071,7 +2099,8 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
             substep_three: 'none',
             substep_four: '2.4',
             projectBackground: '1.1',
-            strategySelection: 'none'
+            strategySelection: 'none',
+            strategyExploration: '3.1'
         };
         if(strategySelectionArray.strategySelectionAbundanceAndDistributionConfirmAnswer === "yes"){
             var destinationArray = {
@@ -2083,7 +2112,8 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
                 substep_three: 'none',
                 substep_four: '2.4',
                 projectBackground: '1.1',
-                strategySelection: 'none'
+                strategySelection: 'none',
+                strategyExploration: '3.1'
             };
         }else if(strategySelectionArray.strategySelectionAbundanceAndDistributionConfirmAnswer === "no"){
             var destinationArray = {
@@ -2095,7 +2125,8 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
                 substep_three: 'none',
                 substep_four: '2.4',
                 projectBackground: '1.1',
-                strategySelection: 'none'
+                strategySelection: 'none',
+                strategyExploration: '3.1'
             }; 
         }
     }else if(currentStep === "2.4"){
@@ -2108,7 +2139,8 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
             substep_three: '2.3',
             substep_four: 'none',
             projectBackground: '1.1',
-            strategySelection: 'none'
+            strategySelection: 'none',
+            strategyExploration: '3.1'
         };
     }
     Add_Event_To_Nav(destinationArray);
