@@ -932,7 +932,6 @@ function Create_HTML(){
         extraInputClasses: ['content_step_question_textarea_input']
     };
     elementProperties.push(temp);
-    console.log(elementProperties);
     // ********************************************************
     // *** Loop through elementProperties array and execute ***
     // ********************************************************

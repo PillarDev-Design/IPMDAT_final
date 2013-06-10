@@ -1879,6 +1879,7 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
         }else if($('#strategy_selection_alternative_suppression').is(':checked')){
             strategySelectionArray.strategySelectionAbundanceAndDistributionAlternativeAnswer = "suppression";
         }
+        Strategy_Selection_Substep_Four_Check(strategySelectionArray);
     }
     function Add_Event_To_Field(fieldLocation, substep){
         var tempHolder;
@@ -1961,13 +1962,30 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
                     Strategy_Selection_Substep_Three_Save();
                 }
             }
-            if(destinationArray.forward !== "none"){
-                if($('#content_nav_forward').hasClass('content_nav_base_active')){
-                    if(destinationArray.current === "2.1"){ Strategy_Selection_Substep_One_Save();
-                    }else if(destinationArray.current === "2.2"){ Strategy_Selection_Substep_Two_Save();
-                    }else if(destinationArray.current === "2.3"){ Strategy_Selection_Substep_Three_Save();
-                    }else if(destinationArray.current === "2.4"){ Strategy_Selection_Substep_Four_Save(); }
-                    Check_Available_Steps(cookieData, completedSteps, destinationArray.forward);
+            // We are going to need to hard code quick fix this next section
+            var tempForward;
+            if(strategySelectionArray.strategySelectionAbundanceAndDistributionConfirmAnswer === "yes"){
+                tempForward = "3.1";
+            }else{
+                tempForward = "2.4";
+            }
+            if(currentStep === "2.3"){
+                    if($('#content_nav_forward').hasClass('content_nav_base_active')){
+                        if(destinationArray.current === "2.1"){ Strategy_Selection_Substep_One_Save();
+                        }else if(destinationArray.current === "2.2"){ Strategy_Selection_Substep_Two_Save();
+                        }else if(destinationArray.current === "2.3"){ Strategy_Selection_Substep_Three_Save();
+                        }else if(destinationArray.current === "2.4"){ Strategy_Selection_Substep_Four_Save(); }
+                        Check_Available_Steps(cookieData, completedSteps, tempForward);
+                    }
+            }else{
+                if(destinationArray.forward !== "none"){
+                    if($('#content_nav_forward').hasClass('content_nav_base_active')){
+                        if(destinationArray.current === "2.1"){ Strategy_Selection_Substep_One_Save();
+                        }else if(destinationArray.current === "2.2"){ Strategy_Selection_Substep_Two_Save();
+                        }else if(destinationArray.current === "2.3"){ Strategy_Selection_Substep_Three_Save();
+                        }else if(destinationArray.current === "2.4"){ Strategy_Selection_Substep_Four_Save(); }
+                        Check_Available_Steps(cookieData, completedSteps, destinationArray.forward);
+                    }
                 }
             }
         });
@@ -2792,10 +2810,20 @@ function JSON_Cookie_Step_Strategy_Exploration_Eradication(cookieData, completed
             $('#eradication_SocialPoliticalA_yes').change(function(){ Eradication_Check_Boxes('#eradication_SocialPoliticalA_yes'); });
             $('#eradication_SocialPoliticalA_no').change(function(){ Eradication_Check_Boxes('#eradication_SocialPoliticalA_no'); });
             $('#eradication_SocialPoliticalA_uncertain').change(function(){ Eradication_Check_Boxes('#eradication_SocialPoliticalA_uncertain'); });
+            // Determine where back will point to
+            var tempBack;
+            switch(cookieData.strategySelectionAbundanceAndDistributionConfirm){
+                case "yes":
+                    tempBack = '2.3';
+                    break;
+                case "no":
+                    tempBack = '2.4';
+                    break;
+            }
             destinationArray = {
                 current: '3.1',
                 forward: '3.2',
-                back: '2.4',
+                back: tempBack,
                 substep_one: 'none',
                 substep_two: '3.2',
                 substep_three: '3.3',
@@ -2962,7 +2990,7 @@ function JSON_Cookie_Step_Strategy_Exploration_Eradication(cookieData, completed
             destinationArray = {
                 current: '3.8',
                 forward: '3.9',
-                back: '3.6',
+                back: '3.7',
                 substep_one: '3.1',
                 substep_two: '3.2',
                 substep_three: '3.3',
