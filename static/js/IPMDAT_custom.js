@@ -1890,7 +1890,7 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
         Strategy_Selection_Substep_Form_Check(strategySelectionArray);
     };
     // 7 -  Function - Add_Event_To_Field(fieldLocation, substep)       \\
-    function Add_Event_To_Field(fieldLocation, substep){
+    function Add_Event_To_Field(fieldLocation){
         var tempHolder;
         $(fieldLocation).keyup(function(){
             if($(fieldLocation).prop('value') === ""){
@@ -1911,7 +1911,17 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
             if(destinationArray.forward !== 'none'){
                 if($('#content_nav_forward').hasClass('content_nav_base_active')){
                     Strategy_Selection_Substep_Save();
-                    Check_Available_Steps(cookieData, completedSteps, destinationArray.forward);
+                    var tempForward;
+                    if(strategySelectionArray.strategySelectionAbundanceAndDistributionConfirm === "yes"){
+                        tempForward = "3.1";
+                    }else{
+                        tempForward = "2.4";
+                    }
+                    if(currentStep === "2.3"){
+                        Check_Available_Steps(cookieData, completedSteps, tempForward);
+                    }else{
+                        Check_Available_Steps(cookieData, completedSteps, destinationArray.forward);
+                    }
                 }
             }
         });
@@ -1956,181 +1966,112 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
             }
         });
         $('#content_progress_bar_project_background').click(function(){
+            if(destinationArray.projectBackground !== 'none'){
+                if($('#content_progress_bar_project_background').hasClass('progress_bar_available')){
+                    Strategy_Selection_Substep_Save();
+                    Check_Available_Steps(cookieData, completedSteps, destinationArray.projectBackground);
+                }
+            }
         });
         $('#content_progress_bar_strategy_selection').click(function(){
+            if(destinationArray.strategySelection !== 'none'){
+                if($('#content_progress_bar_strategy_selection').hasClass('progress_bar_available')){
+                    Strategy_Selection_Substep_Save();
+                    Check_Available_Steps(cookieData, completedSteps, destinationArray.strategySelection);
+                }
+            }
         });
         $('#content_progress_bar_strategy_exploration').click(function(){
-        });
-    };
-    // TODO: BEGIN HERE
-
-    if(currentStep === "2.1"){
-        Strategy_Selection_Substep_One_Check(strategySelectionArray);
-        Add_Event_To_Field("#strategy_selection_NYS_score", "1");
-        Add_Event_To_Field("#strategy_selection_documentation", "1");
-        // Checkbox Array
-        $('#strategy_selection_ecological_impact').change(function(){ Strategy_Selection_Substep_One_Check_Boxes('#strategy_selection_ecological_impact'); });
-        $('#strategy_selection_limited_distribution').change(function(){ Strategy_Selection_Substep_One_Check_Boxes('#strategy_selection_limited_distribution'); });
-        $('#strategy_selection_widespread_distribution').change(function(){ Strategy_Selection_Substep_One_Check_Boxes('#strategy_selection_widespread_distribution'); });
-        $('#strategy_selection_negligible_impact').change(function(){ Strategy_Selection_Substep_One_Check_Boxes('#strategy_selection_negligible_impact'); });
-        $('#strategy_selection_significant_harm').change(function(){ Strategy_Selection_Substep_One_Check_Boxes('#strategy_selection_significant_harm'); });
-    }else if(currentStep === "2.2"){
-        Strategy_Selection_Substep_Two_Check(strategySelectionArray);
-        Add_Event_To_Field("#strategy_selection_abundance_and_distribution_documentation", "2");
-        // Checkbox Array
-        $('#strategy_selection_eradication_state_scale').change(function(){ Strategy_Selection_Substep_Two_Check_Boxes('#strategy_selection_eradication_state_scale'); });
-        $('#strategy_selection_containment_state_scale').change(function(){ Strategy_Selection_Substep_Two_Check_Boxes('#strategy_selection_containment_state_scale'); });
-        $('#strategy_selection_eradication_project_scale').change(function(){ Strategy_Selection_Substep_Two_Check_Boxes('#strategy_selection_eradication_project_scale'); });
-        $('#strategy_selection_containment_project_scale').change(function(){ Strategy_Selection_Substep_Two_Check_Boxes('#strategy_selection_containment_project_scale'); });
-        $('#strategy_selection_suppression').change(function(){ Strategy_Selection_Substep_Two_Check_Boxes('#strategy_selection_suppression'); });
-    }else if(currentStep === "2.3"){
-        Strategy_Selection_Substep_Three_Check(strategySelectionArray);
-        var temp = strategySelectionArray.strategySelectionAbundanceAndDistributionCheckboxAnswer;
-        if(temp === 'eradicationStateScale'){
-            $('#strategy_confirmation_main_title_container').empty().append(mainTitleEradicationStateScale);
-            $('#strategy_confirmation_subtext_container').empty().append(subtextEradicationStateScale);
-        }else if(temp === 'containmentStateScale'){
-            $('#strategy_confirmation_main_title_container').empty().append(mainTitleContainmentStateScale);
-            $('#strategy_confirmation_subtext_container').empty().append(subtextContainmentStateScale);
-        }else if(temp === 'eradicationProjectScale'){
-            $('#strategy_confirmation_main_title_container').empty().append(mainTitleEradicationProjectScale);
-            $('#strategy_confirmation_subtext_container').empty().append(subtextEradicationProjectScale);
-        }else if(temp === 'containmentProjectScale'){
-            $('#strategy_confirmation_main_title_container').empty().append(mainTitleContainmentProjectScale);
-            $('#strategy_confirmation_subtext_container').empty().append(subtextContainmentProjectScale);
-        }else if(temp === 'suppression'){
-            $('#strategy_confirmation_main_title_container').empty().append(mainTitleSuppression);
-            $('#strategy_confirmation_subtext_container').empty().append(subtextSuppression);
-        }
-        // Checkbox Array
-        $('#strategy_confirmation_yes').change(function(){ Strategy_Selection_Substep_Three_Check_Boxes('#strategy_confirmation_yes'); });
-        $('#strategy_confirmation_no').change(function(){ Strategy_Selection_Substep_Three_Check_Boxes('#strategy_confirmation_no'); });
-    }else if(currentStep === "2.4"){
-        Strategy_Selection_Substep_Four_Check(strategySelectionArray);
-        Add_Event_To_Field("#strategy_selection_alternative_documentation", "4");
-        // Checkbox Array
-        $('#strategy_selection_alternative_eradication').change(function(){ Strategy_Selection_Substep_Four_Check_Boxes('#strategy_selection_alternative_eradication'); });
-        $('#strategy_selection_alternative_containment').change(function(){ Strategy_Selection_Substep_Four_Check_Boxes('#strategy_selection_alternative_containment'); });
-        $('#strategy_selection_alternative_suppression').change(function(){ Strategy_Selection_Substep_Four_Check_Boxes('#strategy_selection_alternative_suppression'); });
-    }
-    
-    function Add_Event_To_Nav(destinationArray){
-        $('#content_nav_forward').click(function(){
-            if(destinationArray.current === "2.3"){
-                if($('#content_nav_forward').hasClass('content_nav_base_active')){
-                    Strategy_Selection_Substep_Three_Save();
-                }
-            }
-            // We are going to need to hard code quick fix this next section
-            var tempForward;
-            if(strategySelectionArray.strategySelectionAbundanceAndDistributionConfirmAnswer === "yes"){
-                tempForward = "3.1";
-            }else{
-                tempForward = "2.4";
-            }
-            if(currentStep === "2.3"){
-                    if($('#content_nav_forward').hasClass('content_nav_base_active')){
-                        if(destinationArray.current === "2.1"){ Strategy_Selection_Substep_One_Save();
-                        }else if(destinationArray.current === "2.2"){ Strategy_Selection_Substep_Two_Save();
-                        }else if(destinationArray.current === "2.3"){ Strategy_Selection_Substep_Three_Save();
-                        }else if(destinationArray.current === "2.4"){ Strategy_Selection_Substep_Four_Save(); }
-                        Check_Available_Steps(cookieData, completedSteps, tempForward);
-                    }
-            }else{
-                if(destinationArray.forward !== "none"){
-                    if($('#content_nav_forward').hasClass('content_nav_base_active')){
-                        if(destinationArray.current === "2.1"){ Strategy_Selection_Substep_One_Save();
-                        }else if(destinationArray.current === "2.2"){ Strategy_Selection_Substep_Two_Save();
-                        }else if(destinationArray.current === "2.3"){ Strategy_Selection_Substep_Three_Save();
-                        }else if(destinationArray.current === "2.4"){ Strategy_Selection_Substep_Four_Save(); }
-                        Check_Available_Steps(cookieData, completedSteps, destinationArray.forward);
-                    }
+            if(destinationArray.strategyExploration !== 'none'){
+                if($('#content_progress_bar_strategy_exploration').hasClass('progress_bar_available')){
+                    Strategy_Selection_Substep_Save();
+                    Check_Available_Steps(cookieData, completedSteps, destinationArray.strategyExploration);
                 }
             }
         });
     };
-
-    // Assign Events to Nav Buttons
-    if(currentStep === "2.1"){
-        var destinationArray = {
-            current: '2.1',
-            forward: '2.2',
-            back: '1.4',
-            substep_one: 'none',
-            substep_two: '2.2',
-            substep_three: '2.3',
-            substep_four: '2.4',
-            projectBackground: '1.1',
-            strategySelection: 'none',
-            strategyExploration: '3.1'
-        };
-    }else if(currentStep === "2.2"){
-        var destinationArray = {
-            current: '2.2',
-            forward: '2.3',
-            back: '2.1',
-            substep_one: '2.1',
-            substep_two: 'none',
-            substep_three: '2.3',
-            substep_four: '2.4',
-            projectBackground: '1.1',
-            strategySelection: 'none',
-            strategyExploration: '3.1'
-        };
-    }else if(currentStep === "2.3"){
-        // Set Forward for none
-        var destinationArray = {
-            current: '2.3',
-            forward: 'none',
-            back: '2.2',
-            substep_one: '2.1',
-            substep_two: '2.2',
-            substep_three: 'none',
-            substep_four: '2.4',
-            projectBackground: '1.1',
-            strategySelection: 'none',
-            strategyExploration: '3.1'
-        };
-        if(strategySelectionArray.strategySelectionAbundanceAndDistributionConfirmAnswer === "yes"){
-            var destinationArray = {
-                current: '2.3',
-                forward: '3.1',
-                back: '2.2',
-                substep_one: '2.1',
-                substep_two: '2.2',
-                substep_three: 'none',
-                substep_four: '2.4',
-                projectBackground: '1.1',
-                strategySelection: 'none',
-                strategyExploration: '3.1'
-            };
-        }else if(strategySelectionArray.strategySelectionAbundanceAndDistributionConfirmAnswer === "no"){
-            var destinationArray = {
-                current: '2.3',
-                forward: '2.4',
-                back: '2.2',
-                substep_one: '2.1',
-                substep_two: '2.2',
-                substep_three: 'none',
-                substep_four: '2.4',
-                projectBackground: '1.1',
-                strategySelection: 'none',
-                strategyExploration: '3.1'
-            }; 
-        }
-    }else if(currentStep === "2.4"){
-        var destinationArray = {
-            current: '2.4',
-            forward: '3.1',
-            back: '2.3',
-            substep_one: '2.1',
-            substep_two: '2.2',
-            substep_three: '2.3',
-            substep_four: 'none',
-            projectBackground: '1.1',
-            strategySelection: 'none',
-            strategyExploration: '3.1'
-        };
+    // 9 -  Populate/Execute - Add_Event_To_Field, Add_Event_To_Nav     \\
+    Strategy_Selection_Form_Check(strategySelectionArray);
+    destinationArray = {
+        current: '',
+        forward: '',
+        back: '',
+        substep_one: '2.1',
+        substep_two: '2.2',
+        substep_three: '2.3',
+        substep_four: '2.4',
+        projectBackground: '1.1',
+        strategySelection: 'none',
+        strategyExploration: '3.1'
+    };
+    switch(currentStep){
+        case "2.1":
+            Add_Event_To_Field('#strategy_selection_NYS_score');
+            Add_Event_To_Field('#strategy_selection_documentation');
+            $('#strategy_selection_ecological_impact').change(function(){ Strategy_Selection_Check_Boxes('#strategy_selection_ecological_impact'); });
+            $('#strategy_selection_limited_distribution').change(function(){ Strategy_Selection_Check_Boxes('#strategy_selection_limited_distribution'); });
+            $('#strategy_selection_widespread_distribution').change(function(){ Strategy_Selection_Check_Boxes('#strategy_selection_widespread_distribution'); });
+            $('#strategy_selection_negligible_impact').change(function(){ Strategy_Selection_Check_Boxes('#strategy_selection_negligible_impact'); });
+            $('#strategy_selection_significant_harm').change(function(){ Strategy_Selection_Check_Boxes('#strategy_selection_significant_harm'); });
+            destinationArray.back = '1.4';
+            destinationArray.current = '2.1';
+            destinationArray.forward = '2.2';
+            destinationArray.substep_one = 'none';
+            break;
+        case "2.2":
+            Add_Event_To_Field('#strategy_selection_abundance_and_distribution_documentation');
+            $('#strategy_selection_eradication_state_scale').change(function(){ Strategy_Selection_Check_Boxes('#strategy_selection_eradication_state_scale'); });
+            $('#strategy_selection_containment_state_scale').change(function(){ Strategy_Selection_Check_Boxes('#strategy_selection_containment_state_scale'); });
+            $('#strategy_selection_eradication_project_scale').change(function(){ Strategy_Selection_Check_Boxes('#strategy_selection_eradication_project_scale'); });
+            $('#strategy_selection_containment_project_scale').change(function(){ Strategy_Selection_Check_Boxes('#strategy_selection_containment_project_scale'); });
+            $('#strategy_selection_suppression').change(function(){ Strategy_Selection_Check_Boxes('#strategy_selection_suppression'); });
+            destinationArray.back = '2.1';
+            destinationArray.current = '2.2';
+            destinationArray.forward = '2.3';
+            destinationArray.substep_two = 'none';
+            break;
+        case "2.3":
+            var temp = strategySelectionArray.strategySelectionAbundanceAndDistributionCheckbox;
+            switch(temp){
+                case 'eradicationStateScale':
+                    $('#strategy_confirmation_main_title_container').empty().append(mainTitleEradicationStateScale);
+                    $('#strategy_confirmation_subtext_container').empty().append(subtextEradicationStateScale);
+                    break;
+                case 'containmentStateScale':
+                    $('#strategy_confirmation_main_title_container').empty().append(mainTitleContainmentStateScale);
+                    $('#strategy_confirmation_subtext_container').empty().append(subtextContainmentStateScale);
+                    break;
+                case 'eradicationProjectScale':
+                    $('#strategy_confirmation_main_title_container').empty().append(mainTitleEradicationProjectScale);
+                    $('#strategy_confirmation_subtext_container').empty().append(subtextEradicationProjectScale);
+                    break;
+                case 'containmentProjectScale':
+                    $('#strategy_confirmation_main_title_container').empty().append(mainTitleContainmentProjectScale);
+                    $('#strategy_confirmation_subtext_container').empty().append(subtextContainmentProjectScale);
+                    break;
+                case 'suppression':
+                    $('#strategy_confirmation_main_title_container').empty().append(mainTitleSuppression);
+                    $('#strategy_confirmation_subtext_container').empty().append(subtextSuppression);
+                    break;
+            }
+            $('#strategy_confirmation_yes').change(function(){ Strategy_Selection_Check_Boxes('#strategy_confirmation_yes'); });
+            $('#strategy_confirmation_no').change(function(){ Strategy_Selection_Check_Boxes('#strategy_confirmation_no'); });
+            destinationArray.back = '2.2';
+            destinationArray.current = '2.3';
+            destinationArray.forward = '2.4';
+            destinationArray.substep_three = 'none';
+            // TODO: Might need measures to ensure correct placement
+            break;
+        case "2.4":
+            Add_Event_To_Field('#strategy_selection_alternative_documentation');
+            $('#strategy_selection_alternative_eradication').change(function(){ Strategy_Selection_Check_Boxes('#strategy_selection_alternative_eradication'); });
+            $('#strategy_selection_alternative_containment').change(function(){ Strategy_Selection_Check_Boxes('#strategy_selection_alternative_containment'); });
+            $('#strategy_selection_alternative_suppression').change(function(){ Strategy_Selection_Check_Boxes('#strategy_selection_alternative_suppression'); });
+            destinationArray.back = '2.3';
+            destinationArray.current = '2.4';
+            destinationArray.forward = '3.1';
+            destinationArray.substep_four = 'none';
+            break;
     }
     Add_Event_To_Nav(destinationArray);
 };
