@@ -1898,10 +1898,10 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
             }else{
                 tempHolder = $(fieldLocation).val();
             }
-            if(fieldLocation === "#strategy_selection_NYS_score"){ strategySelectionArray.strategySelectionNYSScoreAnswer = tempHolder;
-            }else if(fieldLocation === "#strategy_selection_documentation"){ strategySelectionArray.strategySelectionDocumentationAnswer = tempHolder;
-            }else if(fieldLocation === "#strategy_selection_abundance_and_distribution_documentation"){ strategySelectionArray.strategySelectionAbundanceAndDistributionDocumentationAnswer = tempHolder; 
-            }else if(fieldLocation === "#strategy_selection_alternative_documentation"){ strategySelectionArray.strategySelectionAbundanceAndDistributionAlternativeDocumentationAnswer = tempHolder; }
+            if(fieldLocation === "#strategy_selection_NYS_score"){ strategySelectionArray.strategySelectionNYSScore = tempHolder;
+            }else if(fieldLocation === "#strategy_selection_documentation"){ strategySelectionArray.strategySelectionDocumentation = tempHolder;
+            }else if(fieldLocation === "#strategy_selection_abundance_and_distribution_documentation"){ strategySelectionArray.strategySelectionAbundanceAndDistributionDocumentation = tempHolder; 
+            }else if(fieldLocation === "#strategy_selection_alternative_documentation"){ strategySelectionArray.strategySelectionAbundanceAndDistributionAlternativeDocumentation = tempHolder; }
             Strategy_Selection_Substep_Form_Check(strategySelectionArray);
         });
     };
@@ -1933,7 +1933,7 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
                 }
             }
         });
-        $('#content_step_strategy_strategy_selection_substep_one').click(function(){
+        $('#content_step_strategy_selection_substep_one').click(function(){
             if(destinationArray.substep_one !== 'none'){
                 if($('#content_step_strategy_selection_substep_one').hasClass('content_substep_available')){
                     Strategy_Selection_Substep_Save();
@@ -1941,7 +1941,7 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
                 }
             }
         });
-        $('#content_step_strategy_strategy_selection_substep_two').click(function(){
+        $('#content_step_strategy_selection_substep_two').click(function(){
             if(destinationArray.substep_two !== 'none'){
                 if($('#content_step_strategy_selection_substep_two').hasClass('content_substep_available')){
                     Strategy_Selection_Substep_Save();
@@ -1949,7 +1949,7 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
                 }
             }
         });
-        $('#content_step_strategy_strategy_selection_substep_three').click(function(){
+        $('#content_step_strategy_selection_substep_three').click(function(){
             if(destinationArray.substep_three !== 'none'){
                 if($('#content_step_strategy_selection_substep_three').hasClass('content_substep_available')){
                     Strategy_Selection_Substep_Save();
@@ -1957,7 +1957,7 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
                 }
             }
         });
-        $('#content_step_strategy_strategy_selection_substep_four').click(function(){
+        $('#content_step_strategy_selection_substep_four').click(function(){
             if(destinationArray.substep_four !== 'none'){
                 if($('#content_step_strategy_selection_substep_four').hasClass('content_substep_available')){
                     Strategy_Selection_Substep_Save();
@@ -1991,7 +1991,7 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
         });
     };
     // 9 -  Populate/Execute - Add_Event_To_Field, Add_Event_To_Nav     \\
-    Strategy_Selection_Form_Check(strategySelectionArray);
+    Strategy_Selection_Substep_Form_Check(strategySelectionArray);
     destinationArray = {
         current: '',
         forward: '',
@@ -2033,23 +2033,23 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
         case "2.3":
             var temp = strategySelectionArray.strategySelectionAbundanceAndDistributionCheckbox;
             switch(temp){
-                case 'eradicationStateScale':
+                case '#strategy_selection_eradication_state_scale':
                     $('#strategy_confirmation_main_title_container').empty().append(mainTitleEradicationStateScale);
                     $('#strategy_confirmation_subtext_container').empty().append(subtextEradicationStateScale);
                     break;
-                case 'containmentStateScale':
+                case '#strategy_selection_containment_state_scale':
                     $('#strategy_confirmation_main_title_container').empty().append(mainTitleContainmentStateScale);
                     $('#strategy_confirmation_subtext_container').empty().append(subtextContainmentStateScale);
                     break;
-                case 'eradicationProjectScale':
+                case '#strategy_selection_eradication_project_scale':
                     $('#strategy_confirmation_main_title_container').empty().append(mainTitleEradicationProjectScale);
                     $('#strategy_confirmation_subtext_container').empty().append(subtextEradicationProjectScale);
                     break;
-                case 'containmentProjectScale':
+                case '#strategy_selection_containment_project_scale':
                     $('#strategy_confirmation_main_title_container').empty().append(mainTitleContainmentProjectScale);
                     $('#strategy_confirmation_subtext_container').empty().append(subtextContainmentProjectScale);
                     break;
-                case 'suppression':
+                case '#strategy_selection_suppression':
                     $('#strategy_confirmation_main_title_container').empty().append(mainTitleSuppression);
                     $('#strategy_confirmation_subtext_container').empty().append(subtextSuppression);
                     break;
@@ -2075,7 +2075,6 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
     }
     Add_Event_To_Nav(destinationArray);
 };
-
 /***********************************************\
  * Step(3) - Eradication                       *
  * ------------------------------------------- *
@@ -2834,4 +2833,70 @@ function JSON_Cookie_Step_Strategy_Exploration_Eradication(cookieData, completed
             break;
     }
     Add_Event_To_Nav(destinationArray);
+};
+/***********************************************\
+ * Step(3) - Containment                       *
+ * ------------------------------------------- *
+ * cookieData (array of saved data)            *
+ * completedSteps (array of completed step #'s)*
+ * currentStep (integer)                       *
+\***********************************************/
+function JSON_Cookie_Step_Strategy_Exploration_Containment(cookieData, completedSteps, currentStep){
+    // ------------------------------------------------------------- \\
+    // FUNCTION LAYOUT                                               \\
+    // ------------------------------------------------------------- \\
+    // 1 -  Declare variables                                        \\
+    // 2 -  Declare subcategory values (If applicable)               \\
+    // 3 -  Ensure correct step container is displayed,              \\
+    //      Check if loading data (Check -> Load -> Populate Fields) \\
+    // 4 -  Function - Eradication_Substep_Form_Check(formArray)     \\
+    // 5 -  Function - Eradication_Substep_Save()                    \\
+    // 6 -  Function - Eradication_Check_Boxes(boxName)              \\
+    // 7 -  Function - Add_Event_To_Field(fieldLocation, substep)    \\
+    // 8 -  Function - Add_Event_To_Nav(destinationArray)            \\
+    // 9 -  Populate/Execute - Add_Event_To_Field, Add_Event_To_Nav  \\
+    // ------------------------------------------------------------- \\
+    // 1 -  Declare variables                                        \\
+    // 2 -  Declare subcategory values (If applicable)               \\
+    // 3 -  Ensure correct step container is displayed,              \\
+    //      Check if loading data (Check -> Load -> Populate Fields) \\
+    // 4 -  Function - Eradication_Substep_Form_Check(formArray)     \\
+    // 5 -  Function - Eradication_Substep_Save()                    \\
+    // 6 -  Function - Eradication_Check_Boxes(boxName)              \\
+    // 7 -  Function - Add_Event_To_Field(fieldLocation, substep)    \\
+    // 8 -  Function - Add_Event_To_Nav(destinationArray)            \\
+    // 9 -  Populate/Execute - Add_Event_To_Field, Add_Event_To_Nav  \\
+};
+/***********************************************\
+ * Step(3) - Suppression                       *
+ * ------------------------------------------- *
+ * cookieData (array of saved data)            *
+ * completedSteps (array of completed step #'s)*
+ * currentStep (integer)                       *
+\***********************************************/
+function JSON_Cookie_Step_Strategy_Exploration_Suppression(cookieData, completedSteps, currentStep){
+    // ------------------------------------------------------------- \\
+    // FUNCTION LAYOUT                                               \\
+    // ------------------------------------------------------------- \\
+    // 1 -  Declare variables                                        \\
+    // 2 -  Declare subcategory values (If applicable)               \\
+    // 3 -  Ensure correct step container is displayed,              \\
+    //      Check if loading data (Check -> Load -> Populate Fields) \\
+    // 4 -  Function - Eradication_Substep_Form_Check(formArray)     \\
+    // 5 -  Function - Eradication_Substep_Save()                    \\
+    // 6 -  Function - Eradication_Check_Boxes(boxName)              \\
+    // 7 -  Function - Add_Event_To_Field(fieldLocation, substep)    \\
+    // 8 -  Function - Add_Event_To_Nav(destinationArray)            \\
+    // 9 -  Populate/Execute - Add_Event_To_Field, Add_Event_To_Nav  \\
+    // ------------------------------------------------------------- \\
+    // 1 -  Declare variables                                        \\
+    // 2 -  Declare subcategory values (If applicable)               \\
+    // 3 -  Ensure correct step container is displayed,              \\
+    //      Check if loading data (Check -> Load -> Populate Fields) \\
+    // 4 -  Function - Eradication_Substep_Form_Check(formArray)     \\
+    // 5 -  Function - Eradication_Substep_Save()                    \\
+    // 6 -  Function - Eradication_Check_Boxes(boxName)              \\
+    // 7 -  Function - Add_Event_To_Field(fieldLocation, substep)    \\
+    // 8 -  Function - Add_Event_To_Nav(destinationArray)            \\
+    // 9 -  Populate/Execute - Add_Event_To_Field, Add_Event_To_Nav  \\
 };
