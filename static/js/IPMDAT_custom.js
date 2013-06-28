@@ -348,11 +348,11 @@ function Check_Available_Steps(cookieData, completedSteps, currentStep){
             // because the decision is permenant.
             $('#strategy_confirmation_yes').prop('disabled', false);
             $('#strategy_confirmation_no').prop('disabled', false);
-            if(cookieData.strategySelectionAbundanceAndDistributionConfirm === "yes"){
+            if(cookieData.strategySelectionAbundanceAndDistributionConfirm === "#strategy_selection_yes"){
                 // Confirm
                 $('#content_progress_bar_strategy_exploration').removeClass('progress_bar_active').removeClass('progress_bar_inactive').addClass('progress_bar_available');
                 $('#content_step_strategy_exploration_eradication_substep_one').removeClass('content_substep_active').removeClass('content_substep_inactive').addClass('content_substep_available');
-            }else{
+            }else if(cookieData.strategySelectionAbundanceAndDistributionConfirm === "#strategy_selection_no"){
                 // Alternative
                 $('#content_step_strategy_selection_substep_four').removeClass('content_substep_active').removeClass('content_substep_inactive').addClass('content_substep_available');
             }
@@ -1705,10 +1705,10 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
             if(cookieData.strategySelectionAbundanceAndDistributionConfirm !== null){ strategySelectionArray.strategySelectionAbundanceAndDistributionConfirm = cookieData.strategySelectionAbundanceAndDistributionConfirm; }
             // Populate Fields
             switch(strategySelectionArray.strategySelectionAbundanceAndDistributionConfirm){
-                case "yes":
+                case "#strategy_confirmation_yes":
                     $('#strategy_confirmation_yes').prop('checked', true);
                     break;
-                case "no":
+                case "#strategy_confirmation_no":
                     $('#strategy_confirmation_no').prop('checked', true);
                     break;
             }
@@ -1749,11 +1749,11 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
             tempValue = formArray.strategySelectionAbundanceAndDistributionConfirm;
             // Determine if moving to 2.4 or 3.1
             switch(formArray.strategySelectionAbundanceAndDistributionConfirm){
-                case "yes":
+                case "#strategy_confirmation_yes":
                     nextStep = "#content_step_strategy_exploration_eradication_substep_one";
                     proceedContainer = "#content_progress_bar_strategy_exploration";
                     break;
-                case "no":
+                case "#strategy_confirmation_no":
                     nextStep = "#content_step_strategy_selection_substep_four";
                     break;
             }
@@ -1912,7 +1912,7 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
                 if($('#content_nav_forward').hasClass('content_nav_base_active')){
                     Strategy_Selection_Substep_Save();
                     var tempForward;
-                    if(strategySelectionArray.strategySelectionAbundanceAndDistributionConfirm === "yes"){
+                    if(strategySelectionArray.strategySelectionAbundanceAndDistributionConfirm === "#strategy_confirmation_yes"){
                         tempForward = "3.1";
                     }else{
                         tempForward = "2.4";
@@ -2056,11 +2056,23 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
             }
             $('#strategy_confirmation_yes').change(function(){ Strategy_Selection_Check_Boxes('#strategy_confirmation_yes'); });
             $('#strategy_confirmation_no').change(function(){ Strategy_Selection_Check_Boxes('#strategy_confirmation_no'); });
+            // Determine forward location
+            // We need to put this on a function - since the variable won't be
+            //      determined until the form is complete.
+            switch(strategySelectionArray.strategySelectionAbundanceAndDistributionConfirm){
+                case "#strategy_confirmation_yes":
+                    console.log('setting 3.1');
+                    destinationArray.forward = "3.1";
+                    break;
+                case "#strategy_confirmation_no":
+                    destinationArray.forward = '2.4';
+                    break;
+            }
+
+            
             destinationArray.back = '2.2';
             destinationArray.current = '2.3';
-            destinationArray.forward = '2.4';
             destinationArray.substep_three = 'none';
-            // TODO: Might need measures to ensure correct placement
             break;
         case "2.4":
             Add_Event_To_Field('#strategy_selection_alternative_documentation');
@@ -2072,6 +2084,9 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
             destinationArray.forward = '3.1';
             destinationArray.substep_four = 'none';
             break;
+    }
+    if(currentStep === "2.3"){
+        console.log(destinationArray);
     }
     Add_Event_To_Nav(destinationArray);
 };
@@ -2733,10 +2748,10 @@ function JSON_Cookie_Step_Strategy_Exploration_Eradication(cookieData, completed
             // Determine where back will point to
             var tempBack;
             switch(cookieData.strategySelectionAbundanceAndDistributionConfirm){
-                case "yes":
+                case "#strategy_confirmation_yes":
                     tempBack = '2.3';
                     break;
-                case "no":
+                case "#strategy_confirmation_no":
                     tempBack = '2.4';
                     break;
             }
