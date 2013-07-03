@@ -932,6 +932,15 @@ function Create_HTML(){
         extraInputClasses: ['content_step_question_textarea_input']
     };
     elementProperties.push(temp);
+    // *** ERADICATION ***
+    // containmentSocialPoliticalA
+    // containmentSocialPoliticalB
+    // containmentPreventingReproductionA
+    // containmentPreventingReproductionB
+    // containmentDetectingSmall
+    // containmentEffectiveControlA
+    // containmentEffectiveControlB
+    // containmentNontargetImpacts
     // ********************************************************
     // *** Loop through elementProperties array and execute ***
     // ********************************************************

@@ -348,11 +348,11 @@ function Check_Available_Steps(cookieData, completedSteps, currentStep){
             // because the decision is permenant.
             $('#strategy_confirmation_yes').prop('disabled', false);
             $('#strategy_confirmation_no').prop('disabled', false);
-            if(cookieData.strategySelectionAbundanceAndDistributionConfirm === "#strategy_selection_yes"){
+            if(cookieData.strategySelectionAbundanceAndDistributionConfirm === "#strategy_confirmation_yes"){
                 // Confirm
                 $('#content_progress_bar_strategy_exploration').removeClass('progress_bar_active').removeClass('progress_bar_inactive').addClass('progress_bar_available');
                 $('#content_step_strategy_exploration_eradication_substep_one').removeClass('content_substep_active').removeClass('content_substep_inactive').addClass('content_substep_available');
-            }else if(cookieData.strategySelectionAbundanceAndDistributionConfirm === "#strategy_selection_no"){
+            }else if(cookieData.strategySelectionAbundanceAndDistributionConfirm === "#strategy_confirmation_no"){
                 // Alternative
                 $('#content_step_strategy_selection_substep_four').removeClass('content_substep_active').removeClass('content_substep_inactive').addClass('content_substep_available');
             }
