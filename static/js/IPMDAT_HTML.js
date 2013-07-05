@@ -105,7 +105,8 @@ function Create_Div(divArray){
 function Create_HTML(){
     // Declare Variables
     var elementProperties = [],
-        temp;
+        temp,
+        propertiesLength;
 
     /*******************************************\
      * project_background                      *
@@ -361,9 +362,18 @@ function Create_HTML(){
         inputType: 'text'
     };
     elementProperties.push(temp);
+    // ********************************************************
+    // *** Loop through elementProperties array and execute ***
+    // ********************************************************
+    propertiesLength = elementProperties.length;
+    for(var i=0; i<propertiesLength; i++){
+        Create_Div(elementProperties[i]);
+    }
     /*******************************************\
      * strategy_selection                      *
     \*******************************************/
+    elementProperties = [];
+    propertiesLength = 0;
     // strategy_selection_NYS_score
     temp = {
         targetContainer: '#one_part_NYS_score',
@@ -524,7 +534,18 @@ function Create_HTML(){
         extraInputClasses: ['content_step_question_textarea_input']
     };
     elementProperties.push(temp);
-    // *** ERADICATION ***
+    // ********************************************************
+    // *** Loop through elementProperties array and execute ***
+    // ********************************************************
+    propertiesLength = elementProperties.length;
+    for(var i=0; i<propertiesLength; i++){
+        Create_Div(elementProperties[i]);
+    }
+    /*******************************************\
+     * ERADICATION                             *
+    \*******************************************/
+    elementProperties = [];
+    propertiesLength = 0;
     // SocialPoliticalA
     temp = {
         targetContainer: '#one_part_SocialPoliticalA_yes',
@@ -932,19 +953,390 @@ function Create_HTML(){
         extraInputClasses: ['content_step_question_textarea_input']
     };
     elementProperties.push(temp);
-    // *** ERADICATION ***
-    // containmentSocialPoliticalA
-    // containmentSocialPoliticalB
-    // containmentPreventingReproductionA
-    // containmentPreventingReproductionB
-    // containmentDetectingSmall
-    // containmentEffectiveControlA
-    // containmentEffectiveControlB
-    // containmentNontargetImpacts
     // ********************************************************
     // *** Loop through elementProperties array and execute ***
     // ********************************************************
-    var propertiesLength = elementProperties.length;
+    propertiesLength = elementProperties.length;
+    for(var i=0; i<propertiesLength; i++){
+        Create_Div(elementProperties[i]);
+    }
+    /*******************************************\
+     * CONTAINMENT                             *
+    \*******************************************/
+    elementProperties = [];
+    propertiesLength = 0;
+    // containmentSocialPoliticalA
+    temp = {
+        targetContainer: '#one_part_containmentSocialPoliticalA_yes',
+        mainID: 'containment_SocialPoliticalA_yes',
+        labelText: 'Yes:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_containmentSocialPoliticalA_no',
+        mainID: 'containment_SocialPoliticalA_no',
+        labelText: 'No:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_containmentSocialPoliticalA_uncertain',
+        mainID: 'containment_SocialPoliticalA_uncertain',
+        labelText: 'Uncertain:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_containmentSocialPoliticalA_documentation',
+        mainID: 'containment_SocialPoliticalA_documentation',
+        labelText: 'Documentation:',
+        required: false,
+        inputType: 'text',
+        changeDiv: 'textarea',
+        extraContentClasses: ['content_step_question_textarea_content'],
+        extraInputClasses: ['content_step_question_textarea_input']
+    };
+    elementProperties.push(temp);
+    // containmentSocialPoliticalB
+    temp = {
+        targetContainer: '#one_part_containmentSocialPoliticalB_yes',
+        mainID: 'containment_SocialPoliticalB_yes',
+        labelText: 'Yes:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_containmentSocialPoliticalB_no',
+        mainID: 'containment_SocialPoliticalB_no',
+        labelText: 'No:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_containmentSocialPoliticalB_uncertain',
+        mainID: 'containment_SocialPoliticalB_uncertain',
+        labelText: 'Uncertain:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_containmentSocialPoliticalB_documentation',
+        mainID: 'containment_SocialPoliticalB_documentation',
+        labelText: 'Documentation:',
+        required: false,
+        inputType: 'text',
+        changeDiv: 'textarea',
+        extraContentClasses: ['content_step_question_textarea_content'],
+        extraInputClasses: ['content_step_question_textarea_input']
+    };
+    elementProperties.push(temp);
+    // containmentPreventingReproductionA
+    temp = {
+        targetContainer: '#one_part_containmentPreventingReproductionA_yes',
+        mainID: 'containment_PreventingReproductionA_yes',
+        labelText: 'Yes:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_containmentPreventingReproductionA_no',
+        mainID: 'containment_PreventingReproductionA_no',
+        labelText: 'No:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_containmentPreventingReproductionA_uncertain',
+        mainID: 'containment_PreventingReproductionA_uncertain',
+        labelText: 'Uncertain:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_containmentPreventingReproductionA_documentation',
+        mainID: 'containment_PreventingReproductionA_documentation',
+        labelText: 'Documentation:',
+        required: false,
+        inputType: 'text',
+        changeDiv: 'textarea',
+        extraContentClasses: ['content_step_question_textarea_content'],
+        extraInputClasses: ['content_step_question_textarea_input']
+    };
+    elementProperties.push(temp);
+    // containmentPreventingReproductionB
+    temp = {
+        targetContainer: '#one_part_containmentPreventingReproductionB_yes',
+        mainID: 'containment_PreventingReproductionB_yes',
+        labelText: 'Yes:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_containmentPreventingReproductionB_no',
+        mainID: 'containment_PreventingReproductionB_no',
+        labelText: 'No:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_containmentPreventingReproductionB_uncertain',
+        mainID: 'containment_PreventingReproductionB_uncertain',
+        labelText: 'Uncertain:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_containmentPreventingReproductionB_documentation',
+        mainID: 'containment_PreventingReproductionB_documentation',
+        labelText: 'Documentation:',
+        required: false,
+        inputType: 'text',
+        changeDiv: 'textarea',
+        extraContentClasses: ['content_step_question_textarea_content'],
+        extraInputClasses: ['content_step_question_textarea_input']
+    };
+    elementProperties.push(temp);
+    // containmentDetectingSmall
+    temp = {
+        targetContainer: '#one_part_containmentDetectingSmall_yes',
+        mainID: 'containment_DetectingSmall_yes',
+        labelText: 'Yes:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_containmentDetectingSmall_no',
+        mainID: 'containment_DetectingSmall_no',
+        labelText: 'No:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_containmentDetectingSmall_uncertain',
+        mainID: 'containment_DetectingSmall_uncertain',
+        labelText: 'Uncertain:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_containmentDetectingSmall_documentation',
+        mainID: 'containment_DetectingSmall_documentation',
+        labelText: 'Documentation:',
+        required: false,
+        inputType: 'text',
+        changeDiv: 'textarea',
+        extraContentClasses: ['content_step_question_textarea_content'],
+        extraInputClasses: ['content_step_question_textarea_input']
+    };
+    elementProperties.push(temp);
+    // containmentEffectiveControlA
+    temp = {
+        targetContainer: '#one_part_containmentEffectiveControlA_yes',
+        mainID: 'containment_EffectiveControlA_yes',
+        labelText: 'Yes:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_containmentEffectiveControlA_no',
+        mainID: 'containment_EffectiveControlA_no',
+        labelText: 'No:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_containmentEffectiveControlA_uncertain',
+        mainID: 'containment_EffectiveControlA_uncertain',
+        labelText: 'Uncertain:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_containmentEffectiveControlA_documentation',
+        mainID: 'containment_EffectiveControlA_documentation',
+        labelText: 'Documentation:',
+        required: false,
+        inputType: 'text',
+        changeDiv: 'textarea',
+        extraContentClasses: ['content_step_question_textarea_content'],
+        extraInputClasses: ['content_step_question_textarea_input']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_containmentEffectiveControlAControlMethod_manual',
+        mainID: 'containment_EffectiveControlAControlMethod_manual',
+        labelText: 'Manual:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_containmentEffectiveControlAControlMethod_mechanical',
+        mainID: 'containment_EffectiveControlAControlMethod_mechanical',
+        labelText: 'Mechanical:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_containmentEffectiveControlAControlMethod_herbicide',
+        mainID: 'containment_EffectiveControlAControlMethod_herbicide',
+        labelText: 'Herbicide:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_containmentEffectiveControlAControlMethod_biological',
+        mainID: 'containment_EffectiveControlAControlMethod_biological',
+        labelText: 'Biological:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_containmentEffectiveControlAControlMethod_other',
+        mainID: 'containment_EffectiveControlAControlMethod_other',
+        labelText: 'Other:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_containmentEffectiveControlAControlMethodDescription',
+        mainID: 'containment_EffectiveControlAControlMethodDescription',
+        labelText: 'Description of Control Method:',
+        required: false,
+        inputType: 'text',
+        changeDiv: 'textarea',
+        extraContentClasses: ['content_step_question_textarea_content'],
+        extraInputClasses: ['content_step_question_textarea_input']
+    };
+    elementProperties.push(temp);
+    // containmentEffectiveControlB
+    temp = {
+        targetContainer: '#one_part_containmentEffectiveControlB_yes',
+        mainID: 'containment_EffectiveControlB_yes',
+        labelText: 'Yes:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_containmentEffectiveControlB_no',
+        mainID: 'containment_EffectiveControlB_no',
+        labelText: 'No:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_containmentEffectiveControlB_uncertain',
+        mainID: 'containment_EffectiveControlB_uncertain',
+        labelText: 'Uncertain:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_containmentEffectiveControlB_documentation',
+        mainID: 'containment_EffectiveControlB_documentation',
+        labelText: 'Documentation:',
+        required: false,
+        inputType: 'text',
+        changeDiv: 'textarea',
+        extraContentClasses: ['content_step_question_textarea_content'],
+        extraInputClasses: ['content_step_question_textarea_input']
+    };
+    elementProperties.push(temp);
+    // containmentNontargetImpacts
+    temp = {
+        targetContainer: '#one_part_containmentNontargetImpacts_yes',
+        mainID: 'containment_NontargetImpacts_yes',
+        labelText: 'Yes:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_containmentNontargetImpacts_no',
+        mainID: 'containment_NontargetImpacts_no',
+        labelText: 'No:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_containmentNontargetImpacts_uncertain',
+        mainID: 'containment_NontargetImpacts_uncertain',
+        labelText: 'Uncertain:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_containmentNontargetImpacts_documentation',
+        mainID: 'containment_NontargetImpacts_documentation',
+        labelText: 'Documentation:',
+        required: false,
+        inputType: 'text',
+        changeDiv: 'textarea',
+        extraContentClasses: ['content_step_question_textarea_content'],
+        extraInputClasses: ['content_step_question_textarea_input']
+    };
+    elementProperties.push(temp);
+    // ********************************************************
+    // *** Loop through elementProperties array and execute ***
+    // ********************************************************
+    propertiesLength = elementProperties.length;
     for(var i=0; i<propertiesLength; i++){
         Create_Div(elementProperties[i]);
     }

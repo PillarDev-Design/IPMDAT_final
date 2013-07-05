@@ -173,13 +173,30 @@ function Save_Cookie(cookieData, stepNumber, completedSteps){
     if(savedData.eradicationNontargetImpacts !== null){ cookieArray.eradicationNontargetImpacts = savedData.eradicationNontargetImpacts; }
     if(savedData.eradicationNontargetImpactsDocumentation !== null){ cookieArray.eradicationNontargetImpactsDocumentation = savedData.eradicationNontargetImpactsDocumentation; }
     // 4.1
+    if(savedData.containmentSocialPoliticalA !== null){ cookieArray.containmentSocialPoliticalA = savedData.containmentSocialPoliticalA; }
+    if(savedData.containmentSocialPoliticalADocumentation !== null){ cookieArray.containmentSocialPoliticalADocumentation = savedData.containmentSocialPoliticalADocumentation; }
     // 4.2
+    if(savedData.containmentSocialPoliticalB !== null){ cookieArray.containmentSocialPoliticalB = savedData.containmentSocialPoliticalB; }
+    if(savedData.containmentSocialPoliticalBDocumentation !== null){ cookieArray.containmentSocialPoliticalBDocumentation = savedData.containmentSocialPoliticalBDocumentation; }
     // 4.3
+    if(savedData.containmentPreventingReproductionA !== null){ cookieArray.containmentPreventingReproductionA = savedData.containmentPreventingReproductionA; }
+    if(savedData.containmentPreventingReproductionADocumentation !== null){ cookieArray.containmentPreventingReproductionADocumentation = savedData.containmentPreventingReproductionADocumentation; }
     // 4.4
+    if(savedData.containmentPreventingReproductionB !== null){ cookieArray.containmentPreventingReproductionB = savedData.containmentPreventingReproductionB; }
+    if(savedData.containmentPreventingReproductionBDocumentation !== null){ cookieArray.containmentPreventingReproductionBDocumentation = savedData.containmentPreventingReproductionBDocumentation; }
     // 4.5
+    if(savedData.containmentDetectingSmall !== null){ cookieArray.containmentDetectingSmall = savedData.containmentDetectingSmall; }
+    if(savedData.containmentDetectingSmallDocumentation !== null){ cookieArray.containmentDetectingSmallDocumentation = savedData.containmentDetectingSmallDocumentation; }
     // 4.6
+    if(savedData.containmentEffectiveControlA !== null){ cookieArray.containmentEffectiveControlA = savedData.containmentEffectiveControlA; }
+    if(savedData.containmentEffectiveControlADocumentation !== null){ cookieArray.containmentEffectiveControlADocumentation = savedData.containmentEffectiveControlADocumentation; }
+    if(savedData.containmentEffectiveControlAControlMethod !== null){ cookieArray.containmentEffectiveControlAControlMethod = savedData.containmentEffectiveControlAControlMethod; }
+    if(savedData.containmentEffectiveControlAControlMethodDescription !== null){ cookieArray.containmentEffectiveControlAControlMethodDescription = savedData.containmentEffectiveControlAControlMethodDescription; }
     // 4.7
+    if(savedData.containmentEffectiveControlB !== null){ cookieArray.containmentEffectiveControlB = savedData.containmentEffectiveControlB; }
+    if(savedData.containmentEffectiveControlBDocumentation !== null){ cookieArray.containmentEffectiveControlBDocumentation = savedData.containmentEffectiveControlBDocumentation; }
     // 4.8
+    if(savedData.containmentNontargetImpacts !== null){ cookieArray.containmentNontargetImpacts = savedData.containmentNontargetImpacts; }
 
     // Enter New Data from cookieData
     if(stepNumber === "1.1"){
@@ -253,6 +270,32 @@ function Save_Cookie(cookieData, stepNumber, completedSteps){
     }else if(stepNumber === "3.9"){
         cookieArray.eradicationNontargetImpacts = cookieData.eradicationNontargetImpacts;
         cookieArray.eradicationNontargetImpactsDocumentation = cookieData.eradicationNontargetImpactsDocumentation;
+    }else if(stepNumber === "4.1"){
+        cookieArray.containmentSocialPoliticalA = cookieData.containmentSocialPoliticalA;
+        cookieArray.containmentSocialPoliticalADocumentation = cookieData.containmentSocialPoliticalADocumentation;
+    }else if(stepNumber === "4.2"){
+        cookieArray.containmentSocialPoliticalB = cookieData.containmentSocialPoliticalB;
+        cookieArray.containmentSocialPoliticalBDocumentation = cookieData.containmentSocialPoliticalBDocumentation;
+    }else if(stepNumber === "4.3"){
+        cookieArray.containmentPreventingReproductionA = cookieData.containmentPreventingReproductionA;
+        cookieArray.containmentPreventingReproductionADocumentation = cookieData.containmentPreventingReproductionADocumentation;
+    }else if(stepNumber === "4.4"){
+        cookieArray.containmentPreventingReproductionB = cookieData.containmentPreventingReproductionB;
+        cookieArray.containmentPreventingReproductionBDocumentation = cookieData.containmentPreventingReproductionBDocumentation;
+    }else if(stepNumber === "4.5"){
+        cookieArray.containmentDetectingSmall = cookieData.containmentDetectingSmall;
+        cookieArray.containmentDetectingSmallDocumentation = cookieData.containmentDetectingSmallDocumentation;
+    }else if(stepNumber === "4.6"){
+        cookieArray.containmentEffectiveControlA = cookieData.containmentEffectiveControlA;
+        cookieArray.containmentEffectiveControlADocumentation = cookieData.containmentEffectiveControlADocumentation;
+        cookieArray.containmentEffectiveControlAControlMethod = cookieData.containmentEffectiveControlAControlMethod;
+        cookieArray.containmentEffectiveControlAControlMethodDescription = cookieData.containmentEffectiveControlAControlMethodDescription;
+    }else if(stepNumber === "4.7"){
+        cookieArray.containmentEffectiveControlB = cookieData.containmentEffectiveControlB;
+        cookieArray.containmentEffectiveControlBDocumentation = cookieData.containmentEffectiveControlBDocumentation;
+    }else if(stepNumber === "4.8"){
+        cookieArray.containmentNontargetImpacts = cookieData.containmentNontargetImpacts;
+        cookieArray.containmentNontargetImpactsDocumentation = cookieData.containmentNontargetImpactsDocumentation;
     }
     $.JSONCookie(name, cookieArray, {path: '/'});
 };
@@ -299,6 +342,14 @@ function Check_Available_Steps(cookieData, completedSteps, currentStep){
     $('#content_step_strategy_exploration_eradication_substep_seven').unbind('click');
     $('#content_step_strategy_exploration_eradication_substep_eight').unbind('click');
     $('#content_step_strategy_exploration_eradication_substep_nine').unbind('click');
+    $('#content_step_strategy_exploration_containment_substep_one').unbind('click');
+    $('#content_step_strategy_exploration_containment_substep_two').unbind('click');
+    $('#content_step_strategy_exploration_containment_substep_three').unbind('click');
+    $('#content_step_strategy_exploration_containment_substep_four').unbind('click');
+    $('#content_step_strategy_exploration_containment_substep_five').unbind('click');
+    $('#content_step_strategy_exploration_containment_substep_six').unbind('click');
+    $('#content_step_strategy_exploration_containment_substep_seven').unbind('click');
+    $('#content_step_strategy_exploration_containment_substep_eight').unbind('click');
     // TODO: UPDATE HERE
     
     // Control Step Progress
@@ -351,7 +402,9 @@ function Check_Available_Steps(cookieData, completedSteps, currentStep){
             if(cookieData.strategySelectionAbundanceAndDistributionConfirm === "#strategy_confirmation_yes"){
                 // Confirm
                 $('#content_progress_bar_strategy_exploration').removeClass('progress_bar_active').removeClass('progress_bar_inactive').addClass('progress_bar_available');
+                // TODO: FIX PATHING HERE -> ERADICATION OR CONTAINMENT
                 $('#content_step_strategy_exploration_eradication_substep_one').removeClass('content_substep_active').removeClass('content_substep_inactive').addClass('content_substep_available');
+                $('#content_step_strategy_exploration_containment_substep_one').removeClass('content_substep_active').removeClass('content_substep_inactive').addClass('content_substep_available');
             }else if(cookieData.strategySelectionAbundanceAndDistributionConfirm === "#strategy_confirmation_no"){
                 // Alternative
                 $('#content_step_strategy_selection_substep_four').removeClass('content_substep_active').removeClass('content_substep_inactive').addClass('content_substep_available');
@@ -361,7 +414,9 @@ function Check_Available_Steps(cookieData, completedSteps, currentStep){
         }
         if(completedSteps[i] === "2.4"){
             $('#content_progress_bar_strategy_exploration').removeClass('progress_bar_active').removeClass('progress_bar_inactive').addClass('progress_bar_available');
+            // TODO: FIX PATHING HERE -> ERADICATION OR CONTAINMENT
             $('#content_step_strategy_exploration_eradication_substep_one').removeClass('content_substep_active').removeClass('content_substep_inactive').addClass('content_substep_available');
+            $('#content_step_strategy_exploration_containment_substep_one').removeClass('content_substep_active').removeClass('content_substep_inactive').addClass('content_substep_available');
         }
         if(completedSteps[i] === "3.1"){
             $('#content_step_strategy_exploration_eradication_substep_two').removeClass('content_substep_active').removeClass('content_substep_inactive').addClass('content_substep_available');
@@ -388,6 +443,30 @@ function Check_Available_Steps(cookieData, completedSteps, currentStep){
             $('#content_step_strategy_exploration_eradication_substep_nine').removeClass('content_substep_active').removeClass('content_substep_inactive').addClass('content_substep_available');
         }
         if(completedSteps[i] === "3.9"){
+            // TODO: UPDATE HERE (TO BE DETERMINED)
+        }
+        if(completedSteps[i] === "4.1"){
+            $('#content_step_strategy_exploration_containment_substep_two').removeClass('content_substep_active').removeClass('content_substep_inactive').addClass('content_substep_available');
+        }
+        if(completedSteps[i] === "4.2"){
+            $('#content_step_strategy_exploration_containment_substep_three').removeClass('content_substep_active').removeClass('content_substep_inactive').addClass('content_substep_available');
+        }
+        if(completedSteps[i] === "4.3"){
+            $('#content_step_strategy_exploration_containment_substep_four').removeClass('content_substep_active').removeClass('content_substep_inactive').addClass('content_substep_available');
+        }
+        if(completedSteps[i] === "4.4"){
+            $('#content_step_strategy_exploration_containment_substep_five').removeClass('content_substep_active').removeClass('content_substep_inactive').addClass('content_substep_available');
+        }
+        if(completedSteps[i] === "4.5"){
+            $('#content_step_strategy_exploration_containment_substep_six').removeClass('content_substep_active').removeClass('content_substep_inactive').addClass('content_substep_available');
+        }
+        if(completedSteps[i] === "4.6"){
+            $('#content_step_strategy_exploration_containment_substep_seven').removeClass('content_substep_active').removeClass('content_substep_inactive').addClass('content_substep_available');
+        }
+        if(completedSteps[i] === "4.7"){
+            $('#content_step_strategy_exploration_containment_substep_eight').removeClass('content_substep_active').removeClass('content_substep_inactive').addClass('content_substep_available');
+        }
+        if(completedSteps[i] === "4.8"){
             // TODO: UPDATE HERE (TO BE DETERMINED)
         }
     }
@@ -456,10 +535,12 @@ function Check_Available_Steps(cookieData, completedSteps, currentStep){
     if($('#content_substep_strategy_exploration_eradication_container').hasClass('content_substep_container_active')){
         $('#content_substep_strategy_exploration_eradication_container').removeClass('content_substep_container_active').addClass('content_substep_container_inactive');
     }
-    // STRATEGY EXPLORATION
-    if($('#content_step_strategy_exploration_container').hasClass('content_step_active')){
-        $('#content_step_strategy_exploration_container').removeClass('content_step_active').addClass('content_step_inactive');
+    // STRATEGY EXPLORATION (CONTAINMENT)
+    if($('#content_step_strategy_exploration_eradication_SocialPoliticalA').hasClass('content_step_active')){
+        $('#content_step_strategy_exploration_eradication_SocialPoliticalA').removeClass('content_step_active').addClass('content_step_inactive');
     }
+    // TODO: START HERE
+
     // SUMMARY RECOMMENDATION
     if($('#content_step_summary_recommendation_container').hasClass('content_step_active')){
         $('#content_step_summary_recommendation_container').removeClass('content_step_active').addClass('content_step_inactive');
