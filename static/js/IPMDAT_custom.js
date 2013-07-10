@@ -2834,12 +2834,16 @@ function JSON_Cookie_Step_Strategy_Exploration_Eradication(cookieData, completed
                 eradicationArray.eradicationEffectiveControlA = '#eradication_EffectiveControlA_no'; break;
             case '#eradication_EffectiveControlA_uncertain':
                 eradicationArray.eradicationEffectiveControlA = '#eradication_EffectiveControlA_uncertain'; break;
-            case '#eradication_EffectiveControlAControlMethod_yes':
-                eradicationArray.eradicationEffectiveControlAControlMethod = '#eradication_EffectiveControlAControlMethod_yes'; break;
-            case '#eradication_EffectiveControlAControlMethod_no':
-                eradicationArray.eradicationEffectiveControlAControlMethod = '#eradication_EffectiveControlAControlMethod_no'; break;
-            case '#eradication_EffectiveControlAControlMethod_uncertain':
-                eradicationArray.eradicationEffectiveControlAControlMethod = '#eradication_EffectiveControlAControlMethod_uncertain'; break;
+            case '#eradication_EffectiveControlAControlMethod_manual':
+                eradicationArray.eradicationEffectiveControlAControlMethod = '#eradication_EffectiveControlAControlMethod_manual'; break;
+            case '#eradication_EffectiveControlAControlMethod_mechanical':
+                eradicationArray.eradicationEffectiveControlAControlMethod = '#eradication_EffectiveControlAControlMethod_mechancial'; break;
+            case '#eradication_EffectiveControlAControlMethod_herbicide':
+                eradicationArray.eradicationEffectiveControlAControlMethod = '#eradication_EffectiveControlAControlMethod_herbicide'; break;
+            case '#eradication_EffectiveControlAControlMethod_biological':
+                eradicationArray.eradicationEffectiveControlAControlMethod = '#eradication_EffectiveControlAControlMethod_biological'; break;
+            case '#eradication_EffectiveControlAControlMethod_other':
+                eradicationArray.eradicationEffectiveControlAControlMethod = '#eradication_EffectiveControlAControlMethod_other'; break;
             case '#eradication_EffectiveControlB_yes':
                 eradicationArray.eradicationEffectiveControlB = '#eradication_EffectiveControlB_yes'; break;
             case '#eradication_EffectiveControlB_no':
@@ -2853,7 +2857,7 @@ function JSON_Cookie_Step_Strategy_Exploration_Eradication(cookieData, completed
             case '#eradication_NontargetImpacts_uncertain':
                 eradicationArray.eradicationNontargetImpacts = '#eradication_NontargetImpacts_uncertain'; break;
         }
-    Eradication_Substep_Form_Check(eradicationArray);
+        Eradication_Substep_Form_Check(eradicationArray);
     };
     // 7 -  Function - Add_Event_To_Field(fieldLocation, substep)    \\
     function Add_Event_To_Field(fieldLocation, substep){
@@ -3138,42 +3142,9 @@ function JSON_Cookie_Step_Strategy_Exploration_Containment(cookieData, completed
     // 2 -  Declare subcategory values (If applicable)               \\
     // 3 -  Ensure correct step container is displayed,              \\
     //      Check if loading data (Check -> Load -> Populate Fields) \\
-    // 4 -  Function - Eradication_Substep_Form_Check(formArray)     \\
-    // 5 -  Function - Eradication_Substep_Save()                    \\
-    // 6 -  Function - Eradication_Check_Boxes(boxName)              \\
-    // 7 -  Function - Add_Event_To_Field(fieldLocation, substep)    \\
-    // 8 -  Function - Add_Event_To_Nav(destinationArray)            \\
-    // 9 -  Populate/Execute - Add_Event_To_Field, Add_Event_To_Nav  \\
-    // ------------------------------------------------------------- \\
-    // 1 -  Declare variables                                        \\
-    // 2 -  Declare subcategory values (If applicable)               \\
-    // 3 -  Ensure correct step container is displayed,              \\
-    //      Check if loading data (Check -> Load -> Populate Fields) \\
-    // 4 -  Function - Eradication_Substep_Form_Check(formArray)     \\
-    // 5 -  Function - Eradication_Substep_Save()                    \\
-    // 6 -  Function - Eradication_Check_Boxes(boxName)              \\
-    // 7 -  Function - Add_Event_To_Field(fieldLocation, substep)    \\
-    // 8 -  Function - Add_Event_To_Nav(destinationArray)            \\
-    // 9 -  Populate/Execute - Add_Event_To_Field, Add_Event_To_Nav  \\
-};
-/***********************************************\
- * Step(3) - Suppression                       *
- * ------------------------------------------- *
- * cookieData (array of saved data)            *
- * completedSteps (array of completed step #'s)*
- * currentStep (integer)                       *
-\***********************************************/
-function JSON_Cookie_Step_Strategy_Exploration_Suppression(cookieData, completedSteps, currentStep){
-    // ------------------------------------------------------------- \\
-    // FUNCTION LAYOUT                                               \\
-    // ------------------------------------------------------------- \\
-    // 1 -  Declare variables                                        \\
-    // 2 -  Declare subcategory values (If applicable)               \\
-    // 3 -  Ensure correct step container is displayed,              \\
-    //      Check if loading data (Check -> Load -> Populate Fields) \\
-    // 4 -  Function - Eradication_Substep_Form_Check(formArray)     \\
-    // 5 -  Function - Eradication_Substep_Save()                    \\
-    // 6 -  Function - Eradication_Check_Boxes(boxName)              \\
+    // 4 -  Function - Containment_Substep_Form_Check(formArray)     \\
+    // 5 -  Function - Containment_Substep_Save()                    \\
+    // 6 -  Function - Containment_Check_Boxes(boxName)              \\
     // 7 -  Function - Add_Event_To_Field(fieldLocation, substep)    \\
     // 8 -  Function - Add_Event_To_Nav(destinationArray)            \\
     // 9 -  Populate/Execute - Add_Event_To_Field, Add_Event_To_Nav  \\
@@ -3285,70 +3256,615 @@ function JSON_Cookie_Step_Strategy_Exploration_Suppression(cookieData, completed
             $('#containment_PreventingReproductionB_documentation').prop('value', containmentArray.containmentPreventingReproductionBDocumentation);
             break;
         case "4.5":
-            // TODO: START HERE
             // Display the step
-            $('#content_step_strategy_exploration_eradication_').removeClass('content_step_inactive').addClass('content_step_active');
+            $('#content_step_strategy_exploration_eradication_DetectingSmall').removeClass('content_step_inactive').addClass('content_step_active');
             // Check if data is present
-            if(cookieData.containment !== null){ containmentArray.containment = cookieData.containment; }
+            if(cookieData.containmentDetectingSmall !== null){ containmentArray.containmentDetectingSmall = cookieData.containmentDetectingSmall; }
+            if(cookieData.containmentDetectingSmallDocumentation !== null){ containmentArray.containmentDetectingSmallDocumentation = cookieData.containmentDetectingSmallDocumentation; }
             // Populate fields
-            switch(containmentArray.containment){
-                case "#containment__yes":
-                    $('#containment__yes').prop('checked', true);
+            switch(containmentArray.containmentDetectingSmall){
+                case "#containment_DetectingSmall_yes":
+                    $('#containment_DetectingSmall_yes').prop('checked', true);
                     break;
-                case "#containment__no":
-                    $('#containment__no').prop('checked', true);
+                case "#containment_DetectingSmall_no":
+                    $('#containment_DetectingSmall_no').prop('checked', true);
                     break;
-                case "#containment__uncertain":
-                    $('#containment__uncertain').prop('checked', true);
+                case "#containment_DetectingSmall_uncertain":
+                    $('#containment_DetectingSmall_uncertain').prop('checked', true);
                     break;
             }
-            $('#containment__documentation').prop('value', containmentArray.containment);
+            $('#containment_DetectingSmall_documentation').prop('value', containmentArray.containmentDetectingSmallDocumentation);
             break;
         case "4.6":
             // Display the step
-            $('#content_step_strategy_exploration_eradication_').removeClass('content_step_inactive').addClass('content_step_active');
+            $('#content_step_strategy_exploration_eradication_EffectiveControlA').removeClass('content_step_inactive').addClass('content_step_active');
             // Check if data is present
-            if(cookieData.containment !== null){ containmentArray.containment = cookieData.containment; }
+            if(cookieData.containmentEffectiveControlA !== null){ containmentArray.containmentEffectiveControlA = cookieData.containmentEffectiveControlA; }
+            if(cookieData.containmentEffectiveControlADocumentation !== null){ containmentArray.containmentEffectiveControlADocumentation = cookieData.containmentEffectiveControlADocumentation; }
+            if(cookieData.containmentEffectiveControlAControlMethod !== null){ containmentArray.containmentEffectiveControlAControlMethod = cookieData.containmentEffectiveControlAControlMethod; }
+            if(cookieData.containmentEffectiveControlAControlMethodDescription !== null){ containmentArray.containmentEffectiveControlAControlMethodDescription = cookieData.containmentEffectiveControlAControlMethodDescription; }
             // Populate fields
-            switch(containmentArray.containment){
-                case "#containment__yes":
-                    $('#containment__yes').prop('checked', true);
+            switch(containmentArray.containmentEffectiveControlA){
+                case "#containment_EffectiveControlA_yes":
+                    $('#containment_EffectiveControlA_yes').prop('checked', true);
                     break;
-                case "#containment__no":
-                    $('#containment__no').prop('checked', true);
+                case "#containment_EffectiveControlA_no":
+                    $('#containment_EffectiveControlA_no').prop('checked', true);
                     break;
-                case "#containment__uncertain":
-                    $('#containment__uncertain').prop('checked', true);
+                case "#containment_EffectiveControlA_uncertain":
+                    $('#containment_EffectiveControlA_uncertain').prop('checked', true);
                     break;
             }
-            $('#containment__documentation').prop('value', containmentArray.containment);
+            $('#containment_EffectiveControlA_documentation').prop('value', containmentArray.containmentEffectiveControlADocumentation);
+            // TODO: This may not be working properly, need to test and debug
+            //      the cases.
+            switch(containmentArray.containmentEffectiveControlAControlMethod){
+                case "#containment_EffectiveControlAControlMethod_manual":
+                    $('#containment_EffectiveControlAControlMethod_manual').prop('checked', true);
+                    break;
+                case "#containment_EffectiveControlAControlMethod_mechanical":
+                    $('#containment_EffecitveControlAControlMethod_mechanical').prop('checked', true);
+                    break;
+                case "#containment_EffectiveControlAControlMethod_herbicide":
+                    $('#containment_EffectiveControlAControlMethod_herbicide').prop('checked', true);
+                    break;
+                case "#containment_EffectiveControlAControlMethod_biological":
+                    $('#containment_EffectiveControlAControlMethod_biological').prop('checked', true);
+                    break;
+                case "#containment_EffectiveControlAControlMethod_other":
+                    $('#containment_EffectiveControlAControlMethod_other').prop('checked', true);
+                    break;
+            }
+            $('#containment_EffectiveControlAControlMethodDescription').prop('value', containmentArray.containmentEffectiveControlAControlMethodDescription);
             break;
         case "4.7":
+            // Display the step
+            $('#content_step_strategy_exploration_eradication_EffectiveControlB').removeClass('content_step_inactive').addClass('content_step_active');
+            // Check if data is present
+            if(cookieData.containmentEffectiveControlB !== null){ containmentArray.containmentEffectiveControlB = cookieData.containmentEffectiveControlB; }
+            if(cookieData.containmentEffectiveControlBDocumentation !== null){ containmentArray.containmentEffectiveControlBDocumentation = cookieData.containmentEffectiveControlBDocumentation; }
+            // Populate fields
+            switch(containmentArray.containmentEffectiveControlB){
+                case "#containment_EffectiveControlB_yes":
+                    $('#containment_EffectiveControlB_yes').prop('checked', true);
+                    break;
+                case "#containment_EffectiveControlB_no":
+                    $('#containment_EffectiveControlB_no').prop('checked', true);
+                    break;
+                case "#containment_EffectiveControlB_uncertain":
+                    $('#containment_EffectiveControlB_uncertain').prop('checked', true);
+                    break;
+            }
+            $('#containment_EffectiveControlB_documentation').prop('value', containmentArray.containmentEffectiveControlBDocumentation);
             break;
         case "4.8":
             // Display the step
-            $('#content_step_strategy_exploration_eradication_').removeClass('content_step_inactive').addClass('content_step_active');
+            $('#content_step_strategy_exploration_eradication_NontargetImpacts').removeClass('content_step_inactive').addClass('content_step_active');
             // Check if data is present
-            if(cookieData.containment !== null){ containmentArray.containment = cookieData.containment; }
+            if(cookieData.containmentNontargetImpacts !== null){ containmentArray.containmentNontargetImpacts = cookieData.containmentNontargetImpacts; }
+            if(cookieData.containmentNontargetImpactsDocumentation !== null){ containmentArray.containmentNontargetImpactsDocumentation = cookieData.containmentNontargetImpactsDocumentation; }
             // Populate fields
-            switch(containmentArray.containment){
-                case "#containment__yes":
-                    $('#containment__yes').prop('checked', true);
+            switch(containmentArray.containmentNontargetImpacts){
+                case "#containment_NontargetImpacts_yes":
+                    $('#containment_NontargetImpacts_yes').prop('checked', true);
                     break;
-                case "#containment__no":
-                    $('#containment__no').prop('checked', true);
+                case "#containment_NontargetImpacts_no":
+                    $('#containment_NontargetImpacts_no').prop('checked', true);
                     break;
-                case "#containment__uncertain":
-                    $('#containment__uncertain').prop('checked', true);
+                case "#containment_NontargetImpacts_uncertain":
+                    $('#containment_NontargetImpacts_uncertain').prop('checked', true);
                     break;
             }
-            $('#containment__documentation').prop('value', containmentArray.containment);
+            $('#containment_NontargetImpacts_documentation').prop('value', containmentArray.containmentNontargetImpacts);
             break;
     }
+    // 4 -  Function - Containment_Substep_Form_Check(formArray)     \\
+    function Containment_Substep_Form_Check(formArray){
+        var tempValue,
+            nextStep;
+        // Setup Values
+        if(currentStep === "4.1"){
+            tempValue = formArray.containmentSocialPoliticalA;
+            nextStep = "#content_step_strategy_exploration_containment_substep_two";
+        }else if(currentStep === "4.2"){
+            tempValue = formArray.containmentSocialPoliticalB;
+            nextStep = "#content_step_strategy_exploration_containment_substep_three";
+        }else if(currentStep === "4.3"){
+            tempValue = formArray.containmentPreventingReproductionA;
+            nextStep = "#content_step_strategy_exploration_containment_substep_four";
+        }else if(currentStep === "4.4"){
+            tempValue = formArray.containmentPreventingReproductionB;
+            nextStep = "#content_step_strategy_exploration_containment_substep_five";
+        }else if(currentStep === "4.5"){
+            tempValue = formArray.containmentDetectingSmall;
+            nextStep = "#content_step_strategy_exploration_containment_substep_six";
+        }else if(currentStep === "4.6"){
+            tempValue = formArray.containmentSocialPoliticalA;
+            nextStep = "#content_step_strategy_exploration_containment_substep_seven";
+        }else if(currentStep === "4.7"){
+            tempValue = formArray.containmentSocialPoliticalB;
+            nextStep = "#content_step_strategy_exploration_containment_substep_eight";
+        }else if(currentStep === "4.8"){
+            tempValue = formArray.containmentNontargetImpacts;
+            nextStep = "";
+            // TODO: UPDATE HERE
+        }
+        // Execute
+        if(tempValue !== null){
+            if($('#content_nav_forward').hasClass('content_nav_base_inactive')){
+                $('#content_nav_forward').removeClass('content_nav_base_inactive').addClass('content_nav_base_active');
+                // Substep Bar
+                $(nextStep).removeClass('content_substep_inactive').addClass('content_substep_available');
+            }
+        }else if(tempValue === null){
+            if($('#content_nav_forward').hasClass('content_nav_base_active')){
+                $('#content_nav_forward').removeClass('content_nav_base_active').addClass('content_nav_base_inactive');
+                // Substep Bar
+                $(nextStep).removeClass('content_substep_available').addClass('content_substep_inactive');
+            }
+        }
+    };
+    // 5 -  Function - Containment_Substep_Save()                    \\
+    function Containment_Substep_Save(){
+        var saveArray,
+            requiredField,
+            tempPush = currentStep;
+        // Setup Values
+        if(currentStep === "4.1"){
+            saveArray = {
+                containmentSocialPoliticalA: containmentArray.containmentSocialPoliticalA,
+                containmentSocialPoliticalADocumentation: containmentArray.containmentSocialPoliticalADocumentation
+            };
+            requiredField = containmentArray.containmentSocialPoliticalA;
+        }else if(currentStep === "4.2"){
+            saveArray = {
+                containmentSocialPoliticalB: containmentArray.containmentSocialPoliticalB,
+                containmentSocialPoliticalBDocumentation: containmentArray.containmentSocialPoliticalBDocumentation
+            };
+            requiredField = containmentArray.containmentSocialPoliticalB;
+        }else if(currentStep === "4.3"){
+            saveArray = {
+                containmentPreventingReproductionA: containmentArray.containmentPreventingReproductionA,
+                containmentPreventingReproductionADocumentation: containmentArray.containmentPreventingReproductionADocumentation
+            };
+            requiredField = containmentArray.containmentPreventingReproductionA;
+        }else if(currentStep === "4.4"){
+            saveArray = {
+                containmentPreventingReproductionB: containmentArray.containmentPreventingReproductionB,
+                containmentPreventingReproductionBDocumentation: containmentArray.containmentPreventingReproductionBDocumentation
+            };
+            requiredField = containmentArray.containmentPreventingReproductionB;
+        }else if(currentStep === "4.5"){
+            saveArray = {
+                containmentDetectingSmall: containmentArray.containmentDetectingSmall,
+                containmentDetectingSmall: containmentArray.containmentDetectingSmallDocumentation
+            };
+            requiredField = containmentArray.containmentDetectingSmall;
+        }else if(currentStep === "4.6"){
+            saveArray = {
+                containmentEffectiveControlA: containmentArray.containmentEffectiveControlA,
+                containmentEffectiveControlADocumentation: containmentArray.containmentEffectiveControlADocumentation,
+                containmentEffectiveControlAControlMethod: containmentArray.containmentEffectiveControlAControlMethod,
+                containmentEffectiveControlAControlMethodDescription: containmentArray.containmentEffectiveControlAControlMethodDescription
+            };
+            requiredField = containmentArray.containmentEffectiveControlA;
+        }else if(currentStep === "4.7"){
+            saveArray = {
+                containmentEffectiveControlB: containmentArray.containmentEffectiveControlB,
+                containmentEffectiveControlBDocumentation: containmentArray.containmentEffectiveControlBDocumentation
+            };
+            requiredField = containmentArray.containmentEffectiveControlB;
+        }else if(currentStep === "4.8"){
+            saveArray = {
+                containmentNontargetImpacts: containmentArray.containmentNontargetImpacts,
+                containmentNontargetImpactsDocumentation: containmentArray.containmentNontargetImpactsDocumentation
+            };
+            requiredField = containmentArray.containmentNontargetImpacts;
+        }
+        // Execute
+        if(requiredField !== null){
+            var addStep = true;
+            for(var i=0; i<completedSteps.length; i++){
+                if(completedSteps[i] === tempPush){
+                    addStep = false;
+                }
+            }
+            if(addStep === true){
+                completedSteps.push(tempPush);
+            }
+        }
+        Save_Cookie(saveArray, tempPush, completedSteps);
+    };
+    // 6 -  Function - Containment_Check_Boxes(boxName)              \\
+    function Containment_Check_Boxes(boxName){
+        // This is an onClick type function. We need to be certain that no other
+        //      boxes in the same category are checked when we save the value.
+        if(currentStep === "4.1"){
+            $('#containment_SocialPoliticalA_yes').prop('checked', false);
+            $('#containment_SocialPoliticalA_no').prop('checked', false);
+            $('#containment_SocialPoliticalA_uncertain').prop('checked', false);
+        }else if(currentStep === "4.2"){
+            $('#containment_SocialPoliticalB_yes').prop('checked', false);
+            $('#containment_SocialPoliticalB_no').prop('checked', false);
+            $('#containment_SocialPoliticalB_uncertain').prop('checked', false);
+        }else if(currentStep === "4.3"){
+            $('#containment_PreventingReproductionA_yes').prop('checked', false);
+            $('#containment_PreventingReproductionA_no').prop('checked', false);
+            $('#containment_PreventingReproductionA_uncertain').prop('checked', false);
+        }else if(currentStep === "4.4"){
+            $('#containment_PreventingReproductionB_yes').prop('checked', false);
+            $('#containment_PreventingReproductionB_no').prop('checked', false);
+            $('#containment_PreventingReproductionB_uncertain').prop('checked', false);
+        }else if(currentStep === "4.5"){
+            $('#containment_DetectingSmall_yes').prop('checked', false);
+            $('#containment_DetectingSmall_no').prop('checked', false);
+            $('#containment_DetectingSmall_uncertain').prop('checked', false);
+        }else if(currentStep === "4.6"){
+            if((boxName === '#containment_EffectiveControlA_yes')||(boxName === '#containment_EffectiveControlA_no')||('#containment_EffectiveControlA_uncertain')){
+                $('#containment_EffectiveControlA_yes').prop('checked', false);
+                $('#containment_EffectiveControlA_no').prop('checked', false);
+                $('#containment_EffectiveControlA_uncertain').prop('checked', false);
+            }else{
+                $('#containment_EffectiveControlAControlMethod_manual').prop('checked', false);
+                $('#containment_EffectiveControlAControlMethod_mechanical').prop('checked', false);
+                $('#containment_EffectiveControlAControlMethod_herbicide').prop('checked', false);
+                $('#containment_EffectiveControlAControlMethod_biological').prop('checked', false);
+                $('#containment_EffectiveControlAControlMethod_other').prop('checked', false);
+            }
+        }else if(currentStep === "4.7"){
+            $('#containment_EffectiveControlB_yes').prop('checked', false);
+            $('#containment_EffectiveControlB_no').prop('checked', false);
+            $('#containment_EffectiveControlB_uncertain').prop('checked', false);
+        }else if(currentStep === "4.8"){
+            $('#containment_NontargetImpacts_yes').prop('checked', false);
+            $('#containment_NontargetImpacts_no').prop('checked', false);
+            $('#containment_NontargetImpacts_uncertain').prop('checked', false);
+        }
+        // Check the boxName
+        $(boxName).prop('checked', true);
+        // Assign the value
+        switch(boxName){
+            case '#containment_SocialPoliticalA_yes':
+                containmentArray.containmentSocialPoliticalA = '#containment_SocialPoliticalA_yes'; break;
+            case '#containment_SocialPoliticalA_no':
+                containmentArray.containmentSocialPoliticalA = '#containment_SocialPoliticalA_no'; break;
+            case '#containment_SocialPoliticalA_uncertain':
+                containmentArray.containmentSocialPoliticalA = '#containment_SocialPoliticalA_uncertain'; break;
+            case '#containment_SocialPoliticalB_yes':
+                containmentArray.containmentSocialPoliticalB = '#containment_SocialPoliticalB_yes'; break;
+            case '#containment_SocialPoliticalB_no':
+                containmentArray.containmentSocialPoliticalB = '#containment_SocialPoliticalB_no'; break;
+            case '#containment_SocialPoliticalB_uncertain':
+                containmentArray.containmentSocialPoliticalB = '#containment_SocialPoliticalB_uncertain'; break;
+            case '#containment_PreventingReproductionA_yes':
+                containmentArray.containmentPreventingReproductionA = '#containment_PreventingReproductionA_yes'; break;
+            case '#containment_PreventingReproductionA_no':
+                containmentArray.containmentPreventingReproductionA = '#containment_PreventingReproductionA_no'; break;
+            case '#containment_PreventingReproductionA_uncertain':
+                containmentArray.containmentPreventingReproductionA = '#containment_PreventingReproductionA_uncertain'; break;
+            case '#containment_PreventingReproductionB_yes':
+                containmentArray.containmentPreventingReproductionB = '#containment_PreventingReproductionB_yes'; break;
+            case '#containment_PreventingReproductionB_no':
+                containmentArray.containmentPreventingReproductionB = '#containment_PreventingReproductionB_no'; break;
+            case '#containment_PreventingReproductionB_uncertain':
+                containmentArray.containmentPreventingReproductionB = '#containment_PreventingReproductionB_uncertain'; break;
+            case '#containment_DetectingSmall_yes':
+                containmentArray.containmentDetectingSmall = '#containment_DetectingSmall_yes'; break;
+            case '#containment_DetectingSmall_no':
+                containmentArray.containmentDetectingSmall = '#containment_DetectingSmall_no'; break;
+            case '#containment_DetectingSmall_uncertain':
+                containmentArray.containmentDetectingSmall = '#containment_DetectingSmall_uncertain'; break;
+            case '#containment_EffectiveControlA_yes':
+                containmentArray.containmentEffectiveControlA = '#containment_EffectiveControlA_yes'; break;
+            case '#containment_EffectiveControlA_no':
+                containmentArray.containmentEffectiveControlA = '#containment_EffectiveControlA_no'; break;
+            case '#containment_EffectiveControlA_uncertain':
+                containmentArray.containmentEffecitveControlA = '#containment_EffectiveControlA_uncertain'; break;
+            case '#containment_EffectiveControlAControlMethod_manual':
+                containmentArray.containmentEffectiveControlAControlMethod = '#containment_EffectiveControlAControlMethod_manual'; break;
+            case '#containment_EffectiveControlAControlMethod_mechanical':
+                containmentArray.containmentEffectiveControlAControlMethod = '#containment_EffectiveControlAControlMethod_mechanical'; break;
+            case '#containment_EffectiveControlAControlMethod_herbicide':
+                containmentArray.containmentEffectiveControlAControlMethod = '#containment_EffectiveControlAControlMethod_herbicide'; break;
+            case '#containment_EffectiveControlAControlMethod_biological':
+                containmentArray.containmentEffectiveControlAControlMethod = '#containment_EffectiveControlAControlMethod_biological'; break;
+            case '#containment_EffectiveControlAControlMethod_other':
+                containmentArray.containmentEffectiveControlAControlMethod = '#containment_EffectiveControlAControlMethod_other'; break;
+            case '#containment_EffectiveControlB_yes':
+                containmentArray.containmentEffectiveControlB = '#containment_EffectiveControlB_yes'; break;
+            case '#containment_EffectiveControlB_no':
+                containmentArray.containmentEffectiveControlB = '#containment_EffectiveControlB_no'; break;
+            case '#containment_EffectiveControlB_uncertain':
+                containmentArray.containmentEffecitveControlB = '#containment_EffectiveControlB_uncertain'; break;
+            case '#containment_NontargetImpacts_yes':
+                containmentArray.containmentNontargetImpacts = '#containment_NontargetImpacts_yes'; break;
+            case '#containment_NontargetImpacts_no':
+                containmentArray.containmentNontargetImpacts = '#containment_NontargetImpacts_no'; break;
+            case '#containment_NontargetImpacts_uncertain':
+                containmentArray.containmentNontargetImpacts = '#containment_NontargetImpacts_uncertain'; break;
+        }
+        Containment_Substep_Form_Check(containmentArray);
+    };
+    // 7 -  Function - Add_Event_To_Field(fieldLocation, substep)    \\
+    function Add_Event_To_Field(fieldLocation, substep){
+        var tempHolder;
+        $(fieldLocation).keyup(function(){
+            if($(fieldLocation).prop('value') === ""){
+                tempHolder = null;
+            }else{
+                tempHolder = $(fieldLocation).val();
+            }
+            // Manually fire locations to specifically assign array variable
+            switch(fieldLocation){
+                case '#containment_SocialPoliticalA_documentation':
+                    containmentArray.containmentSocialPoliticalADocumentation = tempHolder; break;
+                case '#containment_SocialPoliticalB_documentation':
+                    containmentArray.containmentSocialPoliticalBDocumentation = tempHolder; break;
+                case '#containment_PreventingReproductionA_documentation':
+                    containmentArray.containmentPreventingReproductionADocumentation = tempHolder; break;
+                case '#containment_PreventingReproductionB_documentation':
+                    containmentArray.containmentPreventingReproductionBDocumentation = tempHolder; break;
+                case '#containment_DetectingSmall_documentation':
+                    containmentArray.containmentDetectingSmallDocumentation = tempHolder; break;
+                case '#containment_EffectiveControlA_documentation':
+                    containmentArray.containmentEffectiveControlADocumentation = tempHolder; break;
+                case '#containment_EffectiveControlAControlMethodDescription':
+                    containmentArray.containmentEffectiveControlAControlMethodDescription = tempHolder; break;
+                case '#containment_EffectiveControlB_documentation':
+                    containmentArray.containmentEffectiveControlBDocumentation = tempHolder; break;
+                case '#containment_NontargetImpacts_documentation':
+                    containmentArray.containmentNontargetImpactsDocumentation = tempHolder; break;
+
+            }
+            Containment_Substep_Form_Check(containmentArray);
+        });
+    };
+    // 8 -  Function - Add_Event_To_Nav(destinationArray)            \\
+    function Add_Event_To_Nav(destinationArray){
+        // Forward and Back
+        $('#content_nav_forward').click(function(){
+            if(destinationArray.forward !== "none"){
+                if($('#content_nav_forward').hasClass('content_nav_base_active')){
+                    Containment_Substep_Save();
+                    Check_Available_Steps(cookieData, completedSteps, destinationArray.forward);
+                }
+            }
+        });
+        $('#content_nav_back').click(function(){
+            if(destinationArray.back !== "none"){
+                if($('#content_nav_back').hasClass('content_nav_base_active')){
+                    Containment_Substep_Save();
+                    Check_Available_Steps(cookieData, completedSteps, destinationArray.back);
+                }
+            }
+        });
+        // Substeps
+        $('#content_step_strategy_exploration_containment_substep_one').click(function(){
+            if(destinationArray.substep_one !== "none"){
+                if($('#content_step_strategy_exploration_containment_substep_one').hasClass('content_substep_available')){
+                    Containment_Substep_Save();
+                    Check_Available_Steps(cookieData, completedSteps, destinationArray.substep_one);
+                }
+            }
+        });
+        $('#content_step_strategy_exploration_containment_substep_two').click(function(){
+            if(destinationArray.substep_two !== "none"){
+                if($('#content_step_strategy_exploration_containment_substep_two').hasClass('content_substep_available')){
+                    Containment_Substep_Save();
+                    Check_Available_Steps(cookieData, completedSteps, destinationArray.substep_two);
+                }
+            }
+        });
+        $('#content_step_strategy_exploration_containment_substep_three').click(function(){
+            if(destinationArray.substep_three !== "none"){
+                if($('#content_step_strategy_exploration_containment_substep_three').hasClass('content_substep_available')){
+                    Containment_Substep_Save();
+                    Check_Available_Steps(cookieData, completedSteps, destinationArray.substep_three);
+                }
+            }
+        });
+        $('#content_step_strategy_exploration_containment_substep_four').click(function(){
+            if(destinationArray.substep_four !== "none"){
+                if($('#content_step_strategy_exploration_containment_substep_four').hasClass('content_substep_available')){
+                    Containment_Substep_Save();
+                    Check_Available_Steps(cookieData, completedSteps, destinationArray.substep_four);
+                }
+            }
+        });
+        $('#content_step_strategy_exploration_containment_substep_five').click(function(){
+            if(destinationArray.substep_five !== "none"){
+                if($('#content_step_strategy_exploration_containment_substep_five').hasClass('content_substep_available')){
+                    Containment_Substep_Save();
+                    Check_Available_Steps(cookieData, completedSteps, destinationArray.substep_five);
+                }
+            }
+        });
+        $('#content_step_strategy_exploration_containment_substep_six').click(function(){
+            if(destinationArray.substep_six !== "none"){
+                if($('#content_step_strategy_exploration_containment_substep_six').hasClass('content_substep_available')){
+                    Containment_Substep_Save();
+                    Check_Available_Steps(cookieData, completedSteps, destinationArray.substep_six);
+                }
+            }
+        });
+        $('#content_step_strategy_exploration_containment_substep_seven').click(function(){
+            if(destinationArray.substep_seven !== "none"){
+                if($('#content_step_strategy_exploration_containment_substep_seven').hasClass('content_substep_available')){
+                    Containment_Substep_Save();
+                    Check_Available_Steps(cookieData, completedSteps, destinationArray.substep_seven);
+                }
+            }
+        });
+        $('#content_step_strategy_exploration_containment_substep_eight').click(function(){
+            if(destinationArray.substep_eight !== "none"){
+                if($('#content_step_strategy_exploration_containment_substep_eight').hasClass('content_substep_available')){
+                    Containment_Substep_Save();
+                    Check_Available_Steps(cookieData, completedSteps, destinationArray.substep_eight);
+                }
+            }
+        });
+        // Content Steps
+        $('#content_progress_bar_project_background').click(function(){
+            if(destinationArray.projectBackground !== "none"){
+                if($('#content_progress_bar_project_background').hasClass('progress_bar_available')){
+                    Containment_Substep_Save();
+                    Check_Available_Steps(cookieData, completedSteps, destinationArray.projectBackground);
+                }
+            }
+        });
+        $('#content_progress_bar_strategy_selection').click(function(){
+            if(destinationArray.strategySelection !== "none"){
+                if($('#content_progress_bar_strategy_selection').hasClass('progress_bar_available')){
+                    Containment_Substep_Save();
+                    Check_Available_Steps(cookieData, completedSteps, destinationArray.strategySelection);
+                }
+            }
+        });
+        $('#content_progress_bar_strategy_exploration').click(function(){
+            if(destinationArray.strategyExploration !== "none"){
+                if($('#content_progress_bar_strategy_exploration').hasClass('progress_bar_available')){
+                    Containment_Substep_Save();
+                    Check_Available_Steps(cookieData, completedSteps, destinationArray.strategyExploration);
+                }
+            }
+        });
+    };
+    // 9 -  Populate/Execute - Add_Event_To_Field, Add_Event_To_Nav  \\
+    Containment_Substep_Form_Check(containmentArray);
+    destinationArray = {
+        current: '',
+        forward: '',
+        back: '',
+        substep_one: '4.1',
+        substep_two: '4.2',
+        substep_three: '4.3',
+        substep_four: '4.4',
+        substep_five: '4.5',
+        substep_six: '4.6',
+        substep_seven: '4.7',
+        substep_eight: '4.8',
+        projectBackground: '1.1',
+        strategySelection: '2.1',
+        strategyExploration: 'none'
+    };
+    switch(currentStep){
+        case "4.1":
+            Add_Event_To_Field('#containment_SocialPoliticalA_documentation');
+            $('#containment_SocialPoliticalA_yes').change(function(){ Containment_Check_Boxes('#containment_SocialPoliticalA_yes'); });
+            $('#containment_SocialPoliticalA_no').change(function(){ Containment_Check_Boxes('#containment_SocialPoliticalA_no'); });
+            $('#containment_SocialPoliticalA_uncertain').change(function(){ Containment_Check_Boxes('#containment_SocialPoliticalA_uncertain'); });
+            // Determine where back will point
+            var tempBack;
+            switch(cookieData.strategySelectionAbundanceAndDistributionConfirm){
+                case '#strategy_confirmation_yes':
+                    tempBack = '2.3'; break;
+                case '#strategy_confirmation_no':
+                    tempBack = '2.4'; break;
+            }
+            destinationArray.back = tempBack;
+            destinationArray.current = '4.1';
+            destinationArray.forward = '4.2';
+            destinationArray.substep_one = 'none';
+            break;
+        case "4.2":
+            Add_Event_To_Field('#containment_SocialPoliticalB_documentation');
+            $('#containment_SocialPoliticalB_yes').change(function(){ Containment_Check_Boxes('#containment_SocialPoliticalB_yes'); });
+            $('#containment_SocialPoliticalB_no').change(function(){ Containment_Check_Boxes('#containment_SocialPoliticalB_no'); });
+            $('#containment_SocialPoliticalB_uncertain').change(function(){ Containment_Check_Boxes('#containment_SocialPoliticalB_uncertain'); });
+            destinationArray.back = '4.1';
+            destinationArray.current = '4.2';
+            destinationArray.forward = '4.3';
+            destinationArray.substep_two = 'none';
+            break;
+        case "4.3":
+            Add_Event_To_Field('#containment_PreventingReproductionA_documentation');
+            $('#containment_PreventingReproductionA_yes').change(function(){ Containment_Check_Boxes('#containment_PreventingReproductionA_yes'); });
+            $('#containment_PreventingReproductionA_no').change(function(){ Containment_Check_Boxes('#containment_PreventingReproductionA_no'); });
+            $('#containment_PreventingReproductionA_uncertain').change(function(){ Containment_Check_Boxes('#containment_PreventingReproductionA_uncertain'); });
+            destinationArray.back = '4.2';
+            destinationArray.current = '4.3';
+            destinationArray.forward = '4.4';
+            destinationArray.substep_three = 'none';
+            break;
+        case "4.4":
+            Add_Event_To_Field('#containment_PreventingReproductionB_documentation');
+            $('#containment_PreventingReproductionB_yes').change(function(){ Containment_Check_Boxes('#containment_PreventingReproductionB_yes'); });
+            $('#containment_PreventingReproductionB_no').change(function(){ Containment_Check_Boxes('#containment_PreventingReproductionB_no'); });
+            $('#containment_PreventingReproductionB_uncertain').change(function(){ Containment_Check_Boxes('#containment_PreventingReproductionB_uncertain'); });
+            destinationArray.back = '4.3';
+            destinationArray.current = '4.4';
+            destinationArray.forward = '4.5';
+            destinationArray.substep_four = 'none';
+            break;
+        case "4.5":
+            Add_Event_To_Field('#containment_DetectingSmall_documentation');
+            $('#containment_DetectingSmall_yes').change(function(){ Containment_Check_Boxes('#containment_DetectingSmall_yes'); });
+            $('#containment_DetectingSmall_no').change(function(){ Containment_Check_Boxes('#containment_DetectingSmall_no'); });
+            $('#containment_DetectingSmall_uncertain').change(function(){ Containment_Check_Boxes('#containment_DetectingSmall_uncertain'); });
+            destinationArray.back = '4.4';
+            destinationArray.current = '4.5';
+            destinationArray.forward = '4.6';
+            destinationArray.substep_five = 'none';
+            break;
+        case "4.6":
+            Add_Event_To_Field('#containment_EffectiveControlA_documentation');
+            Add_Event_To_Field('#containment_EffectiveControlAControlMethodDescription');
+            $('#containment_EffectiveControlA_yes').change(function(){ Containment_Check_Boxes('#containment_EffectiveControlA_yes'); });
+            $('#containment_EffectiveControlA_no').change(function(){ Containment_Check_Boxes('#containment_EffectiveControlA_no'); });
+            $('#containment_EffectiveControlA_uncertain').change(function(){ Containment_Check_Boxes('#containment_EffectiveControlA_uncertain'); });
+            $('#containment_EffectiveControlAControlMethod_manual').change(function( Containment_Check_Boxes('#containment_EffectiveControlAControlMethod_manual'); });
+            $('#containment_EffectiveControlAControlMethod_mechanical').change(function( Containment_Check_Boxes('#containment_EffectiveControlAControlMethod_mechanical'); });
+            $('#containment_EffectiveControlAControlMethod_herbicide').change(function( Containment_Check_Boxes('#containment_EffectiveControlAControlMethod_herbicide'); });
+            $('#containment_EffectiveControlAControlMethod_biological').change(function( Containment_Check_Boxes('#containment_EffectiveControlAControlMethod_biological'); });
+            $('#containment_EffectiveControlAControlMethod_other').change(function( Containment_Check_Boxes('#containment_EffectiveControlAControlMethod_other'); });
+            destinationArray.back = '4.5';
+            destinationArray.current = '4.6';
+            destinationArray.forward = '4.7';
+            destinationArray.substep_six = 'none';
+            break;
+        case "4.7":
+            Add_Event_To_Field('#containment_EffectiveControlB_documentation');
+            $('#containment_EffectiveControlB_yes').change(function(){ Containment_Check_Boxes('#containment_EffectiveControlB_yes'); });
+            $('#containment_EffectiveControlB_no').change(function(){ Containment_Check_Boxes('#containment_EffectiveControlB_no'); });
+            $('#containment_EffectiveControlB_uncertain').change(function(){ Containment_Check_Boxes('#containment_EffectiveControlB_uncertain'); });
+            destinationArray.back = '4.6';
+            destinationArray.current = '4.7';
+            destinationArray.forward = '4.8';
+            destinationArray.substep_seven = 'none';
+            break;
+        case "4.8":
+            Add_Event_To_Field('#containment_NontargetImpacts_documentation');
+            $('#containment_NontargetImpacts_yes').change(function(){ Containment_Check_Boxes('#containment_NontargetImpacts_yes'); });
+            $('#containment_NontargetImpacts_no').change(function(){ Containment_Check_Boxes('#containment_NontargetImpacts_no'); });
+            $('#containment_NontargetImpacts_uncertain').change(function(){ Containment_Check_Boxes('#containment_NontargetImpacts_uncertain'); });
+            destinationArray.back = '4.7';
+            destinationArray.current = '4.8';
+            destinationArray.forward = 'none;
+            destinationArray.substep_ = 'none';
+            break;
+    }
+    Add_Event_To_Nav(destinationArray);
+};
+/***********************************************\
+ * Step(3) - Suppression                       *
+ * ------------------------------------------- *
+ * cookieData (array of saved data)            *
+ * completedSteps (array of completed step #'s)*
+ * currentStep (integer)                       *
+\***********************************************/
+function JSON_Cookie_Step_Strategy_Exploration_Suppression(cookieData, completedSteps, currentStep){
+    // ------------------------------------------------------------- \\
+    // FUNCTION LAYOUT                                               \\
+    // ------------------------------------------------------------- \\
+    // 1 -  Declare variables                                        \\
+    // 2 -  Declare subcategory values (If applicable)               \\
+    // 3 -  Ensure correct step container is displayed,              \\
+    //      Check if loading data (Check -> Load -> Populate Fields) \\
     // 4 -  Function - Eradication_Substep_Form_Check(formArray)     \\
     // 5 -  Function - Eradication_Substep_Save()                    \\
     // 6 -  Function - Eradication_Check_Boxes(boxName)              \\
     // 7 -  Function - Add_Event_To_Field(fieldLocation, substep)    \\
     // 8 -  Function - Add_Event_To_Nav(destinationArray)            \\
     // 9 -  Populate/Execute - Add_Event_To_Field, Add_Event_To_Nav  \\
+    // ------------------------------------------------------------- \\
 };
