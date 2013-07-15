@@ -1340,5 +1340,197 @@ function Create_HTML(){
     for(var i=0; i<propertiesLength; i++){
         Create_Div(elementProperties[i]);
     }
+    /*******************************************\
+     * CONTAINMENT                             *
+    \*******************************************/
+    elementProperties = [];
+    propertiesLength = 0;
+    // suppressionSocialPoliticalA
+    temp = {
+        targetContainer: '#one_part_suppressionSocialPoliticalA_yes',
+        mainID: 'suppression_SocialPoliticalA_yes',
+        labelText: 'Yes:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_suppressionSocialPoliticalA_no',
+        mainID: 'suppression_SocialPoliticalA_no',
+        labelText: 'No:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_suppressionSocialPoliticalA_uncertain',
+        mainID: 'suppression_SocialPoliticalA_uncertain',
+        labelText: 'Uncertain:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_suppressionSocialPoliticalA_documentation',
+        mainID: 'suppression_SocialPoliticalA_documentation',
+        labelText: 'Documentation:',
+        required: false,
+        inputType: 'text',
+        changeDiv: 'textarea',
+        extraContentClasses: ['content_step_question_textarea_content'],
+        extraInputClasses: ['content_step_question_textarea_input']
+    };
+    elementProperties.push(temp);
+    // suppressionSocialPoliticalB
+    temp = {
+        targetContainer: '#one_part_suppressionSocialPoliticalB_yes',
+        mainID: 'suppression_SocialPoliticalB_yes',
+        labelText: 'Yes:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_suppressionSocialPoliticalB_no',
+        mainID: 'suppression_SocialPoliticalB_no',
+        labelText: 'No:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_suppressionSocialPoliticalB_uncertain',
+        mainID: 'suppression_SocialPoliticalB_uncertain',
+        labelText: 'Uncertain:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_suppressionSocialPoliticalB_documentation',
+        mainID: 'suppression_SocialPoliticalB_documentation',
+        labelText: 'Documentation:',
+        required: false,
+        inputType: 'text',
+        changeDiv: 'textarea',
+        extraContentClasses: ['content_step_question_textarea_content'],
+        extraInputClasses: ['content_step_question_textarea_input']
+    };
+    elementProperties.push(temp);
+    // suppressionEffectiveControlA
+    temp = {
+        targetContainer: '#one_part_suppressionEffectiveControlA_yes',
+        mainID: 'suppression_EffectiveControlA_yes',
+        labelText: 'Yes:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_suppressionEffectiveControlA_no',
+        mainID: 'suppression_EffectiveControlA_no',
+        labelText: 'No:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_suppressionEffectiveControlA_uncertain',
+        mainID: 'suppression_EffectiveControlA_uncertain',
+        labelText: 'Uncertain:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_suppressionEffectiveControlA_documentation',
+        mainID: 'suppression_EffectiveControlA_documentation',
+        labelText: 'Documentation:',
+        required: false,
+        inputType: 'text',
+        changeDiv: 'textarea',
+        extraContentClasses: ['content_step_question_textarea_content'],
+        extraInputClasses: ['content_step_question_textarea_input']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_suppressionEffectiveControlAControlMethod_manual',
+        mainID: 'suppression_EffectiveControlAControlMethod_manual',
+        labelText: 'Manual:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    // TODO: START HERE
+    temp = {
+        targetContainer: '#one_part_suppressionEffectiveControlAControlMethod_mechanical',
+        mainID: 'suppression_EffectiveControlAControlMethod_mechanical',
+        labelText: 'Mechanical:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_containmentEffectiveControlAControlMethod_herbicide',
+        mainID: 'containment_EffectiveControlAControlMethod_herbicide',
+        labelText: 'Herbicide:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_containmentEffectiveControlAControlMethod_biological',
+        mainID: 'containment_EffectiveControlAControlMethod_biological',
+        labelText: 'Biological:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_containmentEffectiveControlAControlMethod_other',
+        mainID: 'containment_EffectiveControlAControlMethod_other',
+        labelText: 'Other:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_containmentEffectiveControlAControlMethodDescription',
+        mainID: 'containment_EffectiveControlAControlMethodDescription',
+        labelText: 'Description of Control Method:',
+        required: false,
+        inputType: 'text',
+        changeDiv: 'textarea',
+        extraContentClasses: ['content_step_question_textarea_content'],
+        extraInputClasses: ['content_step_question_textarea_input']
+    };
+    elementProperties.push(temp);
+    // suppressionEffectiveControlB
+    // suppressionNontargetImpacts
+
+    // ********************************************************
+    // *** Loop through elementProperties array and execute ***
+    // ********************************************************
+    propertiesLength = elementProperties.length;
+    for(var i=0; i<propertiesLength; i++){
+        Create_Div(elementProperties[i]);
+    }
+
+    // HTML generation complete, moving to IPMDAT_Init() function
+    //      located in IPMDAT_custom.js
     IPMDAT_Init();
 };

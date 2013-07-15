@@ -369,3 +369,19 @@ body, html{
         margin-left: 26px !important;
         width: 4% !important;
     }
+    #content_substep_strategy_exploration_containment_container{
+        left: 24% !important;
+        width: 500px !important;
+    }
+    .containment_substep{
+        margin-left: 32px !important;
+        width: 4% !important;
+    }
+    #content_substep_strategy_exploration_suppression_container{
+        left: 24% !important;
+        width: 500px !important;
+    }
+    .suppression_substep{
+        margin-left: 32px !important;
+        width: 4% !important;
+    }
