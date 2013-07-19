@@ -2507,7 +2507,21 @@ function JSON_Cookie_Step_Strategy_Exploration_Eradication(cookieData, completed
             eradicationNontargetImpactsDocumentation: null
         },
         saveArray = {},
-        destinationArray = {};
+        destinationArray = {
+            substep_one: '3.1',
+            substep_two: '3.2',
+            substep_three: '3.3',
+            substep_four: '3.4',
+            substep_five: '3.5',
+            substep_six: '3.6',
+            substep_seven: '3.7',
+            substep_eight: '3.8',
+            substep_nine: '3.9',
+            projectBackground: '1.1',
+            strategySelection: '2.1',
+            strategyExploration: 'none'
+            },
+        decisionDestination = null;
     // 2 -  Declare subcategory values (If applicable)               \\
     // 3 -  Ensure correct step container is displayed,              \\
     //      Check if loading data (Check -> Load -> Populate Fields) \\
@@ -2524,12 +2538,15 @@ function JSON_Cookie_Step_Strategy_Exploration_Eradication(cookieData, completed
             switch(eradicationArray.eradicationSocialPoliticalA){
                 case "#eradication_SocialPoliticalA_yes":
                     $('#eradication_SocialPoliticalA_yes').prop('checked', true);
+                    destinationArray.forward = '3.2';
                     break;
                 case "#eradication_SocialPoliticalA_no":
                     $('#eradication_SocialPoliticalA_no').prop('checked', true);
+                    destinationArray.forward = '4.1';
                     break;
                 case "#eradication_SocialPoliticalA_uncertain":
                     $('#eradication_SocialPoliticalA_uncertain').prop('checked', true);
+                    destinationArray.forward = 'pause';
                     break;
             }
             $('#eradication_SocialPoliticalA_documentation').prop('value', eradicationArray.eradicationSocialPoliticalADocumentation);
@@ -2543,12 +2560,15 @@ function JSON_Cookie_Step_Strategy_Exploration_Eradication(cookieData, completed
             switch(eradicationArray.eradicationSocialPoliticalB){
                 case "#eradication_SocialPoliticalB_yes":
                     $('#eradication_SocialPoliticalB_yes').prop('checked', true);
+                    destinationArray.forward = '3.3';
                     break;
                 case "#eradication_SocialPoliticalB_no":
                     $('#eradication_SocialPoliticalB_no').prop('checked', true);
+                    destinationArray.forward = '4.1';
                     break;
                 case "#eradication_SocialPolitical_B_uncertain":
                     $('#eradication_SocialPoliticalB_uncertain').prop('checked', true);
+                    destinationArray.forward = 'pause';
                     break;
             }
             $('#eradication_SocialPoliticalB_documentation').prop('value', eradicationArray.eradicationSocialPoliticalBDocumentation);
@@ -2562,12 +2582,15 @@ function JSON_Cookie_Step_Strategy_Exploration_Eradication(cookieData, completed
             switch(eradicationArray.eradicationSocialPoliticalC){
                 case "#eradication_SocialPoliticalC_yes":
                     $('#eradication_SocialPoliticalC_yes').prop('checked', true);
+                    destinationArray.forward = '3.4';
                     break;
                 case "#eraidcation_SocialPolitical_C_no":
                     $('#eradication_SocialPoliticalC_no').prop('checked', true);
+                    destinationArray.forward = '4.1';
                     break;
                 case "#eradication_SocialPoliticalC_uncertain":
                     $('#eradication_SocialPoliticalC_uncertain').prop('checked', true);
+                    destinationArray.forward = 'pause';
                     break;
             }
             $('#eradication_SocialPoliticalC_documentation').prop('value', eradicationArray.eradicationSocialPoliticalCDocumentation);
@@ -2581,12 +2604,15 @@ function JSON_Cookie_Step_Strategy_Exploration_Eradication(cookieData, completed
             switch(eradicationArray.eradicationPreventingReproductionA){
                 case "#eradication_PreventingReproductionA_yes":
                     $('#eradication_PreventingReproductionA_yes').prop('checked', true);
+                    destinationArray.forward = '3.5';
                     break;
                 case "#eradication_PreventingReproductionA_no":
                     $('#eradication_PreventingReproductionA_no').prop('checked', true);
+                    destinationArray.forward = '4.1';
                     break;
                 case "#eradication_PreventingReproductionA_uncertain":
                     $('#eradication_PreventingReproductionA_uncertain').prop('checked', true);
+                    destinationArray.forward = 'pause';
                     break;
             }
             $('#eradication_PreventingReproductionA_documentation').prop('value', eradicationArray.eradicationPreventingReproductionADocumentation);
@@ -2600,12 +2626,15 @@ function JSON_Cookie_Step_Strategy_Exploration_Eradication(cookieData, completed
             switch(eradicationArray.eradicationPreventingReproductionB){
                 case "#eradication_PreventingReproductionB_yes":
                     $('#eradication_PreventingReproductionB_yes').prop('checked', true);
+                    destinationArray.forward = '3.6';
                     break;
                 case "#eradication_PreventingReproductionB_no":
                     $('#eradication_PreventingReproductionB_no').prop('checked', true);
+                    destinationArray.forward = '4.1';
                     break;
                 case "#eradication_PreventingReproductionB_uncertain":
                     $('#eradication_PreventingReproductionB_uncertain').prop('checked', true);
+                    destinationArray.forward = 'pause';
                     break;
             }
             $('#eradication_PreventingReproductionB_documentation').prop('value', eradicationArray.eradicationPreventingReproductionBDocumentation);
@@ -2619,12 +2648,15 @@ function JSON_Cookie_Step_Strategy_Exploration_Eradication(cookieData, completed
             switch(eradicationArray.eradicationDetection){
                 case "#eradication_Detection_yes":
                     $('#eradication_Detection_yes').prop('checked', true);
+                    destinationArray.forward = '3.7';
                     break;
                 case "#eradication_Detection_no":
                     $('#eradication_Detection_no').prop('checked', true);
+                    destinationArray.forward = '4.1';
                     break;
                 case "#eradication_Detection_uncertain":
                     $('#eradication_Detection_uncertain').prop('checked', true);
+                    destinationArray.forward = 'pause';
                     break;
             }
             $('#eradication_Detection_documentation').prop('value', eradicationArray.eradicationDetectionDocumentation);
@@ -2640,12 +2672,15 @@ function JSON_Cookie_Step_Strategy_Exploration_Eradication(cookieData, completed
             switch(eradicationArray.eradicationEffectiveControlA){
                 case "#eradication_EffectiveControlA_yes":
                     $('#eradication_EffectiveControlA_yes').prop('checked', true);
+                    destinationArray.forward = '3.8';
                     break;
                 case "#eradication_EffectiveControlA_no":
                     $('#eradication_EffectiveControlA_no').prop('checked', true);
+                    destinationArray.forward = '4.1';
                     break;
                 case "#eradication_EffectiveControlA_uncertain":
                     $('#eradication_EffectiveControlA_uncertain').prop('checked', true);
+                    destinationArray.forward = 'pause';
                     break;
             }
             $('#eradication_EffectiveControlA_documentation').prop('value', eradicationArray.eradicationEffectiveControlADocumentation);
@@ -2677,12 +2712,15 @@ function JSON_Cookie_Step_Strategy_Exploration_Eradication(cookieData, completed
             switch(eradicationArray.eradicationEffectiveControlB){
                 case "#eradication_EffectiveControlB_yes":
                     $('#eradication_EffectiveControlB_yes').prop('checked', true);
+                    destinationArray.forward = '3.9';
                     break;
                 case "#eradication_EffectiveControlB_no":
                     $('#eradication_EffectiveControlB_no').prop('checked', true);
+                    destinationArray.forward = '4.1';
                     break;
                 case "#eradication_EffectiveControlB_uncertain":
                     $('#eradication_EffectiveControlB_uncertain').prop('checked', true);
+                    destinationArray.forward = 'pause';
                     break;
             }
             $('#eradication_EffectiveControlB_documentation').prop('value', eradicationArray.eradicationEffectiveControlBDocumentation);
@@ -2696,12 +2734,16 @@ function JSON_Cookie_Step_Strategy_Exploration_Eradication(cookieData, completed
             switch(eradicationArray.eradicationNontargetImpacts){
                 case "#eradication_NontargetImpacts_yes":
                     $('#eradication_NontargetImpacts_yes').prop('checked', true);
+                    // TODO: FIGURE SUMMARY RECOMMENDATION LOCATION
+                    destinationArray.forward = 'TBD';
                     break;
                 case "#eradication_NontargetImpacts_no":
                     $('#eradication_NontargetImpacts_no').prop('checked', true);
+                    destinationArray.forward = '4.1';
                     break;
                 case "#eradication_NontargetImpacts_uncertain":
                     $('#eradication_NontargetImpacts_uncertain').prop('checked', true);
+                    destinationArray.forward = 'pause';
                     break;
             }
             $('#eradication_NontargetImpacts_documentation').prop('value', eradicationArray.eradicationNontargetImpactsDocumentation);
@@ -2890,11 +2932,14 @@ function JSON_Cookie_Step_Strategy_Exploration_Eradication(cookieData, completed
         // Assign the value
         switch(boxName){
             case '#eradication_SocialPoliticalA_yes':
-                eradicationArray.eradicationSocialPoliticalA = '#eradication_SocialPoliticalA_yes'; break;
+                eradicationArray.eradicationSocialPoliticalA = '#eradication_SocialPoliticalA_yes';
+                destinationArray.forward = '3.2'; break;
             case '#eradication_SocialPoliticalA_no':
-                eradicationArray.eradicationSocialPoliticalA = '#eradication_SocialPoliticalA_no'; break;
+                eradicationArray.eradicationSocialPoliticalA = '#eradication_SocialPoliticalA_no';
+                destinationArray.forward = '4.1'; break;
             case '#eradication_SocialPoliticalA_uncertain':
-                eradicationArray.eradicationSocialPoliticalA = '#eradication_SocialPoliticalA_uncertain'; break;
+                eradicationArray.eradicationSocialPoliticalA = '#eradication_SocialPoliticalA_uncertain';
+                destinationArray.forward = 'none'; break;
             case '#eradication_SocialPoliticalB_yes':
                 eradicationArray.eradicationSocialPoliticalB = '#eradication_SocialPoliticalB_yes'; break;
             case '#eradication_SocialPoliticalB_no':
@@ -3097,23 +3142,6 @@ function JSON_Cookie_Step_Strategy_Exploration_Eradication(cookieData, completed
     };
     // 9 -  Populate/Execute - Add_Event_To_Field, Add_Event_To_Nav  \\
     Eradication_Substep_Form_Check(eradicationArray);
-    destinationArray = {
-        current: '',
-        forward: '',
-        back: '',
-        substep_one: '3.1',
-        substep_two: '3.2',
-        substep_three: '3.3',
-        substep_four: '3.4',
-        substep_five: '3.5',
-        substep_six: '3.6',
-        substep_seven: '3.7',
-        substep_eight: '3.8',
-        substep_nine: '3.9',
-        projectBackground: '1.1',
-        strategySelection: '2.1',
-        strategyExploration: 'none'
-    };
     switch(currentStep){
         case "3.1":
             Add_Event_To_Field('#eradication_SocialPoliticalA_documentation');
@@ -3132,7 +3160,6 @@ function JSON_Cookie_Step_Strategy_Exploration_Eradication(cookieData, completed
             }
             destinationArray.back = tempBack;
             destinationArray.current = '3.1';
-            destinationArray.forward = '3.2';
             destinationArray.substep_one = 'none';
             break;
         case "3.2":
@@ -3142,7 +3169,6 @@ function JSON_Cookie_Step_Strategy_Exploration_Eradication(cookieData, completed
             $('#eradication_SocialPoliticalB_uncertain').change(function(){ Eradication_Check_Boxes('#eradication_SocialPoliticalB_uncertain'); });
             destinationArray.back = '3.1';
             destinationArray.current = '3.2';
-            destinationArray.forward = '3.3';
             destinationArray.substep_two = 'none';
             break;
         case "3.3":
@@ -3152,7 +3178,6 @@ function JSON_Cookie_Step_Strategy_Exploration_Eradication(cookieData, completed
             $('#eradication_SocialPoliticalC_uncertain').change(function(){ Eradication_Check_Boxes('#eradication_SocialPoliticalC_uncertain'); });
             destinationArray.back = '3.2';
             destinationArray.current = '3.3';
-            destinationArray.forward = '3.4';
             destinationArray.substep_three = 'none';
             break;
         case "3.4":
@@ -3162,7 +3187,6 @@ function JSON_Cookie_Step_Strategy_Exploration_Eradication(cookieData, completed
             $('#eradication_PreventingReproductionA_uncertain').change(function(){ Eradication_Check_Boxes('#eradication_PreventingReproductionA_uncertain'); });
             destinationArray.back = '3.3';
             destinationArray.current = '3.4';
-            destinationArray.forward = '3.5';
             destinationArray.substep_four = 'none';
             break;
         case "3.5":
@@ -3172,7 +3196,6 @@ function JSON_Cookie_Step_Strategy_Exploration_Eradication(cookieData, completed
             $('#eradication_PreventingReproductionB_uncertain').change(function(){ Eradication_Check_Boxes('#eradication_PreventingReproductionB_uncertain'); });
             destinationArray.back = '3.4';
             destinationArray.current = '3.5';
-            destinationArray.forward = '3.6';
             destinationArray.substep_five = 'none';
             break;
         case "3.6":
@@ -3182,7 +3205,6 @@ function JSON_Cookie_Step_Strategy_Exploration_Eradication(cookieData, completed
             $('#eradication_Detection_uncertain').change(function(){ Eradication_Check_Boxes('#eradication_Detection_uncertain'); });
             destinationArray.back = '3.5';
             destinationArray.current = '3.6';
-            destinationArray.forward = '3.7';
             destinationArray.substep_six = 'none';
             break;
         case "3.7":
@@ -3198,7 +3220,6 @@ function JSON_Cookie_Step_Strategy_Exploration_Eradication(cookieData, completed
             $('#eradication_EffectiveControlAControlMethod_other').change(function(){ Eradication_Check_Boxes('#eradication_EffectiveControlAControlMethod_other'); });
             destinationArray.back = '3.6';
             destinationArray.current = '3.7';
-            destinationArray.forward = '3.8';
             destinationArray.substep_seven = 'none';
             break;
         case "3.8":
@@ -3208,7 +3229,6 @@ function JSON_Cookie_Step_Strategy_Exploration_Eradication(cookieData, completed
             $('#eradication_EffectiveControlB_uncertain').change(function(){ Eradication_Check_Boxes('#eradication_EffectiveControlB_uncertain'); });
             destinationArray.back = '3.7';
             destinationArray.current = '3.8';
-            destinationArray.forward = '3.9';
             destinationArray.substep_eight = 'none';
             break;
         case "3.9":
@@ -3218,7 +3238,6 @@ function JSON_Cookie_Step_Strategy_Exploration_Eradication(cookieData, completed
             $('#eradication_NontargetImpacts_uncertain').change(function(){ Eradication_Check_Bxoes('#eradication_NontargetImpacts_uncertain'); });
             destinationArray.back = '3.8';
             destinationArray.current = '3.9';
-            destinationArray.forward = 'none';
             destinationArray.substep_eight = 'none';
             break;
     }

@@ -385,3 +385,24 @@ body, html{
         margin-left: 32px !important;
         width: 4% !important;
     }
+#content_uncertain_popup_container{
+    background: white;
+    height: 475px;
+    left: 2%;
+    position: relative;
+    top: -82%;
+    width: 915px;
+    z-index: 999;
+}
+    .content_uncertain_popup_active{
+        display: block;
+    }
+    .content_uncertain_popup_inactive{
+        display: none;
+    }
+    #content_uncertain_popup_title{
+    }
+    #content_uncertain_popup_content{
+    }
+        #content_uncertain_popup_close{
+        }
