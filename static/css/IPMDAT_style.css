@@ -386,13 +386,17 @@ body, html{
         width: 4% !important;
     }
 #content_uncertain_popup_container{
-    background: white;
+    background: #CCC;
+    border: 1px solid black;
     height: 475px;
     left: 2%;
     position: relative;
     top: -82%;
     width: 915px;
     z-index: 999;
+    border-radius: 15px;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
 }
     .content_uncertain_popup_active{
         display: block;
@@ -401,8 +405,38 @@ body, html{
         display: none;
     }
     #content_uncertain_popup_title{
+        background: white;
+        width: 81%;
+        position: relative;
+        top: 15px;
+        border-radius: 15px;
+        -moz-border-radius: 15px;
+        -webkit-border-radius: 15px;
+        text-align: center;
+        margin-left: 8%;
+        font-size: 2.5em;
     }
     #content_uncertain_popup_content{
     }
+        #content_uncertain_content{
+            background: white;
+            width: 90%;
+            text-align: center;
+            top: 42px;
+            position: relative;
+            left: 5%;
+            height: 200px;
+        }
         #content_uncertain_popup_close{
+            background: white;
+            width: 25%;
+            text-align: center;
+            border: 1px solid black;
+            position: relative;
+            top: 185px;
+            left: 37%;
+            cursor: pointer;
+            border-radius: 15px;
+            -moz-border-radius: 15px;
+            -webkit-border-radius: 15px;
         }

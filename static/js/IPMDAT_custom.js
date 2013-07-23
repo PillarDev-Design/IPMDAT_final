@@ -867,6 +867,32 @@ function Check_Available_Steps(cookieData, completedSteps, currentStep){
         JSON_Cookie_Step_Strategy_Exploration_Containment(cookieData, completedSteps, currentStep);
     }
 };
+/***********************************************\
+ * Popup(originalType, newType, content)       *
+ * ------------------------------------------- *
+ * originalType - Original record type         *
+ * newType - New record type                   *
+ * content - Content to be placed in div       *
+\***********************************************/
+function Popup(originalType, newType, content){
+    // Variables
+    // Fill
+    if(newType !== null){
+        $('#content_uncertain_popup_title').empty().append('Changing record to <b>' + newType + '</b>');
+    }else{
+        $('#content_uncertain_popup_title').empty().append('Cannot proceed.');
+    }
+    if((originalType !== null)&&(newType !== null)){
+        $('#content_uncertain_content').empty().append('The text when a record is changing.<br />Changing record from <b>' + originalType + '</b> to <b> ' + newType + '</b>');
+    }else{
+        $('#content_uncertain_content').empty().append('Cannot proceed with uncertain.');
+    }
+    $('#content_uncertain_popup_close').click(function(){
+        $('#content_uncertain_popup_container').removeClass('content_uncertain_popup_active').addClass('content_uncertain_popup_inactive');
+    });
+    // Display
+    $('#content_uncertain_popup_container').removeClass('content_uncertain_popup_inactive').addClass('content_uncertain_popup_active');
+};
 
 /***********************************************\
  * IPMDAT_Init()                               *
@@ -2941,63 +2967,92 @@ function JSON_Cookie_Step_Strategy_Exploration_Eradication(cookieData, completed
                 eradicationArray.eradicationSocialPoliticalA = '#eradication_SocialPoliticalA_uncertain';
                 destinationArray.forward = 'none'; break;
             case '#eradication_SocialPoliticalB_yes':
-                eradicationArray.eradicationSocialPoliticalB = '#eradication_SocialPoliticalB_yes'; break;
+                eradicationArray.eradicationSocialPoliticalB = '#eradication_SocialPoliticalB_yes';
+                destinationArray.forward = '3.3'; break;
             case '#eradication_SocialPoliticalB_no':
-                eradicationArray.eradicationSocialPoliticalB = '#eradication_SocialPoliticalB_no'; break;
+                eradicationArray.eradicationSocialPoliticalB = '#eradication_SocialPoliticalB_no';
+                destinationArray.forward = '4.1'; break;
             case '#eradication_SocialPoliticalB_uncertain':
-                eradicationArray.eradicationSocialPoliticalB = '#eradication_SocialPoliticalB_uncertain'; break;
+                eradicationArray.eradicationSocialPoliticalB = '#eradication_SocialPoliticalB_uncertain';
+                destinationArray.forward = 'none'; break;
             case '#eradication_SocialPoliticalC_yes':
-                eradicationArray.eradicationSocialPoliticalC = '#eradication_SocialPoliticalC_yes'; break;
+                eradicationArray.eradicationSocialPoliticalC = '#eradication_SocialPoliticalC_yes';
+                destinationArray.forward = '3.4'; break;
             case '#eradication_SocialPoliticalC_no':
-                eradicationArray.eradicationSocialPoliticalC = '#eradication_SocialPoliticalC_no'; break;
+                eradicationArray.eradicationSocialPoliticalC = '#eradication_SocialPoliticalC_no';
+                destinationArray.forward = '4.1'; break;
             case '#eradication_SocialPoliticalC_uncertain':
-                eradicationArray.eradicationSocialPoliticalC = '#eradication_SocialPoliticalC_uncertain'; break;
+                eradicationArray.eradicationSocialPoliticalC = '#eradication_SocialPoliticalC_uncertain';
+                destinationArray.forward = 'none'; break;
             case '#eradication_PreventingReproductionA_yes':
-                eradicationArray.eradicationPreventingReproductionA = '#eradication_PreventingReproductionA_yes'; break;
+                eradicationArray.eradicationPreventingReproductionA = '#eradication_PreventingReproductionA_yes';
+                destinationArray.forward = '3.5'; break;
             case '#eradication_PreventingReproductionA_no':
-                eradicationArray.eradicationPreventingReproductionA = '#eradication_PreventingReproductionA_no'; break;
+                eradicationArray.eradicationPreventingReproductionA = '#eradication_PreventingReproductionA_no';
+                destinationArray.forward = '4.1'; break;
             case '#eradication_PreventingReproductionA_uncertain':
-                eradicationArray.eradicationPreventingReproductionA = '#eradication_PreventingReproductionA_uncertain'; break;
+                eradicationArray.eradicationPreventingReproductionA = '#eradication_PreventingReproductionA_uncertain';
+                destinationArray.forward = 'none'; break;
             case '#eradication_PreventingReproductionB_yes':
-                eradicationArray.eradicationPreventingReproductionB = '#eradication_PreventingReproductionB_yes'; break;
+                eradicationArray.eradicationPreventingReproductionB = '#eradication_PreventingReproductionB_yes';
+                destinationArray.forward = '3.6'; break;
             case '#eradication_PreventingReproductionB_no':
-                eradicationArray.eradicationPreventingReproductionB = '#eradication_PreventingReproductionB_no'; break;
+                eradicationArray.eradicationPreventingReproductionB = '#eradication_PreventingReproductionB_no';
+                destinationArray.forward = '4.1'; break;
             case '#eradication_PreventingReproductionB_uncertain':
-                eradicationArray.eradicationPreventingReproductionB = '#eradication_PreventingReproductionB_uncertain'; break;
+                eradicationArray.eradicationPreventingReproductionB = '#eradication_PreventingReproductionB_uncertain';
+                destinationArray.forward = 'none'; break;
             case '#eradication_Detection_yes':
-                eradicationArray.eradicationDetection = '#eradication_Detection_yes'; break;
+                eradicationArray.eradicationDetection = '#eradication_Detection_yes';
+                destinationArray.forward = '3.7'; break;
             case '#eradication_Detection_no':
-                eradicationArray.eradicationDetection = '#eradication_Detection_no'; break;
+                eradicationArray.eradicationDetection = '#eradication_Detection_no';
+                destinationArray.forward = '4.1'; break;
             case '#eradication_Detection_uncertain':
-                eradicationArray.eradicationDetection = '#eradication_Detection_uncertain'; break;
+                eradicationArray.eradicationDetection = '#eradication_Detection_uncertain';
+                destinationArray.forward = 'none'; break;
             case '#eradication_EffectiveControlA_yes':
-                eradicationArray.eradicationEffectiveControlA = '#eradication_EffectiveControlA_yes'; break;
+                eradicationArray.eradicationEffectiveControlA = '#eradication_EffectiveControlA_yes';
+                destinationArray.forward = '3.8'; break;
             case '#eradication_EffectiveControlA_no':
-                eradicationArray.eradicationEffectiveControlA = '#eradication_EffectiveControlA_no'; break;
+                eradicationArray.eradicationEffectiveControlA = '#eradication_EffectiveControlA_no';
+                destinationArray.forward = '4.1'; break;
             case '#eradication_EffectiveControlA_uncertain':
-                eradicationArray.eradicationEffectiveControlA = '#eradication_EffectiveControlA_uncertain'; break;
+                eradicationArray.eradicationEffectiveControlA = '#eradication_EffectiveControlA_uncertain';
+                destinationArray.forward = 'none'; break;
             case '#eradication_EffectiveControlAControlMethod_manual':
-                eradicationArray.eradicationEffectiveControlAControlMethod = '#eradication_EffectiveControlAControlMethod_manual'; break;
+                eradicationArray.eradicationEffectiveControlAControlMethod = '#eradication_EffectiveControlAControlMethod_manual';
+                break;
             case '#eradication_EffectiveControlAControlMethod_mechanical':
-                eradicationArray.eradicationEffectiveControlAControlMethod = '#eradication_EffectiveControlAControlMethod_mechancial'; break;
+                eradicationArray.eradicationEffectiveControlAControlMethod = '#eradication_EffectiveControlAControlMethod_mechancial';
+                break;
             case '#eradication_EffectiveControlAControlMethod_herbicide':
-                eradicationArray.eradicationEffectiveControlAControlMethod = '#eradication_EffectiveControlAControlMethod_herbicide'; break;
+                eradicationArray.eradicationEffectiveControlAControlMethod = '#eradication_EffectiveControlAControlMethod_herbicide';
+                break;
             case '#eradication_EffectiveControlAControlMethod_biological':
-                eradicationArray.eradicationEffectiveControlAControlMethod = '#eradication_EffectiveControlAControlMethod_biological'; break;
+                eradicationArray.eradicationEffectiveControlAControlMethod = '#eradication_EffectiveControlAControlMethod_biological';
+                break;
             case '#eradication_EffectiveControlAControlMethod_other':
-                eradicationArray.eradicationEffectiveControlAControlMethod = '#eradication_EffectiveControlAControlMethod_other'; break;
+                eradicationArray.eradicationEffectiveControlAControlMethod = '#eradication_EffectiveControlAControlMethod_other';
+                break;
             case '#eradication_EffectiveControlB_yes':
-                eradicationArray.eradicationEffectiveControlB = '#eradication_EffectiveControlB_yes'; break;
+                eradicationArray.eradicationEffectiveControlB = '#eradication_EffectiveControlB_yes';
+                destinationArray.forward = '3.9'; break;
             case '#eradication_EffectiveControlB_no':
-                eradicationArray.eradicationEffectiveControlB = '#eradication_EffectiveControlB_no'; break;
+                eradicationArray.eradicationEffectiveControlB = '#eradication_EffectiveControlB_no';
+                destinationArray.forward = '4.1'; break;
             case '#eradication_EffectiveControlB_uncertain':
-                eradicationArray.eradicationEffectiveControlB = '#eradication_EffectiveControlB_uncertain'; break;
+                eradicationArray.eradicationEffectiveControlB = '#eradication_EffectiveControlB_uncertain';
+                destinationArray.forward = 'none'; break;
             case '#eradication_NontargetImpacts_yes':
-                eradicationArray.eradicationNontargetImpacts = '#eradication_NontargetImpacts_yes'; break;
+                eradicationArray.eradicationNontargetImpacts = '#eradication_NontargetImpacts_yes';
+                destinationArray.forward = 'none'; break;
             case '#eradication_NontargetImpacts_no':
-                eradicationArray.eradicationNontargetImpacts = '#eradication_NontargetImpacts_no'; break;
+                eradicationArray.eradicationNontargetImpacts = '#eradication_NontargetImpacts_no';
+                destinationArray.forward = '4.1'; break;
             case '#eradication_NontargetImpacts_uncertain':
-                eradicationArray.eradicationNontargetImpacts = '#eradication_NontargetImpacts_uncertain'; break;
+                eradicationArray.eradicationNontargetImpacts = '#eradication_NontargetImpacts_uncertain';
+                destinationArray.forward = 'none'; break;
         }
         Eradication_Substep_Form_Check(eradicationArray);
     };
@@ -3031,8 +3086,13 @@ function JSON_Cookie_Step_Strategy_Exploration_Eradication(cookieData, completed
             if(destinationArray.forward !== "none"){
                 if($('#content_nav_forward').hasClass('content_nav_base_active')){
                     Eradication_Substep_Save();
+                    if(destinationArray.forward === '4.1'){
+                        Popup('eradication', 'containment', '');
+                    }
                     Check_Available_Steps(cookieData, completedSteps, destinationArray.forward);
                 }
+            }else{
+                Popup(null, null, '');
             }
         });
         $('#content_nav_back').click(function(){
