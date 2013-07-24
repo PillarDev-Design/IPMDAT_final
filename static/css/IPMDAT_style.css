@@ -47,9 +47,13 @@ body, html{
     float: left;
 }
     #site_nav_left_logo{
-        background-image:url('/static/img/logo.JPG');
-        height: 110px;
+        background-image:url('/static/img/IPMDAT_logo-FINAL_medium.png');
+        background-repeat: no-repeat;
+        height: 116px;
         width: 425px;
+        position: absolute;
+        top: -10px;
+        left: 10px;
     }
 #site_nav_right_side{
     float: right;
@@ -427,14 +431,27 @@ body, html{
             left: 5%;
             height: 200px;
         }
+        #content_uncertain_popup_back{
+            background: white;
+            width: 25%;
+            text-align: center;
+            border: 1px solid black;
+            top: 185px;
+            position: relative;
+            left: 6%;
+            cursor: pointer;
+            border-radius: 15px;
+            -moz-border-radius: 15px;
+            -webkit-border-radius: 15px;
+        }
         #content_uncertain_popup_close{
             background: white;
             width: 25%;
             text-align: center;
             border: 1px solid black;
             position: relative;
-            top: 185px;
-            left: 37%;
+            top: 162px;
+            left: 70%;
             cursor: pointer;
             border-radius: 15px;
             -moz-border-radius: 15px;

@@ -873,10 +873,10 @@ function Check_Available_Steps(cookieData, completedSteps, currentStep){
  * originalType - Original record type         *
  * newType - New record type                   *
  * content - Content to be placed in div       *
+ * backDestination - Pointing to previous      *
 \***********************************************/
-function Popup(originalType, newType, content){
-    // Variables
-    // Fill
+function Popup(originalType, newType, content, backDestination, cookieData, completedSteps){
+    // Fill Content
     if(newType !== null){
         $('#content_uncertain_popup_title').empty().append('Changing record to <b>' + newType + '</b>');
     }else{
@@ -884,14 +884,26 @@ function Popup(originalType, newType, content){
     }
     if((originalType !== null)&&(newType !== null)){
         $('#content_uncertain_content').empty().append('The text when a record is changing.<br />Changing record from <b>' + originalType + '</b> to <b> ' + newType + '</b>');
+        $('#content_uncertain_popup_close').empty().append('Proceed.');
+        $('#content_uncertain_popup_back').removeClass('content_uncertain_popup_inactive');
     }else{
         $('#content_uncertain_content').empty().append('Cannot proceed with uncertain.');
+        $('#content_uncertain_popup_close').empty().append('Okay.');
+        $('#content_uncertain_popup_back').addClass('content_uncertain_popup_inactive');
     }
+
+    // Button Functionality
     $('#content_uncertain_popup_close').click(function(){
         $('#content_uncertain_popup_container').removeClass('content_uncertain_popup_active').addClass('content_uncertain_popup_inactive');
     });
+    $('#content_uncertain_popup_back').click(function(){
+        $('#content_uncertain_popup_container').removeClass('content_uncertain_popup_active').addClass('content_uncertain_popup_inactive');
+        Check_Available_Steps(cookieData, completedSteps, backDestination);
+    });
+
     // Display
     $('#content_uncertain_popup_container').removeClass('content_uncertain_popup_inactive').addClass('content_uncertain_popup_active');
+    
 };
 
 /***********************************************\
@@ -3087,7 +3099,7 @@ function JSON_Cookie_Step_Strategy_Exploration_Eradication(cookieData, completed
                 if($('#content_nav_forward').hasClass('content_nav_base_active')){
                     Eradication_Substep_Save();
                     if(destinationArray.forward === '4.1'){
-                        Popup('eradication', 'containment', '');
+                        Popup('eradication', 'containment', '', destinationArray.current, cookieData, completedSteps);
                     }
                     Check_Available_Steps(cookieData, completedSteps, destinationArray.forward);
                 }
