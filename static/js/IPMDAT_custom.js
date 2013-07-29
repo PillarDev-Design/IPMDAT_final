@@ -92,7 +92,20 @@ function Save_Cookie(cookieData, stepNumber, completedSteps){
             containmentEffectiveControlB: null,
             containmentEffectiveControlBDocumentation: null,
             containmentNontargetImpacts: null,
-            containmentNontargetImpactsDocumentation: null
+            containmentNontargetImpactsDocumentation: null,
+            // STRATEGY EXPLORATION (SUPPRESSION) (STEP 5)
+            suppressionSocialPoliticalA: null,
+            suppressionSocialPoliticalADocumentation: null,
+            suppressionSocialPoliticalB: null,
+            suppressionSocialPoliticalBDocumentation: null,
+            suppressionEffectiveControlA: null,
+            suppressionEffectiveControlADocumentation: null,
+            suppressionEffectiveControlAControlMethod: null,
+            suppressionEffectiveControlAControlMethodDescription: null,
+            suppressionEffectiveControlB: null,
+            suppressionEffectiveControlBDocumentation: null,
+            suppressionNontargetImpacts: null,
+            suppressionNontargetImpactsDocumentation: null
         };
     /*===============================================================*\
      * This next chunk of code ensures that any previous data will   *
@@ -197,6 +210,24 @@ function Save_Cookie(cookieData, stepNumber, completedSteps){
     if(savedData.containmentEffectiveControlBDocumentation !== null){ cookieArray.containmentEffectiveControlBDocumentation = savedData.containmentEffectiveControlBDocumentation; }
     // 4.8
     if(savedData.containmentNontargetImpacts !== null){ cookieArray.containmentNontargetImpacts = savedData.containmentNontargetImpacts; }
+    if(savedData.containmentNontargetImpactsDocumentation !== null){ cookieArray.containmentNontargetImpactsDocumentation = savedData.containmentNontargetImpactsDocumentation; }
+    // 5.1
+    if(savedData.suppressionSocialPoliticalA !== null){ cookieArray.suppressionSocialPoliticalA = savedData.suppressionSocialPoliticalA; }
+    if(savedData.suppressionSocialPoliticalADocumentation !== null){ cookieArray.suppressionSocialPoliticalADocumentation = savedData.suppressionSocialPoliticalADocumentation; }
+    // 5.2
+    if(savedData.suppressionSocialPoliticalB !== null){ cookieArray.suppressionSocialPoliticalB = savedData.suppressionSocialPoliticalB; }
+    if(savedData.suppressionSocialPoliticalBDocumentation !== null){ cookieArray.suppressionSocialPoliticalBDocumentation = savedData.suppressionSocialPoliticalBDocumentation; }
+    // 5.3
+    if(savedData.suppressionEffectiveControlA !== null){ cookieArray.suppressionEffectiveControlA = savedData.suppressionEffectiveControlA; }
+    if(savedData.suppressionEffectiveControlADocumentation !== null){ cookieArray.suppressionEffectiveControlADocumentation = savedData.suppressionEffectiveControlADocumentation; }
+    if(savedData.suppressionEffectiveControlAControlMethod !== null){ cookieArray.suppressionEffectiveControlAControlMethod = savedData.suppressionEffectiveControlAControlMethod; }
+    if(savedData.suppressionEffectiveControlAControlMethodDescription !== null){ cookieArray.suppressionEffectiveControlAControlMethodDescription = savedData.suppressionEffectiveControlAControlMethodDescription; }
+    // 5.4
+    if(savedData.suppressionEffectiveControlB !== null){ cookieArray.suppressionEffectiveControlB = savedData.suppressionEffectiveControlB; }
+    if(savedData.suppressionEffectiveControlBDocumentation !== null){ cookieArray.suppressionEffectiveControlBDocumentation = savedData.suppressionEffectiveControlBDocumentation; }
+    // 5.5
+    if(savedData.suppressionNontargetImpacts !== null){ cookieArray.suppressionNontargetImpacts = savedData.suppressionNontargetImpacts; }
+    if(savedData.suppressionNontargetImpactsDocumentation !== null){ cookieArray.suppressionNontargetImpactsDocumentation = savedData.suppressionNontargetImpactsDocumentation; }
 
     // Enter New Data from cookieData
     if(stepNumber === "1.1"){
@@ -296,6 +327,23 @@ function Save_Cookie(cookieData, stepNumber, completedSteps){
     }else if(stepNumber === "4.8"){
         cookieArray.containmentNontargetImpacts = cookieData.containmentNontargetImpacts;
         cookieArray.containmentNontargetImpactsDocumentation = cookieData.containmentNontargetImpactsDocumentation;
+    }else if(stepNumber === "5.1"){
+        cookieArray.suppressionSocialPoliticalA = cookieData.suppressionSocialPoliticalA;
+        cookieArray.suppressionSocialPoliticalADocumentation = cookieData.suppressionSocialPoliticalADocumentation;
+    }else if(stepNumber === "5.2"){
+        cookieArray.suppressionSocialPoliticalB = cookieData.suppressionSocialPoliticalB;
+        cookieArray.suppressionSocialPoliticalBDocumentation = cookieData.suppressionSocialPoliticalBDocumentation;
+    }else if(stepNumber === "5.3"){
+        cookieArray.suppressionEffectiveControlA = cookieData.suppressionEffectiveControlA;
+        cookieArray.suppressionEffectiveControlADocumentation = cookieData.suppressionEffectiveControlADocumentation;
+        cookieArray.suppressionEffectiveControlAControlMethod = cookieData.suppressionEffectiveControlAControlMethod;
+        cookieArray.suppressionEffectiveControlAControlMethodDescription = cookieData.suppressionEffectiveControlAControlMethodDescription;
+    }else if(stepNumber === "5.4"){
+        cookieArray.suppressionEffectiveControlB = cookieData.suppressionEffectiveControlB;
+        cookieArray.suppressionEffectiveControlBDocumentation = cookieData.suppressionEffectiveControlBDocumentation;
+    }else if(stepNumber === "5.5"){
+        cookieArray.suppressionNontargetImpacts = cookieData.suppressionNontargetImpacts;
+        cookieArray.suppressionNontargetImpactsDocumentation = cookieData.suppressionNontargetImpactsDocumentation;
     }
     $.JSONCookie(name, cookieArray, {path: '/'});
 };
@@ -350,6 +398,11 @@ function Check_Available_Steps(cookieData, completedSteps, currentStep){
     $('#content_step_strategy_exploration_containment_substep_six').unbind('click');
     $('#content_step_strategy_exploration_containment_substep_seven').unbind('click');
     $('#content_step_strategy_exploration_containment_substep_eight').unbind('click');
+    $('#content_step_strategy_exploration_suppression_substep_one').unbind('click');
+    $('#content_step_strategy_exploration_suppression_substep_two').unbind('click');
+    $('#content_step_strategy_exploration_suppression_substep_three').unbind('click');
+    $('#content_step_strategy_exploration_suppression_substep_four').unbind('click');
+    $('#content_step_strategy_exploration_suppression_substep_five').unbind('click');
     // TODO: UPDATE HERE
     
     // Control Step Progress
@@ -405,6 +458,7 @@ function Check_Available_Steps(cookieData, completedSteps, currentStep){
                 // TODO: FIX PATHING HERE -> ERADICATION OR CONTAINMENT
                 $('#content_step_strategy_exploration_eradication_substep_one').removeClass('content_substep_active').removeClass('content_substep_inactive').addClass('content_substep_available');
                 $('#content_step_strategy_exploration_containment_substep_one').removeClass('content_substep_active').removeClass('content_substep_inactive').addClass('content_substep_available');
+                $('#content_step_strategy_exploration_suppression_substep_one').removeClass('content_substep_active').removeClass('content_substep_inactive').addClass('content_substep_available');
             }else if(cookieData.strategySelectionAbundanceAndDistributionConfirm === "#strategy_confirmation_no"){
                 // Alternative
                 $('#content_step_strategy_selection_substep_four').removeClass('content_substep_active').removeClass('content_substep_inactive').addClass('content_substep_available');
@@ -417,6 +471,7 @@ function Check_Available_Steps(cookieData, completedSteps, currentStep){
             // TODO: FIX PATHING HERE -> ERADICATION OR CONTAINMENT
             $('#content_step_strategy_exploration_eradication_substep_one').removeClass('content_substep_active').removeClass('content_substep_inactive').addClass('content_substep_available');
             $('#content_step_strategy_exploration_containment_substep_one').removeClass('content_substep_active').removeClass('content_substep_inactive').addClass('content_substep_available');
+            $('#content_step_strategy_exploration_suppression_substep_one').removeClass('content_substep_active').removeClass('content_substep_inactive').addClass('content_substep_available');
         }
         if(completedSteps[i] === "3.1"){
             $('#content_step_strategy_exploration_eradication_substep_two').removeClass('content_substep_active').removeClass('content_substep_inactive').addClass('content_substep_available');
@@ -467,6 +522,21 @@ function Check_Available_Steps(cookieData, completedSteps, currentStep){
             $('#content_step_strategy_exploration_containment_substep_eight').removeClass('content_substep_active').removeClass('content_substep_inactive').addClass('content_substep_available');
         }
         if(completedSteps[i] === "4.8"){
+            // TODO: UPDATE HERE (TO BE DETERMINED)
+        }
+        if(completedSteps[i] === "5.1"){
+            $('#content_step_strategy_exploration_suppression_substep_two').removeClass('content_substep_active').removeClass('content_substep_inactive').addClass('content_substep_available');
+        }
+        if(completedSteps[i] === "5.2"){
+            $('#content_step_strategy_exploration_suppression_substep_three').removeClass('content_substep_active').removeClass('content_substep_inactive').addClass('content_substep_available');
+        }
+        if(completedSteps[i] === "5.3"){
+            $('#content_step_strategy_exploration_suppression_substep_four').removeClass('content_substep_active').removeClass('content_substep_inactive').addClass('content_substep_available');
+        }
+        if(completedSteps[i] === "5.4"){
+            $('#content_step_strategy_exploration_suppression_substep_five').removeClass('content_substep_active').removeClass('content_substep_inactive').addClass('content_substep_available');
+        }
+        if(completedSteps[i] === "5.5"){
             // TODO: UPDATE HERE (TO BE DETERMINED)
         }
     }
@@ -563,6 +633,13 @@ function Check_Available_Steps(cookieData, completedSteps, currentStep){
     if($('#content_substep_strategy_exploration_containment_container').hasClass('content_substep_container_active')){
         $('#content_substep_strategy_exploration_containment_container').removeClass('content_substep_container_active').addClass('content_substep_container_inactive');
     }
+    // STRATEGY EXPLORATION (SUPPRESSION)
+    $('#content_step_strategy_exploration_suppression_SocialPoliticalA').removeClass('content_step_active').addClass('content_step_inactive');
+    $('#content_step_strategy_exploration_suppression_SocialPoliticalB').removeClass('content_step_active').addClass('content_step_inactive');
+    $('#content_step_strategy_exploration_suppression_EffectiveControlA').removeClass('content_step_active').addClass('content_step_inactive');
+    $('#content_step_strategy_exploration_suppression_EffectiveControlB').removeClass('content_step_active').addClass('content_step_inactive');
+    $('#content_step_strategy_exploration_suppression_NontargetImpacts').removeClass('content_step_active').addClass('content_step_inactive');
+    $('#content_substep_strategy_exploration_suppression_container').removeClass('content_substep_container_active').addClass('content_substep_container_inactive');
 
     // SUMMARY RECOMMENDATION
     if($('#content_step_summary_recommendation_container').hasClass('content_step_active')){
@@ -865,6 +942,68 @@ function Check_Available_Steps(cookieData, completedSteps, currentStep){
         }
         // Execute Step Function
         JSON_Cookie_Step_Strategy_Exploration_Containment(cookieData, completedSteps, currentStep);
+    }else if((currentStep === "5.1")||(currentStep === "5.2")||(currentStep === "5.3")||(currentStep === "5.4")||(currentStep === "5.5")){
+        // Main Progress Bars
+        $('#content_progress_bar_strategy_suppression').removeClass('progress_bar_inactive').removeClass('progress_bar_available').addClass('progress_bar_active');
+        // Substep Progress Container
+        $('#content_substep_strategy_exploration_suppression_container').removeClass('content_substep_container_inactive').addClass('content_substep_container_active');
+        
+        // SubStep Progress Bars & Clear Questions
+        switch(currentStep){
+            case "5.1":
+                // Substep Progress Bar
+                $('#content_step_strategy_exploration_suppression_substep_one').removeClass('content_substep_inactive').removeClass('content_substep_available').addClass('content_substep_active');
+                // Clear Questions
+                $('#suppression_SocialPoliticalA_yes').prop('checked', false);
+                $('#suppression_SocialPoliticalA_no').prop('checked', false);
+                $('#suppression_SocialPoliticalA_uncertain').prop('checked', false);
+                $('#suppression_SocialPoliticalA_documentation').prop('value', "");
+                break;
+            case "5.2":
+                // Substep Progress Bar
+                $('#content_step_strategy_exploration_suppression_substep_two').removeClass('content_substep_inactive').removeClass('content_substep_available').addClass('content_substep_active');
+                // Clear Questions
+                $('#suppression_SocialPoliticalB_yes').prop('checked', false);
+                $('#suppression_SocialPoliticalB_no').prop('checked', false);
+                $('#suppression_SocialPoliticalB_uncertain').prop('checked', false);
+                $('#suppression_SocialPoliticalB_documentation').prop('value', "");
+                break;
+            case "5.3":
+                // Substep Progress Bar
+                $('#content_step_strategy_exploration_suppression_substep_three').removeClass('content_substep_inactive').removeClass('content_substep_available').addClass('content_substep_active');
+                // Clear Questions
+                $('#suppression_EffectiveControlA_yes').prop('checked', false);
+                $('#suppression_EffectiveControlA_no').prop('checked', false);
+                $('#suppression_EffectiveControlA_uncertain').prop('checked', false);
+                $('#suppression_EffectiveControlA_documentation').prop('value', "");
+                $('#suppression_EffectiveControlAControlMethod_manual').prop('checked', false);
+                $('#suppression_EffectiveControlAControlMethod_mechancial').prop('checked', false);
+                $('#suppression_EffectiveControlAControlMethod_herbicide').prop('checked', false);
+                $('#suppression_EffectiveControlAControlMethod_biological').prop('checked', false);
+                $('#suppression_EffectiveControlAControlMethod_other').prop('checked', false);
+                $('#suppression_EffectiveControlAControlMethodDescription').prop('value', "");
+                break;
+            case "5.4":
+                // Substep Progress Bar
+                $('#content_step_strategy_exploration_suppression_substep_four').removeClass('content_substep_inactive').removeClass('content_substep_available').addClass('content_substep_active');
+                // Clear Questions
+                $('#suppression_EffectiveControlB_yes').prop('checked', false);
+                $('#suppression_EffectiveControlB_no').prop('checked', false);
+                $('#suppression_EffectiveControlB_uncertain').prop('checked', false);
+                $('#suppression_EffectiveControlB_documentation').prop('value', "");
+                break;
+            case "5.5":
+                // Substep Progress Bar
+                $('#content_step_strategy_exploration_suppression_substep_five').removeClass('content_substep_inactive').removeClass('content_substep_available').addClass('content_substep_active');
+                // Clear Questions
+                $('#suppression_NontargetImpacts_yes').prop('checked', false);
+                $('#suppression_NontargetImpacts_no').prop('checked', false);
+                $('#suppression_NontargetImpacts_uncertain').prop('checked', false);
+                $('#suppression_NontargetImpacts_documentation').prop('value', "");
+                break;
+        }
+        // Execute Step Function
+        JSON_Cookie_Step_Strategy_Exploration_Suppression(cookieData, completedSteps, currentStep);
     }
 };
 /***********************************************\
@@ -990,7 +1129,20 @@ function IPMDAT_Init(){
             containmentEffectiveControlB: null,
             containmentEffectiveControlBDocumentation: null,
             containmentNontargetImpacts: null,
-            containmentNontargetImpactsDocumentation: null
+            containmentNontargetImpactsDocumentation: null,
+            // STRATEGY EXPLORATION (SUPPRESSION) (STEP 5)
+            suppressionSocialPoliticalA: null,
+            suppressionSocialPoliticalADocumentation: null,
+            suppressionSocialPoliticalB: null,
+            suppressionSocialPoliticalBDocumentation: null,
+            suppressionEffectiveControlA: null,
+            suppressionEffectiveControlADocumentation: null,
+            suppressionEffectiveControlAControlMethod: null,
+            suppressionEffectiveControlAControlMethodDescription: null,
+            suppressionEffectiveControlB: null,
+            suppressionEffectiveControlBDocumentation: null,
+            suppressionNontargetImpacts: null,
+            suppressionNontargetImpactsDocumentation: null
         },
         completedSteps = [],
         currentStep = "1.1",
@@ -1081,7 +1233,20 @@ function IPMDAT_Init(){
             containmentEffectiveControlB: null,
             containmentEffectiveControlBDocumentation: null,
             containmentNontargetImpacts: null,
-            containmentNontargetImpactsDocumentation: null
+            containmentNontargetImpactsDocumentation: null,
+            // STRATEGY EXPLORATION (SUPPRESSION) (STEP 5)
+            suppressionSocialPoliticalA: null,
+            suppressionSocialPoliticalADocumentation: null,
+            suppressionSocialPoliticalB: null,
+            suppressionSocialPoliticalBDocumentation: null,
+            suppressionEffectiveControlA: null,
+            suppressionEffectiveControlADocumentation: null,
+            suppressionEffectiveControlAControlMethod: null,
+            suppressionEffectiveControlAControlMethodDescription: null,
+            suppressionEffectiveControlB: null,
+            suppressionEffectiveControlBDocumentation: null,
+            suppressionNontargetImpacts: null,
+            suppressionNontargetImpactsDocumentation: null
         };
         $.JSONCookie(name, cookieData, {path: '/'});
     });
@@ -1332,6 +1497,51 @@ function IPMDAT_Init(){
     }else{ stepFail = true; }
     if(stepFail === false){
         completedSteps.push("4.8");
+    }
+    stepFail = false;
+
+    // *** 5.1 ***
+    if(savedData.suppressionSocialPoliticalA !== null){
+        cookieData.suppressionSocialPoliticalA = savedData.suppressionSocialPoliticalA;
+    }else{ stepFail = true; }
+    if(stepFail === false){
+        completedSteps.push("5.1");
+    }
+    stepFail = false;
+
+    // *** 5.2 ***
+    if(savedData.suppressionSocialPoliticalB !== null){
+        cookieData.suppressionSocialPoliticalB = savedData.suppressionSocialPoliticalB;
+    }else{ stepFail = true; }
+    if(stepFail === false){
+        completedSteps.push("5.2");
+    }
+    stepFail = false;
+
+    // *** 5.3 ***
+    if(savedData.suppressionEffectiveControlA !== null){
+        cookieData.suppressionEffectiveControlA = savedData.suppressionEffectiveControlA;
+    }else{ stepFail = true; }
+    if(stepFail === false){
+        completedSteps.push("5.3");
+    }
+    stepFail = false;
+
+    // *** 5.4 ***
+    if(savedData.suppressionEffectiveControlB !== null){
+        cookieData.suppressionEffectiveControlB = savedData.suppressionEffectiveControlB;
+    }else{ stepFail = true; }
+    if(stepFail === false){
+        completedSteps.push("5.4");
+    }
+    stepFail = false;
+
+    // *** 5.5 ***
+    if(savedData.suppressionNontargetImpacts !== null){
+        cookieData.suppressionNontargetImpacts = savedData.suppressionNontargetImpacts;
+    }else{ stepFail = true; }
+    if(stepFail === false){
+        completedSteps.push("5.5");
     }
     stepFail = false;
 
@@ -2726,16 +2936,16 @@ function JSON_Cookie_Step_Strategy_Exploration_Eradication(cookieData, completed
                 case "#eradication_EffectiveControlAControlMethod_manual":
                     $('#eradication_EffectiveControlAControlMethod_manual').prop('checked', true);
                     break;
-                case "mechanical":
+                case "#eradication_EffectiveControlAControlMethod_mechanical":
                     $('#eradication_EffectiveControlAControlMethod_mechanical').prop('checked', true);
                     break;
-                case "herbicide":
+                case "#eradication_EffectiveControlAControlMethod_herbicide":
                     $('#eradication_EffectiveControlAControlMethod_herbicide').prop('checked', true);
                     break;
-                case "biological":
+                case "#eradication_EffectiveControlAControlMethod_biological":
                     $('#eradication_EffectiveControlAControlMethod_biological').prop('checked', true);
                     break;
-                case "other":
+                case "#eradication_EffectiveControlAControlMethod_other":
                     $('#eradication_EffectiveControlAControlMethod_other').prop('checked', true);
                     break;
             }
@@ -4048,11 +4258,566 @@ function JSON_Cookie_Step_Strategy_Exploration_Suppression(cookieData, completed
     // 2 -  Declare subcategory values (If applicable)               \\
     // 3 -  Ensure correct step container is displayed,              \\
     //      Check if loading data (Check -> Load -> Populate Fields) \\
-    // 4 -  Function - Eradication_Substep_Form_Check(formArray)     \\
-    // 5 -  Function - Eradication_Substep_Save()                    \\
-    // 6 -  Function - Eradication_Check_Boxes(boxName)              \\
+    // 4 -  Function - Suppression_Substep_Form_Check(formArray)     \\
+    // 5 -  Function - Suppression_Substep_Save()                    \\
+    // 6 -  Function - Suppression_Check_Boxes(boxName)              \\
     // 7 -  Function - Add_Event_To_Field(fieldLocation, substep)    \\
     // 8 -  Function - Add_Event_To_Nav(destinationArray)            \\
     // 9 -  Populate/Execute - Add_Event_To_Field, Add_Event_To_Nav  \\
     // ------------------------------------------------------------- \\
+    // 1 -  Declare variables                                        \\
+    var suppressionArray = {
+            suppressionSocialPoliticalA: null,
+            suppressionSocialPoliticalADocumentation: null,
+            suppressionSocialPoliticalB: null,
+            suppressionSocialPoliticalBDocumentation: null,
+            suppressionEffectiveControlA: null,
+            suppressionEffectiveControlADocumentation: null,
+            suppressionEffectiveControlAControlMethod: null,
+            suppressionEffectiveControlAControlMethodDocumentation: null,
+            suppressionEffectiveControlB: null,
+            suppressionEffectiveControlBDocumentation: null,
+            suppressionNontargetImpacts: null,
+            suppressionNontargetImpactsDocumentation: null
+        },
+        saveArray = {},
+        destinationArray = {
+            substep_one: '5.1',
+            substep_two: '5.2',
+            substep_three: '5.3',
+            substep_four: '5.4',
+            substep_five: '5.5',
+            projectBackground: '1.1',
+            strategySelection: '2.1',
+            strategyExploration: 'none'
+        },
+        decisionDestination = null;
+    // 2 -  Declare subcategory values (If applicable)               \\
+    // 3 -  Ensure correct step container is displayed,              \\
+    //      Check if loading data (Check -> Load -> Populate Fields) \\
+    if($('#content_nav_back').hasClass('content_nav_base_inactive')){
+        $('#content_nav_back').removeClass('content_nav_base_inactive').addClass('content_nav_base_active');
+    }
+    switch(currentStep){
+        case "5.1":
+            // Display the step
+            $('#content_step_strategy_exploration_suppression_SocialPoliticalA').removeClass('content_step_inactive').addClass('content_step_active');
+            // Checking if data is present
+            if(cookieData.suppressionSocialPoliticalA !== null){ suppressionArray.suppressionSocialPoliticalA = cookieData.suppressionSocialPoliticalA; }
+            if(cookieData.suppressionSocialPoliticalADocumentation !== null){ suppressionArray.suppressionSocialPoliticalADocumentation = cookieData.suppressionSocialPoliticalADocumentation; }
+            // Populate Fields
+            switch(suppressionArray.suppressionSocialPoliticalA){
+                case "#suppression_SocialPoliticalA_yes":
+                    $('#suppression_SocialPoliticalA_yes').prop('checked', true);
+                    destinationArray.forward = '5.2';
+                    break;
+                case "#suppression_SocialPoliticalA_no":
+                    $('#suppression_SocialPoliticalA_no').prop('checked', true);
+                    destinationArray.forward = 'stop';
+                    break;
+                case "#suppression_SocialPoliticalA_uncertain":
+                    $('#suppression_SocialPoliticalA_uncertain').prop('checked', true);
+                    destinationArray.forward = 'pause';
+                    break;
+            }
+            $('#suppression_SocialPoliticalA_documentation').prop('value', suppressionArray.suppressionSocialPoliticalADocumentation);
+            break;
+        case "5.2":
+            // Display the step
+            $('#content_step_strategy_exploration_suppression_SocialPoliticalB').removeClass('content_step_inactive').addClass('content_step_active');
+            // Checking if data is present
+            if(cookieData.suppressionSocialPoliticalB !== null){ suppressionArray.suppressionSocialPoliticalB = cookieData.suppressionSocialPoliticalB; }
+            if(cookieData.suppressionSocialPoliticalBDocumentation !== null){ suppressionArray.suppressionSocialPoliticalBDocumentation = cookieData.suppressionSocialPoliticalBDocumentation; }
+            // Populate Fields
+            switch(suppressionArray.suppressionSocialPoliticalB){
+                case "#suppression_SocialPoliticalB_yes":
+                    $('#suppression_SocialPoliticalB_yes').prop('checked', true);
+                    destinationArray.forward = '5.3';
+                    break;
+                case "#suppression_SocialPoliticalB_no":
+                    $('#suppression_SocialPoliticalB_no').prop('checked', true);
+                    destinationArray.forward = 'stop';
+                    break;
+                case "#suppression_SocialPoliticalB_uncertain":
+                    $('#suppression_SocialPoliticalB_uncertain').prop('checked', true);
+                    destinationArray.forward = 'pause';
+                    break;
+            }
+            $('#suppression_SocialPoliticalB_documentation').prop('value', suppressionArray.suppressionSocialPoliticalBDocumentation);
+            break;
+        case "5.3":
+            // Display the step
+            $('#content_step_strategy_exploration_suppression_EffectiveControlA').removeClass('content_step_inactive').addClass('content_step_active');
+            // Checking if data is present
+            if(cookieData.suppressionEffectiveControlA !== null){ suppressionArray.suppressionEffectiveControlA = cookieData.suppressionEffectiveControlA; }
+            if(cookieData.suppressionEffectiveControlADocumentation !== null){ suppressionArray.suppressionEffectiveControlADocumentation = cookieData.suppressionEffectiveControlADocumentation; }
+            if(cookieData.suppressionEffectiveControlAControlMethod !== null){ suppressionArray.suppressionEffectiveControlAControlMethod = cookieData.suppressionEffectiveControlAControlMethod; }
+            if(cookieData.suppressionEffectiveControlAControlMethodDescription !== null){ suppressionArray.suppressionEffectiveControlAControlMethodDescription = cookieData.suppressionEffectiveControlAControlMethodDescription; }
+            // Populate Fields
+            switch(suppressionArray.suppressionEffectiveControlA){
+                case "#suppression_EffectiveControlA_yes":
+                    $('#suppression_EffectiveControlA_yes').prop('checked', true);
+                    destinationArray.forward = '5.4';
+                    break;
+                case "#suppression_EffectiveControlA_no":
+                    $('#suppression_EffectiveControlA_no').prop('checked', true);
+                    destinationArray.forward = 'stop';
+                    break;
+                case "#suppression_EffectiveControlA_uncertain":
+                    $('#suppression_EffectiveControlA_uncertain').prop('checked', true);
+                    destinationArray.forward = 'pause';
+                    break;
+            }
+            $('#suppression_EffectiveControlA_documentation').prop('value', suppressionArray.suppressionEffectiveControlADocumentation);
+            switch(suppressionArray.suppressionEffectiveControlAControlMethod){
+                case "#suppression_EffectiveControlAControlMethod_manual":
+                    $('#suppression_EffectiveControlAControlMethod_manual').prop('checked', true);
+                    break;
+                case "#suppression_EffectiveControlAControlMethod_mechanical":
+                    $('#suppression_EffectiveControlAControlMethod_mechanical').prop('checked', true);
+                    break;
+                case "#suppression_EffectiveControlAControlMethod_herbicide":
+                    $('#suppression_EffectiveControlAControlMethod_herbicide').prop('checked', true);
+                    break;
+                case "#suppression_EffectiveControlAControlMethod_biological":
+                    $('#suppression_EffectiveControlAControlMethod_biological').prop('checked', true);
+                    break;
+                case "#suppression_EffectiveControlAControlMethod_other":
+                    $('#suppression_EffectiveControlAControlMethod_other').prop('checked', true);
+                    break;
+            }
+            $('#suppression_EffectiveControlAControlMethodDescription').prop('value', suppressionArray.suppressionEffectiveControlAControlMethodDescription);
+            break;
+        case "5.4":
+            // Display the step
+            $('#content_step_strategy_exploration_suppression_EffectiveControlB').removeClass('content_step_inactive').addClass('content_step_active');
+            // Checking if data is present
+            if(cookieData.suppressionEffectiveControlB !== null){ suppressionArray.suppressionEffectiveControlB = cookieData.suppressionEffectiveControlB; }
+            if(cookieData.suppressionEffectiveControlBDocumentation !== null){ suppressionArray.suppressionEffectiveControlBDocumentation = cookieData.suppressionEffectiveControlBDocumentation; }
+            // Populate Fields
+            switch(suppressionArray.suppressionEffectiveControlB){
+                case "#suppression_EffectiveControlB_yes":
+                    $('#suppression_EffectiveControlB_yes').prop('checked', true);
+                    destinationArray.forward = '5.5';
+                    break;
+                case "#suppression_EffectiveControlB_no":
+                    $('#suppression_EffectiveControlB_no').prop('checked', true);
+                    destinationArray.forward = 'stop';
+                    break;
+                case "#suppression_EffectiveControlB_uncertain":
+                    $('#suppression_EffectiveControlB_uncertain').prop('checked', true);
+                    destinationArray.forward = 'pause';
+                    break;
+            }
+            $('#suppression_EffectiveControlB_documentation').prop('value', suppressionArray.suppressionEffectiveControlBDocumentation);
+            break;
+        case "5.5":
+            // Display the step
+            $('#content_step_strategy_exploration_suppression_NontargetImpacts').removeClass('content_step_inactive').addClass('content_step_active');
+            // Checking if data is present
+            if(cookieData.suppressionNontargetImpacts !== null){ suppressionArray.suppressionNontargetImpacts = cookieData.suppressionNontargetImpacts; }
+            if(cookieData.suppressionNontargetImpactsDocumentation !== null){ suppressionArray.suppressionNontargetImpactsDocumentation = cookieData.suppressionNontargetImpactsDocumentation; }
+            // Populate Fields
+            switch(suppressionArray.suppressionNontargetImpacts){
+                case "#suppression_NontargetImpacts_yes":
+                    $('#suppression_NontargetImpacts_yes').prop('checked', true);
+                    // TODO: TBD Destination
+                    destinationArray.forward = 'none';
+                    break;
+                case "#suppression_NontargetImpacts_no":
+                    $('#suppression_NontargetImpacts_no').prop('checked', true);
+                    destinationArray.forward = 'stop';
+                    break;
+                case "#suppression_NontargetImpacts_uncertain":
+                    $('#suppression_NontargetImpacts_uncertain').prop('checked', true);
+                    destinationArray.forward = 'pause';
+                    break;
+            }
+            $('#suppression_NontargetImpacts_documentation').prop('value', suppressionArray.suppressionNontargetImpactsDocumentation);
+            break;
+    }
+    // 4 -  Function - Suppression_Substep_Form_Check(formArray)     \\
+    function Suppression_Substep_Form_Check(formArray){
+        var tempValue,
+            nextStep;
+        // Setup Values
+        switch(currentStep){
+            case "5.1":
+                tempValue = formArray.suppressionSocialPoliticalA;
+                nextStep = '#content_step_strategy_exploration_suppression_substep_two';
+                break;
+            case "5.2":
+                tempValue = formArray.suppressionSocialPoliticalB;
+                nextStep = '#content_step_strategy_exploration_suppression_substep_three';
+                break;
+            case "5.3":
+                tempValue = formArray.suppressionEffectiveControlA;
+                nextStep = '#content_step_strategy_exploration_suppression_substep_four';
+                break;
+            case "5.4":
+                tempValue = formArray.suppressionEffectiveControlB;
+                nextStep = '#content_step_strategy_exploration_suppression_substep_five';
+                break;
+            case "5.5":
+                tempValue = formArray.suppressionNontargetImpacts;
+                nextStep = '';
+                // TODO: TBD Destination
+                break;
+        }
+        // Execute
+        if(tempValue !== null){
+            if($('#content_nav_forward').hasClass('content_nav_base_inactive')){
+                $('#content_nav_forward').removeClass('content_nav_base_inactive').addClass('content_nav_base_active');
+                // Substep Bar
+                $(nextStep).removeClass('content_substep_inactive').addClass('content_substep_available');
+            }
+        }else if(tempValue === null){
+            if($('#content_nav_forward').hasClass('content_nav_base_active')){
+                $('#content_nav_forward').removeClass('content_nav_base_active').addClass('content_nav_base_inactive');
+                // Substep Bar
+                $(nextStep).removeClass('content_substep_available').addClass('content_substep_inactive');
+            }
+        }
+    };
+    // 5 -  Function - Suppression_Substep_Save()                    \\
+    function Suppression_Substep_Save(){
+        var saveArray,
+            requiredField,
+            tempPush = currentStep;
+        // Setup Values
+        switch(currentStep){
+            case "5.1":
+                saveArray = {
+                    suppressionSocialPoliticalA: suppressionArray.suppressionSocialPoliticalA,
+                    suppressionSocialPoliticalADocumentation: suppressionArray.suppressionSocialPoliticalADocumentation
+                };
+                requiredField = suppressionArray.suppresionSocialPoliticalA;
+                break;
+            case "5.2":
+                saveArray = {
+                    suppressionSocialPoliticalB: suppressionArray.suppressionSocialPoliticalB,
+                    suppressionSocialPoliticalBDocumentation: suppressionArray.suppressionSocialPoliticalBDocumentation
+                };
+                requiredField = suppressionArray.suppresionSocialPoliticalB;
+                break;
+            case "5.3":
+                saveArray = {
+                    suppressionEffectiveControlA: suppressionArray.suppressionEffectiveControlA,
+                    suppressionEffectiveControlADocumentation: suppressionArray.suppressionEffectiveControlADocumentation,
+                    suppressionEffectiveControlAControlMethod: suppressionArray.suppressionEffectiveControlAControlMethod,
+                    suppressionEffectiveControlAControlMethodDescription: suppressionArray.suppressionEffectiveControlAControlMethodDescription
+                };
+                requiredField = suppressionArray.suppresionEffectiveControlA;
+                break;
+            case "5.4":
+                saveArray = {
+                    suppressionEffectiveControlB: suppressionArray.suppressionEffectiveControlB,
+                    suppressionEffectiveControlBDocumentation: suppressionArray.suppressionEffectiveControlBDocumentation
+                };
+                requiredField = suppressionArray.suppresionEffectiveControlB;
+                break;
+            case "5.5":
+                saveArray = {
+                    suppressionNontargetImpacts: suppressionArray.suppressionNontargetImpacts,
+                    suppressionNontargetImpactsDocumentation: suppressionArray.suppressionNontargetImpactsDocumentation
+                };
+                requiredField = suppressionArray.suppresionNontagetImpacts;
+                break;
+        }
+        // Execute
+        if(requiredField !== null){
+            var addStep = true;
+            for(var i=0; i<completedSteps.length; i++){
+                if(completedSteps[i] === tempPush){
+                    addStep = false;
+                }
+            }
+            if(addStep === true){
+                completedSteps.push(tempPush);
+            }
+        }
+        Save_Cookie(saveArray, tempPush, completedSteps);
+    };
+    // 6 -  Function - Suppression_Check_Boxes(boxName)              \\
+    function Suppression_Check_Boxes(boxName){
+        // This is an onClick type function. We need to be certain that no other
+        //      boxes in the same category are checked when we save the value.
+        switch(currentStep){
+            case "5.1":
+                $('#suppression_SocialPoliticalA_yes').prop('checked', false);
+                $('#suppression_SocialPoliticalA_no').prop('checked', false);
+                $('#suppression_SocialPoliticalA_uncertain').prop('checked', false);
+                break;
+            case "5.2":
+                $('#suppression_SocialPoliticalB_yes').prop('checked', false);
+                $('#suppression_SocialPoliticalB_no').prop('checked', false);
+                $('#suppression_SocialPoliticalB_uncertain').prop('checked', false);
+                break;
+            case "5.3":
+                if((boxName === '#suppression_EffectiveControlA_yes')||(boxName === '#suppression_EffectiveControlA_no')||(boxName === '#suppression_EffectiveControlA_uncertain')){
+                    $('#suppression_EffectiveControlA_yes').prop('checked', false);
+                    $('#suppression_EffectiveControlA_no').prop('checked', false);
+                    $('#suppression_EffectiveControlA_uncertain').prop('checked', false);
+                }else{
+                    $('#suppression_EffectiveControlAControlMethod_manual').prop('checked', false);
+                    $('#suppression_EffectiveControlAControlMethod_mechanical').prop('checked', false);
+                    $('#suppression_EffectiveControlAControlMethod_herbicide').prop('checked', false);
+                    $('#suppression_EffectiveControlAControlMethod_biological').prop('checked', false);
+                    $('#suppression_EffectiveControlAControlMethod_other').prop('checked', false);
+                }
+                break;
+            case "5.4":
+                $('#suppression_EffectiveControlB_yes').prop('checked', false);
+                $('#suppression_EffectiveControlB_no').prop('checked', false);
+                $('#suppression_EffectiveControlB_uncertain').prop('checked', false);
+                break;
+            case "5.5":
+                $('#suppression_NontargetImpacts_yes').prop('checked', false);
+                $('#suppression_NontargetImpacts_no').prop('checked', false);
+                $('#suppression_NontargetImpacts_uncertain').prop('checked', false);
+                break;
+        }
+        // Check the boxName
+        $(boxName).prop('checked', true);
+        // Assign the value
+        switch(boxName){
+            // *** 5.1
+            case '#suppression_SocialPoliticalA_yes':
+                suppressionArray.suppressionSocialPoliticalA = '#suppression_SocialPoliticalA_yes';
+                destinationArray.forward = '5.2'; break;
+            case '#suppression_SocialPoliticalA_no':
+                suppressionArray.suppressionSocialPoliticalA = '#suppression_SocialPoliticalA_no';
+                destinationArray.forward = 'none'; break;
+            case '#suppression_SocialPoliticalA_uncertain':
+                suppressionArray.suppressionSocialPoliticalA = '#suppression_SocialPoliticalA_uncertain';
+                destinationArray.forward = 'none'; break;
+            // *** 5.2
+            case '#suppression_SocialPoliticalB_yes':
+                suppressionArray.suppressionSocialPoliticalB = '#suppression_SocialPoliticalB_yes';
+                destinationArray.forward = '5.3'; break;
+            case '#suppression_SocialPoliticalB_no':
+                suppressionArray.suppressionSocialPoliticalB = '#suppression_SocialPoliticalB_no';
+                destinationArray.forward = 'none'; break;
+            case '#suppression_SocialPoliticalB_uncertain':
+                suppressionArray.suppressionSocialPoliticalB = '#suppression_SocialPoliticalB_uncertain';
+                destinationArray.forward = 'none'; break;
+            // *** 5.3
+            case '#suppression_EffectiveControlA_yes':
+                suppressionArray.suppressionEffectiveControlA = '#suppression_EffectiveControlA_yes';
+                destinationArray.forward = '5.4'; break;
+            case '#suppression_EffectiveControlA_no':
+                suppressionArray.suppressionEffectiveControlA = '#suppression_EffectiveControlA_no';
+                destinationArray.forward = 'none'; break;
+            case '#suppression_EffectiveControlA_uncertain':
+                suppressionArray.suppressionEffectiveControlA = '#suppression_EffectiveControlA_uncertain';
+                destinationArray.forward = 'none'; break;
+            case '#suppression_EffectiveControlAControlMethod_manual':
+                suppressionArray.suppressionEffectiveControlAControlMethod = '#suppression_EffectiveControlAControlMethod_manual'; break;
+            case '#suppression_EffectiveControlAControlMethod_mechanical':
+                suppressionArray.suppressionEffectiveControlAControlMethod = '#suppression_EffectiveControlAControlMethod_mechanical'; break;
+            case '#suppression_EffectiveControlAControlMethod_herbicide':
+                suppressionArray.suppressionEffectiveControlAControlMethod = '#suppression_EffectiveControlAControlMethod_herbicide'; break;
+            case '#suppression_EffectiveControlAControlMethod_biological':
+                suppressionArray.suppressionEffectiveControlAControlMethod = '#suppression_EffectiveControlAControlMethod_biological'; break;
+            case '#suppression_EffectiveControlAControlMethod_other':
+                suppressionArray.suppressionEffectiveControlAControlMethod = '#suppression_EffectiveControlAControlMethod_other'; break;
+            // *** 5.4
+            case '#suppression_EffectiveControlB_yes':
+                suppressionArray.suppressionEffectiveControlB = '#suppression_EffectiveControlB_yes';
+                destinationArray.forward = '5.5'; break;
+            case '#suppression_EffectiveControlB_no':
+                suppressionArray.suppressionEffectiveControlB = '#suppression_EffectiveControlB_no';
+                destinationArray.forward = 'none'; break;
+            case '#suppression_EffectiveControlB_uncertain':
+                suppressionArray.suppressionEffectiveControlB = '#suppression_EffectiveControlB_uncertain';
+                destinationArray.forward = 'none'; break;
+            // *** 5.5
+            case '#suppression_NontargetImpacts_yes':
+                suppressionArray.suppressionNontargetImpacts = '#suppression_NontargetImpacts_yes';
+                destinationArray.forward = 'none'; break;
+            case '#suppression_NontargetImpacts_no':
+                suppressionArray.suppressionNontargetImpacts = '#suppression_NontargetImpacts_no';
+                destinationArray.forward = 'none'; break;
+            case '#suppression_NontargetImpacts_uncertain':
+                suppressionArray.suppressionNontargetImpacts = '#suppression_NontargetImpacts_uncertain';
+                destinationArray.forward = 'none'; break;
+        }
+        Suppression_Substep_Form_Check(suppressionArray);
+    };
+    // 7 -  Function - Add_Event_To_Field(fieldLocation, substep)    \\
+    function Add_Event_To_Field(fieldLocation, substep){
+        var tempHolder;
+        $(fieldLocation).keyup(function(){
+            if($(fieldLocation).prop('value') === ""){
+                tempHolder = null;
+            }else{
+                tempHolder = $(fieldLocation).val();
+            }
+            // Manually fire locations to specifically assign array variable.
+            switch(fieldLocation){
+                case '#suppression_SocialPoliticalA_documentation':
+                    suppressionArray.suppressionSocialPoliticalADocumentation = tempHolder; break;
+                case '#suppression_SocialPoliticalB_documentation':
+                    suppressionArray.suppressionSocialPoliticalBDocumentation = tempHolder; break;
+                case '#suppression_EffectiveControlA_documentation':
+                    suppressionArray.suppressionEffectiveControlADocumentation = tempHolder; break;
+                case '#suppression_EffectiveControlAControlMethodDescription':
+                    suppressionArray.suppressionEffectiveControlAControlMethodDescription = tempHolder; break;
+                case '#suppression_EffectiveControlB_documentation':
+                    suppressionArray.suppressionEffectiveControlBDocumentation = tempHolder; break;
+                case '#suppression_NontargetImpacts_documentation':
+                    suppressionArray.suppressionNontargetImpactsDocumentation = tempHolder; break;
+            }
+            Suppression_Substep_Form_Check(suppressionArray);
+        });
+    };
+    // 8 -  Function - Add_Event_To_Nav(destinationArray)            \\
+    function Add_Event_To_Nav(destinationArray){
+        $('#content_nav_forward').click(function(){
+            if(destinationArray.forward !== "none"){
+                if($('#content_nav_forward').hasClass('content_nav_base_active')){
+                    Suppresion_Substep_Save();
+                    Check_Available_Steps(cookieData, completedSteps, destinationArray.forward);
+                }
+            }else{
+                Popup(null, null, '');
+            }
+        });
+        $('#content_nav_back').click(function(){
+            if(destinationArray.back !== "none"){
+                if($('#content_nav_back').hasClass('content_nav_base_active')){
+                    Suppression_Substep_Save();
+                    Check_Available_Steps(cookieData, completedSteps, destinationArray.back);
+                }
+            }
+        });
+        $('#content_step_strategy_exploration_suppression_substep_one').click(function(){
+            if(destinationArray.substep_one !== "none"){
+                if($('#content_step_strategy_exploration_suppression_substep_one').hasClass('content_substep_available')){
+                    Suppression_Substep_Save();
+                    Check_Available_Steps(cookieData, completedSteps, destinationArray.substep_one);
+                }
+            }
+        });
+        $('#content_step_strategy_exploration_suppression_substep_two').click(function(){
+            if(destinationArray.substep_two !== "none"){
+                if($('#content_step_strategy_exploration_suppression_substep_two').hasClass('content_substep_available')){
+                    Suppression_Substep_Save();
+                    Check_Available_Steps(cookieData, completedSteps, destinationArray.substep_two);
+                }
+            }
+        });
+        $('#content_step_strategy_exploration_suppression_substep_three').click(function(){
+            if(destinationArray.substep_three !== "none"){
+                if($('#content_step_strategy_exploration_suppression_substep_three').hasClass('content_substep_available')){
+                    Suppression_Substep_Save();
+                    Check_Available_Steps(cookieData, completedSteps, destinationArray.substep_three);
+                }
+            }
+        });
+        $('#content_step_strategy_exploration_suppression_substep_four').click(function(){
+            if(destinationArray.substep_four !== "none"){
+                if($('#content_step_strategy_exploration_suppression_substep_four').hasClass('content_substep_available')){
+                    Suppression_Substep_Save();
+                    Check_Available_Steps(cookieData, completedSteps, destinationArray.substep_four);
+                }
+            }
+        });
+        $('#content_step_strategy_exploration_suppression_substep_five').click(function(){
+            if(destinationArray.substep_five !== "none"){
+                if($('#content_step_strategy_exploration_suppression_substep_five').hasClass('content_substep_available')){
+                    Suppression_Substep_Save();
+                    Check_Available_Steps(cookieData, completedSteps, destinationArray.substep_five);
+                }
+            }
+        });
+        $('#content_progress_bar_project_background').click(function(){
+            if(destinationArray.projectBackground !== "none"){
+                if($('#content_progress_bar_project_background').hasClass('progress_bar_available')){
+                    Suppression_Substep_Save();
+                    Check_Available_Steps(cookieData, completedSteps, destinationArray.projectBackground);
+                }
+            }
+        });
+        $('#content_progress_bar_strategy_selection').click(function(){
+            if(destinationArray.strategySelection !== "none"){
+                if($('#content_progress_bar_strategy_selection').hasClass('progress_bar_available')){
+                    Suppression_Substep_Save();
+                    Check_Available_Steps(cookieData, completedSteps, destinationArray.strategySelection);
+                }
+            }
+        });
+        $('#content_progress_bar_strategy_exploration').click(function(){
+            if(destinationArray.strategyExploration !== "none"){
+                if($('#content_progress_bar_strategy_exploration').hasClass('progress_bar_available')){
+                    Suppression_Substep_Save();
+                    Check_Available_Steps(cookieData, completedSteps, destinationArray.strategyExploration);
+                }
+            }
+        });
+    };
+    // 9 -  Populate/Execute - Add_Event_To_Field, Add_Event_To_Nav  \\
+    Suppression_Substep_Form_Check(suppressionArray);
+    switch(currentStep){
+        case "5.1":
+            Add_Event_To_Field('#suppression_SocialPoliticalA_documentation');
+            $('#suppression_SocialPoliticalA_yes').change(function(){ Suppression_Check_Boxes('#suppression_SocialPoliticalA_yes'); });
+            $('#suppression_SocialPoliticalA_no').change(function(){ Suppression_Check_Boxes('#suppression_SocialPoliticalA_no'); });
+            $('#suppression_SocialPoliticalA_uncertain').change(function(){ Suppression_Check_Boxes('#suppression_SocialPoliticalA_uncertain'); });
+            // Determine where back will point to
+            var tempBack;
+            switch(cookieData.strategySelectionAbundanceAndDistributionConfirm){
+                case '#strategy_confirmation_yes':
+                    tempBack = '2.3'; break;
+                case '#strategy_confirmation_no':
+                    tempBack = '2.4'; break;
+            }
+            destinationArray.back = tempBack;
+            destinationArray.current = '5.1';
+            destinationArray.substep_one = 'none';
+            break;
+        case "5.2":
+            Add_Event_To_Field('#suppression_SocialPoliticalB_documentation');
+            $('#suppression_SocialPoliticalB_yes').change(function(){ Suppression_Check_Boxes('#suppression_SocialPoliticalB_yes'); });
+            $('#suppression_SocialPoliticalB_no').change(function(){ Suppression_Check_Boxes('#suppression_SocialPoliticalB_no'); });
+            $('#suppression_SocialPoliticalB_uncertain').change(function(){ Suppression_Check_Boxes('#suppression_SocialPoliticalB_uncertain'); });
+            destinationArray.back = '5.1;
+            destinationArray.current = '5.2';
+            destinationArray.substep_two = 'none';
+            break;
+        case "5.3":
+            Add_Event_To_Field('#suppression_EffectiveControlA_documentation');
+            Add_Event_To_Field('#suppression_EffectiveControlAControlMethodDescription');
+            $('#suppression_EffectiveControlA_yes').change(function(){ Suppression_Check_Boxes('#suppression_EffectiveControlA_yes'); });
+            $('#suppression_EffectiveControlA_no').change(function(){ Suppression_Check_Boxes('#suppression_EffectiveControlA_no'); });
+            $('#suppression_EffectiveControlA_uncertain').change(function(){ Suppression_Check_Boxes('#suppression_EffectiveControlA_uncertain'); });
+            $('#suppression_EffectiveControlAControlMethod_manual').change(function(){ Suppression_Check_Boxes('#suppresion_EffectiveControlAControlMethod_manual'); });
+            $('#suppression_EffectiveControlAControlMethod_mechanical').change(function(){ Suppression_Check_Boxes('#suppresion_EffectiveControlAControlMethod_mechanical'); });
+            $('#suppression_EffectiveControlAControlMethod_herbicide').change(function(){ Suppression_Check_Boxes('#suppresion_EffectiveControlAControlMethod_herbicide'); });
+            $('#suppression_EffectiveControlAControlMethod_biological').change(function(){ Suppression_Check_Boxes('#suppresion_EffectiveControlAControlMethod_biological'); });
+            $('#suppression_EffectiveControlAControlMethod_other').change(function(){ Suppression_Check_Boxes('#suppresion_EffectiveControlAControlMethod_other'); });
+            destinationArray.back = '5.2';
+            destinationArray.current = '5.3';
+            destinationArray.substep_three = 'none';
+            break;
+        case "5.4":
+            Add_Event_To_Field('#suppression_EffectiveControlB_documentation');
+            $('#suppression_EffectiveControlB_yes').change(function(){ Suppression_Check_Boxes('#suppression_EffectiveControlB_yes'); });
+            $('#suppression_EffectiveControlB_no').change(function(){ Suppression_Check_Boxes('#suppression_EffectiveControlB_no'); });
+            $('#suppression_EffectiveControlB_uncertain').change(function(){ Suppression_Check_Boxes('#suppression_EffectiveControlB_uncertain'); });
+            destinationArray.back = '5.3';
+            destinationArray.current = '5.4';
+            destinationArray.substep_four = 'none';
+            break;
+        case "5.5":
+            Add_Event_To_Field('#suppression_NontargetImpacts_documentation');
+            $('#suppression_NontargetImpacts_yes').change(function(){ Suppression_Check_Boxes('#suppression_NontargetImpacts_yes'); });
+            $('#suppression_NontargetImpacts_no').change(function(){ Suppression_Check_Boxes('#suppression_NontargetImpacts_no'); });
+            $('#suppression_NontargetImpacts_uncertain').change(function(){ Suppression_Check_Boxes('#suppression_NontargetImpacts_uncertain'); });
+            destinationArray.back = '5.4;
+            destinationArray.current = '5.5';
+            destinationArray.substep_five = 'none';
+            break;
+    }
+    Add_Event_To_Nav(destinationArray);
 };

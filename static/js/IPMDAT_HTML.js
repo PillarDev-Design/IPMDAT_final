@@ -1341,7 +1341,7 @@ function Create_HTML(){
         Create_Div(elementProperties[i]);
     }
     /*******************************************\
-     * CONTAINMENT                             *
+     * SUPPRESSION                             *
     \*******************************************/
     elementProperties = [];
     propertiesLength = 0;
@@ -1471,7 +1471,6 @@ function Create_HTML(){
         extraLabelClasses: ['content_step_question_extended_length']
     };
     elementProperties.push(temp);
-    // TODO: START HERE
     temp = {
         targetContainer: '#one_part_suppressionEffectiveControlAControlMethod_mechanical',
         mainID: 'suppression_EffectiveControlAControlMethod_mechanical',
@@ -1482,8 +1481,8 @@ function Create_HTML(){
     };
     elementProperties.push(temp);
     temp = {
-        targetContainer: '#one_part_containmentEffectiveControlAControlMethod_herbicide',
-        mainID: 'containment_EffectiveControlAControlMethod_herbicide',
+        targetContainer: '#one_part_suppressionEffectiveControlAControlMethod_herbicide',
+        mainID: 'suppression_EffectiveControlAControlMethod_herbicide',
         labelText: 'Herbicide:',
         required: false,
         inputType: 'checkbox',
@@ -1491,8 +1490,8 @@ function Create_HTML(){
     };
     elementProperties.push(temp);
     temp = {
-        targetContainer: '#one_part_containmentEffectiveControlAControlMethod_biological',
-        mainID: 'containment_EffectiveControlAControlMethod_biological',
+        targetContainer: '#one_part_suppressionEffectiveControlAControlMethod_biological',
+        mainID: 'suppression_EffectiveControlAControlMethod_biological',
         labelText: 'Biological:',
         required: false,
         inputType: 'checkbox',
@@ -1500,8 +1499,8 @@ function Create_HTML(){
     };
     elementProperties.push(temp);
     temp = {
-        targetContainer: '#one_part_containmentEffectiveControlAControlMethod_other',
-        mainID: 'containment_EffectiveControlAControlMethod_other',
+        targetContainer: '#one_part_suppressionEffectiveControlAControlMethod_other',
+        mainID: 'suppression_EffectiveControlAControlMethod_other',
         labelText: 'Other:',
         required: false,
         inputType: 'checkbox',
@@ -1509,8 +1508,8 @@ function Create_HTML(){
     };
     elementProperties.push(temp);
     temp = {
-        targetContainer: '#one_part_containmentEffectiveControlAControlMethodDescription',
-        mainID: 'containment_EffectiveControlAControlMethodDescription',
+        targetContainer: '#one_part_suppressionEffectiveControlAControlMethodDescription',
+        mainID: 'suppression_EffectiveControlAControlMethodDescription',
         labelText: 'Description of Control Method:',
         required: false,
         inputType: 'text',
@@ -1520,7 +1519,83 @@ function Create_HTML(){
     };
     elementProperties.push(temp);
     // suppressionEffectiveControlB
+    temp = {
+        targetContainer: '#one_part_suppressionEffectiveControlB_yes',
+        mainID: 'suppression_EffectiveControlB_yes',
+        labelText: 'Yes:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_suppressionEffectiveControlB_no',
+        mainID: 'suppression_EffectiveControlB_no',
+        labelText: 'No:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_suppressionEffectiveControlB_uncertain',
+        mainID: 'suppression_EffectiveControlB_uncertain',
+        labelText: 'Uncertain:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_suppressionEffectiveControlB_documentation',
+        mainID: 'suppression_EffectiveControlB_documentation',
+        labelText: 'Documentation:',
+        required: false,
+        inputType: 'text',
+        changeDiv: 'textarea',
+        extraContentClasses: ['content_step_question_textarea_content'],
+        extraInputClasses: ['content_step_question_textarea_input']
+    };
+    elementProperties.push(temp);
     // suppressionNontargetImpacts
+    temp = {
+        targetContainer: '#one_part_suppressionNontagetImpacts_yes',
+        mainID: 'suppression_NontagetImpacts_yes',
+        labelText: 'Yes:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_suppressionNontagetImpacts_no',
+        mainID: 'suppression_NontagetImpacts_no',
+        labelText: 'No:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_suppressionNontagetImpacts_uncertain',
+        mainID: 'suppression_NontagetImpacts_uncertain',
+        labelText: 'Uncertain:',
+        required: false,
+        inputType: 'checkbox',
+        extraLabelClasses: ['content_step_question_extended_length']
+    };
+    elementProperties.push(temp);
+    temp = {
+        targetContainer: '#one_part_suppressionNontargetImpacts_documentation',
+        mainID: 'suppression_NontagetImpacts_documentation',
+        labelText: 'Documentation:',
+        required: false,
+        inputType: 'text',
+        changeDiv: 'textarea',
+        extraContentClasses: ['content_step_question_textarea_content'],
+        extraInputClasses: ['content_step_question_textarea_input']
+    };
+    elementProperties.push(temp);
 
     // ********************************************************
     // *** Loop through elementProperties array and execute ***
