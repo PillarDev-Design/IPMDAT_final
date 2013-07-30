@@ -16,96 +16,105 @@ function Save_Cookie(cookieData, stepNumber, completedSteps){
         savedData = $.JSONCookie(name),
         completedStepsLength = completedSteps.length,
         cookieArray = {
-            // TODO: UPDATE HERE
             // PROJECT BACKGROUND (STEP 1)
-            projectBackgroundAssessors: null,
-            projectBackgroundAssessorsDate: null,
-            projectBackgroundScientificName: null,
-            projectBackgroundCommonName: null,
-            projectBackgroundScale: null,
-            projectBackgroundPRISMWMA: null,
-            projectBackgroundConservationTargetImpacted: null,
-            projectBackgroundProjectAreaName: null,
-            projectBackgroundProjectAreaSize: null,
-            projectBackgroundPropertyOwners: null,
-            projectBackgroundProjectState: null,
-            projectBackgroundProjectCounty: null,
-            projectBackgroundProjectCoordX: null,
-            projectBackgroundProjectCoordY: null,
-            projectBackgroundProjectCoordSystem: null,
-            projectBackgroundProjectGoal: null,
-            projectBackgroundNumberOfYearsToComplete: null,
-            projectBackgroundStartDate: null,
-            projectBackgroundEndDate: null,
-            projectBackgroundOngoingProject: null,
-            projectBackgroundControlRequired: null,
-            projectBackgroundGrossInvadedArea: null,
-            projectBackgroundNetInvadedArea: null,
-            projectBackgroundNumberOfOccurances: null,
-            projectBackgroundImapShareResults: null,
-            projectBackgroundImapAccount: null,
+            projectBackground: {
+                Assessors: null,
+                AssessorsDate: null,
+                ScientificName: null,
+                CommonName: null,
+                Scale: null,
+                PRISMWMA: null,
+                ConservationTargetImpacted: null,
+                ProjectAreaName: null,
+                ProjectAreaSize: null,
+                PropertyOwners: null,
+                ProjectState: null,
+                ProjectCounty: null,
+                ProjectCoordX: null,
+                ProjectCoordY: null,
+                ProjectCoordSystem: null,
+                ProjectGoal: null,
+                NumberOfYearsToComplete: null,
+                StartDate: null,
+                EndDate: null,
+                OngoingProject: null,
+                ControlRequired: null,
+                GrossInvadedArea: null,
+                NetInvadedArea: null,
+                NumberOfOccurances: null,
+                ImapShareResults: null,
+                ImapAccount: null
+            },
             // STRATEGY SELECTION (STEP 2)
-            strategySelectionNYSScore: null,
-            strategySelectionCheckbox: null,
-            strategySelectionDocumentation: null,
-            strategySelectionAbundanceAndDistributionCheckbox: null,
-            strategySelectionAbundanceAndDistributionDocumentation: null,
-            strategySelectionAbundanceAndDistributionConfirm: null,
-            strategySelectionAbundanceAndDistributionAlternative: null,
-            strategySelectionAbundanceAndDistributionAlternativeDocumentation: null,
+            strategySelection: {
+                NYSScore: null,
+                Checkbox: null,
+                Documentation: null,
+                AbundanceAndDistributionCheckbox: null,
+                AbundanceAndDistributionDocumentation: null,
+                AbundanceAndDistributionConfirm: null,
+                AbundanceAndDistributionAlternative: null,
+                AbundanceAndDistributionAlternativeDocumentation: null
+            },
             // STRATEGY EXPLORATION (ERADICATION) (STEP 3)
-            eradicationSocialPoliticalA: null,
-            eradicationSocialPoliticalADocumentation: null,
-            eradicationSocialPoliticalB: null,
-            eradicationSocialPoliticalBDocumentation: null,
-            eradicationSocialPoliticalC: null,
-            eradicationSocialPoliticalCDocumentation: null,
-            eradicationPreventingReproductionA: null,
-            eradicationPreventingReproductionADocumentation: null,
-            eradicationPreventingReproductionB: null,
-            eradicationPreventingReproductionBDocumentation: null,
-            eradicationDetection: null,
-            eradicationDetectionDocumentation: null,
-            eradicationEffectiveControlA: null,
-            eradicationEffectiveControlADocumentation: null,
-            eradicationEffectiveControlAControlMethod: null,
-            eradicationEffectiveControlAControlMethodDescription: null,
-            eradicationEffectiveControlB: null,
-            eradicationEffectiveControlBDocumentation: null,
-            eradicationNontargetImpacts: null,
-            eradicationNontargetImpactsDocumentation: null,
+            eradication: {
+                SocialPoliticalA: null,
+                SocialPoliticalADocumentation: null,
+                SocialPoliticalB: null,
+                SocialPoliticalBDocumentation: null,
+                SocialPoliticalC: null,
+                SocialPoliticalCDocumentation: null,
+                PreventingReproductionA: null,
+                PreventingReproductionADocumentation: null,
+                PreventingReproductionB: null,
+                PreventingReproductionBDocumentation: null,
+                Detection: null,
+                DetectionDocumentation: null,
+                EffectiveControlA: null,
+                EffectiveControlADocumentation: null,
+                EffectiveControlAControlMethod: null,
+                EffectiveControlAControlMethodDescription: null,
+                EffectiveControlB: null,
+                EffectiveControlBDocumentation: null,
+                NontargetImpacts: null,
+                NontargetImpactsDocumentation: null
+            },
             // STRATEGY EXPLORATION (CONTAINMENT) (STEP 4)
-            containmentSocialPoliticalA: null,
-            containmentSocialPoliticalADocumentation: null,
-            containmentSocialPoliticalB: null,
-            containmentSocialPoliticalBDocumentation: null,
-            containmentPreventingReproductionA: null,
-            containmentPreventingReproductionADocumentation: null,
-            containmentPreventingReproductionB: null,
-            containmentPreventingReproductionBDocumentation: null,
-            containmentDetectingSmall: null,
-            containmentDetectingSmallDocumentation: null,
-            containmentEffectiveControlA: null,
-            containmentEffectiveControlADocumentation: null,
-            containmentEffectiveControlAControlMethod: null,
-            containmentEffectiveControlAControlMethodDescription: null,
-            containmentEffectiveControlB: null,
-            containmentEffectiveControlBDocumentation: null,
-            containmentNontargetImpacts: null,
-            containmentNontargetImpactsDocumentation: null,
+            containment: {
+                SocialPoliticalA: null,
+                SocialPoliticalADocumentation: null,
+                SocialPoliticalB: null,
+                SocialPoliticalBDocumentation: null,
+                PreventingReproductionA: null,
+                PreventingReproductionADocumentation: null,
+                PreventingReproductionB: null,
+                PreventingReproductionBDocumentation: null,
+                DetectingSmall: null,
+                DetectingSmallDocumentation: null,
+                EffectiveControlA: null,
+                EffectiveControlADocumentation: null,
+                EffectiveControlAControlMethod: null,
+                EffectiveControlAControlMethodDescription: null,
+                EffectiveControlB: null,
+                EffectiveControlBDocumentation: null,
+                NontargetImpacts: null,
+                NontargetImpactsDocumentation: null
+            },
             // STRATEGY EXPLORATION (SUPPRESSION) (STEP 5)
-            suppressionSocialPoliticalA: null,
-            suppressionSocialPoliticalADocumentation: null,
-            suppressionSocialPoliticalB: null,
-            suppressionSocialPoliticalBDocumentation: null,
-            suppressionEffectiveControlA: null,
-            suppressionEffectiveControlADocumentation: null,
-            suppressionEffectiveControlAControlMethod: null,
-            suppressionEffectiveControlAControlMethodDescription: null,
-            suppressionEffectiveControlB: null,
-            suppressionEffectiveControlBDocumentation: null,
-            suppressionNontargetImpacts: null,
-            suppressionNontargetImpactsDocumentation: null
+            suppression: {
+                SocialPoliticalA: null,
+                SocialPoliticalADocumentation: null,
+                SocialPoliticalB: null,
+                SocialPoliticalBDocumentation: null,
+                EffectiveControlA: null,
+                EffectiveControlADocumentation: null,
+                EffectiveControlAControlMethod: null,
+                EffectiveControlAControlMethodDescription: null,
+                EffectiveControlB: null,
+                EffectiveControlBDocumentation: null,
+                NontargetImpacts: null,
+                NontargetImpactsDocumentation: null
+            }
         };
     /*===============================================================*\
      * This next chunk of code ensures that any previous data will   *
@@ -115,235 +124,235 @@ function Save_Cookie(cookieData, stepNumber, completedSteps){
     \*===============================================================*/
     // Recall Saved Data from savedData
     // 1.1
-    if(savedData.projectBackgroundAssessors !== null){ cookieArray.projectBackgroundAssessors = savedData.projectBackgroundAssessors; }
-    if(savedData.projectBackgroundAssessorsDate !== null){ cookieArray.projectBackgroundAssessorsDate = savedData.projectBackgroundAssessorsDate; }
-    if(savedData.projectBackgroundScientificName !== null){ cookieArray.projectBackgroundScientificName = savedData.projectBackgroundScientificName; }
-    if(savedData.projectBackgroundCommonName !== null){ cookieArray.projectBackgroundCommonName = savedData.projectBackgroundCommonName; }
-    if(savedData.projectBackgroundScale !== null){ cookieArray.projectBackgroundScale = savedData.projectBackgroundScale; }
-    if(savedData.projectBackgroundPRISMWMA !== null){ cookieArray.projectBackgroundPRISMWMA = savedData.projectBackgroundPRISMWMA; }
-    if(savedData.projectBackgroundConservationTargetImpacted !== null){ cookieArray.projectBackgroundConservationTargetImpacted = savedData.projectBackgroundConservationTargetImpacted; }
-    if(savedData.projectBackgroundProjectAreaName !== null){ cookieArray.projectBackgroundProjectAreaName = savedData.projectBackgroundProjectAreaName; }
-    if(savedData.projectBackgroundProjectAreaSize !== null){ cookieArray.projectBackgroundProjectAreaSize = savedData.projectBackgroundProjectAreaSize; }
-    if(savedData.projectBackgroundPropertyOwners !== null){ cookieArray.projectBackgroundPropertyOwners = savedData.projectBackgroundPropertyOwners; }
-    if(savedData.projectBackgroundProjectState !== null){ cookieArray.projectBackgroundProjectState = savedData.projectBackgroundProjectState; }
-    if(savedData.projectBackgroundProjectCounty !== null){ cookieArray.projectBackgroundProjectCounty = savedData.projectBackgroundProjectCounty; }
-    if(savedData.projectBackgroundProjectCoordX !== null){ cookieArray.projectBackgroundProjectCoordX = savedData.projectBackgroundProjectCoordX; }
-    if(savedData.projectBackgroundProjectCoordY !== null){ cookieArray.projectBackgroundProjectCoordY = savedData.projectBackgroundProjectCoordY; }
-    if(savedData.projectBackgroundProjectCoordSystem !== null){ cookieArray.projectBackgroundProjectCoordSystem = savedData.projectBackgroundProjectCoordSystem; }
+    if(savedData.projectBackground.Assessors !== null){ cookieArray.projectBackground.Assessors = savedData.projectBackground.Assessors; }
+    if(savedData.projectBackground.AssessorsDate !== null){ cookieArray.projectBackground.AssessorsDate = savedData.projectBackground.AssessorsDate; }
+    if(savedData.projectBackground.ScientificName !== null){ cookieArray.projectBackground.ScientificName = savedData.projectBackground.ScientificName; }
+    if(savedData.projectBackground.CommonName !== null){ cookieArray.projectBackground.CommonName = savedData.projectBackground.CommonName; }
+    if(savedData.projectBackground.Scale !== null){ cookieArray.projectBackground.Scale = savedData.projectBackground.Scale; }
+    if(savedData.projectBackground.PRISMWMA !== null){ cookieArray.projectBackground.PRISMWMA = savedData.projectBackground.PRISMWMA; }
+    if(savedData.projectBackground.ConservationTargetImpacted !== null){ cookieArray.projectBackground.ConservationTargetImpacted = savedData.projectBackground.ConservationTargetImpacted; }
+    if(savedData.projectBackground.ProjectAreaName !== null){ cookieArray.projectBackground.ProjectAreaName = savedData.projectBackground.ProjectAreaName; }
+    if(savedData.projectBackground.ProjectAreaSize !== null){ cookieArray.projectBackground.ProjectAreaSize = savedData.projectBackground.ProjectAreaSize; }
+    if(savedData.projectBackground.PropertyOwners !== null){ cookieArray.projectBackground.PropertyOwners = savedData.projectBackground.PropertyOwners; }
+    if(savedData.projectBackground.ProjectState !== null){ cookieArray.projectBackground.ProjectState = savedData.projectBackground.ProjectState; }
+    if(savedData.projectBackground.ProjectCounty !== null){ cookieArray.projectBackground.ProjectCounty = savedData.projectBackground.ProjectCounty; }
+    if(savedData.projectBackground.ProjectCoordX !== null){ cookieArray.projectBackground.ProjectCoordX = savedData.projectBackground.ProjectCoordX; }
+    if(savedData.projectBackground.ProjectCoordY !== null){ cookieArray.projectBackground.ProjectCoordY = savedData.projectBackground.ProjectCoordY; }
+    if(savedData.projectBackground.ProjectCoordSystem !== null){ cookieArray.projectBackground.ProjectCoordSystem = savedData.projectBackground.ProjectCoordSystem; }
     // 1.2
-    if(savedData.projectBackgroundProjectGoal !== null){ cookieArray.projectBackgroundProjectGoal = savedData.projectBackgroundProjectGoal; }
-    if(savedData.projectBackgroundNumberOfYearsToCompleted !== null){ cookieArray.projectBackgroundNumberOfYearsToComplete = savedData.projectBackgroundNumberOfYearsToComplete; }
-    if(savedData.projectBackgroundStartDate !== null){ cookieArray.projectBackgroundStartDate = savedData.projectBackgroundStartDate; }
-    if(savedData.projectBackgroundEndDate !== null){ cookieArray.projectBackgroundEndDate = savedData.projectBackgroundEndDate; }
-    if(savedData.projectBackgroundOngoingProject !== null){ cookieArray.projectBackgroundOngoingProject = savedData.projectBackgroundOngoingProject; }
-    if(savedData.projectBackgroundControlRequired !== null){ cookieArray.projectBackgroundControlRequired = savedData.projectBackgroundControlRequired; }
+    if(savedData.projectBackground.ProjectGoal !== null){ cookieArray.projectBackground.ProjectGoal = savedData.projectBackground.ProjectGoal; }
+    if(savedData.projectBackground.NumberOfYearsToCompleted !== null){ cookieArray.projectBackground.NumberOfYearsToComplete = savedData.projectBackground.NumberOfYearsToComplete; }
+    if(savedData.projectBackground.StartDate !== null){ cookieArray.projectBackground.StartDate = savedData.projectBackground.StartDate; }
+    if(savedData.projectBackground.EndDate !== null){ cookieArray.projectBackground.EndDate = savedData.projectBackground.EndDate; }
+    if(savedData.projectBackground.OngoingProject !== null){ cookieArray.projectBackground.OngoingProject = savedData.projectBackground.OngoingProject; }
+    if(savedData.projectBackground.ControlRequired !== null){ cookieArray.projectBackground.ControlRequired = savedData.projectBackground.ControlRequired; }
     // 1.3
-    if(savedData.projectBackgroundGrossInvadedArea !== null){ cookieArray.projectBackgroundGrossInvadedArea = savedData.projectBackgroundGrossInvadedArea; }
-    if(savedData.projectBackgroundNetInvadedArea !== null){ cookieArray.projectBackgroundNetInvadedArea = savedData.projectBackgroundNetInvadedArea; }
-    if(savedData.projectBackgroundNumberOfOccurances !== null){ cookieArray.projectBackgroundNumberOfOccurances = savedData.projectBackgroundNumberOfOccurances; }
+    if(savedData.projectBackground.GrossInvadedArea !== null){ cookieArray.projectBackground.GrossInvadedArea = savedData.projectBackground.GrossInvadedArea; }
+    if(savedData.projectBackground.NetInvadedArea !== null){ cookieArray.projectBackground.NetInvadedArea = savedData.projectBackground.NetInvadedArea; }
+    if(savedData.projectBackground.NumberOfOccurances !== null){ cookieArray.projectBackground.NumberOfOccurances = savedData.projectBackground.NumberOfOccurances; }
     // 1.4
-    if(savedData.projectBackgroundImapShareResults !== null){ cookieArray.projectBackgroundImapShareResults = savedData.projectBackgroundImapShareResults; }
-    if(savedData.projectBackgroundImapAccount !== null){ cookieArray.projectBackgroundImapAccount = savedData.projectBackgroundImapAccount; }
+    if(savedData.projectBackground.ImapShareResults !== null){ cookieArray.projectBackground.ImapShareResults = savedData.projectBackground.ImapShareResults; }
+    if(savedData.projectBackground.ImapAccount !== null){ cookieArray.projectBackground.ImapAccount = savedData.projectBackground.ImapAccount; }
     // 2.1
-    if(savedData.strategySelectionNYSScore !== null){ cookieArray.strategySelectionNYSScore = savedData.strategySelectionNYSScore; }
-    if(savedData.strategySelectionCheckbox !== null){ cookieArray.strategySelectionCheckbox = savedData.strategySelectionCheckbox; }
-    if(savedData.strategySelectionDocumentation !== null){ cookieArray.strategySelectionDocumentation = savedData.strategySelectionDocumentation; }
+    if(savedData.strategySelection.NYSScore !== null){ cookieArray.strategySelection.NYSScore = savedData.strategySelection.NYSScore; }
+    if(savedData.strategySelection.Checkbox !== null){ cookieArray.strategySelection.Checkbox = savedData.strategySelection.Checkbox; }
+    if(savedData.strategySelection.Documentation !== null){ cookieArray.strategySelection.Documentation = savedData.strategySelection.Documentation; }
     // 2.2
-    if(savedData.strategySelectionAbundanceAndDistributionCheckbox !== null){ cookieArray.strategySelectionAbundanceAndDistributionCheckbox = savedData.strategySelectionAbundanceAndDistributionCheckbox; }
-    if(savedData.strategySelectionAbundanceAndDistributionDocumentation !== null){ cookieArray.strategySelectionAbundanceAndDistributionDocumentation = savedData.strategySelectionAbundanceAndDistributionDocumentation; }
+    if(savedData.strategySelection.AbundanceAndDistributionCheckbox !== null){ cookieArray.strategySelection.AbundanceAndDistributionCheckbox = savedData.strategySelection.AbundanceAndDistributionCheckbox; }
+    if(savedData.strategySelection.AbundanceAndDistributionDocumentation !== null){ cookieArray.strategySelection.AbundanceAndDistributionDocumentation = savedData.strategySelection.AbundanceAndDistributionDocumentation; }
     // 2.3
-    if(savedData.strategySelectionAbundanceAndDistributionConfirm !== null){ cookieArray.strategySelectionAbundanceAndDistributionConfirm = savedData.strategySelectionAbundanceAndDistributionConfirm; }
+    if(savedData.strategySelection.AbundanceAndDistributionConfirm !== null){ cookieArray.strategySelection.AbundanceAndDistributionConfirm = savedData.strategySelection.AbundanceAndDistributionConfirm; }
     // 2.4
-    if(savedData.strategySelectionAbundanceAndDistributionAlternative !== null){ cookieArray.strategySelectionAbundanceAndDistributionAlternative = savedData.strategySelectionAbundanceAndDistributionAlternative; }
-    if(savedData.strategySelectionAbundanceAndDistributionAlternativeDocumentation !== null){ cookieArray.strategySelectionAbundanceAndDistributionAlternativeDocumentation = savedData.strategySelectionAbundanceAndDistributionAlternativeDocumentation; }
+    if(savedData.strategySelection.AbundanceAndDistributionAlternative !== null){ cookieArray.strategySelection.AbundanceAndDistributionAlternative = savedData.strategySelection.AbundanceAndDistributionAlternative; }
+    if(savedData.strategySelection.AbundanceAndDistributionAlternativeDocumentation !== null){ cookieArray.strategySelection.AbundanceAndDistributionAlternativeDocumentation = savedData.strategySelection.AbundanceAndDistributionAlternativeDocumentation; }
     // 3.1
-    if(savedData.eradicationSocialPoliticalA !== null){ cookieArray.eradicationSocialPoliticalA = savedData.eradicationSocialPoliticalA; }
-    if(savedData.eradicationSocialPoliticalADocumentation !== null){ cookieArray.eradicationSocialPoliticalADocumentation = savedData.eradicationSocialPoliticalADocumentation; }
+    if(savedData.eradication.SocialPoliticalA !== null){ cookieArray.eradication.SocialPoliticalA = savedData.eradication.SocialPoliticalA; }
+    if(savedData.eradication.SocialPoliticalADocumentation !== null){ cookieArray.eradication.SocialPoliticalADocumentation = savedData.eradication.SocialPoliticalADocumentation; }
     // 3.2
-    if(savedData.eradicationSocialPoliticalB !== null){ cookieArray.eradicationSocialPoliticalB = savedData.eradicationSocialPoliticalB; }
-    if(savedData.eradicationSocialPoliticalBDocumentation !== null){ cookieArray.eradicationSocialPoliticalBDocumentation = savedData.eradicationSocialPoliticalBDocumentation; }
+    if(savedData.eradication.SocialPoliticalB !== null){ cookieArray.eradication.SocialPoliticalB = savedData.eradication.SocialPoliticalB; }
+    if(savedData.eradication.SocialPoliticalBDocumentation !== null){ cookieArray.eradication.SocialPoliticalBDocumentation = savedData.eradication.SocialPoliticalBDocumentation; }
     // 3.3
-    if(savedData.eradicationSocialPoliticalC !== null){ cookieArray.eradicationSocialPoliticalC = savedData.eradicationSocialPoliticalC; }
-    if(savedData.eradicationSocialPoliticalCDocumentation !== null){ cookieArray.eradicationSocialPoliticalCDocumentation = savedData.eradicationSocialPoliticalCDocumentation; }
+    if(savedData.eradication.SocialPoliticalC !== null){ cookieArray.eradication.SocialPoliticalC = savedData.eradication.SocialPoliticalC; }
+    if(savedData.eradication.SocialPoliticalCDocumentation !== null){ cookieArray.eradication.SocialPoliticalCDocumentation = savedData.eradication.SocialPoliticalCDocumentation; }
     // 3.4
-    if(savedData.eradicationPreventingReproductionA !== null){ cookieArray.eradicationPreventingReproductionA = savedData.eradicationPreventingReproductionA; }
-    if(savedData.eradicationPreventingReproductionADocumentation !== null){ cookieArray.eradicationPreventingReproductionADocumentation = savedData.eradicationPreventingReproductionADocumentation; }
+    if(savedData.eradication.PreventingReproductionA !== null){ cookieArray.eradication.PreventingReproductionA = savedData.eradication.PreventingReproductionA; }
+    if(savedData.eradication.PreventingReproductionADocumentation !== null){ cookieArray.eradication.PreventingReproductionADocumentation = savedData.eradication.PreventingReproductionADocumentation; }
     // 3.5
-    if(savedData.eradicationPreventingReproductionB !== null){ cookieArray.eradicationPreventingReproductionB = savedData.eradicationPreventingReproductionB; }
-    if(savedData.eradicationPreventingReproductionBDocumentation !== null){ cookieArray.eradicationPreventingReproductionBDocumentation = savedData.eradicationPreventingReproductionBDocumentation; }
+    if(savedData.eradication.PreventingReproductionB !== null){ cookieArray.eradication.PreventingReproductionB = savedData.eradication.PreventingReproductionB; }
+    if(savedData.eradication.PreventingReproductionBDocumentation !== null){ cookieArray.eradication.PreventingReproductionBDocumentation = savedData.eradication.PreventingReproductionBDocumentation; }
     // 3.6
-    if(savedData.eradicationDetection !== null){ cookieArray.eradicationDetection = savedData.eradicationDetection; }
-    if(savedData.eradicationDetectionDocumentation !== null){ cookieArray.eradicationDetectionDocumentation = savedData.eradicationDetectionDocumentation; }
+    if(savedData.eradication.Detection !== null){ cookieArray.eradication.Detection = savedData.eradication.Detection; }
+    if(savedData.eradication.DetectionDocumentation !== null){ cookieArray.eradication.DetectionDocumentation = savedData.eradication.DetectionDocumentation; }
     // 3.7
-    if(savedData.eradicationEffectiveControlA !== null){ cookieArray.eradicationEffectiveControlA = savedData.eradicationEffectiveControlA; }
-    if(savedData.eradicationEffectiveControlADocumentation !== null){ cookieArray.eradicationEffectiveControlADocumentation = savedData.eradicationEffectiveControlADocumentation; }
-    if(savedData.eradicationEffectiveControlAControlMethod !== null){ cookieArray.eradicationEffectiveControlAControlMethod = savedData.eradicationEffectiveControlAControlMethod; }
-    if(savedData.eradicationEffectiveControlAControlMethodDescription !== null){ cookieArray.eradicationEffectiveControlAControlMethodDescription = savedData.eradicationEffectiveControlAControlMethodDescription; }
+    if(savedData.eradication.EffectiveControlA !== null){ cookieArray.eradication.EffectiveControlA = savedData.eradication.EffectiveControlA; }
+    if(savedData.eradication.EffectiveControlADocumentation !== null){ cookieArray.eradication.EffectiveControlADocumentation = savedData.eradication.EffectiveControlADocumentation; }
+    if(savedData.eradication.EffectiveControlAControlMethod !== null){ cookieArray.eradication.EffectiveControlAControlMethod = savedData.eradication.EffectiveControlAControlMethod; }
+    if(savedData.eradication.EffectiveControlAControlMethodDescription !== null){ cookieArray.eradication.EffectiveControlAControlMethodDescription = savedData.eradication.EffectiveControlAControlMethodDescription; }
     // 3.8
-    if(savedData.eradicationEffectiveControlB !== null){ cookieArray.eradicationEffectiveControlB = savedData.eradicationEffectiveControlB; }
-    if(savedData.eradicationEffectiveControlBDocumentation !== null){ cookieArray.eradicationEffectiveControlBDocumentation = savedData.eradicationEffectiveControlBDocumentation; }
+    if(savedData.eradication.EffectiveControlB !== null){ cookieArray.eradication.EffectiveControlB = savedData.eradication.EffectiveControlB; }
+    if(savedData.eradication.EffectiveControlBDocumentation !== null){ cookieArray.eradication.EffectiveControlBDocumentation = savedData.eradication.EffectiveControlBDocumentation; }
     // 3.9
-    if(savedData.eradicationNontargetImpacts !== null){ cookieArray.eradicationNontargetImpacts = savedData.eradicationNontargetImpacts; }
-    if(savedData.eradicationNontargetImpactsDocumentation !== null){ cookieArray.eradicationNontargetImpactsDocumentation = savedData.eradicationNontargetImpactsDocumentation; }
+    if(savedData.eradication.NontargetImpacts !== null){ cookieArray.eradication.NontargetImpacts = savedData.eradication.NontargetImpacts; }
+    if(savedData.eradication.NontargetImpactsDocumentation !== null){ cookieArray.eradication.NontargetImpactsDocumentation = savedData.eradication.NontargetImpactsDocumentation; }
     // 4.1
-    if(savedData.containmentSocialPoliticalA !== null){ cookieArray.containmentSocialPoliticalA = savedData.containmentSocialPoliticalA; }
-    if(savedData.containmentSocialPoliticalADocumentation !== null){ cookieArray.containmentSocialPoliticalADocumentation = savedData.containmentSocialPoliticalADocumentation; }
+    if(savedData.containment.SocialPoliticalA !== null){ cookieArray.containment.SocialPoliticalA = savedData.containment.SocialPoliticalA; }
+    if(savedData.containment.SocialPoliticalADocumentation !== null){ cookieArray.containment.SocialPoliticalADocumentation = savedData.containment.SocialPoliticalADocumentation; }
     // 4.2
-    if(savedData.containmentSocialPoliticalB !== null){ cookieArray.containmentSocialPoliticalB = savedData.containmentSocialPoliticalB; }
-    if(savedData.containmentSocialPoliticalBDocumentation !== null){ cookieArray.containmentSocialPoliticalBDocumentation = savedData.containmentSocialPoliticalBDocumentation; }
+    if(savedData.containment.SocialPoliticalB !== null){ cookieArray.containment.SocialPoliticalB = savedData.containment.SocialPoliticalB; }
+    if(savedData.containment.SocialPoliticalBDocumentation !== null){ cookieArray.containment.SocialPoliticalBDocumentation = savedData.containment.SocialPoliticalBDocumentation; }
     // 4.3
-    if(savedData.containmentPreventingReproductionA !== null){ cookieArray.containmentPreventingReproductionA = savedData.containmentPreventingReproductionA; }
-    if(savedData.containmentPreventingReproductionADocumentation !== null){ cookieArray.containmentPreventingReproductionADocumentation = savedData.containmentPreventingReproductionADocumentation; }
+    if(savedData.containment.PreventingReproductionA !== null){ cookieArray.containment.PreventingReproductionA = savedData.containment.PreventingReproductionA; }
+    if(savedData.containment.PreventingReproductionADocumentation !== null){ cookieArray.containment.PreventingReproductionADocumentation = savedData.containment.PreventingReproductionADocumentation; }
     // 4.4
-    if(savedData.containmentPreventingReproductionB !== null){ cookieArray.containmentPreventingReproductionB = savedData.containmentPreventingReproductionB; }
-    if(savedData.containmentPreventingReproductionBDocumentation !== null){ cookieArray.containmentPreventingReproductionBDocumentation = savedData.containmentPreventingReproductionBDocumentation; }
+    if(savedData.containment.PreventingReproductionB !== null){ cookieArray.containment.PreventingReproductionB = savedData.containment.PreventingReproductionB; }
+    if(savedData.containment.PreventingReproductionBDocumentation !== null){ cookieArray.containment.PreventingReproductionBDocumentation = savedData.containment.PreventingReproductionBDocumentation; }
     // 4.5
-    if(savedData.containmentDetectingSmall !== null){ cookieArray.containmentDetectingSmall = savedData.containmentDetectingSmall; }
-    if(savedData.containmentDetectingSmallDocumentation !== null){ cookieArray.containmentDetectingSmallDocumentation = savedData.containmentDetectingSmallDocumentation; }
+    if(savedData.containment.DetectingSmall !== null){ cookieArray.containment.DetectingSmall = savedData.containment.DetectingSmall; }
+    if(savedData.containment.DetectingSmallDocumentation !== null){ cookieArray.containment.DetectingSmallDocumentation = savedData.containment.DetectingSmallDocumentation; }
     // 4.6
-    if(savedData.containmentEffectiveControlA !== null){ cookieArray.containmentEffectiveControlA = savedData.containmentEffectiveControlA; }
-    if(savedData.containmentEffectiveControlADocumentation !== null){ cookieArray.containmentEffectiveControlADocumentation = savedData.containmentEffectiveControlADocumentation; }
-    if(savedData.containmentEffectiveControlAControlMethod !== null){ cookieArray.containmentEffectiveControlAControlMethod = savedData.containmentEffectiveControlAControlMethod; }
-    if(savedData.containmentEffectiveControlAControlMethodDescription !== null){ cookieArray.containmentEffectiveControlAControlMethodDescription = savedData.containmentEffectiveControlAControlMethodDescription; }
+    if(savedData.containment.EffectiveControlA !== null){ cookieArray.containment.EffectiveControlA = savedData.containment.EffectiveControlA; }
+    if(savedData.containment.EffectiveControlADocumentation !== null){ cookieArray.containment.EffectiveControlADocumentation = savedData.containment.EffectiveControlADocumentation; }
+    if(savedData.containment.EffectiveControlAControlMethod !== null){ cookieArray.containment.EffectiveControlAControlMethod = savedData.containment.EffectiveControlAControlMethod; }
+    if(savedData.containment.EffectiveControlAControlMethodDescription !== null){ cookieArray.containment.EffectiveControlAControlMethodDescription = savedData.containment.EffectiveControlAControlMethodDescription; }
     // 4.7
-    if(savedData.containmentEffectiveControlB !== null){ cookieArray.containmentEffectiveControlB = savedData.containmentEffectiveControlB; }
-    if(savedData.containmentEffectiveControlBDocumentation !== null){ cookieArray.containmentEffectiveControlBDocumentation = savedData.containmentEffectiveControlBDocumentation; }
+    if(savedData.containment.EffectiveControlB !== null){ cookieArray.containment.EffectiveControlB = savedData.containment.EffectiveControlB; }
+    if(savedData.containment.EffectiveControlBDocumentation !== null){ cookieArray.containment.EffectiveControlBDocumentation = savedData.containment.EffectiveControlBDocumentation; }
     // 4.8
-    if(savedData.containmentNontargetImpacts !== null){ cookieArray.containmentNontargetImpacts = savedData.containmentNontargetImpacts; }
-    if(savedData.containmentNontargetImpactsDocumentation !== null){ cookieArray.containmentNontargetImpactsDocumentation = savedData.containmentNontargetImpactsDocumentation; }
+    if(savedData.containment.NontargetImpacts !== null){ cookieArray.containment.NontargetImpacts = savedData.containment.NontargetImpacts; }
+    if(savedData.containment.NontargetImpactsDocumentation !== null){ cookieArray.containment.NontargetImpactsDocumentation = savedData.containment.NontargetImpactsDocumentation; }
     // 5.1
-    if(savedData.suppressionSocialPoliticalA !== null){ cookieArray.suppressionSocialPoliticalA = savedData.suppressionSocialPoliticalA; }
-    if(savedData.suppressionSocialPoliticalADocumentation !== null){ cookieArray.suppressionSocialPoliticalADocumentation = savedData.suppressionSocialPoliticalADocumentation; }
+    if(savedData.suppression.SocialPoliticalA !== null){ cookieArray.suppression.SocialPoliticalA = savedData.suppression.SocialPoliticalA; }
+    if(savedData.suppression.SocialPoliticalADocumentation !== null){ cookieArray.suppression.SocialPoliticalADocumentation = savedData.suppression.SocialPoliticalADocumentation; }
     // 5.2
-    if(savedData.suppressionSocialPoliticalB !== null){ cookieArray.suppressionSocialPoliticalB = savedData.suppressionSocialPoliticalB; }
-    if(savedData.suppressionSocialPoliticalBDocumentation !== null){ cookieArray.suppressionSocialPoliticalBDocumentation = savedData.suppressionSocialPoliticalBDocumentation; }
+    if(savedData.suppression.SocialPoliticalB !== null){ cookieArray.suppression.SocialPoliticalB = savedData.suppression.SocialPoliticalB; }
+    if(savedData.suppression.SocialPoliticalBDocumentation !== null){ cookieArray.suppression.SocialPoliticalBDocumentation = savedData.suppression.SocialPoliticalBDocumentation; }
     // 5.3
-    if(savedData.suppressionEffectiveControlA !== null){ cookieArray.suppressionEffectiveControlA = savedData.suppressionEffectiveControlA; }
-    if(savedData.suppressionEffectiveControlADocumentation !== null){ cookieArray.suppressionEffectiveControlADocumentation = savedData.suppressionEffectiveControlADocumentation; }
-    if(savedData.suppressionEffectiveControlAControlMethod !== null){ cookieArray.suppressionEffectiveControlAControlMethod = savedData.suppressionEffectiveControlAControlMethod; }
-    if(savedData.suppressionEffectiveControlAControlMethodDescription !== null){ cookieArray.suppressionEffectiveControlAControlMethodDescription = savedData.suppressionEffectiveControlAControlMethodDescription; }
+    if(savedData.suppression.EffectiveControlA !== null){ cookieArray.suppression.EffectiveControlA = savedData.suppression.EffectiveControlA; }
+    if(savedData.suppression.EffectiveControlADocumentation !== null){ cookieArray.suppression.EffectiveControlADocumentation = savedData.suppression.EffectiveControlADocumentation; }
+    if(savedData.suppression.EffectiveControlAControlMethod !== null){ cookieArray.suppression.EffectiveControlAControlMethod = savedData.suppression.EffectiveControlAControlMethod; }
+    if(savedData.suppression.EffectiveControlAControlMethodDescription !== null){ cookieArray.suppression.EffectiveControlAControlMethodDescription = savedData.suppression.EffectiveControlAControlMethodDescription; }
     // 5.4
-    if(savedData.suppressionEffectiveControlB !== null){ cookieArray.suppressionEffectiveControlB = savedData.suppressionEffectiveControlB; }
-    if(savedData.suppressionEffectiveControlBDocumentation !== null){ cookieArray.suppressionEffectiveControlBDocumentation = savedData.suppressionEffectiveControlBDocumentation; }
+    if(savedData.suppression.EffectiveControlB !== null){ cookieArray.suppression.EffectiveControlB = savedData.suppression.EffectiveControlB; }
+    if(savedData.suppression.EffectiveControlBDocumentation !== null){ cookieArray.suppression.EffectiveControlBDocumentation = savedData.suppression.EffectiveControlBDocumentation; }
     // 5.5
-    if(savedData.suppressionNontargetImpacts !== null){ cookieArray.suppressionNontargetImpacts = savedData.suppressionNontargetImpacts; }
-    if(savedData.suppressionNontargetImpactsDocumentation !== null){ cookieArray.suppressionNontargetImpactsDocumentation = savedData.suppressionNontargetImpactsDocumentation; }
+    if(savedData.suppression.NontargetImpacts !== null){ cookieArray.suppression.NontargetImpacts = savedData.suppression.NontargetImpacts; }
+    if(savedData.suppression.NontargetImpactsDocumentation !== null){ cookieArray.suppression.NontargetImpactsDocumentation = savedData.suppression.NontargetImpactsDocumentation; }
 
     // Enter New Data from cookieData
     if(stepNumber === "1.1"){
-        cookieArray.projectBackgroundAssessors = cookieData.projectBackgroundAssessors;
-        cookieArray.projectBackgroundAssessorsDate = cookieData.projectBackgroundAssessorsDate;
-        cookieArray.projectBackgroundScientificName = cookieData.projectBackgroundScientificName;
-        cookieArray.projectBackgroundCommonName = cookieData.projectBackgroundCommonName;
-        cookieArray.projectBackgroundScale = cookieData.projectBackgroundScale;
-        cookieArray.projectBackgroundPRISMWMA = cookieData.projectBackgroundPRISMWMA;
-        cookieArray.projectBackgroundConservationTargetImpacted = cookieData.projectBackgroundConservationTargetImpacted;
-        cookieArray.projectBackgroundProjectAreaName = cookieData.projectBackgroundProjectAreaName;
-        cookieArray.projectBackgroundProjectAreaSize = cookieData.projectBackgroundProjectAreaSize;
-        cookieArray.projectBackgroundPropertyOwners = cookieData.projectBackgroundPropertyOwners;
-        cookieArray.projectBackgroundProjectState = cookieData.projectBackgroundProjectState;
-        cookieArray.projectBackgroundProjectCounty = cookieData.projectBackgroundProjectCounty;
-        cookieArray.projectBackgroundProjectCoordX = cookieData.projectBackgroundProjectCoordX;
-        cookieArray.projectBackgroundProjectCoordY = cookieData.projectBackgroundProjectCoordY;
-        cookieArray.projectBackgroundProjectCoordSystem = cookieData.projectBackgroundProjectCoordSystem;
+        cookieArray.projectBackground.Assessors = cookieData.projectBackground.Assessors;
+        cookieArray.projectBackground.AssessorsDate = cookieData.projectBackground.AssessorsDate;
+        cookieArray.projectBackground.ScientificName = cookieData.projectBackground.ScientificName;
+        cookieArray.projectBackground.CommonName = cookieData.projectBackground.CommonName;
+        cookieArray.projectBackground.Scale = cookieData.projectBackground.Scale;
+        cookieArray.projectBackground.PRISMWMA = cookieData.projectBackground.PRISMWMA;
+        cookieArray.projectBackground.ConservationTargetImpacted = cookieData.projectBackground.ConservationTargetImpacted;
+        cookieArray.projectBackground.ProjectAreaName = cookieData.projectBackground.ProjectAreaName;
+        cookieArray.projectBackground.ProjectAreaSize = cookieData.projectBackground.ProjectAreaSize;
+        cookieArray.projectBackground.PropertyOwners = cookieData.projectBackground.PropertyOwners;
+        cookieArray.projectBackground.ProjectState = cookieData.projectBackground.ProjectState;
+        cookieArray.projectBackground.ProjectCounty = cookieData.projectBackground.ProjectCounty;
+        cookieArray.projectBackground.ProjectCoordX = cookieData.projectBackground.ProjectCoordX;
+        cookieArray.projectBackground.ProjectCoordY = cookieData.projectBackground.ProjectCoordY;
+        cookieArray.projectBackground.ProjectCoordSystem = cookieData.projectBackground.ProjectCoordSystem;
     }else if(stepNumber === "1.2"){
-        cookieArray.projectBackgroundProjectGoal = cookieData.projectBackgroundProjectGoal;
-        cookieArray.projectBackgroundNumberOfYearsToComplete = cookieData.projectBackgroundNumberOfYearsToComplete;
-        cookieArray.projectBackgroundStartDate = cookieData.projectBackgroundStartDate;
-        cookieArray.projectBackgroundEndDate = cookieData.projectBackgroundEndDate;
-        cookieArray.projectBackgroundOngoingProject = cookieData.projectBackgroundOngoingProject;
-        cookieArray.projectBackgroundControlRequired = cookieData.projectBackgroundControlRequired;
+        cookieArray.projectBackground.ProjectGoal = cookieData.projectBackground.ProjectGoal;
+        cookieArray.projectBackground.NumberOfYearsToComplete = cookieData.projectBackground.NumberOfYearsToComplete;
+        cookieArray.projectBackground.StartDate = cookieData.projectBackground.StartDate;
+        cookieArray.projectBackground.EndDate = cookieData.projectBackground.EndDate;
+        cookieArray.projectBackground.OngoingProject = cookieData.projectBackground.OngoingProject;
+        cookieArray.projectBackground.ControlRequired = cookieData.projectBackground.ControlRequired;
     }else if(stepNumber === "1.3"){
-        cookieArray.projectBackgroundGrossInvadedArea = cookieData.projectBackgroundGrossInvadedArea;
-        cookieArray.projectBackgroundNetInvadedArea = cookieData.projectBackgroundNetInvadedArea;
-        cookieArray.projectBackgroundNumberOfOccurances = cookieData.projectBackgroundNumberOfOccurances;
+        cookieArray.projectBackground.GrossInvadedArea = cookieData.projectBackground.GrossInvadedArea;
+        cookieArray.projectBackground.NetInvadedArea = cookieData.projectBackground.NetInvadedArea;
+        cookieArray.projectBackground.NumberOfOccurances = cookieData.projectBackground.NumberOfOccurances;
     }else if(stepNumber === "1.4"){
-        cookieArray.projectBackgroundImapShareResults = cookieData.projectBackgroundImapShareResults;
-        cookieArray.projectBackgroundImapAccount = cookieData.projectBackgroundImapAccount;
+        cookieArray.projectBackground.ImapShareResults = cookieData.projectBackground.ImapShareResults;
+        cookieArray.projectBackground.ImapAccount = cookieData.projectBackground.ImapAccount;
     }else if(stepNumber === "2.1"){
-        cookieArray.strategySelectionNYSScore = cookieData.strategySelectionNYSScore;
-        cookieArray.strategySelectionCheckbox = cookieData.strategySelectionCheckbox;
-        cookieArray.strategySelectionDocumentation = cookieData.strategySelectionDocumentation;
+        cookieArray.strategySelection.NYSScore = cookieData.strategySelection.NYSScore;
+        cookieArray.strategySelection.Checkbox = cookieData.strategySelection.Checkbox;
+        cookieArray.strategySelection.Documentation = cookieData.strategySelection.Documentation;
     }else if(stepNumber === "2.2"){
-        cookieArray.strategySelectionAbundanceAndDistributionCheckbox = cookieData.strategySelectionAbundanceAndDistributionCheckbox;
-        cookieArray.strategySelectionAbundanceAndDistributionDocumentation = cookieData.strategySelectionAbundanceAndDistributionDocumentation;
+        cookieArray.strategySelection.AbundanceAndDistributionCheckbox = cookieData.strategySelection.AbundanceAndDistributionCheckbox;
+        cookieArray.strategySelection.AbundanceAndDistributionDocumentation = cookieData.strategySelection.AbundanceAndDistributionDocumentation;
     }else if(stepNumber === "2.3"){
-        cookieArray.strategySelectionAbundanceAndDistributionConfirm = cookieData.strategySelectionAbundanceAndDistributionConfirm;
+        cookieArray.strategySelection.AbundanceAndDistributionConfirm = cookieData.strategySelection.AbundanceAndDistributionConfirm;
     }else if(stepNumber === "2.4"){
-        cookieArray.strategySelectionAbundanceAndDistributionAlternative = cookieData.strategySelectionAbundanceAndDistributionAlternative;
-        cookieArray.strategySelectionAbundanceAndDistributionAlternativeDocumentation = cookieData.strategySelectionAbundanceAndDistributionAlternativeDocumentation;
+        cookieArray.strategySelection.AbundanceAndDistributionAlternative = cookieData.strategySelection.AbundanceAndDistributionAlternative;
+        cookieArray.strategySelection.AbundanceAndDistributionAlternativeDocumentation = cookieData.strategySelection.AbundanceAndDistributionAlternativeDocumentation;
     }else if(stepNumber === "3.1"){
-        cookieArray.eradicationSocialPoliticalA = cookieData.eradicationSocialPoliticalA;
-        cookieArray.eradicationSocialPoliticalADocumentation = cookieData.eradicationSocialPoliticalADocumentation;
+        cookieArray.eradication.SocialPoliticalA = cookieData.eradication.SocialPoliticalA;
+        cookieArray.eradication.SocialPoliticalADocumentation = cookieData.eradication.SocialPoliticalADocumentation;
     }else if(stepNumber === "3.2"){
-        cookieArray.eradicationSocialPoliticalB = cookieData.eradicationSocialPoliticalB;
-        cookieArray.eradicationSocialPoliticalBDocumentation = cookieData.eradicationSocialPoliticalBDocumentation;
+        cookieArray.eradication.SocialPoliticalB = cookieData.eradication.SocialPoliticalB;
+        cookieArray.eradication.SocialPoliticalBDocumentation = cookieData.eradication.SocialPoliticalBDocumentation;
     }else if(stepNumber === "3.3"){
-        cookieArray.eradicationSocialPoliticalC = cookieData.eradicationSocialPoliticalC;
-        cookieArray.eradicationSocialPoliticalCDocumentation = cookieData.eradicationSocialPoliticalCDocumentation;
+        cookieArray.eradication.SocialPoliticalC = cookieData.eradication.SocialPoliticalC;
+        cookieArray.eradication.SocialPoliticalCDocumentation = cookieData.eradication.SocialPoliticalCDocumentation;
     }else if(stepNumber === "3.4"){
-        cookieArray.eradicationPreventingReproductionA = cookieData.eradicationPreventingReproductionA;
-        cookieArray.eradicationPreventingReproductionADocumentation = cookieData.eradicationPreventingReproductionADocumentation;
+        cookieArray.eradication.PreventingReproductionA = cookieData.eradication.PreventingReproductionA;
+        cookieArray.eradication.PreventingReproductionADocumentation = cookieData.eradication.PreventingReproductionADocumentation;
     }else if(stepNumber === "3.5"){
-        cookieArray.eradicationPreventingReproductionB = cookieData.eradicationPreventingReproductionB;
-        cookieArray.eradicationPreventingReproductionBDocumentation = cookieData.eradicationPreventingReproductionBDocumentation;
+        cookieArray.eradication.PreventingReproductionB = cookieData.eradication.PreventingReproductionB;
+        cookieArray.eradication.PreventingReproductionBDocumentation = cookieData.eradication.PreventingReproductionBDocumentation;
     }else if(stepNumber === "3.6"){
-        cookieArray.eradicationDetection = cookieData.eradicationDetection;
-        cookieArray.eradicationDetectionDocumentation = cookieData.eradicationDetectionDocumentation;
+        cookieArray.eradication.Detection = cookieData.eradication.Detection;
+        cookieArray.eradication.DetectionDocumentation = cookieData.eradication.DetectionDocumentation;
     }else if(stepNumber === "3.7"){
-        cookieArray.eradicationEffectiveControlA = cookieData.eradicationEffectiveControlA;
-        cookieArray.eradicationEffectiveControlADocumentation = cookieData.eradicationEffectiveControlADocumentation;
-        cookieArray.eradicationEffectiveControlAControlMethod = cookieData.eradicationEffectiveControlAControlMethod;
-        cookieArray.eradicationEffectiveControlAControlMethodDescription = cookieData.eradicationEffectiveControlAControlMethodDescription;
+        cookieArray.eradication.EffectiveControlA = cookieData.eradication.EffectiveControlA;
+        cookieArray.eradication.EffectiveControlADocumentation = cookieData.eradication.EffectiveControlADocumentation;
+        cookieArray.eradication.EffectiveControlAControlMethod = cookieData.eradication.EffectiveControlAControlMethod;
+        cookieArray.eradication.EffectiveControlAControlMethodDescription = cookieData.eradication.EffectiveControlAControlMethodDescription;
     }else if(stepNumber === "3.8"){
-        cookieArray.eradicationEffectiveControlB = cookieData.eradicationEffectiveControlB;
-        cookieArray.eradicationEffectiveControlBDocumentation = cookieData.eradicationEffectiveControlBDocumentation;
+        cookieArray.eradication.EffectiveControlB = cookieData.eradication.EffectiveControlB;
+        cookieArray.eradication.EffectiveControlBDocumentation = cookieData.eradication.EffectiveControlBDocumentation;
     }else if(stepNumber === "3.9"){
-        cookieArray.eradicationNontargetImpacts = cookieData.eradicationNontargetImpacts;
-        cookieArray.eradicationNontargetImpactsDocumentation = cookieData.eradicationNontargetImpactsDocumentation;
+        cookieArray.eradication.NontargetImpacts = cookieData.eradication.NontargetImpacts;
+        cookieArray.eradication.NontargetImpactsDocumentation = cookieData.eradication.NontargetImpactsDocumentation;
     }else if(stepNumber === "4.1"){
-        cookieArray.containmentSocialPoliticalA = cookieData.containmentSocialPoliticalA;
-        cookieArray.containmentSocialPoliticalADocumentation = cookieData.containmentSocialPoliticalADocumentation;
+        cookieArray.containment.SocialPoliticalA = cookieData.containment.SocialPoliticalA;
+        cookieArray.containment.SocialPoliticalADocumentation = cookieData.containment.SocialPoliticalADocumentation;
     }else if(stepNumber === "4.2"){
-        cookieArray.containmentSocialPoliticalB = cookieData.containmentSocialPoliticalB;
-        cookieArray.containmentSocialPoliticalBDocumentation = cookieData.containmentSocialPoliticalBDocumentation;
+        cookieArray.containment.SocialPoliticalB = cookieData.containment.SocialPoliticalB;
+        cookieArray.containment.SocialPoliticalBDocumentation = cookieData.containment.SocialPoliticalBDocumentation;
     }else if(stepNumber === "4.3"){
-        cookieArray.containmentPreventingReproductionA = cookieData.containmentPreventingReproductionA;
-        cookieArray.containmentPreventingReproductionADocumentation = cookieData.containmentPreventingReproductionADocumentation;
+        cookieArray.containment.PreventingReproductionA = cookieData.containment.PreventingReproductionA;
+        cookieArray.containment.PreventingReproductionADocumentation = cookieData.containment.PreventingReproductionADocumentation;
     }else if(stepNumber === "4.4"){
-        cookieArray.containmentPreventingReproductionB = cookieData.containmentPreventingReproductionB;
-        cookieArray.containmentPreventingReproductionBDocumentation = cookieData.containmentPreventingReproductionBDocumentation;
+        cookieArray.containment.PreventingReproductionB = cookieData.containment.PreventingReproductionB;
+        cookieArray.containment.PreventingReproductionBDocumentation = cookieData.containment.PreventingReproductionBDocumentation;
     }else if(stepNumber === "4.5"){
-        cookieArray.containmentDetectingSmall = cookieData.containmentDetectingSmall;
-        cookieArray.containmentDetectingSmallDocumentation = cookieData.containmentDetectingSmallDocumentation;
+        cookieArray.containment.DetectingSmall = cookieData.containment.DetectingSmall;
+        cookieArray.containment.DetectingSmallDocumentation = cookieData.containment.DetectingSmallDocumentation;
     }else if(stepNumber === "4.6"){
-        cookieArray.containmentEffectiveControlA = cookieData.containmentEffectiveControlA;
-        cookieArray.containmentEffectiveControlADocumentation = cookieData.containmentEffectiveControlADocumentation;
-        cookieArray.containmentEffectiveControlAControlMethod = cookieData.containmentEffectiveControlAControlMethod;
-        cookieArray.containmentEffectiveControlAControlMethodDescription = cookieData.containmentEffectiveControlAControlMethodDescription;
+        cookieArray.containment.EffectiveControlA = cookieData.containment.EffectiveControlA;
+        cookieArray.containment.EffectiveControlADocumentation = cookieData.containment.EffectiveControlADocumentation;
+        cookieArray.containment.EffectiveControlAControlMethod = cookieData.containment.EffectiveControlAControlMethod;
+        cookieArray.containment.EffectiveControlAControlMethodDescription = cookieData.containment.EffectiveControlAControlMethodDescription;
     }else if(stepNumber === "4.7"){
-        cookieArray.containmentEffectiveControlB = cookieData.containmentEffectiveControlB;
-        cookieArray.containmentEffectiveControlBDocumentation = cookieData.containmentEffectiveControlBDocumentation;
+        cookieArray.containment.EffectiveControlB = cookieData.containment.EffectiveControlB;
+        cookieArray.containment.EffectiveControlBDocumentation = cookieData.containment.EffectiveControlBDocumentation;
     }else if(stepNumber === "4.8"){
-        cookieArray.containmentNontargetImpacts = cookieData.containmentNontargetImpacts;
-        cookieArray.containmentNontargetImpactsDocumentation = cookieData.containmentNontargetImpactsDocumentation;
+        cookieArray.containment.NontargetImpacts = cookieData.containment.NontargetImpacts;
+        cookieArray.containment.NontargetImpactsDocumentation = cookieData.containment.NontargetImpactsDocumentation;
     }else if(stepNumber === "5.1"){
-        cookieArray.suppressionSocialPoliticalA = cookieData.suppressionSocialPoliticalA;
-        cookieArray.suppressionSocialPoliticalADocumentation = cookieData.suppressionSocialPoliticalADocumentation;
+        cookieArray.suppression.SocialPoliticalA = cookieData.suppression.SocialPoliticalA;
+        cookieArray.suppression.SocialPoliticalADocumentation = cookieData.suppression.SocialPoliticalADocumentation;
     }else if(stepNumber === "5.2"){
-        cookieArray.suppressionSocialPoliticalB = cookieData.suppressionSocialPoliticalB;
-        cookieArray.suppressionSocialPoliticalBDocumentation = cookieData.suppressionSocialPoliticalBDocumentation;
+        cookieArray.suppression.SocialPoliticalB = cookieData.suppression.SocialPoliticalB;
+        cookieArray.suppression.SocialPoliticalBDocumentation = cookieData.suppression.SocialPoliticalBDocumentation;
     }else if(stepNumber === "5.3"){
-        cookieArray.suppressionEffectiveControlA = cookieData.suppressionEffectiveControlA;
-        cookieArray.suppressionEffectiveControlADocumentation = cookieData.suppressionEffectiveControlADocumentation;
-        cookieArray.suppressionEffectiveControlAControlMethod = cookieData.suppressionEffectiveControlAControlMethod;
-        cookieArray.suppressionEffectiveControlAControlMethodDescription = cookieData.suppressionEffectiveControlAControlMethodDescription;
+        cookieArray.suppression.EffectiveControlA = cookieData.suppression.EffectiveControlA;
+        cookieArray.suppression.EffectiveControlADocumentation = cookieData.suppression.EffectiveControlADocumentation;
+        cookieArray.suppression.EffectiveControlAControlMethod = cookieData.suppression.EffectiveControlAControlMethod;
+        cookieArray.suppression.EffectiveControlAControlMethodDescription = cookieData.suppression.EffectiveControlAControlMethodDescription;
     }else if(stepNumber === "5.4"){
-        cookieArray.suppressionEffectiveControlB = cookieData.suppressionEffectiveControlB;
-        cookieArray.suppressionEffectiveControlBDocumentation = cookieData.suppressionEffectiveControlBDocumentation;
+        cookieArray.suppression.EffectiveControlB = cookieData.suppression.EffectiveControlB;
+        cookieArray.suppression.EffectiveControlBDocumentation = cookieData.suppression.EffectiveControlBDocumentation;
     }else if(stepNumber === "5.5"){
-        cookieArray.suppressionNontargetImpacts = cookieData.suppressionNontargetImpacts;
-        cookieArray.suppressionNontargetImpactsDocumentation = cookieData.suppressionNontargetImpactsDocumentation;
+        cookieArray.suppression.NontargetImpacts = cookieData.suppression.NontargetImpacts;
+        cookieArray.suppression.NontargetImpactsDocumentation = cookieData.suppression.NontargetImpactsDocumentation;
     }
     $.JSONCookie(name, cookieArray, {path: '/'});
 };
@@ -452,14 +461,14 @@ function Check_Available_Steps(cookieData, completedSteps, currentStep){
             // because the decision is permenant.
             $('#strategy_confirmation_yes').prop('disabled', false);
             $('#strategy_confirmation_no').prop('disabled', false);
-            if(cookieData.strategySelectionAbundanceAndDistributionConfirm === "#strategy_confirmation_yes"){
+            if(cookieData.strategySelection.AbundanceAndDistributionConfirm === "#strategy_confirmation_yes"){
                 // Confirm
                 $('#content_progress_bar_strategy_exploration').removeClass('progress_bar_active').removeClass('progress_bar_inactive').addClass('progress_bar_available');
                 // TODO: FIX PATHING HERE -> ERADICATION OR CONTAINMENT
                 $('#content_step_strategy_exploration_eradication_substep_one').removeClass('content_substep_active').removeClass('content_substep_inactive').addClass('content_substep_available');
                 $('#content_step_strategy_exploration_containment_substep_one').removeClass('content_substep_active').removeClass('content_substep_inactive').addClass('content_substep_available');
                 $('#content_step_strategy_exploration_suppression_substep_one').removeClass('content_substep_active').removeClass('content_substep_inactive').addClass('content_substep_available');
-            }else if(cookieData.strategySelectionAbundanceAndDistributionConfirm === "#strategy_confirmation_no"){
+            }else if(cookieData.strategySelection.AbundanceAndDistributionConfirm === "#strategy_confirmation_no"){
                 // Alternative
                 $('#content_step_strategy_selection_substep_four').removeClass('content_substep_active').removeClass('content_substep_inactive').addClass('content_substep_available');
             }
@@ -1055,94 +1064,104 @@ function IPMDAT_Init(){
     // TODO: UPDATE HERE
     var cookieData = {
             // PROJECT BACKGROUND (STEP 1)
-            projectBackgroundAssessors: null,
-            projectBackgroundAssessorsDate: null,
-            projectBackgroundScientificName: null,
-            projectBackgroundCommonName: null,
-            projectBackgroundScale: null,
-            projectBackgroundPRISMWMA: null,
-            projectBackgroundConservationTargetImpacted: null,
-            projectBackgroundProjectAreaName: null,
-            projectBackgroundProjectAreaSize: null,
-            projectBackgroundPropertyOwners: null,
-            projectBackgroundProjectState: null,
-            projectBackgroundProjectCounty: null,
-            projectBackgroundProjectCoordX: null,
-            projectBackgroundProjectCoordY: null,
-            projectBackgroundProjectCoordSystem: null,
-            projectBackgroundProjectGoal: null,
-            projectBackgroundNumberOfYearsToComplete: null,
-            projectBackgroundStartDate: null,
-            projectBackgroundEndDate: null,
-            projectBackgroundOngoingProject: null,
-            projectBackgroundControlRequired: null,
-            projectBackgroundGrossInvadedArea: null,
-            projectBackgroundNetInvadedArea: null,
-            projectBackgroundNumberOfOccurances: null,
-            projectBackgroundImapShareResults: null,
-            projectBackgroundImapAccount: null,
+            projectBackground: {
+                Assessors: null,
+                AssessorsDate: null,
+                ScientificName: null,
+                CommonName: null,
+                Scale: null,
+                PRISMWMA: null,
+                ConservationTargetImpacted: null,
+                ProjectAreaName: null,
+                ProjectAreaSize: null,
+                PropertyOwners: null,
+                ProjectState: null,
+                ProjectCounty: null,
+                ProjectCoordX: null,
+                ProjectCoordY: null,
+                ProjectCoordSystem: null,
+                ProjectGoal: null,
+                NumberOfYearsToComplete: null,
+                StartDate: null,
+                EndDate: null,
+                OngoingProject: null,
+                ControlRequired: null,
+                GrossInvadedArea: null,
+                NetInvadedArea: null,
+                NumberOfOccurances: null,
+                ImapShareResults: null,
+                ImapAccount: null
+            },
             // STRATEGY SELECTION (STEP 2)
-            strategySelectionNYSScore: null,
-            strategySelectionCheckbox: null,
-            strategySelectionDocumentation: null,
-            strategySelectionAbundanceAndDistributionCheckbox: null,
-            strategySelectionAbundanceAndDistributionDocumentation: null,
-            strategySelectionAbundanceAndDistributionConfirm: null,
-            strategySelectionAbundanceAndDistributionAlternative: null,
-            strategySelectionAbundanceAndDistributionAlternativeDocumentation: null,
+            strategySelection: {
+                NYSScore: null,
+                Checkbox: null,
+                Documentation: null,
+                AbundanceAndDistributionCheckbox: null,
+                AbundanceAndDistributionDocumentation: null,
+                AbundanceAndDistributionConfirm: null,
+                AbundanceAndDistributionAlternative: null,
+                AbundanceAndDistributionAlternativeDocumentation: null
+            },
             // STRATEGY EXPLORATION (ERADICATION) (STEP 3)
-            eradicationSocialPoliticalA: null,
-            eradicationSocialPoliticalADocumentation: null,
-            eradicationSocialPoliticalB: null,
-            eradicationSocialPoliticalBDocumentation: null,
-            eradicationSocialPoliticalC: null,
-            eradicationSocialPoliticalCDocumentation: null,
-            eradicationPreventingReproductionA: null,
-            eradicationPreventingReproductionADocumentation: null,
-            eradicationPreventingReproductionB: null,
-            eradicationPreventingReproductionBDocumentation: null,
-            eradicationDetection: null,
-            eradicationDetectionDocumentation: null,
-            eradicationEffectiveControlA: null,
-            eradicationEffectiveControlADocumentation: null,
-            eradicationEffectiveControlAControlMethod: null,
-            eradicationEffectiveControlAControlMethodDescription: null,
-            eradicationEffectiveControlB: null,
-            eradicationEffectiveControlBDocumentation: null,
-            eradicationNontargetImpacts: null,
-            eradicationNontargetImpactsDocumentation: null,
+            eradication: {
+                SocialPoliticalA: null,
+                SocialPoliticalADocumentation: null,
+                SocialPoliticalB: null,
+                SocialPoliticalBDocumentation: null,
+                SocialPoliticalC: null,
+                SocialPoliticalCDocumentation: null,
+                PreventingReproductionA: null,
+                PreventingReproductionADocumentation: null,
+                PreventingReproductionB: null,
+                PreventingReproductionBDocumentation: null,
+                Detection: null,
+                DetectionDocumentation: null,
+                EffectiveControlA: null,
+                EffectiveControlADocumentation: null,
+                EffectiveControlAControlMethod: null,
+                EffectiveControlAControlMethodDescription: null,
+                EffectiveControlB: null,
+                EffectiveControlBDocumentation: null,
+                NontargetImpacts: null,
+                NontargetImpactsDocumentation: null
+            },
             // STRATEGY EXPLORATION (CONTAINMENT) (STEP 4)
-            containmentSocialPoliticalA: null,
-            containmentSocialPoliticalADocumentation: null,
-            containmentSocialPoliticalB: null,
-            containmentSocialPoliticalBDocumentation: null,
-            containmentPreventingReproductionA: null,
-            containmentPreventingReproductionADocumentation: null,
-            containmentPreventingReproductionB: null,
-            containmentPreventingReproductionBDocumentation: null,
-            containmentDetectingSmall: null,
-            containmentDetectingSmallDocumentation: null,
-            containmentEffectiveControlA: null,
-            containmentEffectiveControlADocumentation: null,
-            containmentEffectiveControlAControlMethod: null,
-            containmentEffectiveControlAControlMethodDescription: null,
-            containmentEffectiveControlB: null,
-            containmentEffectiveControlBDocumentation: null,
-            containmentNontargetImpacts: null,
-            containmentNontargetImpactsDocumentation: null,
+            containment: {
+                SocialPoliticalA: null,
+                SocialPoliticalADocumentation: null,
+                SocialPoliticalB: null,
+                SocialPoliticalBDocumentation: null,
+                PreventingReproductionA: null,
+                PreventingReproductionADocumentation: null,
+                PreventingReproductionB: null,
+                PreventingReproductionBDocumentation: null,
+                DetectingSmall: null,
+                DetectingSmallDocumentation: null,
+                EffectiveControlA: null,
+                EffectiveControlADocumentation: null,
+                EffectiveControlAControlMethod: null,
+                EffectiveControlAControlMethodDescription: null,
+                EffectiveControlB: null,
+                EffectiveControlBDocumentation: null,
+                NontargetImpacts: null,
+                NontargetImpactsDocumentation: null
+            },
             // STRATEGY EXPLORATION (SUPPRESSION) (STEP 5)
-            suppressionSocialPoliticalA: null,
-            suppressionSocialPoliticalADocumentation: null,
-            suppressionSocialPoliticalB: null,
-            suppressionSocialPoliticalBDocumentation: null,
-            suppressionEffectiveControlA: null,
-            suppressionEffectiveControlADocumentation: null,
-            suppressionEffectiveControlAControlMethod: null,
-            suppressionEffectiveControlAControlMethodDescription: null,
-            suppressionEffectiveControlB: null,
-            suppressionEffectiveControlBDocumentation: null,
-            suppressionNontargetImpacts: null,
-            suppressionNontargetImpactsDocumentation: null
+            suppression: {
+                SocialPoliticalA: null,
+                SocialPoliticalADocumentation: null,
+                SocialPoliticalB: null,
+                SocialPoliticalBDocumentation: null,
+                EffectiveControlA: null,
+                EffectiveControlADocumentation: null,
+                EffectiveControlAControlMethod: null,
+                EffectiveControlAControlMethodDescription: null,
+                EffectiveControlB: null,
+                EffectiveControlBDocumentation: null,
+                NontargetImpacts: null,
+                NontargetImpactsDocumentation: null
+            }
         },
         completedSteps = [],
         currentStep = "1.1",
@@ -1159,94 +1178,104 @@ function IPMDAT_Init(){
     $('#clear_cookie').click(function(){
         cookieData = {
             // PROJECT BACKGROUND (STEP 1)
-            projectBackgroundAssessors: null,
-            projectBackgroundAssessorsDate: null,
-            projectBackgroundScientificName: null,
-            projectBackgroundCommonName: null,
-            projectBackgroundScale: null,
-            projectBackgroundPRISMWMA: null,
-            projectBackgroundConservationTargetImpacted: null,
-            projectBackgroundProjectAreaName: null,
-            projectBackgroundProjectAreaSize: null,
-            projectBackgroundPropertyOwners: null,
-            projectBackgroundProjectState: null,
-            projectBackgroundProjectCounty: null,
-            projectBackgroundProjectCoordX: null,
-            projectBackgroundProjectCoordY: null,
-            projectBackgroundProjectCoordSystem: null,
-            projectBackgroundProjectGoal: null,
-            projectBackgroundNumberOfYearsToComplete: null,
-            projectBackgroundStartDate: null,
-            projectBackgroundEndDate: null,
-            projectBackgroundOngoingProject: null,
-            projectBackgroundControlRequired: null,
-            projectBackgroundGrossInvadedArea: null,
-            projectBackgroundNetInvadedArea: null,
-            projectBackgroundNumberOfOccurances: null,
-            projectBackgroundImapShareResults: null,
-            projectBackgroundImapAccount: null,
+            projectBackground: {
+                Assessors: null,
+                AssessorsDate: null,
+                ScientificName: null,
+                CommonName: null,
+                Scale: null,
+                PRISMWMA: null,
+                ConservationTargetImpacted: null,
+                ProjectAreaName: null,
+                ProjectAreaSize: null,
+                PropertyOwners: null,
+                ProjectState: null,
+                ProjectCounty: null,
+                ProjectCoordX: null,
+                ProjectCoordY: null,
+                ProjectCoordSystem: null,
+                ProjectGoal: null,
+                NumberOfYearsToComplete: null,
+                StartDate: null,
+                EndDate: null,
+                OngoingProject: null,
+                ControlRequired: null,
+                GrossInvadedArea: null,
+                NetInvadedArea: null,
+                NumberOfOccurances: null,
+                ImapShareResults: null,
+                ImapAccount: null
+            },
             // STRATEGY SELECTION (STEP 2)
-            strategySelectionNYSScore: null,
-            strategySelectionCheckbox: null,
-            strategySelectionDocumentation: null,
-            strategySelectionAbundanceAndDistributionCheckbox: null,
-            strategySelectionAbundanceAndDistributionDocumentation: null,
-            strategySelectionAbundanceAndDistributionConfirm: null,
-            strategySelectionAbundanceAndDistributionAlternative: null,
-            strategySelectionAbundanceAndDistributionAlternativeDocumentation: null,
+            strategySelection: {
+                NYSScore: null,
+                Checkbox: null,
+                Documentation: null,
+                AbundanceAndDistributionCheckbox: null,
+                AbundanceAndDistributionDocumentation: null,
+                AbundanceAndDistributionConfirm: null,
+                AbundanceAndDistributionAlternative: null,
+                AbundanceAndDistributionAlternativeDocumentation: null
+            },
             // STRATEGY EXPLORATION (ERADICATION) (STEP 3)
-            eradicationSocialPoliticalA: null,
-            eradicationSocialPoliticalADocumentation: null,
-            eradicationSocialPoliticalB: null,
-            eradicationSocialPoliticalBDocumentation: null,
-            eradicationSocialPoliticalC: null,
-            eradicationSocialPoliticalCDocumentation: null,
-            eradicationPreventingReproductionA: null,
-            eradicationPreventingReproductionADocumentation: null,
-            eradicationPreventingReproductionB: null,
-            eradicationPreventingReproductionBDocumentation: null,
-            eradicationDetection: null,
-            eradicationDetectionDocumentation: null,
-            eradicationEffectiveControlA: null,
-            eradicationEffectiveControlADocumentation: null,
-            eradicationEffectiveControlAControlMethod: null,
-            eradicationEffectiveControlAControlMethodDescription: null,
-            eradicationEffectiveControlB: null,
-            eradicationEffectiveControlBDocumentation: null,
-            eradicationNontargetImpacts: null,
-            eradicationNontargetImpactsDocumentation: null,
+            eradication: {
+                SocialPoliticalA: null,
+                SocialPoliticalADocumentation: null,
+                SocialPoliticalB: null,
+                SocialPoliticalBDocumentation: null,
+                SocialPoliticalC: null,
+                SocialPoliticalCDocumentation: null,
+                PreventingReproductionA: null,
+                PreventingReproductionADocumentation: null,
+                PreventingReproductionB: null,
+                PreventingReproductionBDocumentation: null,
+                Detection: null,
+                DetectionDocumentation: null,
+                EffectiveControlA: null,
+                EffectiveControlADocumentation: null,
+                EffectiveControlAControlMethod: null,
+                EffectiveControlAControlMethodDescription: null,
+                EffectiveControlB: null,
+                EffectiveControlBDocumentation: null,
+                NontargetImpacts: null,
+                NontargetImpactsDocumentation: null
+            },
             // STRATEGY EXPLORATION (CONTAINMENT) (STEP 4)
-            containmentSocialPoliticalA: null,
-            containmentSocialPoliticalADocumentation: null,
-            containmentSocialPoliticalB: null,
-            containmentSocialPoliticalBDocumentation: null,
-            containmentPreventingReproductionA: null,
-            containmentPreventingReproductionADocumentation: null,
-            containmentPreventingReproductionB: null,
-            containmentPreventingReproductionBDocumentation: null,
-            containmentDetectingSmall: null,
-            containmentDetectingSmallDocumentation: null,
-            containmentEffectiveControlA: null,
-            containmentEffectiveControlADocumentation: null,
-            containmentEffectiveControlAControlMethod: null,
-            containmentEffectiveControlAControlMethodDescription: null,
-            containmentEffectiveControlB: null,
-            containmentEffectiveControlBDocumentation: null,
-            containmentNontargetImpacts: null,
-            containmentNontargetImpactsDocumentation: null,
+            containment: {
+                SocialPoliticalA: null,
+                SocialPoliticalADocumentation: null,
+                SocialPoliticalB: null,
+                SocialPoliticalBDocumentation: null,
+                PreventingReproductionA: null,
+                PreventingReproductionADocumentation: null,
+                PreventingReproductionB: null,
+                PreventingReproductionBDocumentation: null,
+                DetectingSmall: null,
+                DetectingSmallDocumentation: null,
+                EffectiveControlA: null,
+                EffectiveControlADocumentation: null,
+                EffectiveControlAControlMethod: null,
+                EffectiveControlAControlMethodDescription: null,
+                EffectiveControlB: null,
+                EffectiveControlBDocumentation: null,
+                NontargetImpacts: null,
+                NontargetImpactsDocumentation: null
+            },
             // STRATEGY EXPLORATION (SUPPRESSION) (STEP 5)
-            suppressionSocialPoliticalA: null,
-            suppressionSocialPoliticalADocumentation: null,
-            suppressionSocialPoliticalB: null,
-            suppressionSocialPoliticalBDocumentation: null,
-            suppressionEffectiveControlA: null,
-            suppressionEffectiveControlADocumentation: null,
-            suppressionEffectiveControlAControlMethod: null,
-            suppressionEffectiveControlAControlMethodDescription: null,
-            suppressionEffectiveControlB: null,
-            suppressionEffectiveControlBDocumentation: null,
-            suppressionNontargetImpacts: null,
-            suppressionNontargetImpactsDocumentation: null
+            suppression: {
+                SocialPoliticalA: null,
+                SocialPoliticalADocumentation: null,
+                SocialPoliticalB: null,
+                SocialPoliticalBDocumentation: null,
+                EffectiveControlA: null,
+                EffectiveControlADocumentation: null,
+                EffectiveControlAControlMethod: null,
+                EffectiveControlAControlMethodDescription: null,
+                EffectiveControlB: null,
+                EffectiveControlBDocumentation: null,
+                NontargetImpacts: null,
+                NontargetImpactsDocumentation: null
+            }
         };
         $.JSONCookie(name, cookieData, {path: '/'});
     });
@@ -1266,8 +1295,8 @@ function IPMDAT_Init(){
     //------------------------------------------------------------------------\\
     // *** 1.1 ***
     //projectBackgroundAssessors
-    if(savedData.projectBackgroundAssessors !== null){
-        cookieData.projectBackgroundAssessors = savedData.projectBackgroundAssessors;
+    if(savedData.projectBackground.Assessors !== null){
+        cookieData.projectBackground.Assessors = savedData.projectBackground.Assessors;
     }else{ stepFail = true; }
     if(stepFail === false){
         completedSteps.push("1.1");
@@ -1276,8 +1305,8 @@ function IPMDAT_Init(){
 
     // *** 1.2 ***
     //projectBackgroundProjectGoal
-    if(savedData.projectBackgroundProjectGoal !== null){
-        cookieData.projectBackgroundProjectGoal = savedData.projectBackgroundProjectGoal;
+    if(savedData.projectBackground.ProjectGoal !== null){
+        cookieData.projectBackground.ProjectGoal = savedData.projectBackground.ProjectGoal;
     }else{ stepFail = true; }
     if(stepFail === false){
         completedSteps.push("1.2");
@@ -1286,8 +1315,8 @@ function IPMDAT_Init(){
 
     // *** 1.3 ***
     //projectBackgroundGrossInvadedArea
-    if(savedData.projectBackgroundGrossInvadedArea !== null){
-        cookieData.projectBackgroundGrossInvadedArea = savedData.projectBackgroundGrossInvadedArea;
+    if(savedData.projectBackground.GrossInvadedArea !== null){
+        cookieData.projectBackground.GrossInvadedArea = savedData.projectBackground.GrossInvadedArea;
     }else{ stepFail = true; }
     if(stepFail === false){
         completedSteps.push("1.3");
@@ -1296,8 +1325,8 @@ function IPMDAT_Init(){
 
     // *** 1.4 ***
     //projectBackgroundImapShareResults
-    if(savedData.projectBackgroundImapShareResults !== null){
-        cookieData.projectBackgroundImapShareResults = savedData.projectBackgroundImapShareResults;
+    if(savedData.projectBackground.ImapShareResults !== null){
+        cookieData.projectBackground.ImapShareResults = savedData.projectBackground.ImapShareResults;
     }else{ stepFail = true; }
     if(stepFail === false){
         completedSteps.push("1.4");
@@ -1309,8 +1338,8 @@ function IPMDAT_Init(){
     //------------------------------------------------------------------------\\
     // *** 2.1 ***
     //strategySelectionNYSScore
-    if(savedData.strategySelectionNYSScore !== null){
-        cookieData.strategySelectionNYSScore = savedData.strategySelectionNYSScore;
+    if(savedData.strategySelection.NYSScore !== null){
+        cookieData.strategySelection.NYSScore = savedData.strategySelection.NYSScore;
     }else{ stepFail = true; }
     if(stepFail === false){
         completedSteps.push("2.1");
@@ -1318,8 +1347,8 @@ function IPMDAT_Init(){
     stepFail = false;
 
     // *** 2.2 ***
-    if(savedData.strategySelectionAbundanceAndDistributionCheckbox !== null){
-        cookieData.strategySelectionAbundanceAndDistributionCheckbox = savedData.strategySelectionAbundanceAndDistributionCheckbox;
+    if(savedData.strategySelection.AbundanceAndDistributionCheckbox !== null){
+        cookieData.strategySelection.AbundanceAndDistributionCheckbox = savedData.strategySelection.AbundanceAndDistributionCheckbox;
     }else{ stepFail = true; }
     if(stepFail === false){
         completedSteps.push("2.2");
@@ -1327,8 +1356,8 @@ function IPMDAT_Init(){
     stepFail = false;
     
     // *** 2.3 ***
-    if(savedData.strategySelectionAbundanceAndDistributionConfirm !== null){
-        cookieData.strategySelectionAbundanceAndDistributionConfirm = savedData.strategySelectionAbundanceAndDistributionConfirm;
+    if(savedData.strategySelection.AbundanceAndDistributionConfirm !== null){
+        cookieData.strategySelection.AbundanceAndDistributionConfirm = savedData.strategySelection.AbundanceAndDistributionConfirm;
     }else{ stepFail = true; }
     if(stepFail === false){
         completedSteps.push("2.3");
@@ -1336,8 +1365,8 @@ function IPMDAT_Init(){
     stepFail = false;
     
     // *** 2.4 ***
-    if(savedData.strategySelectionAbundanceAndDistributionAlternative !== null){
-        cookieData.strategySelectionAbundanceAndDistributionAlternative = savedData.strategySelectionAbundanceAndDistributionAlternative;
+    if(savedData.strategySelection.AbundanceAndDistributionAlternative !== null){
+        cookieData.strategySelection.AbundanceAndDistributionAlternative = savedData.strategySelection.AbundanceAndDistributionAlternative;
     }else{ stepFail = true; }
     if(stepFail === false){
         completedSteps.push("2.4");
@@ -1348,8 +1377,8 @@ function IPMDAT_Init(){
     // Strategy Selection                                                     \\
     //------------------------------------------------------------------------\\
     // *** 3.1 ***
-    if(savedData.eradicationSocialPoliticalA !== null){
-        cookieData.eradicationSocialPoliticalA = savedData.eradicationSocialPoliticalA;
+    if(savedData.eradication.SocialPoliticalA !== null){
+        cookieData.eradication.SocialPoliticalA = savedData.eradication.SocialPoliticalA;
     }else{ stepFail = true; }
     if(stepFail === false){
         completedSteps.push("3.1");
@@ -1357,8 +1386,8 @@ function IPMDAT_Init(){
     stepFail = false;
 
     // *** 3.2 ***
-    if(savedData.eradicationSocialPoliticalB !== null){
-        cookieData.eradicationSocialPoliticalB = savedData.eradicationSocialPoliticalB;
+    if(savedData.eradication.SocialPoliticalB !== null){
+        cookieData.eradication.SocialPoliticalB = savedData.eradication.SocialPoliticalB;
     }else{ stepFail = true; }
     if(stepFail === false){
         completedSteps.push("3.2");
@@ -1366,8 +1395,8 @@ function IPMDAT_Init(){
     stepFail = false;
 
     // *** 3.3 ***
-    if(savedData.eradicationSocialPoliticalC !== null){
-        cookieData.eradicationSocialPoliticalC = savedData.eradicationSocialPoliticalC;
+    if(savedData.eradication.SocialPoliticalC !== null){
+        cookieData.eradication.SocialPoliticalC = savedData.eradication.SocialPoliticalC;
     }else{ stepFail = true; }
     if(stepFail === false){
         completedSteps.push("3.3");
@@ -1375,8 +1404,8 @@ function IPMDAT_Init(){
     stepFail = false;
     
     // *** 3.4 ***
-    if(savedData.eradicationPreventingReproductionA !== null){
-        cookieData.eradicationPreventingReproductionA = savedData.eradicationPreventingReproductionA;
+    if(savedData.eradication.PreventingReproductionA !== null){
+        cookieData.eradication.PreventingReproductionA = savedData.eradication.PreventingReproductionA;
     }else{ stepFail = true; }
     if(stepFail === false){
         completedSteps.push("3.4");
@@ -1384,8 +1413,8 @@ function IPMDAT_Init(){
     stepFail = false;
 
     // *** 3.5 ***
-    if(savedData.eradicationPreventingReproductionB !== null){
-        cookieData.eradicationPreventingReproductionB = savedData.eradicationPreventingReproductionB;
+    if(savedData.eradication.PreventingReproductionB !== null){
+        cookieData.eradication.PreventingReproductionB = savedData.eradication.PreventingReproductionB;
     }else{ stepFail = true; }
     if(stepFail === false){
         completedSteps.push("3.5");
@@ -1393,8 +1422,8 @@ function IPMDAT_Init(){
     stepFail = false;
 
     // *** 3.6 ***
-    if(savedData.eradicationDetection !== null){
-        cookieData.eradicationDetection = savedData.eradicationDetection;
+    if(savedData.eradication.Detection !== null){
+        cookieData.eradication.Detection = savedData.eradication.Detection;
     }else{ stepFail = true; }
     if(stepFail === false){
         completedSteps.push("3.6");
@@ -1402,8 +1431,8 @@ function IPMDAT_Init(){
     stepFail = false;
 
     // *** 3.7 ***
-    if(savedData.eradicationEffectiveControlA !== null){
-        cookieData.eradicationEffectiveControlA = savedData.eradicationEffectiveControlA;
+    if(savedData.eradication.EffectiveControlA !== null){
+        cookieData.eradication.EffectiveControlA = savedData.eradication.EffectiveControlA;
     }else{ stepFail = true; }
     if(stepFail === false){
         completedSteps.push("3.7");
@@ -1411,8 +1440,8 @@ function IPMDAT_Init(){
     stepFail = false;
 
     // *** 3.8 ***
-    if(savedData.eradicationEffectiveControlB !== null){
-        cookieData.eradicationEffectiveControlB = savedData.eradicationEffectiveControlB;
+    if(savedData.eradication.EffectiveControlB !== null){
+        cookieData.eradication.EffectiveControlB = savedData.eradication.EffectiveControlB;
     }else{ stepFail = true; }
     if(stepFail === false){
         completedSteps.push("3.8");
@@ -1420,8 +1449,8 @@ function IPMDAT_Init(){
     stepFail = false;
 
     // *** 3.9 ***
-    if(savedData.eradicationNontargetImpacts !== null){
-        cookieData.eradicationNontargetImpacts = savedData.eradicationNontargetImpacts;
+    if(savedData.eradication.NontargetImpacts !== null){
+        cookieData.eradication.NontargetImpacts = savedData.eradication.NontargetImpacts;
     }else{ stepFail = true; }
     if(stepFail === false){
         completedSteps.push("3.9");
@@ -1429,8 +1458,8 @@ function IPMDAT_Init(){
     stepFail = false;
 
     // *** 4.1 ***
-    if(savedData.containmentSocialPoliticalA !== null){
-        cookieData.containmentSocialPoliticalA = savedData.containmentSocialPoliticalA;
+    if(savedData.containment.SocialPoliticalA !== null){
+        cookieData.containment.SocialPoliticalA = savedData.containment.SocialPoliticalA;
     }else{ stepFail = true; }
     if(stepFail === false){
         completedSteps.push("4.1");
@@ -1438,8 +1467,8 @@ function IPMDAT_Init(){
     stepFail = false;
 
     // *** 4.2 ***
-    if(savedData.containmentSocialPoliticalB !== null){
-        cookieData.containmentSocialPoliticalB = savedData.containmentSocialPoliticalB;
+    if(savedData.containment.SocialPoliticalB !== null){
+        cookieData.containment.SocialPoliticalB = savedData.containment.SocialPoliticalB;
     }else{ stepFail = true; }
     if(stepFail === false){
         completedSteps.push("4.2");
@@ -1447,8 +1476,8 @@ function IPMDAT_Init(){
     stepFail = false;
 
     // *** 4.3 ***
-    if(savedData.containmentPreventingReproductionA !== null){
-        cookieData.containmentPreventingReproductionA = savedData.containmentPreventingReproductionA;
+    if(savedData.containment.PreventingReproductionA !== null){
+        cookieData.containment.PreventingReproductionA = savedData.containment.PreventingReproductionA;
     }else{ stepFail = true; }
     if(stepFail === false){
         completedSteps.push("4.3");
@@ -1456,8 +1485,8 @@ function IPMDAT_Init(){
     stepFail = false;
 
     // *** 4.4 ***
-    if(savedData.containmentPreventingReproductionB !== null){
-        cookieData.containmentPreventingReproductionB = savedData.containmentPreventingReproductionB;
+    if(savedData.containment.PreventingReproductionB !== null){
+        cookieData.containment.PreventingReproductionB = savedData.containment.PreventingReproductionB;
     }else{ stepFail = true; }
     if(stepFail === false){
         completedSteps.push("4.4");
@@ -1465,8 +1494,8 @@ function IPMDAT_Init(){
     stepFail = false;
 
     // *** 4.5 ***
-    if(savedData.containmentDetectingSmall !== null){
-        cookieData.containmentDetectingSmall = savedData.containmentDetectingSmall;
+    if(savedData.containment.DetectingSmall !== null){
+        cookieData.containment.DetectingSmall = savedData.containment.DetectingSmall;
     }else{ stepFail = true; }
     if(stepFail === false){
         completedSteps.push("4.5");
@@ -1474,8 +1503,8 @@ function IPMDAT_Init(){
     stepFail = false;
 
     // *** 4.6 ***
-    if(savedData.containmentEffectiveControlA !== null){
-        cookieData.containmentEffectiveControlA = savedData.containmentEffectiveControlA;
+    if(savedData.containment.EffectiveControlA !== null){
+        cookieData.containment.EffectiveControlA = savedData.containment.EffectiveControlA;
     }else{ stepFail = true; }
     if(stepFail === false){
         completedSteps.push("4.6");
@@ -1483,8 +1512,8 @@ function IPMDAT_Init(){
     stepFail = false;
 
     // *** 4.7 ***
-    if(savedData.containmentEffectiveControlB !== null){
-        cookieData.containmentEffectiveControlB = savedData.containmentEffectiveControlB;
+    if(savedData.containment.EffectiveControlB !== null){
+        cookieData.containment.EffectiveControlB = savedData.containment.EffectiveControlB;
     }else{ stepFail = true; }
     if(stepFail === false){
         completedSteps.push("4.7");
@@ -1492,8 +1521,8 @@ function IPMDAT_Init(){
     stepFail = false;
 
     // *** 4.8 ***
-    if(savedData.containmentNontargetImpacts !== null){
-        cookieData.containmentNontargetImpacts = savedData.containmentNontargetImpacts;
+    if(savedData.containment.NontargetImpacts !== null){
+        cookieData.containment.NontargetImpacts = savedData.containment.NontargetImpacts;
     }else{ stepFail = true; }
     if(stepFail === false){
         completedSteps.push("4.8");
@@ -1501,8 +1530,8 @@ function IPMDAT_Init(){
     stepFail = false;
 
     // *** 5.1 ***
-    if(savedData.suppressionSocialPoliticalA !== null){
-        cookieData.suppressionSocialPoliticalA = savedData.suppressionSocialPoliticalA;
+    if(savedData.suppression.SocialPoliticalA !== null){
+        cookieData.suppression.SocialPoliticalA = savedData.suppression.SocialPoliticalA;
     }else{ stepFail = true; }
     if(stepFail === false){
         completedSteps.push("5.1");
@@ -1510,8 +1539,8 @@ function IPMDAT_Init(){
     stepFail = false;
 
     // *** 5.2 ***
-    if(savedData.suppressionSocialPoliticalB !== null){
-        cookieData.suppressionSocialPoliticalB = savedData.suppressionSocialPoliticalB;
+    if(savedData.suppression.SocialPoliticalB !== null){
+        cookieData.suppression.SocialPoliticalB = savedData.suppression.SocialPoliticalB;
     }else{ stepFail = true; }
     if(stepFail === false){
         completedSteps.push("5.2");
@@ -1519,8 +1548,8 @@ function IPMDAT_Init(){
     stepFail = false;
 
     // *** 5.3 ***
-    if(savedData.suppressionEffectiveControlA !== null){
-        cookieData.suppressionEffectiveControlA = savedData.suppressionEffectiveControlA;
+    if(savedData.suppression.EffectiveControlA !== null){
+        cookieData.suppression.EffectiveControlA = savedData.suppression.EffectiveControlA;
     }else{ stepFail = true; }
     if(stepFail === false){
         completedSteps.push("5.3");
@@ -1528,8 +1557,8 @@ function IPMDAT_Init(){
     stepFail = false;
 
     // *** 5.4 ***
-    if(savedData.suppressionEffectiveControlB !== null){
-        cookieData.suppressionEffectiveControlB = savedData.suppressionEffectiveControlB;
+    if(savedData.suppression.EffectiveControlB !== null){
+        cookieData.suppression.EffectiveControlB = savedData.suppression.EffectiveControlB;
     }else{ stepFail = true; }
     if(stepFail === false){
         completedSteps.push("5.4");
@@ -1537,8 +1566,8 @@ function IPMDAT_Init(){
     stepFail = false;
 
     // *** 5.5 ***
-    if(savedData.suppressionNontargetImpacts !== null){
-        cookieData.suppressionNontargetImpacts = savedData.suppressionNontargetImpacts;
+    if(savedData.suppression.NontargetImpacts !== null){
+        cookieData.suppression.NontargetImpacts = savedData.suppression.NontargetImpacts;
     }else{ stepFail = true; }
     if(stepFail === false){
         completedSteps.push("5.5");
@@ -1557,6 +1586,13 @@ function IPMDAT_Init(){
  * currentStep (integer)                       *
 \***********************************************/
 function JSON_Cookie_Step_Project_Background(cookieData, completedSteps, currentStep){
+    /*************************************************\
+     *  This is the first instantion of the flow of  *
+     *      the step process. It's quite unorganized *
+     *      and I would recommend that you look to   *
+     *      the eradication/containment/suppression  *
+     *      steps to see the program flow.           *
+    \*************************************************/
     // Ensure Step Container is visible and all others are display:none
     
     // Make sure the correct substep is displayed
@@ -1592,32 +1628,34 @@ function JSON_Cookie_Step_Project_Background(cookieData, completedSteps, current
 
     // Declare Variables
     var projectBackgroundArray = {
-            projectBackgroundAssessorsAnswer: null,
-            projectBackgroundAssessorsDateAnswer: null,
-            projectBackgroundScientificNameAnswer: null,
-            projectBackgroundCommonNameAnswer: null,
-            projectBackgroundScaleAnswer: null,
-            projectBackgroundPRISMWMAAnswer: null,
-            projectBackgroundConservationTargetImpactedAnswer: null,
-            projectBackgroundProjectAreaNameAnswer: null,
-            projectBackgroundProjectAreaSizeAnswer: null,
-            projectBackgroundPropertyOwnersAnswer: null,
-            projectBackgroundProjectStateAnswer: null,
-            projectBackgroundProjectCountyAnswer: null,
-            projectBackgroundProjectCoordXAnswer: null,
-            projectBackgroundProjectCoordYAnswer: null,
-            projectBackgroundProjectCoordSystemAnswer: null,
-            projectBackgroundProjectGoalAnswer: null,
-            projectBackgroundNumberOfYearsToCompleteAnswer: null,
-            projectBackgroundStartDateAnswer: null,
-            projectBackgroundEndDateAnswer: null,
-            projectBackgroundOngoingProjectAnswer: null,
-            projectBackgroundControlRequiredAnswer: null,
-            projectBackgroundGrossInvadedAreaAnswer: null,
-            projectBackgroundNetInvadedAreaAnswer: null,
-            projectBackgroundNumberOfOccurancesAnswer: null,
-            projectBackgroundImapShareResultsAnswer: null,
-            projectBackgroundImapAccountAnswer: null
+            projectBackground: {
+                AssessorsAnswer: null,
+                AssessorsDateAnswer: null,
+                ScientificNameAnswer: null,
+                CommonNameAnswer: null,
+                ScaleAnswer: null,
+                PRISMWMAAnswer: null,
+                ConservationTargetImpactedAnswer: null,
+                ProjectAreaNameAnswer: null,
+                ProjectAreaSizeAnswer: null,
+                PropertyOwnersAnswer: null,
+                ProjectStateAnswer: null,
+                ProjectCountyAnswer: null,
+                ProjectCoordXAnswer: null,
+                ProjectCoordYAnswer: null,
+                ProjectCoordSystemAnswer: null,
+                ProjectGoalAnswer: null,
+                NumberOfYearsToCompleteAnswer: null,
+                StartDateAnswer: null,
+                EndDateAnswer: null,
+                OngoingProjectAnswer: null,
+                ControlRequiredAnswer: null,
+                GrossInvadedAreaAnswer: null,
+                NetInvadedAreaAnswer: null,
+                NumberOfOccurancesAnswer: null,
+                ImapShareResultsAnswer: null,
+                ImapAccountAnswer: null
+            }
         },
         saveArray = {};
     
@@ -1646,73 +1684,73 @@ function JSON_Cookie_Step_Project_Background(cookieData, completedSteps, current
     // Check if loading data
     if(currentStep === "1.1"){
         // Check if there is any data present
-        if(cookieData.projectBackgroundAssessors !== null){ projectBackgroundArray.projectBackgroundAssessorsAnswer = cookieData.projectBackgroundAssessors; }
-        if(cookieData.projectBackgroundAssessorsDate !== null){ projectBackgroundArray.projectBackgroundAssessorsDateAnswer = cookieData.projectBackgroundAssessorsDate; }
-        if(cookieData.projectBackgroundScientificName !== null){ projectBackgroundArray.projectBackgroundScientificNameAnswer = cookieData.projectBackgroundScientificName; }
-        if(cookieData.projectBackgroundCommonName !== null){ projectBackgroundArray.projectBackgroundCommonNameAnswer = cookieData.projectBackgroundCommonName; }
-        if(cookieData.projectBackgroundScale !== null){ projectBackgroundArray.projectBackgroundScaleAnswer = cookieData.projectBackgroundScale; }
-        if(cookieData.projectBackgroundPRISMWMA !== null){ projectBackgroundArray.projectBackgroundPRISMWMAAnswer = cookieData.projectBackgroundPRISMWMA; }
-        if(cookieData.projectBackgroundConservationTargetImpacted !== null){ projectBackgroundArray.projectBackgroundConservationTargetImpactedAnswer = cookieData.projectBackgroundConservationTargetImpacted; }
-        if(cookieData.projectBackgroundProjectAreaName !== null){ projectBackgroundArray.projectBackgroundProjectAreaNameAnswer = cookieData.projectBackgroundProjectAreaName; }
-        if(cookieData.projectBackgroundProjectAreaSize !== null){ projectBackgroundArray.projectBackgroundProjectAreaSizeAnswer = cookieData.projectBackgroundProjectAreaSize; }
-        if(cookieData.projectBackgroundPropertyOwners !== null){ projectBackgroundArray.projectBackgroundPropertyOwnersAnswer = cookieData.projectBackgroundPropertyOwners; }
-        if(cookieData.projectBackgroundProjectState !== null){ projectBackgroundArray.projectBackgroundProjectStateAnswer = cookieData.projectBackgroundProjectState; }
-        if(cookieData.projectBackgroundProjectCounty !== null){ projectBackgroundArray.projectBackgroundProjectCountyAnswer = cookieData.projectBackgroundProjectCounty; }
-        if(cookieData.projectBackgroundProjectCoordX !== null){ projectBackgroundArray.projectBackgroundProjectCoordXAnswer = cookieData.projectBackgroundProjectCoordX; }
-        if(cookieData.projectBackgroundProjectCoordY !== null){ projectBackgroundArray.projectBackgroundProjectCoordYAnswer = cookieData.projectBackgroundProjectCoordY; }
-        if(cookieData.projectBackgroundProjectCoordSystem !== null){ projectBackgroundArray.projectBackgroundProjectCoordSystemAnswer = cookieData.projectBackgroundProjectCoordSystem; }
+        if(cookieData.projectBackground.Assessors !== null){ projectBackgroundArray.projectBackground.AssessorsAnswer = cookieData.projectBackground.Assessors; }
+        if(cookieData.projectBackground.AssessorsDate !== null){ projectBackgroundArray.projectBackground.AssessorsDateAnswer = cookieData.projectBackground.AssessorsDate; }
+        if(cookieData.projectBackground.ScientificName !== null){ projectBackgroundArray.projectBackground.ScientificNameAnswer = cookieData.projectBackground.ScientificName; }
+        if(cookieData.projectBackground.CommonName !== null){ projectBackgroundArray.projectBackground.CommonNameAnswer = cookieData.projectBackground.CommonName; }
+        if(cookieData.projectBackground.Scale !== null){ projectBackgroundArray.projectBackground.ScaleAnswer = cookieData.projectBackground.Scale; }
+        if(cookieData.projectBackground.PRISMWMA !== null){ projectBackgroundArray.projectBackground.PRISMWMAAnswer = cookieData.projectBackground.PRISMWMA; }
+        if(cookieData.projectBackground.ConservationTargetImpacted !== null){ projectBackgroundArray.projectBackground.ConservationTargetImpactedAnswer = cookieData.projectBackground.ConservationTargetImpacted; }
+        if(cookieData.projectBackground.ProjectAreaName !== null){ projectBackgroundArray.projectBackground.ProjectAreaNameAnswer = cookieData.projectBackground.ProjectAreaName; }
+        if(cookieData.projectBackground.ProjectAreaSize !== null){ projectBackgroundArray.projectBackground.ProjectAreaSizeAnswer = cookieData.projectBackground.ProjectAreaSize; }
+        if(cookieData.projectBackground.PropertyOwners !== null){ projectBackgroundArray.projectBackground.PropertyOwnersAnswer = cookieData.projectBackground.PropertyOwners; }
+        if(cookieData.projectBackground.ProjectState !== null){ projectBackgroundArray.projectBackground.ProjectStateAnswer = cookieData.projectBackground.ProjectState; }
+        if(cookieData.projectBackground.ProjectCounty !== null){ projectBackgroundArray.projectBackground.ProjectCountyAnswer = cookieData.projectBackground.ProjectCounty; }
+        if(cookieData.projectBackground.ProjectCoordX !== null){ projectBackgroundArray.projectBackground.ProjectCoordXAnswer = cookieData.projectBackground.ProjectCoordX; }
+        if(cookieData.projectBackground.ProjectCoordY !== null){ projectBackgroundArray.projectBackground.ProjectCoordYAnswer = cookieData.projectBackground.ProjectCoordY; }
+        if(cookieData.projectBackground.ProjectCoordSystem !== null){ projectBackgroundArray.projectBackground.ProjectCoordSystemAnswer = cookieData.projectBackground.ProjectCoordSystem; }
         // Populate Fields w/ values
-        $('#project_background_assessors').prop('value', projectBackgroundArray.projectBackgroundAssessorsAnswer);
-        $('#project_background_assessors_date').prop('value', projectBackgroundArray.projectBackgroundAssessorsDateAnswer);
-        $('#project_background_scientific_name').prop('value', projectBackgroundArray.projectBackgroundScientificNameAnswer);
-        $('#project_background_common_name').prop('value', projectBackgroundArray.projectBackgroundCommonNameAnswer);
-        $('#project_background_scale').prop('value', projectBackgroundArray.projectBackgroundScaleAnswer);
-        $('#project_background_PRISMWMA').prop('value', projectBackgroundArray.projectBackgroundPRISMWMAAnswer);
-        $('#project_background_conservation_target_impacted').prop('value', projectBackgroundArray.projectBackgroundConservationTargetImpactedAnswer);
-        $('#project_background_project_area_name').prop('value', projectBackgroundArray.projectBackgroundProjectAreaNameAnswer);
-        $('#project_background_project_area_size').prop('value', projectBackgroundArray.projectBackgroundProjectAreaSizeAnswer);
-        $('#project_background_property_owners').prop('value', projectBackgroundArray.projectBackgroundPropertyOwnersAnswer);
-        $('#project_background_project_state').prop('value', projectBackgroundArray.projectBackgroundProjectStateAnswer);
-        $('#project_background_project_county').prop('value', projectBackgroundArray.projectBackgroundProjectCountyAnswer);
-        $('#project_background_project_coord_x').prop('value', projectBackgroundArray.projectBackgroundProjectCoordXAnswer);
-        $('#project_background_project_coord_y').prop('value', projectBackgroundArray.projectBackgroundProjectCoordYAnswer);
-        $('#project_background_project_coord_system').prop('value', projectBackgroundArray.projectBackgroundProjectCoordSystemAnswer);
+        $('#project_background_assessors').prop('value', projectBackgroundArray.projectBackground.AssessorsAnswer);
+        $('#project_background_assessors_date').prop('value', projectBackgroundArray.projectBackground.AssessorsDateAnswer);
+        $('#project_background_scientific_name').prop('value', projectBackgroundArray.projectBackground.ScientificNameAnswer);
+        $('#project_background_common_name').prop('value', projectBackgroundArray.projectBackground.CommonNameAnswer);
+        $('#project_background_scale').prop('value', projectBackgroundArray.projectBackground.ScaleAnswer);
+        $('#project_background_PRISMWMA').prop('value', projectBackgroundArray.projectBackground.PRISMWMAAnswer);
+        $('#project_background_conservation_target_impacted').prop('value', projectBackgroundArray.projectBackground.ConservationTargetImpactedAnswer);
+        $('#project_background_project_area_name').prop('value', projectBackgroundArray.projectBackground.ProjectAreaNameAnswer);
+        $('#project_background_project_area_size').prop('value', projectBackgroundArray.projectBackground.ProjectAreaSizeAnswer);
+        $('#project_background_property_owners').prop('value', projectBackgroundArray.projectBackground.PropertyOwnersAnswer);
+        $('#project_background_project_state').prop('value', projectBackgroundArray.projectBackground.ProjectStateAnswer);
+        $('#project_background_project_county').prop('value', projectBackgroundArray.projectBackground.ProjectCountyAnswer);
+        $('#project_background_project_coord_x').prop('value', projectBackgroundArray.projectBackground.ProjectCoordXAnswer);
+        $('#project_background_project_coord_y').prop('value', projectBackgroundArray.projectBackground.ProjectCoordYAnswer);
+        $('#project_background_project_coord_system').prop('value', projectBackgroundArray.projectBackground.ProjectCoordSystemAnswer);
     }else if(currentStep === "1.2"){
         // Check if there is any data present
-        if(cookieData.projectBackgroundProjectGoal !== null){ projectBackgroundArray.projectBackgroundProjectGoalAnswer = cookieData.projectBackgroundProjectGoal; }
-        if(cookieData.projectBackgroundNumberOfYearsToComplete !== null){ projectBackgroundArray.projectBackgroundNumberOfYearsToCompleteAnswer = cookieData.projectBackgroundNumberOfYearsToComplete; }
-        if(cookieData.projectBackgroundStartDate !== null){ projectBackgroundArray.projectBackgroundStartDateAnswer = cookieData.projectBackgroundStartDate; }
-        if(cookieData.projectBackgroundEndDate !== null){ projectBackgroundArray.projectBackgroundEndDateAnswer = cookieData.projectBackgroundEndDate; }
-        if(cookieData.projectBackgroundOngoingProject !== null){ projectBackgroundArray.projectBackgroundOngoingProjectAnswer = cookieData.projectBackgroundOngoingProject; }
-        if(cookieData.projectBackgroundControlRequired !== null){ projectBackgroundArray.projectBackgroundControlRequiredAnswer = cookieData.projectBackgroundControlRequired; }
+        if(cookieData.projectBackground.ProjectGoal !== null){ projectBackgroundArray.projectBackground.ProjectGoalAnswer = cookieData.projectBackground.ProjectGoal; }
+        if(cookieData.projectBackground.NumberOfYearsToComplete !== null){ projectBackgroundArray.projectBackground.NumberOfYearsToCompleteAnswer = cookieData.projectBackground.NumberOfYearsToComplete; }
+        if(cookieData.projectBackground.StartDate !== null){ projectBackgroundArray.projectBackground.StartDateAnswer = cookieData.projectBackground.StartDate; }
+        if(cookieData.projectBackground.EndDate !== null){ projectBackgroundArray.projectBackground.EndDateAnswer = cookieData.projectBackground.EndDate; }
+        if(cookieData.projectBackground.OngoingProject !== null){ projectBackgroundArray.projectBackground.OngoingProjectAnswer = cookieData.projectBackground.OngoingProject; }
+        if(cookieData.projectBackground.ControlRequired !== null){ projectBackgroundArray.projectBackground.ControlRequiredAnswer = cookieData.projectBackground.ControlRequired; }
         // Populate Fields w/ values
-        $('#project_background_project_goal').prop('value', projectBackgroundArray.projectBackgroundProjectGoalAnswer);
-        $('#project_background_number_of_years_to_complete').prop('value', projectBackgroundArray.projectBackgroundNumberOfYearsToCompleteAnswer);
-        $('#project_background_start_date').prop('value', projectBackgroundArray.projectBackgroundStartDateAnswer);
-        $('#project_background_end_date').prop('value', projectBackgroundArray.projectBackgroundEndDateAnswer);
-        $('#project_background_ongoing_project').prop('value', projectBackgroundArray.projectBackgroundOngoingProjectAnswer);
-        $('#project_background_control_required').prop('value', projectBackgroundArray.projectBackgroundControlRequiredAnswer);
+        $('#project_background_project_goal').prop('value', projectBackgroundArray.projectBackground.ProjectGoalAnswer);
+        $('#project_background_number_of_years_to_complete').prop('value', projectBackgroundArray.projectBackground.NumberOfYearsToCompleteAnswer);
+        $('#project_background_start_date').prop('value', projectBackgroundArray.projectBackground.StartDateAnswer);
+        $('#project_background_end_date').prop('value', projectBackgroundArray.projectBackground.EndDateAnswer);
+        $('#project_background_ongoing_project').prop('value', projectBackgroundArray.projectBackground.OngoingProjectAnswer);
+        $('#project_background_control_required').prop('value', projectBackgroundArray.projectBackground.ControlRequiredAnswer);
     }else if(currentStep === "1.3"){
         // Check if there is any data present
-        if(cookieData.projectBackgroundGrossInvadedArea !== null){ projectBackgroundArray.projectBackgroundGrossInvadedAreaAnswer = cookieData.projectBackgroundGrossInvadedArea; }
-        if(cookieData.projectBackgroundNetInvadedArea !== null){ projectBackgroundArray.projectBackgroundNetInvadedAreaAnswer = cookieData.projectBackgroundNetInvadedArea; }
-        if(cookieData.projectBackgroundNumberOfOccurances !== null){ projectBackgroundArray.projectBackgroundNumberOfOccurancesAnswer = cookieData.projectBackgroundNumberOfOccurances; }
+        if(cookieData.projectBackground.GrossInvadedArea !== null){ projectBackgroundArray.projectBackground.GrossInvadedAreaAnswer = cookieData.projectBackground.GrossInvadedArea; }
+        if(cookieData.projectBackground.NetInvadedArea !== null){ projectBackgroundArray.projectBackground.NetInvadedAreaAnswer = cookieData.projectBackground.NetInvadedArea; }
+        if(cookieData.projectBackground.NumberOfOccurances !== null){ projectBackgroundArray.projectBackground.NumberOfOccurancesAnswer = cookieData.projectBackground.NumberOfOccurances; }
         // Populate Fields w/ values
-        $('#project_background_gross_invaded_area').prop('value', projectBackgroundArray.projectBackgroundGrossInvadedAreaAnswer);
-        $('#project_background_net_invaded_area').prop('value', projectBackgroundArray.projectBackgroundNetInvadedAreaAnswer);
-        $('#project_background_number_of_occurances').prop('value', projectBackgroundArray.projectBackgroundNumberOfOccurancesAnswer);
+        $('#project_background_gross_invaded_area').prop('value', projectBackgroundArray.projectBackground.GrossInvadedAreaAnswer);
+        $('#project_background_net_invaded_area').prop('value', projectBackgroundArray.projectBackground.NetInvadedAreaAnswer);
+        $('#project_background_number_of_occurances').prop('value', projectBackgroundArray.projectBackground.NumberOfOccurancesAnswer);
     }else if(currentStep === "1.4"){
         // Check if there is any data present
-        if(cookieData.projectBackgroundImapShareResults !== null){ projectBackgroundArray.projectBackgroundImapShareResultsAnswer = cookieData.projectBackgroundImapShareResults; }
-        if(cookieData.projectBackgroundImapAccount !== null){ projectBackgroundArray.projectBackgroundImapAccountAnswer = cookieData.projectBackgroundImapAccount; }
+        if(cookieData.projectBackground.ImapShareResults !== null){ projectBackgroundArray.projectBackground.ImapShareResultsAnswer = cookieData.projectBackground.ImapShareResults; }
+        if(cookieData.projectBackground.ImapAccount !== null){ projectBackgroundArray.projectBackground.ImapAccountAnswer = cookieData.projectBackground.ImapAccount; }
         // Populate Fields w/ values
-        $('#project_background_imap_share_results').prop('value', projectBackgroundArray.projectBackgroundImapShareResultsAnswer);
-        $('#project_background_imap_account').prop('value', projectBackgroundArray.projectBackgroundImapAccountAnswer);
+        $('#project_background_imap_share_results').prop('value', projectBackgroundArray.projectBackground.ImapShareResultsAnswer);
+        $('#project_background_imap_account').prop('value', projectBackgroundArray.projectBackground.ImapAccountAnswer);
     }
 
     // Function Form Checks & Misc Functions
     function Project_Background_Substep_One_Check(form_array){
-        if(form_array.projectBackgroundAssessorsAnswer !== null){
+        if(form_array.projectBackground.AssessorsAnswer !== null){
             if($('#content_nav_forward').hasClass('content_nav_base_inactive')){
                 $('#content_nav_forward').removeClass('content_nav_base_inactive').addClass('content_nav_base_active');
                 // Progress Bar
@@ -1727,7 +1765,7 @@ function JSON_Cookie_Step_Project_Background(cookieData, completedSteps, current
         }
     };
     function Project_Background_Substep_Two_Check(form_array){
-        if(form_array.projectBackgroundProjectGoalAnswer !== null){
+        if(form_array.projectBackground.ProjectGoalAnswer !== null){
             if($('#content_nav_forward').hasClass('content_nav_base_inactive')){
                 $('#content_nav_forward').removeClass('content_nav_base_inactive').addClass('content_nav_base_active');
                 // Progress Bar
@@ -1742,7 +1780,7 @@ function JSON_Cookie_Step_Project_Background(cookieData, completedSteps, current
         }
     };
     function Project_Background_Substep_Three_Check(form_array){
-        if(form_array.projectBackgroundGrossInvadedAreaAnswer !== null){
+        if(form_array.projectBackground.GrossInvadedAreaAnswer !== null){
             if($('#content_nav_forward').hasClass('content_nav_base_inactive')){
                 $('#content_nav_forward').removeClass('content_nav_base_inactive').addClass('content_nav_base_active');
                 // Progress Bar
@@ -1757,7 +1795,7 @@ function JSON_Cookie_Step_Project_Background(cookieData, completedSteps, current
         }
     };
     function Project_Background_Substep_Four_Check(form_array){
-        if(form_array.projectBackgroundImapShareResultsAnswer !== null){
+        if(form_array.projectBackground.ImapShareResultsAnswer !== null){
             if($('#content_nav_forward').hasClass('content_nav_base_inactive')){
                 $('#content_nav_forward').removeClass('content_nav_base_inactive').addClass('content_nav_base_active');
                 // Progress Bar
@@ -1775,29 +1813,31 @@ function JSON_Cookie_Step_Project_Background(cookieData, completedSteps, current
     function Project_Background_Substep_One_Save(){
         // Manual Entry on DatePickers
         if($('#project_background_assessors_date').prop('value') === ""){
-            projectBackgroundArray.projectBackgroundAssessorsDateAnswer = null;
+            projectBackgroundArray.projectBackground.AssessorsDateAnswer = null;
         }else{
-            projectBackgroundArray.projectBackgroundAssessorsDateAnswer = $('#project_background_assessors_date').val();
+            projectBackgroundArray.projectBackground.AssessorsDateAnswer = $('#project_background_assessors_date').val();
         }
         // Populate saveArray
         saveArray = {
-            projectBackgroundAssessors: projectBackgroundArray.projectBackgroundAssessorsAnswer,
-            projectBackgroundAssessorsDate: projectBackgroundArray.projectBackgroundAssessorsDateAnswer,
-            projectBackgroundScientificName: projectBackgroundArray.projectBackgroundScientificNameAnswer,
-            projectBackgroundCommonName: projectBackgroundArray.projectBackgroundCommonNameAnswer,
-            projectBackgroundScale: projectBackgroundArray.projectBackgroundScaleAnswer,
-            projectBackgroundPRISMWMA: projectBackgroundArray.projectBackgroundPRISMWMAAnswer,
-            projectBackgroundConservationTargetImpacted: projectBackgroundArray.projectBackgroundConservationTargetImpactedAnswer,
-            projectBackgroundProjectAreaName: projectBackgroundArray.projectBackgroundProjectAreaNameAnswer,
-            projectBackgroundProjectAreaSize: projectBackgroundArray.projectBackgroundProjectAreaSizeAnswer,
-            projectBackgroundPropertyOwners: projectBackgroundArray.projectBackgroundPropertyOwnersAnswer,
-            projectBackgroundProjectState: projectBackgroundArray.projectBackgroundProjectStateAnswer,
-            projectBackgroundProjectCounty: projectBackgroundArray.projectBackgroundProjectCountyAnswer,
-            projectBackgroundProjectCoordX: projectBackgroundArray.projectBackgroundProjectCoordXAnswer,
-            projectBackgroundProjectCoordY: projectBackgroundArray.projectBackgroundProjectCoordYAnswer,
-            projectBackgroundProjectCoordSystem: projectBackgroundArray.projectBackgroundProjectCoordSystemAnswer
+            projectBackground: {
+                Assessors: projectBackgroundArray.projectBackground.AssessorsAnswer,
+                AssessorsDate: projectBackgroundArray.projectBackground.AssessorsDateAnswer,
+                ScientificName: projectBackgroundArray.projectBackground.ScientificNameAnswer,
+                CommonName: projectBackgroundArray.projectBackground.CommonNameAnswer,
+                Scale: projectBackgroundArray.projectBackground.ScaleAnswer,
+                PRISMWMA: projectBackgroundArray.projectBackground.PRISMWMAAnswer,
+                ConservationTargetImpacted: projectBackgroundArray.projectBackground.ConservationTargetImpactedAnswer,
+                ProjectAreaName: projectBackgroundArray.projectBackground.ProjectAreaNameAnswer,
+                ProjectAreaSize: projectBackgroundArray.projectBackground.ProjectAreaSizeAnswer,
+                PropertyOwners: projectBackgroundArray.projectBackground.PropertyOwnersAnswer,
+                ProjectState: projectBackgroundArray.projectBackground.ProjectStateAnswer,
+                ProjectCounty: projectBackgroundArray.projectBackground.ProjectCountyAnswer,
+                ProjectCoordX: projectBackgroundArray.projectBackground.ProjectCoordXAnswer,
+                ProjectCoordY: projectBackgroundArray.projectBackground.ProjectCoordYAnswer,
+                ProjectCoordSystem: projectBackgroundArray.projectBackground.ProjectCoordSystemAnswer
+            }
         };
-        if(projectBackgroundArray.projectBackgroundAssessorsAnswer !== null){
+        if(projectBackgroundArray.projectBackground.AssessorsAnswer !== null){
             var addStep = true;
             for(var i=0; i<completedSteps.length; i++){
                 if(completedSteps[i] === "1.1"){
@@ -1814,25 +1854,27 @@ function JSON_Cookie_Step_Project_Background(cookieData, completedSteps, current
     function Project_Background_Substep_Two_Save(){
         // Manual Entry on DatePickers
         if($('#project_background_start_date').prop('value') === ""){
-            projectBackgroundArray.projectBackgroundStartDateAnswer = null;
+            projectBackgroundArray.projectBackground.StartDateAnswer = null;
         }else{
-            projectBackgroundArray.projectBackgroundStartDateAnswer = $('#project_background_start_date').val();
+            projectBackgroundArray.projectBackground.StartDateAnswer = $('#project_background_start_date').val();
         }
         if($('#project_background_end_date').prop('value') === ""){
-            projectBackgroundArray.projectBackgroundEndDateAnswer = null;
+            projectBackgroundArray.projectBackground.EndDateAnswer = null;
         }else{
-            projectBackgroundArray.projectBackgroundEndDateAnswer = $('#project_background_end_date').val();
+            projectBackgroundArray.projectBackground.EndDateAnswer = $('#project_background_end_date').val();
         }
         // Populate saveArray
         saveArray = {
-            projectBackgroundProjectGoal: projectBackgroundArray.projectBackgroundProjectGoalAnswer,
-            projectBackgroundNumberOfYearsToComplete: projectBackgroundArray.projectBackgroundNumberOfYearsToCompleteAnswer,
-            projectBackgroundStartDate: projectBackgroundArray.projectBackgroundStartDateAnswer,
-            projectBackgroundEndDate: projectBackgroundArray.projectBackgroundEndDateAnswer,
-            projectBackgroundOngoingProject: projectBackgroundArray.projectBackgroundOngoingProjectAnswer,
-            projectBackgroundControlRequired: projectBackgroundArray.projectBackgroundControlRequiredAnswer
+            projectBackground: {
+                ProjectGoal: projectBackgroundArray.projectBackground.ProjectGoalAnswer,
+                NumberOfYearsToComplete: projectBackgroundArray.projectBackground.NumberOfYearsToCompleteAnswer,
+                StartDate: projectBackgroundArray.projectBackground.StartDateAnswer,
+                EndDate: projectBackgroundArray.projectBackground.EndDateAnswer,
+                OngoingProject: projectBackgroundArray.projectBackground.OngoingProjectAnswer,
+                ControlRequired: projectBackgroundArray.projectBackground.ControlRequiredAnswer
+            }
         };
-        if(projectBackgroundArray.projectBackgroundProjectGoalAnswer !== null){
+        if(projectBackgroundArray.projectBackground.ProjectGoalAnswer !== null){
             var addStep = true;
             for(var i=0; i<completedSteps.length; i++){
                 if(completedSteps[i] === "1.2"){
@@ -1847,11 +1889,13 @@ function JSON_Cookie_Step_Project_Background(cookieData, completedSteps, current
     };
     function Project_Background_Substep_Three_Save(){
         saveArray = {
-            projectBackgroundGrossInvadedArea: projectBackgroundArray.projectBackgroundGrossInvadedAreaAnswer,
-            projectBackgroundNetInvadedArea: projectBackgroundArray.projectBackgroundNetInvadedAreaAnswer,
-            projectBackgroundNumberOfOccurances: projectBackgroundArray.projectBackgroundNumberOfOccurancesAnswer
+            projectBackground: {
+                GrossInvadedArea: projectBackgroundArray.projectBackground.GrossInvadedAreaAnswer,
+                NetInvadedArea: projectBackgroundArray.projectBackground.NetInvadedAreaAnswer,
+                NumberOfOccurances: projectBackgroundArray.projectBackground.NumberOfOccurancesAnswer
+            }
         };
-        if(projectBackgroundArray.projectBackgroundGrossInvadedAreaAnswer !== null){
+        if(projectBackgroundArray.projectBackground.GrossInvadedAreaAnswer !== null){
             var addStep = true;
             for(var i=0; i<completedSteps.length; i++){
                 if(completedSteps[i] === "1.3"){
@@ -1866,10 +1910,12 @@ function JSON_Cookie_Step_Project_Background(cookieData, completedSteps, current
     };
     function Project_Background_Substep_Four_Save(){
         saveArray = {
-            projectBackgroundImapShareResults: projectBackgroundArray.projectBackgroundImapShareResultsAnswer,
-            projectBackgroundImapAccount: projectBackgroundArray.projectBackgroundImapAccountAnswer
+            projectBackground: {
+                ImapShareResults: projectBackgroundArray.projectBackground.ImapShareResultsAnswer,
+                ImapAccount: projectBackgroundArray.projectBackground.ImapAccountAnswer
+            }
         };
-        if(projectBackgroundArray.projectBackgroundImapShareResultsAnswer !== null){
+        if(projectBackgroundArray.projectBackground.ImapShareResultsAnswer !== null){
             var addStep = true;
             for(var i=0; i<completedSteps.length; i++){
                 if(completedSteps[i] === "1.4"){
@@ -1893,29 +1939,29 @@ function JSON_Cookie_Step_Project_Background(cookieData, completedSteps, current
             }else{
                 tempHolder = $(fieldLocation).val();
             }
-            if(fieldLocation === "#project_background_assessors"){ projectBackgroundArray.projectBackgroundAssessorsAnswer = tempHolder;
-            }else if(fieldLocation === "#project_background_scientific_name"){ projectBackgroundArray.projectBackgroundScientificNameAnswer = tempHolder;
-            }else if(fieldLocation === "#project_background_common_name"){ projectBackgroundArray.projectBackgroundCommonNameAnswer = tempHolder;
-            }else if(fieldLocation === "#project_background_scale"){ projectBackgroundArray.projectBackgroundScaleAnswer = tempHolder;
-            }else if(fieldLocation === "#project_background_PRISMWMA"){ projectBackgroundArray.projectBackgroundPRISMWMAAnswer = tempHolder;
-            }else if(fieldLocation === "#project_background_conservation_target_impacted"){ projectBackgroundArray.projectBackgroundConservationTargetImpactedAnswer = tempHolder;
-            }else if(fieldLocation === "#project_background_project_area_name"){ projectBackgroundArray.projectBackgroundProjectAreaNameAnswer = tempHolder;
-            }else if(fieldLocation === "#project_background_project_area_size"){ projectBackgroundArray.projectBackgroundProjectAreaSizeAnswer = tempHolder;
-            }else if(fieldLocation === "#project_background_property_owners"){ projectBackgroundArray.projectBackgroundPropertyOwnersAnswer = tempHolder;
-            }else if(fieldLocation === "#project_background_project_state"){ projectBackgroundArray.projectBackgroundProjectStateAnswer = tempHolder;
-            }else if(fieldLocation === "#project_background_project_county"){ projectBackgroundArray.projectBackgroundProjectCountyAnswer = tempHolder;
-            }else if(fieldLocation === "#project_background_project_coord_x"){ projectBackgroundArray.projectBackgroundProjectCoordXAnswer = tempHolder;
-            }else if(fieldLocation === "#project_background_project_coord_y"){ projectBackgroundArray.projectBackgroundProjectCoordYAnswer = tempHolder;
-            }else if(fieldLocation === "#project_background_project_coord_system"){ projectBackgroundArray.projectBackgroundProjectCoordSystemAnswer = tempHolder;
-            }else if(fieldLocation === "#project_background_project_goal"){ projectBackgroundArray.projectBackgroundProjectGoalAnswer = tempHolder;
-            }else if(fieldLocation === "#project_background_number_of_years_to_complete"){ projectBackgroundArray.projectBackgroundNumberOfYearsToCompleteAnswer = tempHolder;
-            }else if(fieldLocation === "#project_background_ongoing_project"){ projectBackgroundArray.projectBackgroundOngoingProjectAnswer = tempHolder;
-            }else if(fieldLocation === "#project_background_control_required"){ projectBackgroundArray.projectBackgroundControlRequiredAnswer = tempHolder;
-            }else if(fieldLocation === "#project_background_gross_invaded_area"){ projectBackgroundArray.projectBackgroundGrossInvadedAreaAnswer = tempHolder;
-            }else if(fieldLocation === "#project_background_net_invaded_area"){ projectBackgroundArray.projectBackgroundNetInvadedAreaAnswer = tempHolder;
-            }else if(fieldLocation === "#project_background_number_of_occurances"){ projectBackgroundArray.projectBackgroundNumberOfOccurancesAnswer = tempHolder;
-            }else if(fieldLocation === "#project_background_imap_share_results"){ projectBackgroundArray.projectBackgroundImapShareResultsAnswer = tempHolder;
-            }else if(fieldLocation === "#project_background_imap_account"){ projectBackgroundArray.projectBackgroundImapAccountAnswer = tempHolder; }
+            if(fieldLocation === "#project_background_assessors"){ projectBackgroundArray.projectBackground.AssessorsAnswer = tempHolder;
+            }else if(fieldLocation === "#project_background_scientific_name"){ projectBackgroundArray.projectBackground.ScientificNameAnswer = tempHolder;
+            }else if(fieldLocation === "#project_background_common_name"){ projectBackgroundArray.projectBackground.CommonNameAnswer = tempHolder;
+            }else if(fieldLocation === "#project_background_scale"){ projectBackgroundArray.projectBackground.ScaleAnswer = tempHolder;
+            }else if(fieldLocation === "#project_background_PRISMWMA"){ projectBackgroundArray.projectBackground.PRISMWMAAnswer = tempHolder;
+            }else if(fieldLocation === "#project_background_conservation_target_impacted"){ projectBackgroundArray.projectBackground.ConservationTargetImpactedAnswer = tempHolder;
+            }else if(fieldLocation === "#project_background_project_area_name"){ projectBackgroundArray.projectBackground.ProjectAreaNameAnswer = tempHolder;
+            }else if(fieldLocation === "#project_background_project_area_size"){ projectBackgroundArray.projectBackground.ProjectAreaSizeAnswer = tempHolder;
+            }else if(fieldLocation === "#project_background_property_owners"){ projectBackgroundArray.projectBackground.PropertyOwnersAnswer = tempHolder;
+            }else if(fieldLocation === "#project_background_project_state"){ projectBackgroundArray.projectBackground.ProjectStateAnswer = tempHolder;
+            }else if(fieldLocation === "#project_background_project_county"){ projectBackgroundArray.projectBackground.ProjectCountyAnswer = tempHolder;
+            }else if(fieldLocation === "#project_background_project_coord_x"){ projectBackgroundArray.projectBackground.ProjectCoordXAnswer = tempHolder;
+            }else if(fieldLocation === "#project_background_project_coord_y"){ projectBackgroundArray.projectBackground.ProjectCoordYAnswer = tempHolder;
+            }else if(fieldLocation === "#project_background_project_coord_system"){ projectBackgroundArray.projectBackground.ProjectCoordSystemAnswer = tempHolder;
+            }else if(fieldLocation === "#project_background_project_goal"){ projectBackgroundArray.projectBackground.ProjectGoalAnswer = tempHolder;
+            }else if(fieldLocation === "#project_background_number_of_years_to_complete"){ projectBackgroundArray.projectBackground.NumberOfYearsToCompleteAnswer = tempHolder;
+            }else if(fieldLocation === "#project_background_ongoing_project"){ projectBackgroundArray.projectBackground.OngoingProjectAnswer = tempHolder;
+            }else if(fieldLocation === "#project_background_control_required"){ projectBackgroundArray.projectBackground.ControlRequiredAnswer = tempHolder;
+            }else if(fieldLocation === "#project_background_gross_invaded_area"){ projectBackgroundArray.projectBackground.GrossInvadedAreaAnswer = tempHolder;
+            }else if(fieldLocation === "#project_background_net_invaded_area"){ projectBackgroundArray.projectBackground.NetInvadedAreaAnswer = tempHolder;
+            }else if(fieldLocation === "#project_background_number_of_occurances"){ projectBackgroundArray.projectBackground.NumberOfOccurancesAnswer = tempHolder;
+            }else if(fieldLocation === "#project_background_imap_share_results"){ projectBackgroundArray.projectBackground.ImapShareResultsAnswer = tempHolder;
+            }else if(fieldLocation === "#project_background_imap_account"){ projectBackgroundArray.projectBackground.ImapAccountAnswer = tempHolder; }
 
             if(substep === "1"){
                 Project_Background_Substep_One_Check(projectBackgroundArray);
@@ -2179,14 +2225,16 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
     // ---------------------------------------------------------------- \\
     // 1 -  Declare variables                                           \\
     var strategySelectionArray = {
-            strategySelectionNYSScore: null,
-            strategySelectionCheckbox: null,
-            strategySelectionDocumentation: null,
-            strategySelectionAbundanceAndDistributionCheckbox: null,
-            strategySelectionAbundanceAndDistributionDocumentation: null,
-            strategySelectionAbundanceAndDistributionConfirm: null,
-            strategySelectionAbundanceAndDistributionAlternative: null,
-            strategySelectionAbundanceAndDistributionAlternativeDocumentation: null
+            strategySelection: {
+                NYSScore: null,
+                Checkbox: null,
+                Documentation: null,
+                AbundanceAndDistributionCheckbox: null,
+                AbundanceAndDistributionDocumentation: null,
+                AbundanceAndDistributionConfirm: null,
+                AbundanceAndDistributionAlternative: null,
+                AbundanceAndDistributionAlternativeDocumentation: null
+            }
         },
         destinationArray = {};
     // 2 -  Declare subcategory values (If applicable)                  \\
@@ -2209,13 +2257,13 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
         case "2.1":
             $('#content_step_strategy_selection_container').removeClass('content_step_inactive').addClass('content_step_active');
             // Checking if data is present
-            if(cookieData.strategySelectionNYSScore !== null){ strategySelectionArray.strategySelectionNYSScore = cookieData.strategySelectionNYSScore; }
-            if(cookieData.strategySelectionCheckbox !== null){ strategySelectionArray.strategySelectionCheckbox = cookieData.strategySelectionCheckbox; }
-            if(cookieData.strategySelectionDocumentation !== null){ strategySelectionArray.strategySelectionDocumentation = cookieData.strategySelectionDocumentation; }
+            if(cookieData.strategySelection.NYSScore !== null){ strategySelectionArray.strategySelection.NYSScore = cookieData.strategySelection.NYSScore; }
+            if(cookieData.strategySelection.Checkbox !== null){ strategySelectionArray.strategySelection.Checkbox = cookieData.strategySelection.Checkbox; }
+            if(cookieData.strategySelection.Documentation !== null){ strategySelectionArray.strategySelection.Documentation = cookieData.strategySelection.Documentation; }
             // Populate Fields
-            $('#strategy_selection_NYS_score').prop('value', strategySelectionArray.strategySelectionNYSScore);
-            $('#strategy_selection_documentation').prop('value', strategySelectionArray.strategySelectionDocumentation);
-            switch(strategySelectionArray.strategySelectionCheckbox){
+            $('#strategy_selection_NYS_score').prop('value', strategySelectionArray.strategySelection.NYSScore);
+            $('#strategy_selection_documentation').prop('value', strategySelectionArray.strategySelection.Documentation);
+            switch(strategySelectionArray.strategySelection.Checkbox){
                 case "#strategy_selection_ecological_impact":
                     $('#strategy_selection_ecological_impact').prop('checked', true);
                     break;
@@ -2236,11 +2284,11 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
         case "2.2":
             $('#content_step_abundance_and_distribution_container').removeClass('content_step_inactive').addClass('content_step_active');
             // Checking if data is present
-            if(cookieData.strategySelectionAbundanceAndDistributionCheckbox !== null){ strategySelectionArray.strategySelectionAbundanceAndDistributionCheckbox = cookieData.strategySelectionAbundanceAndDistributionCheckbox; }
-            if(cookieData.strategySelectionAbundanceAndDistributionDocumentation !== null){ strategySelectionArray.strategySelectionAbundanceAndDistributionDocumentation = cookieData.strategySelectionAbundanceAndDistributionDocumentation; }
+            if(cookieData.strategySelection.AbundanceAndDistributionCheckbox !== null){ strategySelectionArray.strategySelection.AbundanceAndDistributionCheckbox = cookieData.strategySelection.AbundanceAndDistributionCheckbox; }
+            if(cookieData.strategySelection.AbundanceAndDistributionDocumentation !== null){ strategySelectionArray.strategySelection.AbundanceAndDistributionDocumentation = cookieData.strategySelection.AbundanceAndDistributionDocumentation; }
             // Populate Fields
-            $('#strategy_selection_abundance_and_distribution_documentation').prop('value', strategySelectionArray.strategySelectionAbundanceAndDistributionDocumentation);
-            switch(strategySelectionArray.strategySelectionAbundanceAndDistributionCheckbox){
+            $('#strategy_selection_abundance_and_distribution_documentation').prop('value', strategySelectionArray.strategySelection.AbundanceAndDistributionDocumentation);
+            switch(strategySelectionArray.strategySelection.AbundanceAndDistributionCheckbox){
                 case "#strategy_selection_eradication_state_scale":
                     $('#strategy_selection_eradication_state_scale').prop('checked', true);
                     break;
@@ -2261,10 +2309,10 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
         case "2.3":
             $('#content_step_strategy_confirmation_container').removeClass('content_step_inactive').addClass('content_step_active');
             // Checking if data is present
-            if(cookieData.strategySelectionAbundanceAndDistributionCheckbox !== null){ strategySelectionArray.strategySelectionAbundanceAndDistributionCheckbox = cookieData.strategySelectionAbundanceAndDistributionCheckbox; }
-            if(cookieData.strategySelectionAbundanceAndDistributionConfirm !== null){ strategySelectionArray.strategySelectionAbundanceAndDistributionConfirm = cookieData.strategySelectionAbundanceAndDistributionConfirm; }
+            if(cookieData.strategySelection.AbundanceAndDistributionCheckbox !== null){ strategySelectionArray.strategySelection.AbundanceAndDistributionCheckbox = cookieData.strategySelection.AbundanceAndDistributionCheckbox; }
+            if(cookieData.strategySelection.AbundanceAndDistributionConfirm !== null){ strategySelectionArray.strategySelection.AbundanceAndDistributionConfirm = cookieData.strategySelection.AbundanceAndDistributionConfirm; }
             // Populate Fields
-            switch(strategySelectionArray.strategySelectionAbundanceAndDistributionConfirm){
+            switch(strategySelectionArray.strategySelection.AbundanceAndDistributionConfirm){
                 case "#strategy_confirmation_yes":
                     $('#strategy_confirmation_yes').prop('checked', true);
                     break;
@@ -2276,11 +2324,11 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
         case "2.4":
             $('#content_step_strategy_alternative_container').removeClass('content_step_inactive').addClass('content_step_active');
             // Checking if data is present
-            if(cookieData.strategySelectionAbundanceAndDistributionAlternative !== null){ strategySelectionArray.strategySelectionAbundanceAndDistributionAlternative = cookieData.strategySelectionAbundanceAndDistributionAlternative; }
-            if(cookieData.strategySelectionAbundanceAndDistributionAlternativeDocumentation !== null){ strategySelectionArray.strategySelectionAbundanceAndDistributionAlternativeDocumentation = cookieData.strategySelectionAbundanceAndDistributionAlternativeDocumentation; }
+            if(cookieData.strategySelection.AbundanceAndDistributionAlternative !== null){ strategySelectionArray.strategySelection.AbundanceAndDistributionAlternative = cookieData.strategySelection.AbundanceAndDistributionAlternative; }
+            if(cookieData.strategySelection.AbundanceAndDistributionAlternativeDocumentation !== null){ strategySelectionArray.strategySelection.AbundanceAndDistributionAlternativeDocumentation = cookieData.strategySelection.AbundanceAndDistributionAlternativeDocumentation; }
             // Populate Fields
-            $('#strategy_selection_alternative_documentation').prop('value', strategySelectionArray.strategySelectionAbundanceAndDistributionAlternativeDocumentation);
-            switch(strategySelectionArray.strategySelectionAbundanceAndDistributionAlternative){
+            $('#strategy_selection_alternative_documentation').prop('value', strategySelectionArray.strategySelection.AbundanceAndDistributionAlternativeDocumentation);
+            switch(strategySelectionArray.strategySelection.AbundanceAndDistributionAlternative){
                 case "#strategy_selection_alternative_eradication":
                     $('#strategy_selection_alternative_eradication').prop('checked', true);
                     break;
@@ -2300,15 +2348,15 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
             proceedContainer = null;
         // Setup Values
         if(currentStep === "2.1"){
-            tempValue = formArray.strategySelectionNYSScore;
+            tempValue = formArray.strategySelection.NYSScore;
             nextStep = "#content_step_strategy_selection_substep_two";
         }else if(currentStep === "2.2"){
-            tempValue = formArray.strategySelectionAbundanceAndDistributionCheckbox;
+            tempValue = formArray.strategySelection.AbundanceAndDistributionCheckbox;
             nextStep = "#content_step_strategy_selection_substep_three";
         }else if(currentStep === "2.3"){
-            tempValue = formArray.strategySelectionAbundanceAndDistributionConfirm;
+            tempValue = formArray.strategySelection.AbundanceAndDistributionConfirm;
             // Determine if moving to 2.4 or 3.1
-            switch(formArray.strategySelectionAbundanceAndDistributionConfirm){
+            switch(formArray.strategySelection.AbundanceAndDistributionConfirm){
                 case "#strategy_confirmation_yes":
                     nextStep = "#content_step_strategy_exploration_eradication_substep_one";
                     proceedContainer = "#content_progress_bar_strategy_exploration";
@@ -2318,7 +2366,7 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
                     break;
             }
         }else if(currentStep === "2.4"){
-            tempValue = formArray.strategySelectionAbundanceAndDistributionAlternative;
+            tempValue = formArray.strategySelection.AbundanceAndDistributionAlternative;
             nextStep = "#content_step_strategy_exploration_eradication_substep_one";
             proceedContainer = "#content_progress_bar_strategy_exploration";
         }
@@ -2352,29 +2400,36 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
         // Setup Values
         if(currentStep === "2.1"){
             saveArray = {
-                strategySelectionNYSScore: strategySelectionArray.strategySelectionNYSScore,
-                strategySelectionCheckbox: strategySelectionArray.strategySelectionCheckbox,
-                strategySelectionDocumentation: strategySelectionArray.strategySelectionDocumentation
-                
+                strategySelection: {
+                    NYSScore: strategySelectionArray.strategySelection.NYSScore,
+                    Checkbox: strategySelectionArray.strategySelection.Checkbox,
+                    Documentation: strategySelectionArray.strategySelection.Documentation
+                }
             };
-            requiredField = strategySelectionArray.strategySelectionNYSScore;
+            requiredField = strategySelectionArray.strategySelection.NYSScore;
         }else if(currentStep === "2.2"){
             saveArray = {
-                strategySelectionAbundanceAndDistributionCheckbox: strategySelectionArray.strategySelectionAbundanceAndDistributionCheckbox,
-                strategySelectionAbundanceAndDistributionDocumentation: strategySelectionArray.strategySelectionAbundanceAndDistributionDocumentation
+                strategySelection: {
+                    AbundanceAndDistributionCheckbox: strategySelectionArray.strategySelection.AbundanceAndDistributionCheckbox,
+                    AbundanceAndDistributionDocumentation: strategySelectionArray.strategySelection.AbundanceAndDistributionDocumentation
+                }
             };
-            requiredField = strategySelectionArray.strategySelectionAbundanceAndDistributionCheckbox;
+            requiredField = strategySelectionArray.strategySelection.AbundanceAndDistributionCheckbox;
         }else if(currentStep === "2.3"){
             saveArray = {
-                strategySelectionAbundanceAndDistributionConfirm: strategySelectionArray.strategySelectionAbundanceAndDistributionConfirm
+                strategySelection: {
+                    AbundanceAndDistributionConfirm: strategySelectionArray.strategySelection.AbundanceAndDistributionConfirm
+                }
             };
-            requiredField = strategySelectionArray.strategySelectionAbundanceAndDistributionConfirm;
+            requiredField = strategySelectionArray.strategySelection.AbundanceAndDistributionConfirm;
         }else if(currentStep === "2.4"){
             saveArray = {
-                strategySelectionAbundanceAndDistributionAlternative: strategySelectionArray.strategySelectionAbundanceAndDistributionAlternative,
-                strategySelectionAbundanceAndDistributionAlternativeDocumentation: strategySelectionArray.strategySelectionAbundanceAndDistributionAlternativeDocumentation
+                strategySelection: {
+                    AbundanceAndDistributionAlternative: strategySelectionArray.strategySelection.AbundanceAndDistributionAlternative,
+                    AbundanceAndDistributionAlternativeDocumentation: strategySelectionArray.strategySelection.AbundanceAndDistributionAlternativeDocumentation
+                }
             };
-            requiredField = strategySelectionArray.strategySelectionAbundanceAndDistributionAlternative;
+            requiredField = strategySelectionArray.strategySelection.AbundanceAndDistributionAlternative;
         }
         // Execute
         if(requiredField !== null){
@@ -2417,35 +2472,35 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
         // Assign the value
         switch(boxName){
             case '#strategy_selection_ecological_impact':
-                strategySelectionArray.strategySelectionCheckbox = '#strategy_selection_ecological_impact'; break;
+                strategySelectionArray.strategySelection.Checkbox = '#strategy_selection_ecological_impact'; break;
             case '#strategy_selection_limited_distribution':
-                strategySelectionArray.strategySelectionCheckbox = '#strategy_selection_limited_distribution'; break;
+                strategySelectionArray.strategySelection.Checkbox = '#strategy_selection_limited_distribution'; break;
             case '#strategy_selection_widespread_distribution':
-                strategySelectionArray.strategySelectionCheckbox = '#strategy_selection_widespread_distribution'; break;
+                strategySelectionArray.strategySelection.Checkbox = '#strategy_selection_widespread_distribution'; break;
             case '#strategy_selection_negligible_impact':
-                strategySelectionArray.strategySelectionCheckbox = '#strategy_selection_negligible_impact'; break;
+                strategySelectionArray.strategySelection.Checkbox = '#strategy_selection_negligible_impact'; break;
             case '#strategy_selection_significant_harm':
-                strategySelectionArray.strategySelectionCheckbox = '#strategy_selection_significant_harm'; break;
+                strategySelectionArray.strategySelection.Checkbox = '#strategy_selection_significant_harm'; break;
             case '#strategy_selection_eradication_state_scale':
-                strategySelectionArray.strategySelectionAbundanceAndDistributionCheckbox = '#strategy_selection_eradication_state_scale'; break;
+                strategySelectionArray.strategySelection.AbundanceAndDistributionCheckbox = '#strategy_selection_eradication_state_scale'; break;
             case '#strategy_selection_containment_state_scale':
-                strategySelectionArray.strategySelectionAbundanceAndDistributionCheckbox = '#strategy_selection_containment_state_scale'; break;
+                strategySelectionArray.strategySelection.AbundanceAndDistributionCheckbox = '#strategy_selection_containment_state_scale'; break;
             case '#strategy_selection_eradication_project_scale':
-                strategySelectionArray.strategySelectionAbundanceAndDistributionCheckbox = '#strategy_selection_eradication_project_scale'; break;
+                strategySelectionArray.strategySelection.AbundanceAndDistributionCheckbox = '#strategy_selection_eradication_project_scale'; break;
             case '#strategy_selection_containment_project_scale':
-                strategySelectionArray.strategySelectionAbundanceAndDistributionCheckbox = '#strategy_selection_containment_project_scale'; break;
+                strategySelectionArray.strategySelection.AbundanceAndDistributionCheckbox = '#strategy_selection_containment_project_scale'; break;
             case '#strategy_selection_suppression':
-                strategySelectionArray.strategySelectionAbundanceAndDistributionCheckbox = '#strategy_selection_suppression'; break;
+                strategySelectionArray.strategySelection.AbundanceAndDistributionCheckbox = '#strategy_selection_suppression'; break;
             case '#strategy_confirmation_yes':
-                strategySelectionArray.strategySelectionAbundanceAndDistributionConfirm = '#strategy_confirmation_yes'; break;
+                strategySelectionArray.strategySelection.AbundanceAndDistributionConfirm = '#strategy_confirmation_yes'; break;
             case '#strategy_confirmation_no':
-                strategySelectionArray.strategySelectionAbundanceAndDistributionConfirm = '#strategy_confirmation_no'; break;
+                strategySelectionArray.strategySelection.AbundanceAndDistributionConfirm = '#strategy_confirmation_no'; break;
             case '#strategy_selection_alternative_eradication':
-                strategySelectionArray.strategySelectionAbundanceAndDistributionAlternative = '#strategy_selection_alternative_eradication'; break;
+                strategySelectionArray.strategySelection.AbundanceAndDistributionAlternative = '#strategy_selection_alternative_eradication'; break;
             case '#strategy_selection_alternative_containment':
-                strategySelectionArray.strategySelectionAbundanceAndDistributionAlternative = '#strategy_selection_alternative_containment'; break;
+                strategySelectionArray.strategySelection.AbundanceAndDistributionAlternative = '#strategy_selection_alternative_containment'; break;
             case '#strategy_selection_alternative_suppression':
-                strategySelectionArray.strategySelectionAbundanceAndDistributionAlternative = '#strategy_selection_alternative_suppression'; break;
+                strategySelectionArray.strategySelection.AbundanceAndDistributionAlternative = '#strategy_selection_alternative_suppression'; break;
         }
         Strategy_Selection_Substep_Form_Check(strategySelectionArray);
     };
@@ -2458,10 +2513,10 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
             }else{
                 tempHolder = $(fieldLocation).val();
             }
-            if(fieldLocation === "#strategy_selection_NYS_score"){ strategySelectionArray.strategySelectionNYSScore = tempHolder;
-            }else if(fieldLocation === "#strategy_selection_documentation"){ strategySelectionArray.strategySelectionDocumentation = tempHolder;
-            }else if(fieldLocation === "#strategy_selection_abundance_and_distribution_documentation"){ strategySelectionArray.strategySelectionAbundanceAndDistributionDocumentation = tempHolder; 
-            }else if(fieldLocation === "#strategy_selection_alternative_documentation"){ strategySelectionArray.strategySelectionAbundanceAndDistributionAlternativeDocumentation = tempHolder; }
+            if(fieldLocation === "#strategy_selection_NYS_score"){ strategySelectionArray.strategySelection.NYSScore = tempHolder;
+            }else if(fieldLocation === "#strategy_selection_documentation"){ strategySelectionArray.strategySelection.Documentation = tempHolder;
+            }else if(fieldLocation === "#strategy_selection_abundance_and_distribution_documentation"){ strategySelectionArray.strategySelection.AbundanceAndDistributionDocumentation = tempHolder; 
+            }else if(fieldLocation === "#strategy_selection_alternative_documentation"){ strategySelectionArray.strategySelection.AbundanceAndDistributionAlternativeDocumentation = tempHolder; }
             Strategy_Selection_Substep_Form_Check(strategySelectionArray);
         });
     };
@@ -2474,8 +2529,8 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
                     var tempForward;
 
                     if(currentStep === '2.3'){
-                        if(strategySelectionArray.strategySelectionAbundanceAndDistributionConfirm === "#strategy_confirmation_yes"){
-                            switch(strategySelectionArray.strategySelectionAbundanceAndDistributionCheckbox){
+                        if(strategySelectionArray.strategySelection.AbundanceAndDistributionConfirm === "#strategy_confirmation_yes"){
+                            switch(strategySelectionArray.strategySelection.AbundanceAndDistributionCheckbox){
                                 case '#strategy_selection_eradication_state_scale':
                                     tempForward = "3.1";
                                     break;
@@ -2497,7 +2552,7 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
                         }
                         Check_Available_Steps(cookieData, completedSteps, tempForward);
                     }else if(currentStep === '2.4'){
-                        switch(strategySelectionArray.strategySelectionAbundanceAndDistributionAlternative){
+                        switch(strategySelectionArray.strategySelection.AbundanceAndDistributionAlternative){
                             case '#strategy_selection_alternative_eradication':
                                 tempForward = '3.1';
                                 break;
@@ -2576,9 +2631,9 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
                 if($('#content_progress_bar_strategy_exploration').hasClass('progress_bar_available')){
                     Strategy_Selection_Substep_Save();
                     var tempForward;
-                    switch(cookieData.strategySelectionAbundanceAndDistributionConfirm){
+                    switch(cookieData.strategySelection.AbundanceAndDistributionConfirm){
                         case '#strategy_confirmation_yes':
-                            switch(cookieData.strategySelectionAbundanceAndDistributionCheckbox){
+                            switch(cookieData.strategySelection.AbundanceAndDistributionCheckbox){
                                 case '#strategy_selection_eradication_state_scale':
                                     tempForward = '3.1';
                                     break;
@@ -2597,7 +2652,7 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
                             }
                             break;
                         case '#strategy_confirmation_no':
-                            switch(cookieData.strategySelectionAbundanceAndDistributionAlternative){
+                            switch(cookieData.strategySelection.AbundanceAndDistributionAlternative){
                                 case '#strategy_selection_alternative_eradication':
                                     tempForward = '3.1';
                                     break;
@@ -2656,7 +2711,7 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
             destinationArray.substep_two = 'none';
             break;
         case "2.3":
-            var temp = strategySelectionArray.strategySelectionAbundanceAndDistributionCheckbox;
+            var temp = strategySelectionArray.strategySelection.AbundanceAndDistributionCheckbox;
             switch(temp){
                 case '#strategy_selection_eradication_state_scale':
                     $('#strategy_confirmation_main_title_container').empty().append(mainTitleEradicationStateScale);
@@ -2684,7 +2739,7 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
             // Determine forward location
             // We need to put this on a function - since the variable won't be
             //      determined until the form is complete.
-            switch(strategySelectionArray.strategySelectionAbundanceAndDistributionConfirm){
+            switch(strategySelectionArray.strategySelection.AbundanceAndDistributionConfirm){
                 case "#strategy_confirmation_yes":
                     destinationArray.forward = 'TBD';
                     break;
@@ -2733,26 +2788,28 @@ function JSON_Cookie_Step_Strategy_Exploration_Eradication(cookieData, completed
     // ------------------------------------------------------------- \\
     // 1 -  Declare variables                                        \\
     var eradicationArray = {
-            eradicationSocialPoliticalA: null,
-            eradicationSocialPoliticalADocumentation: null,
-            eradicationSocialPoliticalB: null,
-            eradicationSocialPoliticalBDocumentation: null,
-            eradicationSocialPoliticalC: null,
-            eradicationSocialPoliticalCDocumentation: null,
-            eradicationPreventingReproductionA: null,
-            eradicationPreventingReproductionADocumentation: null,
-            eradicationPreventingReproductionB: null,
-            eradicationPreventingReproductionBDocumentation: null,
-            eradicationDetection: null,
-            eradicationDetectionDocumentation: null,
-            eradicationEffectiveControlA: null,
-            eradicationEffectiveControlADocumentation: null,
-            eradicationEffectiveControlAControlMethod: null,
-            eradicationEffectiveControlAControlMethodDescription: null,
-            eradicationEffectiveControlB: null,
-            eradicationEffectiveControlBDocumentation: null,
-            eradicationNontargetImpacts: null,
-            eradicationNontargetImpactsDocumentation: null
+            eradication: {
+                SocialPoliticalA: null,
+                SocialPoliticalADocumentation: null,
+                SocialPoliticalB: null,
+                SocialPoliticalBDocumentation: null,
+                SocialPoliticalC: null,
+                SocialPoliticalCDocumentation: null,
+                PreventingReproductionA: null,
+                PreventingReproductionADocumentation: null,
+                PreventingReproductionB: null,
+                PreventingReproductionBDocumentation: null,
+                Detection: null,
+                DetectionDocumentation: null,
+                EffectiveControlA: null,
+                EffectiveControlADocumentation: null,
+                EffectiveControlAControlMethod: null,
+                EffectiveControlAControlMethodDescription: null,
+                EffectiveControlB: null,
+                EffectiveControlBDocumentation: null,
+                NontargetImpacts: null,
+                NontargetImpactsDocumentation: null
+            }
         },
         saveArray = {},
         destinationArray = {
@@ -2768,8 +2825,7 @@ function JSON_Cookie_Step_Strategy_Exploration_Eradication(cookieData, completed
             projectBackground: '1.1',
             strategySelection: '2.1',
             strategyExploration: 'none'
-            },
-        decisionDestination = null;
+        };
     // 2 -  Declare subcategory values (If applicable)               \\
     // 3 -  Ensure correct step container is displayed,              \\
     //      Check if loading data (Check -> Load -> Populate Fields) \\
@@ -2780,10 +2836,10 @@ function JSON_Cookie_Step_Strategy_Exploration_Eradication(cookieData, completed
         case "3.1":
             $('#content_step_strategy_exploration_eradication_SocialPoliticalA').removeClass('content_step_inactive').addClass('content_step_active');
             // Checking if data is present
-            if(cookieData.eradicationSocialPoliticalA !== null){ eradicationArray.eradicationSocialPoliticalA = cookieData.eradicationSocialPoliticalA; }
-            if(cookieData.eradicationSocialPoliticalADocumentation !== null){ eradicationArray.eradicationSocialPoliticalADocumentation = cookieData.eradicationSocialPoliticalADocumentation; }
+            if(cookieData.eradication.SocialPoliticalA !== null){ eradicationArray.eradication.SocialPoliticalA = cookieData.eradication.SocialPoliticalA; }
+            if(cookieData.eradication.SocialPoliticalADocumentation !== null){ eradicationArray.eradication.SocialPoliticalADocumentation = cookieData.eradication.SocialPoliticalADocumentation; }
             // Populate Fields
-            switch(eradicationArray.eradicationSocialPoliticalA){
+            switch(eradicationArray.eradication.SocialPoliticalA){
                 case "#eradication_SocialPoliticalA_yes":
                     $('#eradication_SocialPoliticalA_yes').prop('checked', true);
                     destinationArray.forward = '3.2';
@@ -2797,15 +2853,15 @@ function JSON_Cookie_Step_Strategy_Exploration_Eradication(cookieData, completed
                     destinationArray.forward = 'pause';
                     break;
             }
-            $('#eradication_SocialPoliticalA_documentation').prop('value', eradicationArray.eradicationSocialPoliticalADocumentation);
+            $('#eradication_SocialPoliticalA_documentation').prop('value', eradicationArray.eradication.SocialPoliticalADocumentation);
             break;
         case "3.2":
             $('#content_step_strategy_exploration_eradication_SocialPoliticalB').removeClass('content_step_inactive').addClass('content_step_active');
             // Checking if data is present
-            if(cookieData.eradicationSocialPoliticalB !== null){ eradicationArray.eradicationSocialPoliticalB = cookieData.eradicationSocialPoliticalB; }
-            if(cookieData.eradicationSocialPoliticalBDocumentation !== null){ eradicationArray.eradicationSocialPoliticalBDocumentation = cookieData.eradicationSocialPoliticalBDocumentation; }
+            if(cookieData.eradication.SocialPoliticalB !== null){ eradicationArray.eradication.SocialPoliticalB = cookieData.eradication.SocialPoliticalB; }
+            if(cookieData.eradication.SocialPoliticalBDocumentation !== null){ eradicationArray.eradication.SocialPoliticalBDocumentation = cookieData.eradication.SocialPoliticalBDocumentation; }
             // Populate Fields
-            switch(eradicationArray.eradicationSocialPoliticalB){
+            switch(eradicationArray.eradication.SocialPoliticalB){
                 case "#eradication_SocialPoliticalB_yes":
                     $('#eradication_SocialPoliticalB_yes').prop('checked', true);
                     destinationArray.forward = '3.3';
@@ -2819,15 +2875,15 @@ function JSON_Cookie_Step_Strategy_Exploration_Eradication(cookieData, completed
                     destinationArray.forward = 'pause';
                     break;
             }
-            $('#eradication_SocialPoliticalB_documentation').prop('value', eradicationArray.eradicationSocialPoliticalBDocumentation);
+            $('#eradication_SocialPoliticalB_documentation').prop('value', eradicationArray.eradication.SocialPoliticalBDocumentation);
             break;
         case "3.3":
             $('#content_step_strategy_exploration_eradication_SocialPoliticalC').removeClass('content_step_inactive').addClass('content_step_active');
             // Checking if data is present
-            if(cookieData.eradicationSocialPoliticalC !== null){ eradicationArray.eradicationSocialPoliticalC = cookieData.eradicationSocialPoliticalC; }
-            if(cookieData.eradicationSocialPoliticalCDocumentation !== null){ eradicationArray.eradicationSocialPoliticalCDocumentation = cookieData.eradicationSocialPoliticalCDocumentation; }
+            if(cookieData.eradication.SocialPoliticalC !== null){ eradicationArray.eradication.SocialPoliticalC = cookieData.eradication.SocialPoliticalC; }
+            if(cookieData.eradication.SocialPoliticalCDocumentation !== null){ eradicationArray.eradication.SocialPoliticalCDocumentation = cookieData.eradication.SocialPoliticalCDocumentation; }
             // Populate Fields
-            switch(eradicationArray.eradicationSocialPoliticalC){
+            switch(eradicationArray.eradication.SocialPoliticalC){
                 case "#eradication_SocialPoliticalC_yes":
                     $('#eradication_SocialPoliticalC_yes').prop('checked', true);
                     destinationArray.forward = '3.4';
@@ -2841,15 +2897,15 @@ function JSON_Cookie_Step_Strategy_Exploration_Eradication(cookieData, completed
                     destinationArray.forward = 'pause';
                     break;
             }
-            $('#eradication_SocialPoliticalC_documentation').prop('value', eradicationArray.eradicationSocialPoliticalCDocumentation);
+            $('#eradication_SocialPoliticalC_documentation').prop('value', eradicationArray.eradication.SocialPoliticalCDocumentation);
             break;
         case "3.4":
             $('#content_step_strategy_exploration_eradication_PreventingReproductionA').removeClass('content_step_inactive').addClass('content_step_active');
             // Checking if data is present
-            if(cookieData.eradicationPreventingReproductionA !== null){ eradicationArray.eradicationPreventingReproductionA = cookieData.eradicationPreventingReproductionA; }
-            if(cookieData.eradicationPreventingReproductionADocumentation !== null){ eradicationArray.eradicationPreventingReproductionADocumentation = cookieData.eradicationPreventingReproductionADocumentation; }
+            if(cookieData.eradication.PreventingReproductionA !== null){ eradicationArray.eradication.PreventingReproductionA = cookieData.eradication.PreventingReproductionA; }
+            if(cookieData.eradication.PreventingReproductionADocumentation !== null){ eradicationArray.eradication.PreventingReproductionADocumentation = cookieData.eradication.PreventingReproductionADocumentation; }
             // Populate Fields
-            switch(eradicationArray.eradicationPreventingReproductionA){
+            switch(eradicationArray.eradication.PreventingReproductionA){
                 case "#eradication_PreventingReproductionA_yes":
                     $('#eradication_PreventingReproductionA_yes').prop('checked', true);
                     destinationArray.forward = '3.5';
@@ -2863,15 +2919,15 @@ function JSON_Cookie_Step_Strategy_Exploration_Eradication(cookieData, completed
                     destinationArray.forward = 'pause';
                     break;
             }
-            $('#eradication_PreventingReproductionA_documentation').prop('value', eradicationArray.eradicationPreventingReproductionADocumentation);
+            $('#eradication_PreventingReproductionA_documentation').prop('value', eradicationArray.eradication.PreventingReproductionADocumentation);
             break;
         case "3.5":
             $('#content_step_strategy_exploration_eradication_PreventingReproductionB').removeClass('content_step_inactive').addClass('content_step_active');
             // Checking if data is present
-            if(cookieData.eradicationPreventingReproductionB !== null){ eradicationArray.eradicationPreventingReproductionB = cookieData.eradicationPreventingReproductionB; }
-            if(cookieData.eradicationPreventingReproductionBDocumentation !== null){ eradicationArray.eradicationPreventingReproductionBDocumentation = cookieData.eradicationPreventingReproductionBDocumentation; }
+            if(cookieData.eradication.PreventingReproductionB !== null){ eradicationArray.eradication.PreventingReproductionB = cookieData.eradication.PreventingReproductionB; }
+            if(cookieData.eradication.PreventingReproductionBDocumentation !== null){ eradicationArray.eradication.PreventingReproductionBDocumentation = cookieData.eradication.PreventingReproductionBDocumentation; }
             // Populate Fields
-            switch(eradicationArray.eradicationPreventingReproductionB){
+            switch(eradicationArray.eradication.PreventingReproductionB){
                 case "#eradication_PreventingReproductionB_yes":
                     $('#eradication_PreventingReproductionB_yes').prop('checked', true);
                     destinationArray.forward = '3.6';
@@ -2885,15 +2941,15 @@ function JSON_Cookie_Step_Strategy_Exploration_Eradication(cookieData, completed
                     destinationArray.forward = 'pause';
                     break;
             }
-            $('#eradication_PreventingReproductionB_documentation').prop('value', eradicationArray.eradicationPreventingReproductionBDocumentation);
+            $('#eradication_PreventingReproductionB_documentation').prop('value', eradicationArray.eradication.PreventingReproductionBDocumentation);
             break;
         case "3.6":
             $('#content_step_strategy_exploration_eradication_Detection').removeClass('content_step_inactive').addClass('content_step_active');
             // Checking if data is present
-            if(cookieData.eradicationDetection !== null){ eradicationArray.eradicationDetection = cookieData.eradicationDetection; }
-            if(cookieData.eradicationDetectionDocumentation !== null){ eradicationArray.eradicationDetectionDocumentation = cookieData.eradicationDetectionDocumentation; }
+            if(cookieData.eradication.Detection !== null){ eradicationArray.eradication.Detection = cookieData.eradication.Detection; }
+            if(cookieData.eradication.DetectionDocumentation !== null){ eradicationArray.eradication.DetectionDocumentation = cookieData.eradication.DetectionDocumentation; }
             // Populate Fields
-            switch(eradicationArray.eradicationDetection){
+            switch(eradicationArray.eradication.Detection){
                 case "#eradication_Detection_yes":
                     $('#eradication_Detection_yes').prop('checked', true);
                     destinationArray.forward = '3.7';
@@ -2907,17 +2963,17 @@ function JSON_Cookie_Step_Strategy_Exploration_Eradication(cookieData, completed
                     destinationArray.forward = 'pause';
                     break;
             }
-            $('#eradication_Detection_documentation').prop('value', eradicationArray.eradicationDetectionDocumentation);
+            $('#eradication_Detection_documentation').prop('value', eradicationArray.eradication.DetectionDocumentation);
             break;
         case "3.7":
             $('#content_step_strategy_exploration_eradication_EffectiveControlA').removeClass('content_step_inactive').addClass('content_step_active');
             // Checking if data is present
-            if(cookieData.eradicationEffectiveControlA !== null){ eradicationArray.eradicationEffectiveControlA = cookieData.eradicationEffectiveControlA; }
-            if(cookieData.eradicationEffectiveControlADocumentation !== null){ eradicationArray.eradicationEffectiveControlADocumentation = cookieData.eradicationEffectiveControlADocumentation; }
-            if(cookieData.eradicationEffectiveControlAControlMethod !== null){ eradicationArray.eradicationEffectiveControlAControlMethod = cookieData.eradicationEffectiveControlAControlMethod; }
-            if(cookieData.eradicationEffectiveControlAControlMethodDescription !== null){ eradicationArray.eradicationEffectiveControlAControlMethodDescription = cookieData.eradicationEffectiveControlAControlMethodDescription; }
+            if(cookieData.eradication.EffectiveControlA !== null){ eradicationArray.eradication.EffectiveControlA = cookieData.eradication.EffectiveControlA; }
+            if(cookieData.eradication.EffectiveControlADocumentation !== null){ eradicationArray.eradication.EffectiveControlADocumentation = cookieData.eradication.EffectiveControlADocumentation; }
+            if(cookieData.eradication.EffectiveControlAControlMethod !== null){ eradicationArray.eradication.EffectiveControlAControlMethod = cookieData.eradication.EffectiveControlAControlMethod; }
+            if(cookieData.eradication.EffectiveControlAControlMethodDescription !== null){ eradicationArray.eradication.EffectiveControlAControlMethodDescription = cookieData.eradication.EffectiveControlAControlMethodDescription; }
             // Populate Fields
-            switch(eradicationArray.eradicationEffectiveControlA){
+            switch(eradicationArray.eradication.EffectiveControlA){
                 case "#eradication_EffectiveControlA_yes":
                     $('#eradication_EffectiveControlA_yes').prop('checked', true);
                     destinationArray.forward = '3.8';
@@ -2931,8 +2987,8 @@ function JSON_Cookie_Step_Strategy_Exploration_Eradication(cookieData, completed
                     destinationArray.forward = 'pause';
                     break;
             }
-            $('#eradication_EffectiveControlA_documentation').prop('value', eradicationArray.eradicationEffectiveControlADocumentation);
-            switch(eradicationArray.eradicationEffectiveControlAControlMethod){
+            $('#eradication_EffectiveControlA_documentation').prop('value', eradicationArray.eradication.EffectiveControlADocumentation);
+            switch(eradicationArray.eradication.EffectiveControlAControlMethod){
                 case "#eradication_EffectiveControlAControlMethod_manual":
                     $('#eradication_EffectiveControlAControlMethod_manual').prop('checked', true);
                     break;
@@ -2949,15 +3005,15 @@ function JSON_Cookie_Step_Strategy_Exploration_Eradication(cookieData, completed
                     $('#eradication_EffectiveControlAControlMethod_other').prop('checked', true);
                     break;
             }
-            $('#eradication_EffectiveControlAControlMethodDescription').prop('value', eradicationArray.eradicationEffectiveControlAControlMethodDescription);
+            $('#eradication_EffectiveControlAControlMethodDescription').prop('value', eradicationArray.eradication.EffectiveControlAControlMethodDescription);
             break;
         case "3.8":
             $('#content_step_strategy_exploration_eradication_EffectiveControlB').removeClass('content_step_inactive').addClass('content_step_active');
             // Checking if data is present
-            if(cookieData.eradicationEffectiveControlB !== null){ eradicationArray.eradicationEffectiveControlB = cookieData.eradicationEffectiveControlB; }
-            if(cookieData.eradicationEffectiveControlBDocumentation !== null){ eradicationArray.eradicationEffectiveControlBDocumentation = cookieData.eradicationEffectiveControlBDocumentation; }
+            if(cookieData.eradication.EffectiveControlB !== null){ eradicationArray.eradication.EffectiveControlB = cookieData.eradication.EffectiveControlB; }
+            if(cookieData.eradication.EffectiveControlBDocumentation !== null){ eradicationArray.eradication.EffectiveControlBDocumentation = cookieData.eradication.EffectiveControlBDocumentation; }
             // Populate Fields
-            switch(eradicationArray.eradicationEffectiveControlB){
+            switch(eradicationArray.eradication.EffectiveControlB){
                 case "#eradication_EffectiveControlB_yes":
                     $('#eradication_EffectiveControlB_yes').prop('checked', true);
                     destinationArray.forward = '3.9';
@@ -2971,15 +3027,15 @@ function JSON_Cookie_Step_Strategy_Exploration_Eradication(cookieData, completed
                     destinationArray.forward = 'pause';
                     break;
             }
-            $('#eradication_EffectiveControlB_documentation').prop('value', eradicationArray.eradicationEffectiveControlBDocumentation);
+            $('#eradication_EffectiveControlB_documentation').prop('value', eradicationArray.eradication.EffectiveControlBDocumentation);
             break;
         case "3.9":
             $('#content_step_strategy_exploration_eradication_NontargetImpacts').removeClass('content_step_inactive').addClass('content_step_active');
             // Checking if data is present
-            if(cookieData.eradicationNontargetImpacts !== null){ eradicationArray.eradicationNontargetImpacts = cookieData.eradicationNontargetImpacts; }
-            if(cookieData.eradicationNontargetImpactsDocumentation !== null){ eradicationArray.eradicationNontargetImpactsDocumentation = cookieData.eradicationNontargetImpactsDocumentation; }
+            if(cookieData.eradication.NontargetImpacts !== null){ eradicationArray.eradication.NontargetImpacts = cookieData.eradication.NontargetImpacts; }
+            if(cookieData.eradication.NontargetImpactsDocumentation !== null){ eradicationArray.eradication.NontargetImpactsDocumentation = cookieData.eradication.NontargetImpactsDocumentation; }
             // Populate Fields
-            switch(eradicationArray.eradicationNontargetImpacts){
+            switch(eradicationArray.eradication.NontargetImpacts){
                 case "#eradication_NontargetImpacts_yes":
                     $('#eradication_NontargetImpacts_yes').prop('checked', true);
                     // TODO: FIGURE SUMMARY RECOMMENDATION LOCATION
@@ -2994,7 +3050,7 @@ function JSON_Cookie_Step_Strategy_Exploration_Eradication(cookieData, completed
                     destinationArray.forward = 'pause';
                     break;
             }
-            $('#eradication_NontargetImpacts_documentation').prop('value', eradicationArray.eradicationNontargetImpactsDocumentation);
+            $('#eradication_NontargetImpacts_documentation').prop('value', eradicationArray.eradication.NontargetImpactsDocumentation);
             break;
         default:
             console.log('ERROR: Cannot find eradication substep. Failed to display container and load data.');
@@ -3005,31 +3061,31 @@ function JSON_Cookie_Step_Strategy_Exploration_Eradication(cookieData, completed
             nextStep;
         // Setup Values
         if(currentStep === "3.1"){
-            tempValue = formArray.eradicationSocialPoliticalA;
+            tempValue = formArray.eradication.SocialPoliticalA;
             nextStep = "#content_step_strategy_exploration_eradication_substep_two";
         }else if(currentStep === "3.2"){
-            tempValue = formArray.eradicationSocialPoliticalB;
+            tempValue = formArray.eradication.SocialPoliticalB;
             nextStep = "#content_step_strategy_exploration_eradication_substep_three";
         }else if(currentStep === "3.3"){
-            tempValue = formArray.eradicationSocialPoliticalC;
+            tempValue = formArray.eradication.SocialPoliticalC;
             nextStep = "#content_step_strategy_exploration_eradication_substep_four";
         }else if(currentStep === "3.4"){
-            tempValue = formArray.eradicationPreventingReproductionA;
+            tempValue = formArray.eradication.PreventingReproductionA;
             nextStep = "#content_step_strategy_exploration_eradication_substep_five";
         }else if(currentStep === "3.5"){
-            tempValue = formArray.eradicationPreventingReproductionB;
+            tempValue = formArray.eradication.PreventingReproductionB;
             nextStep = "#content_step_strategy_exploration_eradication_substep_six";
         }else if(currentStep === "3.6"){
-            tempValue = formArray.eradicationDetection;
+            tempValue = formArray.eradication.Detection;
             nextStep = "#content_step_strategy_exploration_eradication_substep_seven";
         }else if(currentStep === "3.7"){
-            tempValue = formArray.eradicationEffectiveControlA;
+            tempValue = formArray.eradication.EffectiveControlA;
             nextStep = "#content_step_strategy_exploration_eradication_substep_eight";
         }else if(currentStep === "3.8"){
-            tempValue = formArray.eradicationEffectiveControlB;
+            tempValue = formArray.eradication.EffectiveControlB;
             nextStep = "#content_step_strategy_exploration_eradication_substep_nine";
         }else if(currentStep === "3.9"){
-            tempValue = formArray.eradicationNontargetImpacts;
+            tempValue = formArray.eradication.NontargetImpacts;
             nextStep = "";
             // TODO: UPDATE HERE
         }
@@ -3057,60 +3113,78 @@ function JSON_Cookie_Step_Strategy_Exploration_Eradication(cookieData, completed
         // Setup Values
         if(currentStep === "3.1"){
             saveArray = {
-                eradicationSocialPoliticalA: eradicationArray.eradicationSocialPoliticalA,
-                eradicationSocialPoliticalADocumentation: eradicationArray.eradicationSocialPoliticalADocumentation
+                eradication: {
+                    SocialPoliticalA: eradicationArray.eradication.SocialPoliticalA,
+                    SocialPoliticalADocumentation: eradicationArray.eradication.SocialPoliticalADocumentation
+                }
             };
-            requiredField = eradicationArray.eradicationSocialPoliticalA;
+            requiredField = eradicationArray.eradication.SocialPoliticalA;
         }else if(currentStep === "3.2"){
             saveArray = {
-                eradicationSocialPoliticalB: eradicationArray.eradicationSocialPoliticalB,
-                eradicationSocialPoliticalBDocumentation: eradicationArray.eradicationSocialPoliticalBDocumentation
+                eradication: {
+                    SocialPoliticalB: eradicationArray.eradication.SocialPoliticalB,
+                    SocialPoliticalBDocumentation: eradicationArray.eradication.SocialPoliticalBDocumentation
+                }
             };
-            requiredField = eradicationArray.eradicationSocialPoliticalB;
+            requiredField = eradicationArray.eradication.SocialPoliticalB;
         }else if(currentStep === "3.3"){
             saveArray = {
-                eradicationSocialPoliticalC: eradicationArray.eradicationSocialPoliticalC,
-                eradicationSocialPoliticalCDocumentation: eradicationArray.eradicationSocialPoliticalCDocumentation
+                eradication: {
+                    SocialPoliticalC: eradicationArray.eradication.SocialPoliticalC,
+                    SocialPoliticalCDocumentation: eradicationArray.eradication.SocialPoliticalCDocumentation
+                }
             };
-            requiredField = eradicationArray.eradicationSocialPoliticalC;
+            requiredField = eradicationArray.eradication.SocialPoliticalC;
         }else if(currentStep === "3.4"){
             saveArray = {
-                eradicationPreventingReproductionA: eradicationArray.eradicationPreventingReproductionA,
-                eradicationPreventingReproductionADocumentation: eradicationArray.eradicationPreventingReproductionADocumentation
+                eradication: {
+                    PreventingReproductionA: eradicationArray.eradication.PreventingReproductionA,
+                    PreventingReproductionADocumentation: eradicationArray.eradication.PreventingReproductionADocumentation
+                }
             };
-            requiredField = eradicationArray.eradicationPreventingReproductionA;
+            requiredField = eradicationArray.eradication.PreventingReproductionA;
         }else if(currentStep === "3.5"){
             saveArray = {
-                eradicationPreventingReproductionB: eradicationArray.eradicationPreventingReproductionB,
-                eradicationPreventingReproductionBDocumentation: eradicationArray.eradicationPreventingReproductionBDocumentation
+                eradication: {
+                    PreventingReproductionB: eradicationArray.eradication.PreventingReproductionB,
+                    PreventingReproductionBDocumentation: eradicationArray.eradication.PreventingReproductionBDocumentation
+                }
             };
-            requiredField = eradicationArray.eradicationPreventingReproductionB;
+            requiredField = eradicationArray.eradication.PreventingReproductionB;
         }else if(currentStep === "3.6"){
             saveArray = {
-                eradicationDetection: eradicationArray.eradicationDetection,
-                eradicationDetectionDocumentation: eradicationArray.eradicationDetectionDocumentation
+                eradication: {
+                    Detection: eradicationArray.eradication.Detection,
+                    DetectionDocumentation: eradicationArray.eradication.DetectionDocumentation
+                }
             };
-            requiredField = eradicationArray.eradicationDetectionDocumentation;
+            requiredField = eradicationArray.eradication.DetectionDocumentation;
         }else if(currentStep === "3.7"){
             saveArray = {
-                eradicationEffectiveControlA: eradicationArray.eradicationEffectiveControlA,
-                eradicationEffectiveControlADocumentation: eradicationArray.eradicationEffectiveControlADocumentation,
-                eradicationEffectiveControlAControlMethod: eradicationArray.eradicationEffectiveControlAControlMethod,
-                eradicationEffectiveControlAControlMethodDescription: eradicationArray.eradicationEffectiveControlAControlMethodDescription
+                eradication: {
+                    EffectiveControlA: eradicationArray.eradication.EffectiveControlA,
+                    EffectiveControlADocumentation: eradicationArray.eradication.EffectiveControlADocumentation,
+                    EffectiveControlAControlMethod: eradicationArray.eradication.EffectiveControlAControlMethod,
+                    EffectiveControlAControlMethodDescription: eradicationArray.eradication.EffectiveControlAControlMethodDescription
+                }
             };
-            requiredField = eradicationArray.eradicationEffectiveControlA;
+            requiredField = eradicationArray.eradication.EffectiveControlA;
         }else if(currentStep === "3.8"){
             saveArray = {
-                eradicationEffectiveControlB: eradicationArray.eradicationEffectiveControlB,
-                eradicationEffectiveControlBDocumentation: eradicationArray.eradicationEffectiveControlBDocumentation
+                eradication: {
+                    EffectiveControlB: eradicationArray.eradication.EffectiveControlB,
+                    EffectiveControlBDocumentation: eradicationArray.eradication.EffectiveControlBDocumentation
+                }
             };
-            requiredField = eradicationArray.eradicationEffectiveControlB;
+            requiredField = eradicationArray.eradication.EffectiveControlB;
         }else if(currentStep === "3.9"){
             saveArray = {
-                eradicationNontargetImpacts: eradicationArray.eradicationNontargetImpacts,
-                eradicationNontargetImpactsDocumentation: eradicationArray.eradicationNontargetImpactsDocumentation
+                eradication: {
+                    NontargetImpacts: eradicationArray.eradication.NontargetImpacts,
+                    NontargetImpactsDocumentation: eradicationArray.eradication.NontargetImpactsDocumentation
+                }
             };
-            requiredField = eradicationArray.eradicationNontargetImpacts;
+            requiredField = eradicationArray.eradication.NontargetImpacts;
         }
         // Execute
         if(requiredField !== null){
@@ -3180,100 +3254,100 @@ function JSON_Cookie_Step_Strategy_Exploration_Eradication(cookieData, completed
         // Assign the value
         switch(boxName){
             case '#eradication_SocialPoliticalA_yes':
-                eradicationArray.eradicationSocialPoliticalA = '#eradication_SocialPoliticalA_yes';
+                eradicationArray.eradication.SocialPoliticalA = '#eradication_SocialPoliticalA_yes';
                 destinationArray.forward = '3.2'; break;
             case '#eradication_SocialPoliticalA_no':
-                eradicationArray.eradicationSocialPoliticalA = '#eradication_SocialPoliticalA_no';
+                eradicationArray.eradication.SocialPoliticalA = '#eradication_SocialPoliticalA_no';
                 destinationArray.forward = '4.1'; break;
             case '#eradication_SocialPoliticalA_uncertain':
-                eradicationArray.eradicationSocialPoliticalA = '#eradication_SocialPoliticalA_uncertain';
+                eradicationArray.eradication.SocialPoliticalA = '#eradication_SocialPoliticalA_uncertain';
                 destinationArray.forward = 'none'; break;
             case '#eradication_SocialPoliticalB_yes':
-                eradicationArray.eradicationSocialPoliticalB = '#eradication_SocialPoliticalB_yes';
+                eradicationArray.eradication.SocialPoliticalB = '#eradication_SocialPoliticalB_yes';
                 destinationArray.forward = '3.3'; break;
             case '#eradication_SocialPoliticalB_no':
-                eradicationArray.eradicationSocialPoliticalB = '#eradication_SocialPoliticalB_no';
+                eradicationArray.eradication.SocialPoliticalB = '#eradication_SocialPoliticalB_no';
                 destinationArray.forward = '4.1'; break;
             case '#eradication_SocialPoliticalB_uncertain':
-                eradicationArray.eradicationSocialPoliticalB = '#eradication_SocialPoliticalB_uncertain';
+                eradicationArray.eradication.SocialPoliticalB = '#eradication_SocialPoliticalB_uncertain';
                 destinationArray.forward = 'none'; break;
             case '#eradication_SocialPoliticalC_yes':
-                eradicationArray.eradicationSocialPoliticalC = '#eradication_SocialPoliticalC_yes';
+                eradicationArray.eradication.SocialPoliticalC = '#eradication_SocialPoliticalC_yes';
                 destinationArray.forward = '3.4'; break;
             case '#eradication_SocialPoliticalC_no':
-                eradicationArray.eradicationSocialPoliticalC = '#eradication_SocialPoliticalC_no';
+                eradicationArray.eradication.SocialPoliticalC = '#eradication_SocialPoliticalC_no';
                 destinationArray.forward = '4.1'; break;
             case '#eradication_SocialPoliticalC_uncertain':
-                eradicationArray.eradicationSocialPoliticalC = '#eradication_SocialPoliticalC_uncertain';
+                eradicationArray.eradication.SocialPoliticalC = '#eradication_SocialPoliticalC_uncertain';
                 destinationArray.forward = 'none'; break;
             case '#eradication_PreventingReproductionA_yes':
-                eradicationArray.eradicationPreventingReproductionA = '#eradication_PreventingReproductionA_yes';
+                eradicationArray.eradication.PreventingReproductionA = '#eradication_PreventingReproductionA_yes';
                 destinationArray.forward = '3.5'; break;
             case '#eradication_PreventingReproductionA_no':
-                eradicationArray.eradicationPreventingReproductionA = '#eradication_PreventingReproductionA_no';
+                eradicationArray.eradication.PreventingReproductionA = '#eradication_PreventingReproductionA_no';
                 destinationArray.forward = '4.1'; break;
             case '#eradication_PreventingReproductionA_uncertain':
-                eradicationArray.eradicationPreventingReproductionA = '#eradication_PreventingReproductionA_uncertain';
+                eradicationArray.eradication.PreventingReproductionA = '#eradication_PreventingReproductionA_uncertain';
                 destinationArray.forward = 'none'; break;
             case '#eradication_PreventingReproductionB_yes':
-                eradicationArray.eradicationPreventingReproductionB = '#eradication_PreventingReproductionB_yes';
+                eradicationArray.eradication.PreventingReproductionB = '#eradication_PreventingReproductionB_yes';
                 destinationArray.forward = '3.6'; break;
             case '#eradication_PreventingReproductionB_no':
-                eradicationArray.eradicationPreventingReproductionB = '#eradication_PreventingReproductionB_no';
+                eradicationArray.eradication.PreventingReproductionB = '#eradication_PreventingReproductionB_no';
                 destinationArray.forward = '4.1'; break;
             case '#eradication_PreventingReproductionB_uncertain':
-                eradicationArray.eradicationPreventingReproductionB = '#eradication_PreventingReproductionB_uncertain';
+                eradicationArray.eradication.PreventingReproductionB = '#eradication_PreventingReproductionB_uncertain';
                 destinationArray.forward = 'none'; break;
             case '#eradication_Detection_yes':
-                eradicationArray.eradicationDetection = '#eradication_Detection_yes';
+                eradicationArray.eradication.Detection = '#eradication_Detection_yes';
                 destinationArray.forward = '3.7'; break;
             case '#eradication_Detection_no':
-                eradicationArray.eradicationDetection = '#eradication_Detection_no';
+                eradicationArray.eradication.Detection = '#eradication_Detection_no';
                 destinationArray.forward = '4.1'; break;
             case '#eradication_Detection_uncertain':
-                eradicationArray.eradicationDetection = '#eradication_Detection_uncertain';
+                eradicationArray.eradication.Detection = '#eradication_Detection_uncertain';
                 destinationArray.forward = 'none'; break;
             case '#eradication_EffectiveControlA_yes':
-                eradicationArray.eradicationEffectiveControlA = '#eradication_EffectiveControlA_yes';
+                eradicationArray.eradication.EffectiveControlA = '#eradication_EffectiveControlA_yes';
                 destinationArray.forward = '3.8'; break;
             case '#eradication_EffectiveControlA_no':
-                eradicationArray.eradicationEffectiveControlA = '#eradication_EffectiveControlA_no';
+                eradicationArray.eradication.EffectiveControlA = '#eradication_EffectiveControlA_no';
                 destinationArray.forward = '4.1'; break;
             case '#eradication_EffectiveControlA_uncertain':
-                eradicationArray.eradicationEffectiveControlA = '#eradication_EffectiveControlA_uncertain';
+                eradicationArray.eradication.EffectiveControlA = '#eradication_EffectiveControlA_uncertain';
                 destinationArray.forward = 'none'; break;
             case '#eradication_EffectiveControlAControlMethod_manual':
-                eradicationArray.eradicationEffectiveControlAControlMethod = '#eradication_EffectiveControlAControlMethod_manual';
+                eradicationArray.eradication.EffectiveControlAControlMethod = '#eradication_EffectiveControlAControlMethod_manual';
                 break;
             case '#eradication_EffectiveControlAControlMethod_mechanical':
-                eradicationArray.eradicationEffectiveControlAControlMethod = '#eradication_EffectiveControlAControlMethod_mechancial';
+                eradicationArray.eradication.EffectiveControlAControlMethod = '#eradication_EffectiveControlAControlMethod_mechancial';
                 break;
             case '#eradication_EffectiveControlAControlMethod_herbicide':
-                eradicationArray.eradicationEffectiveControlAControlMethod = '#eradication_EffectiveControlAControlMethod_herbicide';
+                eradicationArray.eradication.EffectiveControlAControlMethod = '#eradication_EffectiveControlAControlMethod_herbicide';
                 break;
             case '#eradication_EffectiveControlAControlMethod_biological':
-                eradicationArray.eradicationEffectiveControlAControlMethod = '#eradication_EffectiveControlAControlMethod_biological';
+                eradicationArray.eradication.EffectiveControlAControlMethod = '#eradication_EffectiveControlAControlMethod_biological';
                 break;
             case '#eradication_EffectiveControlAControlMethod_other':
-                eradicationArray.eradicationEffectiveControlAControlMethod = '#eradication_EffectiveControlAControlMethod_other';
+                eradicationArray.eradication.EffectiveControlAControlMethod = '#eradication_EffectiveControlAControlMethod_other';
                 break;
             case '#eradication_EffectiveControlB_yes':
-                eradicationArray.eradicationEffectiveControlB = '#eradication_EffectiveControlB_yes';
+                eradicationArray.eradication.EffectiveControlB = '#eradication_EffectiveControlB_yes';
                 destinationArray.forward = '3.9'; break;
             case '#eradication_EffectiveControlB_no':
-                eradicationArray.eradicationEffectiveControlB = '#eradication_EffectiveControlB_no';
+                eradicationArray.eradication.EffectiveControlB = '#eradication_EffectiveControlB_no';
                 destinationArray.forward = '4.1'; break;
             case '#eradication_EffectiveControlB_uncertain':
-                eradicationArray.eradicationEffectiveControlB = '#eradication_EffectiveControlB_uncertain';
+                eradicationArray.eradication.EffectiveControlB = '#eradication_EffectiveControlB_uncertain';
                 destinationArray.forward = 'none'; break;
             case '#eradication_NontargetImpacts_yes':
-                eradicationArray.eradicationNontargetImpacts = '#eradication_NontargetImpacts_yes';
+                eradicationArray.eradication.NontargetImpacts = '#eradication_NontargetImpacts_yes';
                 destinationArray.forward = 'none'; break;
             case '#eradication_NontargetImpacts_no':
-                eradicationArray.eradicationNontargetImpacts = '#eradication_NontargetImpacts_no';
+                eradicationArray.eradication.NontargetImpacts = '#eradication_NontargetImpacts_no';
                 destinationArray.forward = '4.1'; break;
             case '#eradication_NontargetImpacts_uncertain':
-                eradicationArray.eradicationNontargetImpacts = '#eradication_NontargetImpacts_uncertain';
+                eradicationArray.eradication.NontargetImpacts = '#eradication_NontargetImpacts_uncertain';
                 destinationArray.forward = 'none'; break;
         }
         Eradication_Substep_Form_Check(eradicationArray);
@@ -3432,7 +3506,7 @@ function JSON_Cookie_Step_Strategy_Exploration_Eradication(cookieData, completed
             $('#eradication_SocialPoliticalA_uncertain').change(function(){ Eradication_Check_Boxes('#eradication_SocialPoliticalA_uncertain'); });
             // Determine where back will point to
             var tempBack;
-            switch(cookieData.strategySelectionAbundanceAndDistributionConfirm){
+            switch(cookieData.strategySelection.AbundanceAndDistributionConfirm){
                 case "#strategy_confirmation_yes":
                     tempBack = '2.3';
                     break;
@@ -3549,22 +3623,24 @@ function JSON_Cookie_Step_Strategy_Exploration_Containment(cookieData, completed
     // ------------------------------------------------------------- \\
     // 1 -  Declare variables                                        \\
     var containmentArray = {
-        containmentSocialPoliticalA: null,
-        containmentSocialPoliticalADocumentation: null,
-        containmentSocialPoliticalB: null,
-        containmentSocialPoliticalBDocumentation: null,
-        containmentPreventingReproductionA: null,
-        containmentPreventingReproductionADocumentation: null,
-        containmentPreventingReproductionB: null,
-        containmentPreventingReproductionBDocumentation: null,
-        containmentDetectingSmall: null,
-        containmentDetectingSmallDocumentation: null,
-        containmentEffectiveControlA: null,
-        containmentEffectiveControlADocumentation: null,
-        containmentEffectiveControlAControlMethod: null,
-        containmentEffectiveControlAControlMethodDescription: null,
-        containmentNontargetImpacts: null,
-        containmentNontargetImpactsDocumentation: null
+            containment: {
+                SocialPoliticalA: null,
+                SocialPoliticalADocumentation: null,
+                SocialPoliticalB: null,
+                SocialPoliticalBDocumentation: null,
+                PreventingReproductionA: null,
+                PreventingReproductionADocumentation: null,
+                PreventingReproductionB: null,
+                PreventingReproductionBDocumentation: null,
+                DetectingSmall: null,
+                DetectingSmallDocumentation: null,
+                EffectiveControlA: null,
+                EffectiveControlADocumentation: null,
+                EffectiveControlAControlMethod: null,
+                EffectiveControlAControlMethodDescription: null,
+                NontargetImpacts: null,
+                NontargetImpactsDocumentation: null
+            }
         },
         saveArray = {},
         destinationArray = {};
@@ -3577,10 +3653,10 @@ function JSON_Cookie_Step_Strategy_Exploration_Containment(cookieData, completed
             // Display the step
             $('#content_step_strategy_exploration_containment_SocialPoliticalA').removeClass('content_step_inactive').addClass('content_step_active');
             // Check if data is present
-            if(cookieData.containmentSocialPoliticalA !== null){ containmentArray.containmentSocialPoliticalA = cookieData.containmentSocialPoliticalA; }
-            if(cookieData.containmentSocialPoliticalADocumentation !== null){ containmentArray.containmentSocialPoliticalADocumentation = cookieData.containmentSocialPoliticalADocumentation; }
+            if(cookieData.containment.SocialPoliticalA !== null){ containmentArray.containment.SocialPoliticalA = cookieData.containment.SocialPoliticalA; }
+            if(cookieData.containment.SocialPoliticalADocumentation !== null){ containmentArray.containment.SocialPoliticalADocumentation = cookieData.containment.SocialPoliticalADocumentation; }
             // Populate fields
-            switch(containmentArray.containmentSocialPoliticalA){
+            switch(containmentArray.containment.SocialPoliticalA){
                 case "#containment_SocialPoliticalA_yes":
                     $('#containment_SocialPoliticalA_yes').prop('checked', true);
                     break;
@@ -3591,16 +3667,16 @@ function JSON_Cookie_Step_Strategy_Exploration_Containment(cookieData, completed
                     $('#containment_SocialPoliticalA_uncertain').prop('checked', true);
                     break;
             }
-            $('#containment_SocialPoliticalA_documentation').prop('value', containmentArray.containmentSocialPoliticalADocumentation);
+            $('#containment_SocialPoliticalA_documentation').prop('value', containmentArray.containment.SocialPoliticalADocumentation);
             break;
         case "4.2":
             // Display the step
             $('#content_step_strategy_exploration_containment_SocialPoliticalB').removeClass('content_step_inactive').addClass('content_step_active');
             // Check if data is present
-            if(cookieData.containmentSocialPoliticalB !== null){ containmentArray.containmentSocialPoliticalB = cookieData.containmentSocialPoliticalB; }
-            if(cookieData.containmentSocialPoliticalBDocumentation !== null){ containmentArray.containmentSocialPoliticalBDocumentation = cookieData.containmentSocialPoliticalBDocumentation; }
+            if(cookieData.containment.SocialPoliticalB !== null){ containmentArray.containment.SocialPoliticalB = cookieData.containment.SocialPoliticalB; }
+            if(cookieData.containment.SocialPoliticalBDocumentation !== null){ containmentArray.containment.SocialPoliticalBDocumentation = cookieData.containment.SocialPoliticalBDocumentation; }
             // Populate fields
-            switch(containmentArray.containmentSocialPoliticalB){
+            switch(containmentArray.containment.SocialPoliticalB){
                 case "#containment_SocialPoliticalB_yes":
                     $('#containment_SocialPoliticalB_yes').prop('checked', true);
                     break;
@@ -3611,16 +3687,16 @@ function JSON_Cookie_Step_Strategy_Exploration_Containment(cookieData, completed
                     $('#containment_SocialPoliticalB_uncertain').prop('checked', true);
                     break;
             }
-            $('#containment_SocialPoliticalB_documentation').prop('value', containmentArray.containmentSocialPoliticalBDocumentation);
+            $('#containment_SocialPoliticalB_documentation').prop('value', containmentArray.containment.SocialPoliticalBDocumentation);
             break;
         case "4.3":
             // Display the step
             $('#content_step_strategy_exploration_containment_PreventingReproductionA').removeClass('content_step_inactive').addClass('content_step_active');
             // Check if data is present
-            if(cookieData.containmentPreventingReproductionA !== null){ containmentArray.containmentPreventingReproductionA = cookieData.containmentPreventingReproductionA; }
-            if(cookieData.containmentPreventingReproductionADocumentation !== null){ containmentArray.containmentPreventingReproductionADocumentation = cookieData.containmentPreventingReproductionADocumentation; }
+            if(cookieData.containment.PreventingReproductionA !== null){ containmentArray.containment.PreventingReproductionA = cookieData.containment.PreventingReproductionA; }
+            if(cookieData.containment.PreventingReproductionADocumentation !== null){ containmentArray.containment.PreventingReproductionADocumentation = cookieData.containment.PreventingReproductionADocumentation; }
             // Populate fields
-            switch(containmentArray.containmentPreventingReproductionA){
+            switch(containmentArray.containment.PreventingReproductionA){
                 case "#containment_PreventingReproductionA_yes":
                     $('#containment_PreventingReproductionA_yes').prop('checked', true);
                     break;
@@ -3631,16 +3707,16 @@ function JSON_Cookie_Step_Strategy_Exploration_Containment(cookieData, completed
                     $('#containment_PreventingReproductionA_uncertain').prop('checked', true);
                     break;
             }
-            $('#containment_PreventingReproductionA_documentation').prop('value', containmentArray.containmentPreventingReproductionADocumentation);
+            $('#containment_PreventingReproductionA_documentation').prop('value', containmentArray.containment.PreventingReproductionADocumentation);
             break;
         case "4.4":
             // Display the step
             $('#content_step_strategy_exploration_containment_PreventingReproductionB').removeClass('content_step_inactive').addClass('content_step_active');
             // Check if data is present
-            if(cookieData.containmentPreventingReproductionB !== null){ containmentArray.containmentPreventingReproductionB = cookieData.containmentPreventingReproductionB; }
-            if(cookieData.containmentPreventingReproductionBDocumentation !== null){ containmentArray.containmentPreventingReproductionBDocumentation = cookieData.containmentPreventingReproductionBDocumentation; }
+            if(cookieData.containment.PreventingReproductionB !== null){ containmentArray.containment.PreventingReproductionB = cookieData.containment.PreventingReproductionB; }
+            if(cookieData.containment.PreventingReproductionBDocumentation !== null){ containmentArray.containment.PreventingReproductionBDocumentation = cookieData.containment.PreventingReproductionBDocumentation; }
             // Populate fields
-            switch(containmentArray.containmentPreventingReproductionB){
+            switch(containmentArray.containment.PreventingReproductionB){
                 case "#containment_PreventingReproductionB_yes":
                     $('#containment_PreventingReproductionB_yes').prop('checked', true);
                     break;
@@ -3651,16 +3727,16 @@ function JSON_Cookie_Step_Strategy_Exploration_Containment(cookieData, completed
                     $('#containment_PreventingReproductionB_uncertain').prop('checked', true);
                     break;
             }
-            $('#containment_PreventingReproductionB_documentation').prop('value', containmentArray.containmentPreventingReproductionBDocumentation);
+            $('#containment_PreventingReproductionB_documentation').prop('value', containmentArray.containment.PreventingReproductionBDocumentation);
             break;
         case "4.5":
             // Display the step
             $('#content_step_strategy_exploration_containment_DetectingSmall').removeClass('content_step_inactive').addClass('content_step_active');
             // Check if data is present
-            if(cookieData.containmentDetectingSmall !== null){ containmentArray.containmentDetectingSmall = cookieData.containmentDetectingSmall; }
-            if(cookieData.containmentDetectingSmallDocumentation !== null){ containmentArray.containmentDetectingSmallDocumentation = cookieData.containmentDetectingSmallDocumentation; }
+            if(cookieData.containment.DetectingSmall !== null){ containmentArray.containment.DetectingSmall = cookieData.containment.DetectingSmall; }
+            if(cookieData.containment.DetectingSmallDocumentation !== null){ containmentArray.containment.DetectingSmallDocumentation = cookieData.containment.DetectingSmallDocumentation; }
             // Populate fields
-            switch(containmentArray.containmentDetectingSmall){
+            switch(containmentArray.containment.DetectingSmall){
                 case "#containment_DetectingSmall_yes":
                     $('#containment_DetectingSmall_yes').prop('checked', true);
                     break;
@@ -3671,18 +3747,18 @@ function JSON_Cookie_Step_Strategy_Exploration_Containment(cookieData, completed
                     $('#containment_DetectingSmall_uncertain').prop('checked', true);
                     break;
             }
-            $('#containment_DetectingSmall_documentation').prop('value', containmentArray.containmentDetectingSmallDocumentation);
+            $('#containment_DetectingSmall_documentation').prop('value', containmentArray.containment.DetectingSmallDocumentation);
             break;
         case "4.6":
             // Display the step
             $('#content_step_strategy_exploration_containment_EffectiveControlA').removeClass('content_step_inactive').addClass('content_step_active');
             // Check if data is present
-            if(cookieData.containmentEffectiveControlA !== null){ containmentArray.containmentEffectiveControlA = cookieData.containmentEffectiveControlA; }
-            if(cookieData.containmentEffectiveControlADocumentation !== null){ containmentArray.containmentEffectiveControlADocumentation = cookieData.containmentEffectiveControlADocumentation; }
-            if(cookieData.containmentEffectiveControlAControlMethod !== null){ containmentArray.containmentEffectiveControlAControlMethod = cookieData.containmentEffectiveControlAControlMethod; }
-            if(cookieData.containmentEffectiveControlAControlMethodDescription !== null){ containmentArray.containmentEffectiveControlAControlMethodDescription = cookieData.containmentEffectiveControlAControlMethodDescription; }
+            if(cookieData.containment.EffectiveControlA !== null){ containmentArray.containment.EffectiveControlA = cookieData.containment.EffectiveControlA; }
+            if(cookieData.containment.EffectiveControlADocumentation !== null){ containmentArray.containment.EffectiveControlADocumentation = cookieData.containment.EffectiveControlADocumentation; }
+            if(cookieData.containment.EffectiveControlAControlMethod !== null){ containmentArray.containment.EffectiveControlAControlMethod = cookieData.containment.EffectiveControlAControlMethod; }
+            if(cookieData.containment.EffectiveControlAControlMethodDescription !== null){ containmentArray.containment.EffectiveControlAControlMethodDescription = cookieData.containment.EffectiveControlAControlMethodDescription; }
             // Populate fields
-            switch(containmentArray.containmentEffectiveControlA){
+            switch(containmentArray.containment.EffectiveControlA){
                 case "#containment_EffectiveControlA_yes":
                     $('#containment_EffectiveControlA_yes').prop('checked', true);
                     break;
@@ -3693,10 +3769,10 @@ function JSON_Cookie_Step_Strategy_Exploration_Containment(cookieData, completed
                     $('#containment_EffectiveControlA_uncertain').prop('checked', true);
                     break;
             }
-            $('#containment_EffectiveControlA_documentation').prop('value', containmentArray.containmentEffectiveControlADocumentation);
+            $('#containment_EffectiveControlA_documentation').prop('value', containmentArray.containment.EffectiveControlADocumentation);
             // TODO: This may not be working properly, need to test and debug
             //      the cases.
-            switch(containmentArray.containmentEffectiveControlAControlMethod){
+            switch(containmentArray.containment.EffectiveControlAControlMethod){
                 case "#containment_EffectiveControlAControlMethod_manual":
                     $('#containment_EffectiveControlAControlMethod_manual').prop('checked', true);
                     break;
@@ -3713,16 +3789,16 @@ function JSON_Cookie_Step_Strategy_Exploration_Containment(cookieData, completed
                     $('#containment_EffectiveControlAControlMethod_other').prop('checked', true);
                     break;
             }
-            $('#containment_EffectiveControlAControlMethodDescription').prop('value', containmentArray.containmentEffectiveControlAControlMethodDescription);
+            $('#containment_EffectiveControlAControlMethodDescription').prop('value', containmentArray.containment.EffectiveControlAControlMethodDescription);
             break;
         case "4.7":
             // Display the step
             $('#content_step_strategy_exploration_containment_EffectiveControlB').removeClass('content_step_inactive').addClass('content_step_active');
             // Check if data is present
-            if(cookieData.containmentEffectiveControlB !== null){ containmentArray.containmentEffectiveControlB = cookieData.containmentEffectiveControlB; }
-            if(cookieData.containmentEffectiveControlBDocumentation !== null){ containmentArray.containmentEffectiveControlBDocumentation = cookieData.containmentEffectiveControlBDocumentation; }
+            if(cookieData.containment.EffectiveControlB !== null){ containmentArray.containment.EffectiveControlB = cookieData.containment.EffectiveControlB; }
+            if(cookieData.containment.EffectiveControlBDocumentation !== null){ containmentArray.containment.EffectiveControlBDocumentation = cookieData.containment.EffectiveControlBDocumentation; }
             // Populate fields
-            switch(containmentArray.containmentEffectiveControlB){
+            switch(containmentArray.containment.EffectiveControlB){
                 case "#containment_EffectiveControlB_yes":
                     $('#containment_EffectiveControlB_yes').prop('checked', true);
                     break;
@@ -3733,16 +3809,16 @@ function JSON_Cookie_Step_Strategy_Exploration_Containment(cookieData, completed
                     $('#containment_EffectiveControlB_uncertain').prop('checked', true);
                     break;
             }
-            $('#containment_EffectiveControlB_documentation').prop('value', containmentArray.containmentEffectiveControlBDocumentation);
+            $('#containment_EffectiveControlB_documentation').prop('value', containmentArray.containment.EffectiveControlBDocumentation);
             break;
         case "4.8":
             // Display the step
             $('#content_step_strategy_exploration_containment_NontargetImpacts').removeClass('content_step_inactive').addClass('content_step_active');
             // Check if data is present
-            if(cookieData.containmentNontargetImpacts !== null){ containmentArray.containmentNontargetImpacts = cookieData.containmentNontargetImpacts; }
-            if(cookieData.containmentNontargetImpactsDocumentation !== null){ containmentArray.containmentNontargetImpactsDocumentation = cookieData.containmentNontargetImpactsDocumentation; }
+            if(cookieData.containment.NontargetImpacts !== null){ containmentArray.containment.NontargetImpacts = cookieData.containment.NontargetImpacts; }
+            if(cookieData.containment.NontargetImpactsDocumentation !== null){ containmentArray.containment.NontargetImpactsDocumentation = cookieData.containment.NontargetImpactsDocumentation; }
             // Populate fields
-            switch(containmentArray.containmentNontargetImpacts){
+            switch(containmentArray.containment.NontargetImpacts){
                 case "#containment_NontargetImpacts_yes":
                     $('#containment_NontargetImpacts_yes').prop('checked', true);
                     break;
@@ -3753,7 +3829,7 @@ function JSON_Cookie_Step_Strategy_Exploration_Containment(cookieData, completed
                     $('#containment_NontargetImpacts_uncertain').prop('checked', true);
                     break;
             }
-            $('#containment_NontargetImpacts_documentation').prop('value', containmentArray.containmentNontargetImpacts);
+            $('#containment_NontargetImpacts_documentation').prop('value', containmentArray.containment.NontargetImpacts);
             break;
     }
     // 4 -  Function - Containment_Substep_Form_Check(formArray)     \\
@@ -3762,28 +3838,28 @@ function JSON_Cookie_Step_Strategy_Exploration_Containment(cookieData, completed
             nextStep;
         // Setup Values
         if(currentStep === "4.1"){
-            tempValue = formArray.containmentSocialPoliticalA;
+            tempValue = formArray.containment.SocialPoliticalA;
             nextStep = "#content_step_strategy_exploration_containment_substep_two";
         }else if(currentStep === "4.2"){
-            tempValue = formArray.containmentSocialPoliticalB;
+            tempValue = formArray.containment.SocialPoliticalB;
             nextStep = "#content_step_strategy_exploration_containment_substep_three";
         }else if(currentStep === "4.3"){
-            tempValue = formArray.containmentPreventingReproductionA;
+            tempValue = formArray.containment.PreventingReproductionA;
             nextStep = "#content_step_strategy_exploration_containment_substep_four";
         }else if(currentStep === "4.4"){
-            tempValue = formArray.containmentPreventingReproductionB;
+            tempValue = formArray.containment.PreventingReproductionB;
             nextStep = "#content_step_strategy_exploration_containment_substep_five";
         }else if(currentStep === "4.5"){
-            tempValue = formArray.containmentDetectingSmall;
+            tempValue = formArray.containment.DetectingSmall;
             nextStep = "#content_step_strategy_exploration_containment_substep_six";
         }else if(currentStep === "4.6"){
-            tempValue = formArray.containmentSocialPoliticalA;
+            tempValue = formArray.containment.SocialPoliticalA;
             nextStep = "#content_step_strategy_exploration_containment_substep_seven";
         }else if(currentStep === "4.7"){
-            tempValue = formArray.containmentSocialPoliticalB;
+            tempValue = formArray.containment.SocialPoliticalB;
             nextStep = "#content_step_strategy_exploration_containment_substep_eight";
         }else if(currentStep === "4.8"){
-            tempValue = formArray.containmentNontargetImpacts;
+            tempValue = formArray.containment.NontargetImpacts;
             nextStep = "";
             // TODO: UPDATE HERE
         }
@@ -3810,54 +3886,70 @@ function JSON_Cookie_Step_Strategy_Exploration_Containment(cookieData, completed
         // Setup Values
         if(currentStep === "4.1"){
             saveArray = {
-                containmentSocialPoliticalA: containmentArray.containmentSocialPoliticalA,
-                containmentSocialPoliticalADocumentation: containmentArray.containmentSocialPoliticalADocumentation
+                containment: {
+                    SocialPoliticalA: containmentArray.containment.SocialPoliticalA,
+                    SocialPoliticalADocumentation: containmentArray.containment.SocialPoliticalADocumentation
+                }
             };
-            requiredField = containmentArray.containmentSocialPoliticalA;
+            requiredField = containmentArray.containment.SocialPoliticalA;
         }else if(currentStep === "4.2"){
             saveArray = {
-                containmentSocialPoliticalB: containmentArray.containmentSocialPoliticalB,
-                containmentSocialPoliticalBDocumentation: containmentArray.containmentSocialPoliticalBDocumentation
+                containment: {
+                    SocialPoliticalB: containmentArray.containment.SocialPoliticalB,
+                    SocialPoliticalBDocumentation: containmentArray.containment.SocialPoliticalBDocumentation
+                }
             };
-            requiredField = containmentArray.containmentSocialPoliticalB;
+            requiredField = containmentArray.containment.SocialPoliticalB;
         }else if(currentStep === "4.3"){
             saveArray = {
-                containmentPreventingReproductionA: containmentArray.containmentPreventingReproductionA,
-                containmentPreventingReproductionADocumentation: containmentArray.containmentPreventingReproductionADocumentation
+                containment: {
+                    PreventingReproductionA: containmentArray.containment.PreventingReproductionA,
+                    PreventingReproductionADocumentation: containmentArray.containment.PreventingReproductionADocumentation
+                }
             };
-            requiredField = containmentArray.containmentPreventingReproductionA;
+            requiredField = containmentArray.containment.PreventingReproductionA;
         }else if(currentStep === "4.4"){
             saveArray = {
-                containmentPreventingReproductionB: containmentArray.containmentPreventingReproductionB,
-                containmentPreventingReproductionBDocumentation: containmentArray.containmentPreventingReproductionBDocumentation
+                containment: {
+                    PreventingReproductionB: containmentArray.containment.PreventingReproductionB,
+                    PreventingReproductionBDocumentation: containmentArray.containment.PreventingReproductionBDocumentation
+                }
             };
-            requiredField = containmentArray.containmentPreventingReproductionB;
+            requiredField = containmentArray.containment.PreventingReproductionB;
         }else if(currentStep === "4.5"){
             saveArray = {
-                containmentDetectingSmall: containmentArray.containmentDetectingSmall,
-                containmentDetectingSmall: containmentArray.containmentDetectingSmallDocumentation
+                containment: {
+                    DetectingSmall: containmentArray.containment.DetectingSmall,
+                    DetectingSmallDocumentation: containmentArray.containment.DetectingSmallDocumentation
+                }
             };
-            requiredField = containmentArray.containmentDetectingSmall;
+            requiredField = containmentArray.containment.DetectingSmall;
         }else if(currentStep === "4.6"){
             saveArray = {
-                containmentEffectiveControlA: containmentArray.containmentEffectiveControlA,
-                containmentEffectiveControlADocumentation: containmentArray.containmentEffectiveControlADocumentation,
-                containmentEffectiveControlAControlMethod: containmentArray.containmentEffectiveControlAControlMethod,
-                containmentEffectiveControlAControlMethodDescription: containmentArray.containmentEffectiveControlAControlMethodDescription
+                containment: {
+                    EffectiveControlA: containmentArray.containment.EffectiveControlA,
+                    EffectiveControlADocumentation: containmentArray.containment.EffectiveControlADocumentation,
+                    EffectiveControlAControlMethod: containmentArray.containment.EffectiveControlAControlMethod,
+                    EffectiveControlAControlMethodDescription: containmentArray.containment.EffectiveControlAControlMethodDescription
+                }
             };
-            requiredField = containmentArray.containmentEffectiveControlA;
+            requiredField = containmentArray.containment.EffectiveControlA;
         }else if(currentStep === "4.7"){
             saveArray = {
-                containmentEffectiveControlB: containmentArray.containmentEffectiveControlB,
-                containmentEffectiveControlBDocumentation: containmentArray.containmentEffectiveControlBDocumentation
+                containment: {
+                    EffectiveControlB: containmentArray.containment.EffectiveControlB,
+                    EffectiveControlBDocumentation: containmentArray.containment.EffectiveControlBDocumentation
+                }
             };
-            requiredField = containmentArray.containmentEffectiveControlB;
+            requiredField = containmentArray.containment.EffectiveControlB;
         }else if(currentStep === "4.8"){
             saveArray = {
-                containmentNontargetImpacts: containmentArray.containmentNontargetImpacts,
-                containmentNontargetImpactsDocumentation: containmentArray.containmentNontargetImpactsDocumentation
+                containment: {
+                    NontargetImpacts: containmentArray.containment.NontargetImpacts,
+                    NontargetImpactsDocumentation: containmentArray.containment.NontargetImpactsDocumentation
+                }
             };
-            requiredField = containmentArray.containmentNontargetImpacts;
+            requiredField = containmentArray.containment.NontargetImpacts;
         }
         // Execute
         if(requiredField !== null){
@@ -3923,63 +4015,63 @@ function JSON_Cookie_Step_Strategy_Exploration_Containment(cookieData, completed
         // Assign the value
         switch(boxName){
             case '#containment_SocialPoliticalA_yes':
-                containmentArray.containmentSocialPoliticalA = '#containment_SocialPoliticalA_yes'; break;
+                containmentArray.containment.SocialPoliticalA = '#containment_SocialPoliticalA_yes'; break;
             case '#containment_SocialPoliticalA_no':
-                containmentArray.containmentSocialPoliticalA = '#containment_SocialPoliticalA_no'; break;
+                containmentArray.containment.SocialPoliticalA = '#containment_SocialPoliticalA_no'; break;
             case '#containment_SocialPoliticalA_uncertain':
-                containmentArray.containmentSocialPoliticalA = '#containment_SocialPoliticalA_uncertain'; break;
+                containmentArray.containment.SocialPoliticalA = '#containment_SocialPoliticalA_uncertain'; break;
             case '#containment_SocialPoliticalB_yes':
-                containmentArray.containmentSocialPoliticalB = '#containment_SocialPoliticalB_yes'; break;
+                containmentArray.containment.SocialPoliticalB = '#containment_SocialPoliticalB_yes'; break;
             case '#containment_SocialPoliticalB_no':
-                containmentArray.containmentSocialPoliticalB = '#containment_SocialPoliticalB_no'; break;
+                containmentArray.containment.SocialPoliticalB = '#containment_SocialPoliticalB_no'; break;
             case '#containment_SocialPoliticalB_uncertain':
-                containmentArray.containmentSocialPoliticalB = '#containment_SocialPoliticalB_uncertain'; break;
+                containmentArray.containment.SocialPoliticalB = '#containment_SocialPoliticalB_uncertain'; break;
             case '#containment_PreventingReproductionA_yes':
-                containmentArray.containmentPreventingReproductionA = '#containment_PreventingReproductionA_yes'; break;
+                containmentArray.containment.PreventingReproductionA = '#containment_PreventingReproductionA_yes'; break;
             case '#containment_PreventingReproductionA_no':
-                containmentArray.containmentPreventingReproductionA = '#containment_PreventingReproductionA_no'; break;
+                containmentArray.containment.PreventingReproductionA = '#containment_PreventingReproductionA_no'; break;
             case '#containment_PreventingReproductionA_uncertain':
-                containmentArray.containmentPreventingReproductionA = '#containment_PreventingReproductionA_uncertain'; break;
+                containmentArray.containment.PreventingReproductionA = '#containment_PreventingReproductionA_uncertain'; break;
             case '#containment_PreventingReproductionB_yes':
-                containmentArray.containmentPreventingReproductionB = '#containment_PreventingReproductionB_yes'; break;
+                containmentArray.containment.PreventingReproductionB = '#containment_PreventingReproductionB_yes'; break;
             case '#containment_PreventingReproductionB_no':
-                containmentArray.containmentPreventingReproductionB = '#containment_PreventingReproductionB_no'; break;
+                containmentArray.containment.PreventingReproductionB = '#containment_PreventingReproductionB_no'; break;
             case '#containment_PreventingReproductionB_uncertain':
-                containmentArray.containmentPreventingReproductionB = '#containment_PreventingReproductionB_uncertain'; break;
+                containmentArray.containment.PreventingReproductionB = '#containment_PreventingReproductionB_uncertain'; break;
             case '#containment_DetectingSmall_yes':
-                containmentArray.containmentDetectingSmall = '#containment_DetectingSmall_yes'; break;
+                containmentArray.containment.DetectingSmall = '#containment_DetectingSmall_yes'; break;
             case '#containment_DetectingSmall_no':
-                containmentArray.containmentDetectingSmall = '#containment_DetectingSmall_no'; break;
+                containmentArray.containment.DetectingSmall = '#containment_DetectingSmall_no'; break;
             case '#containment_DetectingSmall_uncertain':
-                containmentArray.containmentDetectingSmall = '#containment_DetectingSmall_uncertain'; break;
+                containmentArray.containment.DetectingSmall = '#containment_DetectingSmall_uncertain'; break;
             case '#containment_EffectiveControlA_yes':
-                containmentArray.containmentEffectiveControlA = '#containment_EffectiveControlA_yes'; break;
+                containmentArray.containment.EffectiveControlA = '#containment_EffectiveControlA_yes'; break;
             case '#containment_EffectiveControlA_no':
-                containmentArray.containmentEffectiveControlA = '#containment_EffectiveControlA_no'; break;
+                containmentArray.containment.EffectiveControlA = '#containment_EffectiveControlA_no'; break;
             case '#containment_EffectiveControlA_uncertain':
-                containmentArray.containmentEffecitveControlA = '#containment_EffectiveControlA_uncertain'; break;
+                containmentArray.containment.EffecitveControlA = '#containment_EffectiveControlA_uncertain'; break;
             case '#containment_EffectiveControlAControlMethod_manual':
-                containmentArray.containmentEffectiveControlAControlMethod = '#containment_EffectiveControlAControlMethod_manual'; break;
+                containmentArray.containment.EffectiveControlAControlMethod = '#containment_EffectiveControlAControlMethod_manual'; break;
             case '#containment_EffectiveControlAControlMethod_mechanical':
-                containmentArray.containmentEffectiveControlAControlMethod = '#containment_EffectiveControlAControlMethod_mechanical'; break;
+                containmentArray.containment.EffectiveControlAControlMethod = '#containment_EffectiveControlAControlMethod_mechanical'; break;
             case '#containment_EffectiveControlAControlMethod_herbicide':
-                containmentArray.containmentEffectiveControlAControlMethod = '#containment_EffectiveControlAControlMethod_herbicide'; break;
+                containmentArray.containment.EffectiveControlAControlMethod = '#containment_EffectiveControlAControlMethod_herbicide'; break;
             case '#containment_EffectiveControlAControlMethod_biological':
-                containmentArray.containmentEffectiveControlAControlMethod = '#containment_EffectiveControlAControlMethod_biological'; break;
+                containmentArray.containment.EffectiveControlAControlMethod = '#containment_EffectiveControlAControlMethod_biological'; break;
             case '#containment_EffectiveControlAControlMethod_other':
-                containmentArray.containmentEffectiveControlAControlMethod = '#containment_EffectiveControlAControlMethod_other'; break;
+                containmentArray.containment.EffectiveControlAControlMethod = '#containment_EffectiveControlAControlMethod_other'; break;
             case '#containment_EffectiveControlB_yes':
-                containmentArray.containmentEffectiveControlB = '#containment_EffectiveControlB_yes'; break;
+                containmentArray.containment.EffectiveControlB = '#containment_EffectiveControlB_yes'; break;
             case '#containment_EffectiveControlB_no':
-                containmentArray.containmentEffectiveControlB = '#containment_EffectiveControlB_no'; break;
+                containmentArray.containment.EffectiveControlB = '#containment_EffectiveControlB_no'; break;
             case '#containment_EffectiveControlB_uncertain':
-                containmentArray.containmentEffecitveControlB = '#containment_EffectiveControlB_uncertain'; break;
+                containmentArray.containment.EffecitveControlB = '#containment_EffectiveControlB_uncertain'; break;
             case '#containment_NontargetImpacts_yes':
-                containmentArray.containmentNontargetImpacts = '#containment_NontargetImpacts_yes'; break;
+                containmentArray.containment.NontargetImpacts = '#containment_NontargetImpacts_yes'; break;
             case '#containment_NontargetImpacts_no':
-                containmentArray.containmentNontargetImpacts = '#containment_NontargetImpacts_no'; break;
+                containmentArray.containment.NontargetImpacts = '#containment_NontargetImpacts_no'; break;
             case '#containment_NontargetImpacts_uncertain':
-                containmentArray.containmentNontargetImpacts = '#containment_NontargetImpacts_uncertain'; break;
+                containmentArray.containment.NontargetImpacts = '#containment_NontargetImpacts_uncertain'; break;
         }
         Containment_Substep_Form_Check(containmentArray);
     };
@@ -3995,23 +4087,23 @@ function JSON_Cookie_Step_Strategy_Exploration_Containment(cookieData, completed
             // Manually fire locations to specifically assign array variable
             switch(fieldLocation){
                 case '#containment_SocialPoliticalA_documentation':
-                    containmentArray.containmentSocialPoliticalADocumentation = tempHolder; break;
+                    containmentArray.containment.SocialPoliticalADocumentation = tempHolder; break;
                 case '#containment_SocialPoliticalB_documentation':
-                    containmentArray.containmentSocialPoliticalBDocumentation = tempHolder; break;
+                    containmentArray.containment.SocialPoliticalBDocumentation = tempHolder; break;
                 case '#containment_PreventingReproductionA_documentation':
-                    containmentArray.containmentPreventingReproductionADocumentation = tempHolder; break;
+                    containmentArray.containment.PreventingReproductionADocumentation = tempHolder; break;
                 case '#containment_PreventingReproductionB_documentation':
-                    containmentArray.containmentPreventingReproductionBDocumentation = tempHolder; break;
+                    containmentArray.containment.PreventingReproductionBDocumentation = tempHolder; break;
                 case '#containment_DetectingSmall_documentation':
-                    containmentArray.containmentDetectingSmallDocumentation = tempHolder; break;
+                    containmentArray.containment.DetectingSmallDocumentation = tempHolder; break;
                 case '#containment_EffectiveControlA_documentation':
-                    containmentArray.containmentEffectiveControlADocumentation = tempHolder; break;
+                    containmentArray.containment.EffectiveControlADocumentation = tempHolder; break;
                 case '#containment_EffectiveControlAControlMethodDescription':
-                    containmentArray.containmentEffectiveControlAControlMethodDescription = tempHolder; break;
+                    containmentArray.containment.EffectiveControlAControlMethodDescription = tempHolder; break;
                 case '#containment_EffectiveControlB_documentation':
-                    containmentArray.containmentEffectiveControlBDocumentation = tempHolder; break;
+                    containmentArray.containment.EffectiveControlBDocumentation = tempHolder; break;
                 case '#containment_NontargetImpacts_documentation':
-                    containmentArray.containmentNontargetImpactsDocumentation = tempHolder; break;
+                    containmentArray.containment.NontargetImpactsDocumentation = tempHolder; break;
 
             }
             Containment_Substep_Form_Check(containmentArray);
@@ -4153,7 +4245,7 @@ function JSON_Cookie_Step_Strategy_Exploration_Containment(cookieData, completed
             $('#containment_SocialPoliticalA_uncertain').change(function(){ Containment_Check_Boxes('#containment_SocialPoliticalA_uncertain'); });
             // Determine where back will point
             var tempBack;
-            switch(cookieData.strategySelectionAbundanceAndDistributionConfirm){
+            switch(cookieData.strategySelection.AbundanceAndDistributionConfirm){
                 case '#strategy_confirmation_yes':
                     tempBack = '2.3'; break;
                 case '#strategy_confirmation_no':
@@ -4267,18 +4359,20 @@ function JSON_Cookie_Step_Strategy_Exploration_Suppression(cookieData, completed
     // ------------------------------------------------------------- \\
     // 1 -  Declare variables                                        \\
     var suppressionArray = {
-            suppressionSocialPoliticalA: null,
-            suppressionSocialPoliticalADocumentation: null,
-            suppressionSocialPoliticalB: null,
-            suppressionSocialPoliticalBDocumentation: null,
-            suppressionEffectiveControlA: null,
-            suppressionEffectiveControlADocumentation: null,
-            suppressionEffectiveControlAControlMethod: null,
-            suppressionEffectiveControlAControlMethodDocumentation: null,
-            suppressionEffectiveControlB: null,
-            suppressionEffectiveControlBDocumentation: null,
-            suppressionNontargetImpacts: null,
-            suppressionNontargetImpactsDocumentation: null
+            suppression: {
+                SocialPoliticalA: null,
+                SocialPoliticalADocumentation: null,
+                SocialPoliticalB: null,
+                SocialPoliticalBDocumentation: null,
+                EffectiveControlA: null,
+                EffectiveControlADocumentation: null,
+                EffectiveControlAControlMethod: null,
+                EffectiveControlAControlMethodDocumentation: null,
+                EffectiveControlB: null,
+                EffectiveControlBDocumentation: null,
+                NontargetImpacts: null,
+                NontargetImpactsDocumentation: null
+            }
         },
         saveArray = {},
         destinationArray = {
@@ -4290,8 +4384,7 @@ function JSON_Cookie_Step_Strategy_Exploration_Suppression(cookieData, completed
             projectBackground: '1.1',
             strategySelection: '2.1',
             strategyExploration: 'none'
-        },
-        decisionDestination = null;
+        };
     // 2 -  Declare subcategory values (If applicable)               \\
     // 3 -  Ensure correct step container is displayed,              \\
     //      Check if loading data (Check -> Load -> Populate Fields) \\
@@ -4303,10 +4396,10 @@ function JSON_Cookie_Step_Strategy_Exploration_Suppression(cookieData, completed
             // Display the step
             $('#content_step_strategy_exploration_suppression_SocialPoliticalA').removeClass('content_step_inactive').addClass('content_step_active');
             // Checking if data is present
-            if(cookieData.suppressionSocialPoliticalA !== null){ suppressionArray.suppressionSocialPoliticalA = cookieData.suppressionSocialPoliticalA; }
-            if(cookieData.suppressionSocialPoliticalADocumentation !== null){ suppressionArray.suppressionSocialPoliticalADocumentation = cookieData.suppressionSocialPoliticalADocumentation; }
+            if(cookieData.suppression.SocialPoliticalA !== null){ suppressionArray.suppression.SocialPoliticalA = cookieData.suppression.SocialPoliticalA; }
+            if(cookieData.suppression.SocialPoliticalADocumentation !== null){ suppressionArray.suppression.SocialPoliticalADocumentation = cookieData.suppression.SocialPoliticalADocumentation; }
             // Populate Fields
-            switch(suppressionArray.suppressionSocialPoliticalA){
+            switch(suppressionArray.suppression.SocialPoliticalA){
                 case "#suppression_SocialPoliticalA_yes":
                     $('#suppression_SocialPoliticalA_yes').prop('checked', true);
                     destinationArray.forward = '5.2';
@@ -4320,16 +4413,16 @@ function JSON_Cookie_Step_Strategy_Exploration_Suppression(cookieData, completed
                     destinationArray.forward = 'pause';
                     break;
             }
-            $('#suppression_SocialPoliticalA_documentation').prop('value', suppressionArray.suppressionSocialPoliticalADocumentation);
+            $('#suppression_SocialPoliticalA_documentation').prop('value', suppressionArray.suppression.SocialPoliticalADocumentation);
             break;
         case "5.2":
             // Display the step
             $('#content_step_strategy_exploration_suppression_SocialPoliticalB').removeClass('content_step_inactive').addClass('content_step_active');
             // Checking if data is present
-            if(cookieData.suppressionSocialPoliticalB !== null){ suppressionArray.suppressionSocialPoliticalB = cookieData.suppressionSocialPoliticalB; }
-            if(cookieData.suppressionSocialPoliticalBDocumentation !== null){ suppressionArray.suppressionSocialPoliticalBDocumentation = cookieData.suppressionSocialPoliticalBDocumentation; }
+            if(cookieData.suppression.SocialPoliticalB !== null){ suppressionArray.suppression.SocialPoliticalB = cookieData.suppression.SocialPoliticalB; }
+            if(cookieData.suppression.SocialPoliticalBDocumentation !== null){ suppressionArray.suppression.SocialPoliticalBDocumentation = cookieData.suppression.SocialPoliticalBDocumentation; }
             // Populate Fields
-            switch(suppressionArray.suppressionSocialPoliticalB){
+            switch(suppressionArray.suppression.SocialPoliticalB){
                 case "#suppression_SocialPoliticalB_yes":
                     $('#suppression_SocialPoliticalB_yes').prop('checked', true);
                     destinationArray.forward = '5.3';
@@ -4343,18 +4436,18 @@ function JSON_Cookie_Step_Strategy_Exploration_Suppression(cookieData, completed
                     destinationArray.forward = 'pause';
                     break;
             }
-            $('#suppression_SocialPoliticalB_documentation').prop('value', suppressionArray.suppressionSocialPoliticalBDocumentation);
+            $('#suppression_SocialPoliticalB_documentation').prop('value', suppressionArray.suppression.SocialPoliticalBDocumentation);
             break;
         case "5.3":
             // Display the step
             $('#content_step_strategy_exploration_suppression_EffectiveControlA').removeClass('content_step_inactive').addClass('content_step_active');
             // Checking if data is present
-            if(cookieData.suppressionEffectiveControlA !== null){ suppressionArray.suppressionEffectiveControlA = cookieData.suppressionEffectiveControlA; }
-            if(cookieData.suppressionEffectiveControlADocumentation !== null){ suppressionArray.suppressionEffectiveControlADocumentation = cookieData.suppressionEffectiveControlADocumentation; }
-            if(cookieData.suppressionEffectiveControlAControlMethod !== null){ suppressionArray.suppressionEffectiveControlAControlMethod = cookieData.suppressionEffectiveControlAControlMethod; }
-            if(cookieData.suppressionEffectiveControlAControlMethodDescription !== null){ suppressionArray.suppressionEffectiveControlAControlMethodDescription = cookieData.suppressionEffectiveControlAControlMethodDescription; }
+            if(cookieData.suppression.EffectiveControlA !== null){ suppressionArray.suppression.EffectiveControlA = cookieData.suppression.EffectiveControlA; }
+            if(cookieData.suppression.EffectiveControlADocumentation !== null){ suppressionArray.suppression.EffectiveControlADocumentation = cookieData.suppression.EffectiveControlADocumentation; }
+            if(cookieData.suppression.EffectiveControlAControlMethod !== null){ suppressionArray.suppression.EffectiveControlAControlMethod = cookieData.suppression.EffectiveControlAControlMethod; }
+            if(cookieData.suppression.EffectiveControlAControlMethodDescription !== null){ suppressionArray.suppression.EffectiveControlAControlMethodDescription = cookieData.suppression.EffectiveControlAControlMethodDescription; }
             // Populate Fields
-            switch(suppressionArray.suppressionEffectiveControlA){
+            switch(suppressionArray.suppression.EffectiveControlA){
                 case "#suppression_EffectiveControlA_yes":
                     $('#suppression_EffectiveControlA_yes').prop('checked', true);
                     destinationArray.forward = '5.4';
@@ -4368,8 +4461,8 @@ function JSON_Cookie_Step_Strategy_Exploration_Suppression(cookieData, completed
                     destinationArray.forward = 'pause';
                     break;
             }
-            $('#suppression_EffectiveControlA_documentation').prop('value', suppressionArray.suppressionEffectiveControlADocumentation);
-            switch(suppressionArray.suppressionEffectiveControlAControlMethod){
+            $('#suppression_EffectiveControlA_documentation').prop('value', suppressionArray.suppression.EffectiveControlADocumentation);
+            switch(suppressionArray.suppression.EffectiveControlAControlMethod){
                 case "#suppression_EffectiveControlAControlMethod_manual":
                     $('#suppression_EffectiveControlAControlMethod_manual').prop('checked', true);
                     break;
@@ -4386,16 +4479,16 @@ function JSON_Cookie_Step_Strategy_Exploration_Suppression(cookieData, completed
                     $('#suppression_EffectiveControlAControlMethod_other').prop('checked', true);
                     break;
             }
-            $('#suppression_EffectiveControlAControlMethodDescription').prop('value', suppressionArray.suppressionEffectiveControlAControlMethodDescription);
+            $('#suppression_EffectiveControlAControlMethodDescription').prop('value', suppressionArray.suppression.EffectiveControlAControlMethodDescription);
             break;
         case "5.4":
             // Display the step
             $('#content_step_strategy_exploration_suppression_EffectiveControlB').removeClass('content_step_inactive').addClass('content_step_active');
             // Checking if data is present
-            if(cookieData.suppressionEffectiveControlB !== null){ suppressionArray.suppressionEffectiveControlB = cookieData.suppressionEffectiveControlB; }
-            if(cookieData.suppressionEffectiveControlBDocumentation !== null){ suppressionArray.suppressionEffectiveControlBDocumentation = cookieData.suppressionEffectiveControlBDocumentation; }
+            if(cookieData.suppression.EffectiveControlB !== null){ suppressionArray.suppression.EffectiveControlB = cookieData.suppression.EffectiveControlB; }
+            if(cookieData.suppression.EffectiveControlBDocumentation !== null){ suppressionArray.suppression.EffectiveControlBDocumentation = cookieData.suppression.EffectiveControlBDocumentation; }
             // Populate Fields
-            switch(suppressionArray.suppressionEffectiveControlB){
+            switch(suppressionArray.suppression.EffectiveControlB){
                 case "#suppression_EffectiveControlB_yes":
                     $('#suppression_EffectiveControlB_yes').prop('checked', true);
                     destinationArray.forward = '5.5';
@@ -4409,16 +4502,16 @@ function JSON_Cookie_Step_Strategy_Exploration_Suppression(cookieData, completed
                     destinationArray.forward = 'pause';
                     break;
             }
-            $('#suppression_EffectiveControlB_documentation').prop('value', suppressionArray.suppressionEffectiveControlBDocumentation);
+            $('#suppression_EffectiveControlB_documentation').prop('value', suppressionArray.suppression.EffectiveControlBDocumentation);
             break;
         case "5.5":
             // Display the step
             $('#content_step_strategy_exploration_suppression_NontargetImpacts').removeClass('content_step_inactive').addClass('content_step_active');
             // Checking if data is present
-            if(cookieData.suppressionNontargetImpacts !== null){ suppressionArray.suppressionNontargetImpacts = cookieData.suppressionNontargetImpacts; }
-            if(cookieData.suppressionNontargetImpactsDocumentation !== null){ suppressionArray.suppressionNontargetImpactsDocumentation = cookieData.suppressionNontargetImpactsDocumentation; }
+            if(cookieData.suppression.NontargetImpacts !== null){ suppressionArray.suppression.NontargetImpacts = cookieData.suppression.NontargetImpacts; }
+            if(cookieData.suppression.NontargetImpactsDocumentation !== null){ suppressionArray.suppression.NontargetImpactsDocumentation = cookieData.suppression.NontargetImpactsDocumentation; }
             // Populate Fields
-            switch(suppressionArray.suppressionNontargetImpacts){
+            switch(suppressionArray.suppression.NontargetImpacts){
                 case "#suppression_NontargetImpacts_yes":
                     $('#suppression_NontargetImpacts_yes').prop('checked', true);
                     // TODO: TBD Destination
@@ -4433,7 +4526,7 @@ function JSON_Cookie_Step_Strategy_Exploration_Suppression(cookieData, completed
                     destinationArray.forward = 'pause';
                     break;
             }
-            $('#suppression_NontargetImpacts_documentation').prop('value', suppressionArray.suppressionNontargetImpactsDocumentation);
+            $('#suppression_NontargetImpacts_documentation').prop('value', suppressionArray.suppression.NontargetImpactsDocumentation);
             break;
     }
     // 4 -  Function - Suppression_Substep_Form_Check(formArray)     \\
@@ -4443,23 +4536,23 @@ function JSON_Cookie_Step_Strategy_Exploration_Suppression(cookieData, completed
         // Setup Values
         switch(currentStep){
             case "5.1":
-                tempValue = formArray.suppressionSocialPoliticalA;
+                tempValue = formArray.suppression.SocialPoliticalA;
                 nextStep = '#content_step_strategy_exploration_suppression_substep_two';
                 break;
             case "5.2":
-                tempValue = formArray.suppressionSocialPoliticalB;
+                tempValue = formArray.suppression.SocialPoliticalB;
                 nextStep = '#content_step_strategy_exploration_suppression_substep_three';
                 break;
             case "5.3":
-                tempValue = formArray.suppressionEffectiveControlA;
+                tempValue = formArray.suppression.EffectiveControlA;
                 nextStep = '#content_step_strategy_exploration_suppression_substep_four';
                 break;
             case "5.4":
-                tempValue = formArray.suppressionEffectiveControlB;
+                tempValue = formArray.suppression.EffectiveControlB;
                 nextStep = '#content_step_strategy_exploration_suppression_substep_five';
                 break;
             case "5.5":
-                tempValue = formArray.suppressionNontargetImpacts;
+                tempValue = formArray.suppression.NontargetImpacts;
                 nextStep = '';
                 // TODO: TBD Destination
                 break;
@@ -4488,40 +4581,50 @@ function JSON_Cookie_Step_Strategy_Exploration_Suppression(cookieData, completed
         switch(currentStep){
             case "5.1":
                 saveArray = {
-                    suppressionSocialPoliticalA: suppressionArray.suppressionSocialPoliticalA,
-                    suppressionSocialPoliticalADocumentation: suppressionArray.suppressionSocialPoliticalADocumentation
+                    suppression: {
+                        SocialPoliticalA: suppressionArray.suppression.SocialPoliticalA,
+                        SocialPoliticalADocumentation: suppressionArray.suppression.SocialPoliticalADocumentation
+                    }
                 };
-                requiredField = suppressionArray.suppresionSocialPoliticalA;
+                requiredField = suppressionArray.suppresion.SocialPoliticalA;
                 break;
             case "5.2":
                 saveArray = {
-                    suppressionSocialPoliticalB: suppressionArray.suppressionSocialPoliticalB,
-                    suppressionSocialPoliticalBDocumentation: suppressionArray.suppressionSocialPoliticalBDocumentation
+                    suppression: {
+                        SocialPoliticalB: suppressionArray.suppression.SocialPoliticalB,
+                        SocialPoliticalBDocumentation: suppressionArray.suppression.SocialPoliticalBDocumentation
+                    }
                 };
-                requiredField = suppressionArray.suppresionSocialPoliticalB;
+                requiredField = suppressionArray.suppresion.SocialPoliticalB;
                 break;
             case "5.3":
                 saveArray = {
-                    suppressionEffectiveControlA: suppressionArray.suppressionEffectiveControlA,
-                    suppressionEffectiveControlADocumentation: suppressionArray.suppressionEffectiveControlADocumentation,
-                    suppressionEffectiveControlAControlMethod: suppressionArray.suppressionEffectiveControlAControlMethod,
-                    suppressionEffectiveControlAControlMethodDescription: suppressionArray.suppressionEffectiveControlAControlMethodDescription
+                    suppression: {
+                        EffectiveControlA: suppressionArray.suppression.EffectiveControlA,
+                        EffectiveControlADocumentation: suppressionArray.suppression.EffectiveControlADocumentation,
+                        EffectiveControlAControlMethod: suppressionArray.suppression.EffectiveControlAControlMethod,
+                        EffectiveControlAControlMethodDescription: suppressionArray.suppression.EffectiveControlAControlMethodDescription
+                    }
                 };
-                requiredField = suppressionArray.suppresionEffectiveControlA;
+                requiredField = suppressionArray.suppresion.EffectiveControlA;
                 break;
             case "5.4":
                 saveArray = {
-                    suppressionEffectiveControlB: suppressionArray.suppressionEffectiveControlB,
-                    suppressionEffectiveControlBDocumentation: suppressionArray.suppressionEffectiveControlBDocumentation
+                    suppression: {
+                        EffectiveControlB: suppressionArray.suppression.EffectiveControlB,
+                        EffectiveControlBDocumentation: suppressionArray.suppression.EffectiveControlBDocumentation
+                    }
                 };
-                requiredField = suppressionArray.suppresionEffectiveControlB;
+                requiredField = suppressionArray.suppresion.EffectiveControlB;
                 break;
             case "5.5":
                 saveArray = {
-                    suppressionNontargetImpacts: suppressionArray.suppressionNontargetImpacts,
-                    suppressionNontargetImpactsDocumentation: suppressionArray.suppressionNontargetImpactsDocumentation
+                    suppression: {
+                        NontargetImpacts: suppressionArray.suppression.NontargetImpacts,
+                        NontargetImpactsDocumentation: suppressionArray.suppression.NontargetImpactsDocumentation
+                    }
                 };
-                requiredField = suppressionArray.suppresionNontagetImpacts;
+                requiredField = suppressionArray.suppresion.NontagetImpacts;
                 break;
         }
         // Execute
@@ -4583,63 +4686,63 @@ function JSON_Cookie_Step_Strategy_Exploration_Suppression(cookieData, completed
         switch(boxName){
             // *** 5.1
             case '#suppression_SocialPoliticalA_yes':
-                suppressionArray.suppressionSocialPoliticalA = '#suppression_SocialPoliticalA_yes';
+                suppressionArray.suppression.SocialPoliticalA = '#suppression_SocialPoliticalA_yes';
                 destinationArray.forward = '5.2'; break;
             case '#suppression_SocialPoliticalA_no':
-                suppressionArray.suppressionSocialPoliticalA = '#suppression_SocialPoliticalA_no';
+                suppressionArray.suppression.SocialPoliticalA = '#suppression_SocialPoliticalA_no';
                 destinationArray.forward = 'none'; break;
             case '#suppression_SocialPoliticalA_uncertain':
-                suppressionArray.suppressionSocialPoliticalA = '#suppression_SocialPoliticalA_uncertain';
+                suppressionArray.suppression.SocialPoliticalA = '#suppression_SocialPoliticalA_uncertain';
                 destinationArray.forward = 'none'; break;
             // *** 5.2
             case '#suppression_SocialPoliticalB_yes':
-                suppressionArray.suppressionSocialPoliticalB = '#suppression_SocialPoliticalB_yes';
+                suppressionArray.suppression.SocialPoliticalB = '#suppression_SocialPoliticalB_yes';
                 destinationArray.forward = '5.3'; break;
             case '#suppression_SocialPoliticalB_no':
-                suppressionArray.suppressionSocialPoliticalB = '#suppression_SocialPoliticalB_no';
+                suppressionArray.suppression.SocialPoliticalB = '#suppression_SocialPoliticalB_no';
                 destinationArray.forward = 'none'; break;
             case '#suppression_SocialPoliticalB_uncertain':
-                suppressionArray.suppressionSocialPoliticalB = '#suppression_SocialPoliticalB_uncertain';
+                suppressionArray.suppression.SocialPoliticalB = '#suppression_SocialPoliticalB_uncertain';
                 destinationArray.forward = 'none'; break;
             // *** 5.3
             case '#suppression_EffectiveControlA_yes':
-                suppressionArray.suppressionEffectiveControlA = '#suppression_EffectiveControlA_yes';
+                suppressionArray.suppression.EffectiveControlA = '#suppression_EffectiveControlA_yes';
                 destinationArray.forward = '5.4'; break;
             case '#suppression_EffectiveControlA_no':
-                suppressionArray.suppressionEffectiveControlA = '#suppression_EffectiveControlA_no';
+                suppressionArray.suppression.EffectiveControlA = '#suppression_EffectiveControlA_no';
                 destinationArray.forward = 'none'; break;
             case '#suppression_EffectiveControlA_uncertain':
-                suppressionArray.suppressionEffectiveControlA = '#suppression_EffectiveControlA_uncertain';
+                suppressionArray.suppression.EffectiveControlA = '#suppression_EffectiveControlA_uncertain';
                 destinationArray.forward = 'none'; break;
             case '#suppression_EffectiveControlAControlMethod_manual':
-                suppressionArray.suppressionEffectiveControlAControlMethod = '#suppression_EffectiveControlAControlMethod_manual'; break;
+                suppressionArray.suppression.EffectiveControlAControlMethod = '#suppression_EffectiveControlAControlMethod_manual'; break;
             case '#suppression_EffectiveControlAControlMethod_mechanical':
-                suppressionArray.suppressionEffectiveControlAControlMethod = '#suppression_EffectiveControlAControlMethod_mechanical'; break;
+                suppressionArray.suppression.EffectiveControlAControlMethod = '#suppression_EffectiveControlAControlMethod_mechanical'; break;
             case '#suppression_EffectiveControlAControlMethod_herbicide':
-                suppressionArray.suppressionEffectiveControlAControlMethod = '#suppression_EffectiveControlAControlMethod_herbicide'; break;
+                suppressionArray.suppression.EffectiveControlAControlMethod = '#suppression_EffectiveControlAControlMethod_herbicide'; break;
             case '#suppression_EffectiveControlAControlMethod_biological':
-                suppressionArray.suppressionEffectiveControlAControlMethod = '#suppression_EffectiveControlAControlMethod_biological'; break;
+                suppressionArray.suppression.EffectiveControlAControlMethod = '#suppression_EffectiveControlAControlMethod_biological'; break;
             case '#suppression_EffectiveControlAControlMethod_other':
-                suppressionArray.suppressionEffectiveControlAControlMethod = '#suppression_EffectiveControlAControlMethod_other'; break;
+                suppressionArray.suppression.EffectiveControlAControlMethod = '#suppression_EffectiveControlAControlMethod_other'; break;
             // *** 5.4
             case '#suppression_EffectiveControlB_yes':
-                suppressionArray.suppressionEffectiveControlB = '#suppression_EffectiveControlB_yes';
+                suppressionArray.suppression.EffectiveControlB = '#suppression_EffectiveControlB_yes';
                 destinationArray.forward = '5.5'; break;
             case '#suppression_EffectiveControlB_no':
-                suppressionArray.suppressionEffectiveControlB = '#suppression_EffectiveControlB_no';
+                suppressionArray.suppression.EffectiveControlB = '#suppression_EffectiveControlB_no';
                 destinationArray.forward = 'none'; break;
             case '#suppression_EffectiveControlB_uncertain':
-                suppressionArray.suppressionEffectiveControlB = '#suppression_EffectiveControlB_uncertain';
+                suppressionArray.suppression.EffectiveControlB = '#suppression_EffectiveControlB_uncertain';
                 destinationArray.forward = 'none'; break;
             // *** 5.5
             case '#suppression_NontargetImpacts_yes':
-                suppressionArray.suppressionNontargetImpacts = '#suppression_NontargetImpacts_yes';
+                suppressionArray.suppression.NontargetImpacts = '#suppression_NontargetImpacts_yes';
                 destinationArray.forward = 'none'; break;
             case '#suppression_NontargetImpacts_no':
-                suppressionArray.suppressionNontargetImpacts = '#suppression_NontargetImpacts_no';
+                suppressionArray.suppression.NontargetImpacts = '#suppression_NontargetImpacts_no';
                 destinationArray.forward = 'none'; break;
             case '#suppression_NontargetImpacts_uncertain':
-                suppressionArray.suppressionNontargetImpacts = '#suppression_NontargetImpacts_uncertain';
+                suppressionArray.suppression.NontargetImpacts = '#suppression_NontargetImpacts_uncertain';
                 destinationArray.forward = 'none'; break;
         }
         Suppression_Substep_Form_Check(suppressionArray);
@@ -4656,17 +4759,17 @@ function JSON_Cookie_Step_Strategy_Exploration_Suppression(cookieData, completed
             // Manually fire locations to specifically assign array variable.
             switch(fieldLocation){
                 case '#suppression_SocialPoliticalA_documentation':
-                    suppressionArray.suppressionSocialPoliticalADocumentation = tempHolder; break;
+                    suppressionArray.suppression.SocialPoliticalADocumentation = tempHolder; break;
                 case '#suppression_SocialPoliticalB_documentation':
-                    suppressionArray.suppressionSocialPoliticalBDocumentation = tempHolder; break;
+                    suppressionArray.suppression.SocialPoliticalBDocumentation = tempHolder; break;
                 case '#suppression_EffectiveControlA_documentation':
-                    suppressionArray.suppressionEffectiveControlADocumentation = tempHolder; break;
+                    suppressionArray.suppression.EffectiveControlADocumentation = tempHolder; break;
                 case '#suppression_EffectiveControlAControlMethodDescription':
-                    suppressionArray.suppressionEffectiveControlAControlMethodDescription = tempHolder; break;
+                    suppressionArray.suppression.EffectiveControlAControlMethodDescription = tempHolder; break;
                 case '#suppression_EffectiveControlB_documentation':
-                    suppressionArray.suppressionEffectiveControlBDocumentation = tempHolder; break;
+                    suppressionArray.suppression.EffectiveControlBDocumentation = tempHolder; break;
                 case '#suppression_NontargetImpacts_documentation':
-                    suppressionArray.suppressionNontargetImpactsDocumentation = tempHolder; break;
+                    suppressionArray.suppression.NontargetImpactsDocumentation = tempHolder; break;
             }
             Suppression_Substep_Form_Check(suppressionArray);
         });
@@ -4766,7 +4869,7 @@ function JSON_Cookie_Step_Strategy_Exploration_Suppression(cookieData, completed
             $('#suppression_SocialPoliticalA_uncertain').change(function(){ Suppression_Check_Boxes('#suppression_SocialPoliticalA_uncertain'); });
             // Determine where back will point to
             var tempBack;
-            switch(cookieData.strategySelectionAbundanceAndDistributionConfirm){
+            switch(cookieData.strategySelection.AbundanceAndDistributionConfirm){
                 case '#strategy_confirmation_yes':
                     tempBack = '2.3'; break;
                 case '#strategy_confirmation_no':
@@ -4781,7 +4884,7 @@ function JSON_Cookie_Step_Strategy_Exploration_Suppression(cookieData, completed
             $('#suppression_SocialPoliticalB_yes').change(function(){ Suppression_Check_Boxes('#suppression_SocialPoliticalB_yes'); });
             $('#suppression_SocialPoliticalB_no').change(function(){ Suppression_Check_Boxes('#suppression_SocialPoliticalB_no'); });
             $('#suppression_SocialPoliticalB_uncertain').change(function(){ Suppression_Check_Boxes('#suppression_SocialPoliticalB_uncertain'); });
-            destinationArray.back = '5.1;
+            destinationArray.back = '5.1';
             destinationArray.current = '5.2';
             destinationArray.substep_two = 'none';
             break;
@@ -4814,7 +4917,7 @@ function JSON_Cookie_Step_Strategy_Exploration_Suppression(cookieData, completed
             $('#suppression_NontargetImpacts_yes').change(function(){ Suppression_Check_Boxes('#suppression_NontargetImpacts_yes'); });
             $('#suppression_NontargetImpacts_no').change(function(){ Suppression_Check_Boxes('#suppression_NontargetImpacts_no'); });
             $('#suppression_NontargetImpacts_uncertain').change(function(){ Suppression_Check_Boxes('#suppression_NontargetImpacts_uncertain'); });
-            destinationArray.back = '5.4;
+            destinationArray.back = '5.4';
             destinationArray.current = '5.5';
             destinationArray.substep_five = 'none';
             break;
