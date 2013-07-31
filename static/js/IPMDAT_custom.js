@@ -953,7 +953,7 @@ function Check_Available_Steps(cookieData, completedSteps, currentStep){
         JSON_Cookie_Step_Strategy_Exploration_Containment(cookieData, completedSteps, currentStep);
     }else if((currentStep === "5.1")||(currentStep === "5.2")||(currentStep === "5.3")||(currentStep === "5.4")||(currentStep === "5.5")){
         // Main Progress Bars
-        $('#content_progress_bar_strategy_suppression').removeClass('progress_bar_inactive').removeClass('progress_bar_available').addClass('progress_bar_active');
+        $('#content_progress_bar_strategy_exploration').removeClass('progress_bar_inactive').removeClass('progress_bar_available').addClass('progress_bar_active');
         // Substep Progress Container
         $('#content_substep_strategy_exploration_suppression_container').removeClass('content_substep_container_inactive').addClass('content_substep_container_active');
         
@@ -1023,7 +1023,35 @@ function Check_Available_Steps(cookieData, completedSteps, currentStep){
  * content - Content to be placed in div       *
  * backDestination - Pointing to previous      *
 \***********************************************/
-function Popup(originalType, newType, content, backDestination, cookieData, completedSteps){
+function Popup(originalType, newType, content, backDestination, cookieData, completedSteps, currentStep){
+    // For a quick fix - We're going to hard code the bypass destination.
+    var bypassDestination;
+    switch(currentStep){
+        case '3.1': bypassDestination = '3.2'; break;
+        case '3.2': bypassDestination = '3.3'; break;
+        case '3.3': bypassDestination = '3.4'; break;
+        case '3.4': bypassDestination = '3.5'; break;
+        case '3.5': bypassDestination = '3.6'; break;
+        case '3.6': bypassDestination = '3.7'; break;
+        case '3.7': bypassDestination = '3.8'; break;
+        case '3.8': bypassDestination = '3.9'; break;
+        case '3.9': bypassDestination = 'none'; break;
+        case '4.1': bypassDestination = '4.2'; break;
+        case '4.2': bypassDestination = '4.3'; break;
+        case '4.3': bypassDestination = '4.4'; break;
+        case '4.4': bypassDestination = '4.5'; break;
+        case '4.5': bypassDestination = '4.6'; break;
+        case '4.6': bypassDestination = '4.7'; break;
+        case '4.7': bypassDestination = '4.8'; break;
+        case '4.8': bypassDestination = 'none'; break;
+        case '5.1': bypassDestination = '5.2'; break;
+        case '5.2': bypassDestination = '5.3'; break;
+        case '5.3': bypassDestination = '5.4'; break;
+        case '5.4': bypassDestination = '5.5'; break;
+        case '5.5': bypassDestination = 'none'; break;
+    }
+    $('#content_uncertain_confirm_container').removeClass('content_step_active').addClass('content_step_inactive');
+    $('#content_uncertain_confirm').prop('checked', false);
     // Fill Content
     if(newType !== null){
         $('#content_uncertain_popup_title').empty().append('Changing record to <b>' + newType + '</b>');
@@ -1034,6 +1062,7 @@ function Popup(originalType, newType, content, backDestination, cookieData, comp
         $('#content_uncertain_content').empty().append('The text when a record is changing.<br />Changing record from <b>' + originalType + '</b> to <b> ' + newType + '</b>');
         $('#content_uncertain_popup_close').empty().append('Proceed.');
         $('#content_uncertain_popup_back').removeClass('content_uncertain_popup_inactive');
+        $('#content_uncertain_confirm_container').removeClass('content_step_inactive').addClass('content_step_active');
     }else{
         $('#content_uncertain_content').empty().append('Cannot proceed with uncertain.');
         $('#content_uncertain_popup_close').empty().append('Okay.');
@@ -1043,6 +1072,9 @@ function Popup(originalType, newType, content, backDestination, cookieData, comp
     // Button Functionality
     $('#content_uncertain_popup_close').click(function(){
         $('#content_uncertain_popup_container').removeClass('content_uncertain_popup_active').addClass('content_uncertain_popup_inactive');
+        if($('#content_uncertain_confirm').prop('checked') === true){
+            Check_Available_Steps(cookieData, completedSteps, bypassDestination);
+        }
     });
     $('#content_uncertain_popup_back').click(function(){
         $('#content_uncertain_popup_container').removeClass('content_uncertain_popup_active').addClass('content_uncertain_popup_inactive');
@@ -2104,9 +2136,9 @@ function JSON_Cookie_Step_Project_Background(cookieData, completedSteps, current
                     }else if(destinationArray.current === "1.3"){ Project_Background_Substep_Three_Save();
                     }else if(destinationArray.current === "1.4"){ Project_Background_Substep_Four_Save(); }
                     var tempForward;
-                    switch(cookieData.strategySelectionAbundanceAndDistributionConfirm){
+                    switch(cookieData.strategySelection.AbundanceAndDistributionConfirm){
                         case '#strategy_confirmation_yes':
-                            switch(cookieData.strategySelectionAbundanceAndDistributionCheckbox){
+                            switch(cookieData.strategySelection.AbundanceAndDistributionCheckbox){
                                 case '#strategy_selection_eradication_state_scale':
                                     tempForward = '3.1';
                                     break;
@@ -3383,7 +3415,7 @@ function JSON_Cookie_Step_Strategy_Exploration_Eradication(cookieData, completed
                 if($('#content_nav_forward').hasClass('content_nav_base_active')){
                     Eradication_Substep_Save();
                     if(destinationArray.forward === '4.1'){
-                        Popup('eradication', 'containment', '', destinationArray.current, cookieData, completedSteps);
+                        Popup('eradication', 'containment', '', destinationArray.current, cookieData, completedSteps, currentStep);
                     }
                     Check_Available_Steps(cookieData, completedSteps, destinationArray.forward);
                 }
@@ -3638,12 +3670,26 @@ function JSON_Cookie_Step_Strategy_Exploration_Containment(cookieData, completed
                 EffectiveControlADocumentation: null,
                 EffectiveControlAControlMethod: null,
                 EffectiveControlAControlMethodDescription: null,
+                EffectiveControlB: null,
+                EffectiveControlBDocumentation: null,
                 NontargetImpacts: null,
                 NontargetImpactsDocumentation: null
             }
         },
         saveArray = {},
-        destinationArray = {};
+        destinationArray = {
+            substep_one: '4.1',
+            substep_two: '4.2',
+            substep_three: '4.3',
+            substep_four: '4.4',
+            substep_five: '4.5',
+            substep_six: '4.6',
+            substep_seven: '4.7',
+            substep_eight: '4.8',
+            projectBackground: '1.1',
+            strategySelection: '2.1',
+            strategyExploration: 'none'
+        };
     // 2 -  Declare subcategory values (If applicable)               \\
     // 3 -  Ensure correct step container is displayed,              \\
     //      Check if loading data (Check -> Load -> Populate Fields) \\
@@ -3659,12 +3705,15 @@ function JSON_Cookie_Step_Strategy_Exploration_Containment(cookieData, completed
             switch(containmentArray.containment.SocialPoliticalA){
                 case "#containment_SocialPoliticalA_yes":
                     $('#containment_SocialPoliticalA_yes').prop('checked', true);
+                    destinationArray.forward = '4.2';
                     break;
                 case "#containment_SocialPoliticalA_no":
                     $('#containment_SocialPoliticalA_no').prop('checked', true);
+                    destinationArray.forward = '5.1';
                     break;
                 case "#containment_SocialPoliticalA_uncertain":
                     $('#containment_SocialPoliticalA_uncertain').prop('checked', true);
+                    destinationArray.forward = 'pause';
                     break;
             }
             $('#containment_SocialPoliticalA_documentation').prop('value', containmentArray.containment.SocialPoliticalADocumentation);
@@ -3679,12 +3728,15 @@ function JSON_Cookie_Step_Strategy_Exploration_Containment(cookieData, completed
             switch(containmentArray.containment.SocialPoliticalB){
                 case "#containment_SocialPoliticalB_yes":
                     $('#containment_SocialPoliticalB_yes').prop('checked', true);
+                    destinationArray.forward = '4.3';
                     break;
                 case "#containment_SocialPoliticalB_no":
                     $('#containment_SocialPoliticalB_no').prop('checked', true);
+                    destinationArray.forward = '5.1';
                     break;
                 case "#containment_SocialPoliticalB_uncertain":
                     $('#containment_SocialPoliticalB_uncertain').prop('checked', true);
+                    destinationArray.forward = 'pause';
                     break;
             }
             $('#containment_SocialPoliticalB_documentation').prop('value', containmentArray.containment.SocialPoliticalBDocumentation);
@@ -3699,12 +3751,15 @@ function JSON_Cookie_Step_Strategy_Exploration_Containment(cookieData, completed
             switch(containmentArray.containment.PreventingReproductionA){
                 case "#containment_PreventingReproductionA_yes":
                     $('#containment_PreventingReproductionA_yes').prop('checked', true);
+                    destinationArray.forward = '4.4';
                     break;
                 case "#containment_PreventingReproductionA_no":
                     $('#containment_PreventingReproductionA_no').prop('checked', true);
+                    destinationArray.forward = '5.1';
                     break;
                 case "#containment_PreventingReproductionA_uncertain":
                     $('#containment_PreventingReproductionA_uncertain').prop('checked', true);
+                    destinationArray.forward = 'pause';
                     break;
             }
             $('#containment_PreventingReproductionA_documentation').prop('value', containmentArray.containment.PreventingReproductionADocumentation);
@@ -3719,12 +3774,15 @@ function JSON_Cookie_Step_Strategy_Exploration_Containment(cookieData, completed
             switch(containmentArray.containment.PreventingReproductionB){
                 case "#containment_PreventingReproductionB_yes":
                     $('#containment_PreventingReproductionB_yes').prop('checked', true);
+                    destinationArray.forward = '4.5';
                     break;
                 case "#containment_PreventingReproductionB_no":
                     $('#containment_PreventingReproductionB_no').prop('checked', true);
+                    destinationArray.forward = '5.1';
                     break;
                 case "#containment_PreventingReproductionB_uncertain":
                     $('#containment_PreventingReproductionB_uncertain').prop('checked', true);
+                    destinationArray.forward = 'pause';
                     break;
             }
             $('#containment_PreventingReproductionB_documentation').prop('value', containmentArray.containment.PreventingReproductionBDocumentation);
@@ -3739,12 +3797,15 @@ function JSON_Cookie_Step_Strategy_Exploration_Containment(cookieData, completed
             switch(containmentArray.containment.DetectingSmall){
                 case "#containment_DetectingSmall_yes":
                     $('#containment_DetectingSmall_yes').prop('checked', true);
+                    destinationArray.forward = '4.6';
                     break;
                 case "#containment_DetectingSmall_no":
                     $('#containment_DetectingSmall_no').prop('checked', true);
+                    destinationArray.forward = '5.1';
                     break;
                 case "#containment_DetectingSmall_uncertain":
                     $('#containment_DetectingSmall_uncertain').prop('checked', true);
+                    destinationArray.forward = 'pause';
                     break;
             }
             $('#containment_DetectingSmall_documentation').prop('value', containmentArray.containment.DetectingSmallDocumentation);
@@ -3761,12 +3822,15 @@ function JSON_Cookie_Step_Strategy_Exploration_Containment(cookieData, completed
             switch(containmentArray.containment.EffectiveControlA){
                 case "#containment_EffectiveControlA_yes":
                     $('#containment_EffectiveControlA_yes').prop('checked', true);
+                    destinationArray.forward = '4.7';
                     break;
                 case "#containment_EffectiveControlA_no":
                     $('#containment_EffectiveControlA_no').prop('checked', true);
+                    destinationArray.forward = '5.1';
                     break;
                 case "#containment_EffectiveControlA_uncertain":
                     $('#containment_EffectiveControlA_uncertain').prop('checked', true);
+                    destinationArray.forward = 'pause';
                     break;
             }
             $('#containment_EffectiveControlA_documentation').prop('value', containmentArray.containment.EffectiveControlADocumentation);
@@ -3801,12 +3865,15 @@ function JSON_Cookie_Step_Strategy_Exploration_Containment(cookieData, completed
             switch(containmentArray.containment.EffectiveControlB){
                 case "#containment_EffectiveControlB_yes":
                     $('#containment_EffectiveControlB_yes').prop('checked', true);
+                    destinationArray.forward = '4.8';
                     break;
                 case "#containment_EffectiveControlB_no":
                     $('#containment_EffectiveControlB_no').prop('checked', true);
+                    destinationArray.forward = '5.1';
                     break;
                 case "#containment_EffectiveControlB_uncertain":
                     $('#containment_EffectiveControlB_uncertain').prop('checked', true);
+                    destinationArray.forward = 'pause';
                     break;
             }
             $('#containment_EffectiveControlB_documentation').prop('value', containmentArray.containment.EffectiveControlBDocumentation);
@@ -3821,12 +3888,16 @@ function JSON_Cookie_Step_Strategy_Exploration_Containment(cookieData, completed
             switch(containmentArray.containment.NontargetImpacts){
                 case "#containment_NontargetImpacts_yes":
                     $('#containment_NontargetImpacts_yes').prop('checked', true);
+                    // TODO: TBD DESTINATION
+                    destinationArray.forward = 'TBD';
                     break;
                 case "#containment_NontargetImpacts_no":
                     $('#containment_NontargetImpacts_no').prop('checked', true);
+                    destinationArray.forward = '5.1';
                     break;
                 case "#containment_NontargetImpacts_uncertain":
                     $('#containment_NontargetImpacts_uncertain').prop('checked', true);
+                    destinationArray.forward = 'pause';
                     break;
             }
             $('#containment_NontargetImpacts_documentation').prop('value', containmentArray.containment.NontargetImpacts);
@@ -4015,41 +4086,59 @@ function JSON_Cookie_Step_Strategy_Exploration_Containment(cookieData, completed
         // Assign the value
         switch(boxName){
             case '#containment_SocialPoliticalA_yes':
-                containmentArray.containment.SocialPoliticalA = '#containment_SocialPoliticalA_yes'; break;
+                containmentArray.containment.SocialPoliticalA = '#containment_SocialPoliticalA_yes';
+                destinationArray.forward = '4.2'; break;
             case '#containment_SocialPoliticalA_no':
-                containmentArray.containment.SocialPoliticalA = '#containment_SocialPoliticalA_no'; break;
+                containmentArray.containment.SocialPoliticalA = '#containment_SocialPoliticalA_no';
+                destinationArray.forward = '5.1'; break;
             case '#containment_SocialPoliticalA_uncertain':
-                containmentArray.containment.SocialPoliticalA = '#containment_SocialPoliticalA_uncertain'; break;
+                containmentArray.containment.SocialPoliticalA = '#containment_SocialPoliticalA_uncertain';
+                destinationArray.forward = 'none'; break;
             case '#containment_SocialPoliticalB_yes':
-                containmentArray.containment.SocialPoliticalB = '#containment_SocialPoliticalB_yes'; break;
+                containmentArray.containment.SocialPoliticalB = '#containment_SocialPoliticalB_yes';
+                destinationArray.forward = '4.3'; break;
             case '#containment_SocialPoliticalB_no':
-                containmentArray.containment.SocialPoliticalB = '#containment_SocialPoliticalB_no'; break;
+                containmentArray.containment.SocialPoliticalB = '#containment_SocialPoliticalB_no';
+                destinationArray.forward = '5.1'; break;
             case '#containment_SocialPoliticalB_uncertain':
-                containmentArray.containment.SocialPoliticalB = '#containment_SocialPoliticalB_uncertain'; break;
+                containmentArray.containment.SocialPoliticalB = '#containment_SocialPoliticalB_uncertain';
+                destinationArray.forward = 'none'; break;
             case '#containment_PreventingReproductionA_yes':
-                containmentArray.containment.PreventingReproductionA = '#containment_PreventingReproductionA_yes'; break;
+                containmentArray.containment.PreventingReproductionA = '#containment_PreventingReproductionA_yes';
+                destinationArray.forward = '4.4'; break;
             case '#containment_PreventingReproductionA_no':
-                containmentArray.containment.PreventingReproductionA = '#containment_PreventingReproductionA_no'; break;
+                containmentArray.containment.PreventingReproductionA = '#containment_PreventingReproductionA_no';
+                destinationArray.forward = '5.1'; break;
             case '#containment_PreventingReproductionA_uncertain':
-                containmentArray.containment.PreventingReproductionA = '#containment_PreventingReproductionA_uncertain'; break;
+                containmentArray.containment.PreventingReproductionA = '#containment_PreventingReproductionA_uncertain';
+                destinationArray.forward = 'none'; break;
             case '#containment_PreventingReproductionB_yes':
-                containmentArray.containment.PreventingReproductionB = '#containment_PreventingReproductionB_yes'; break;
+                containmentArray.containment.PreventingReproductionB = '#containment_PreventingReproductionB_yes';
+                destinationArray.forward = '4.5'; break;
             case '#containment_PreventingReproductionB_no':
-                containmentArray.containment.PreventingReproductionB = '#containment_PreventingReproductionB_no'; break;
+                containmentArray.containment.PreventingReproductionB = '#containment_PreventingReproductionB_no';
+                destinationArray.forward = '5.1'; break;
             case '#containment_PreventingReproductionB_uncertain':
-                containmentArray.containment.PreventingReproductionB = '#containment_PreventingReproductionB_uncertain'; break;
+                containmentArray.containment.PreventingReproductionB = '#containment_PreventingReproductionB_uncertain';
+                destinationArray.forward = 'none'; break;
             case '#containment_DetectingSmall_yes':
-                containmentArray.containment.DetectingSmall = '#containment_DetectingSmall_yes'; break;
+                containmentArray.containment.DetectingSmall = '#containment_DetectingSmall_yes';
+                destinationArray.forward = '4.6'; break;
             case '#containment_DetectingSmall_no':
-                containmentArray.containment.DetectingSmall = '#containment_DetectingSmall_no'; break;
+                containmentArray.containment.DetectingSmall = '#containment_DetectingSmall_no';
+                destinationArray.forward = '5.1'; break;
             case '#containment_DetectingSmall_uncertain':
-                containmentArray.containment.DetectingSmall = '#containment_DetectingSmall_uncertain'; break;
+                containmentArray.containment.DetectingSmall = '#containment_DetectingSmall_uncertain';
+                destinationArray.forward = 'none'; break;
             case '#containment_EffectiveControlA_yes':
-                containmentArray.containment.EffectiveControlA = '#containment_EffectiveControlA_yes'; break;
+                containmentArray.containment.EffectiveControlA = '#containment_EffectiveControlA_yes';
+                destinationArray.forward = '4.7'; break;
             case '#containment_EffectiveControlA_no':
-                containmentArray.containment.EffectiveControlA = '#containment_EffectiveControlA_no'; break;
+                containmentArray.containment.EffectiveControlA = '#containment_EffectiveControlA_no';
+                destinationArray.forward = '5.1'; break;
             case '#containment_EffectiveControlA_uncertain':
-                containmentArray.containment.EffecitveControlA = '#containment_EffectiveControlA_uncertain'; break;
+                containmentArray.containment.EffecitveControlA = '#containment_EffectiveControlA_uncertain';
+                destinationArray.forward = 'none'; break;
             case '#containment_EffectiveControlAControlMethod_manual':
                 containmentArray.containment.EffectiveControlAControlMethod = '#containment_EffectiveControlAControlMethod_manual'; break;
             case '#containment_EffectiveControlAControlMethod_mechanical':
@@ -4061,17 +4150,23 @@ function JSON_Cookie_Step_Strategy_Exploration_Containment(cookieData, completed
             case '#containment_EffectiveControlAControlMethod_other':
                 containmentArray.containment.EffectiveControlAControlMethod = '#containment_EffectiveControlAControlMethod_other'; break;
             case '#containment_EffectiveControlB_yes':
-                containmentArray.containment.EffectiveControlB = '#containment_EffectiveControlB_yes'; break;
+                containmentArray.containment.EffectiveControlB = '#containment_EffectiveControlB_yes';
+                destinationArray.forward = '4.8'; break;
             case '#containment_EffectiveControlB_no':
-                containmentArray.containment.EffectiveControlB = '#containment_EffectiveControlB_no'; break;
+                containmentArray.containment.EffectiveControlB = '#containment_EffectiveControlB_no';
+                destinationArray.forward = '5.1'; break;
             case '#containment_EffectiveControlB_uncertain':
-                containmentArray.containment.EffecitveControlB = '#containment_EffectiveControlB_uncertain'; break;
+                containmentArray.containment.EffecitveControlB = '#containment_EffectiveControlB_uncertain';
+                destinationArray.forward = 'none'; break;
             case '#containment_NontargetImpacts_yes':
-                containmentArray.containment.NontargetImpacts = '#containment_NontargetImpacts_yes'; break;
+                containmentArray.containment.NontargetImpacts = '#containment_NontargetImpacts_yes';
+                destinationArray.forward = 'none'; break;
             case '#containment_NontargetImpacts_no':
-                containmentArray.containment.NontargetImpacts = '#containment_NontargetImpacts_no'; break;
+                containmentArray.containment.NontargetImpacts = '#containment_NontargetImpacts_no';
+                destinationArray.forward = '5.1'; break;
             case '#containment_NontargetImpacts_uncertain':
-                containmentArray.containment.NontargetImpacts = '#containment_NontargetImpacts_uncertain'; break;
+                containmentArray.containment.NontargetImpacts = '#containment_NontargetImpacts_uncertain';
+                destinationArray.forward = 'none'; break;
         }
         Containment_Substep_Form_Check(containmentArray);
     };
@@ -4116,8 +4211,13 @@ function JSON_Cookie_Step_Strategy_Exploration_Containment(cookieData, completed
             if(destinationArray.forward !== "none"){
                 if($('#content_nav_forward').hasClass('content_nav_base_active')){
                     Containment_Substep_Save();
+                    if(destinationArray.forward === '5.1'){
+                        Popup('containment', 'suppression', '', destinationArray.current, cookieData, completedSteps, currentStep);
+                    }
                     Check_Available_Steps(cookieData, completedSteps, destinationArray.forward);
                 }
+            }else{
+                Popup(null, null, '');
             }
         });
         $('#content_nav_back').click(function(){
@@ -4221,22 +4321,6 @@ function JSON_Cookie_Step_Strategy_Exploration_Containment(cookieData, completed
     };
     // 9 -  Populate/Execute - Add_Event_To_Field, Add_Event_To_Nav  \\
     Containment_Substep_Form_Check(containmentArray);
-    destinationArray = {
-        current: '',
-        forward: '',
-        back: '',
-        substep_one: '4.1',
-        substep_two: '4.2',
-        substep_three: '4.3',
-        substep_four: '4.4',
-        substep_five: '4.5',
-        substep_six: '4.6',
-        substep_seven: '4.7',
-        substep_eight: '4.8',
-        projectBackground: '1.1',
-        strategySelection: '2.1',
-        strategyExploration: 'none'
-    };
     switch(currentStep){
         case "4.1":
             Add_Event_To_Field('#containment_SocialPoliticalA_documentation');
@@ -4253,7 +4337,6 @@ function JSON_Cookie_Step_Strategy_Exploration_Containment(cookieData, completed
             }
             destinationArray.back = tempBack;
             destinationArray.current = '4.1';
-            destinationArray.forward = '4.2';
             destinationArray.substep_one = 'none';
             break;
         case "4.2":
@@ -4263,7 +4346,6 @@ function JSON_Cookie_Step_Strategy_Exploration_Containment(cookieData, completed
             $('#containment_SocialPoliticalB_uncertain').change(function(){ Containment_Check_Boxes('#containment_SocialPoliticalB_uncertain'); });
             destinationArray.back = '4.1';
             destinationArray.current = '4.2';
-            destinationArray.forward = '4.3';
             destinationArray.substep_two = 'none';
             break;
         case "4.3":
@@ -4273,7 +4355,6 @@ function JSON_Cookie_Step_Strategy_Exploration_Containment(cookieData, completed
             $('#containment_PreventingReproductionA_uncertain').change(function(){ Containment_Check_Boxes('#containment_PreventingReproductionA_uncertain'); });
             destinationArray.back = '4.2';
             destinationArray.current = '4.3';
-            destinationArray.forward = '4.4';
             destinationArray.substep_three = 'none';
             break;
         case "4.4":
@@ -4283,7 +4364,6 @@ function JSON_Cookie_Step_Strategy_Exploration_Containment(cookieData, completed
             $('#containment_PreventingReproductionB_uncertain').change(function(){ Containment_Check_Boxes('#containment_PreventingReproductionB_uncertain'); });
             destinationArray.back = '4.3';
             destinationArray.current = '4.4';
-            destinationArray.forward = '4.5';
             destinationArray.substep_four = 'none';
             break;
         case "4.5":
@@ -4293,7 +4373,6 @@ function JSON_Cookie_Step_Strategy_Exploration_Containment(cookieData, completed
             $('#containment_DetectingSmall_uncertain').change(function(){ Containment_Check_Boxes('#containment_DetectingSmall_uncertain'); });
             destinationArray.back = '4.4';
             destinationArray.current = '4.5';
-            destinationArray.forward = '4.6';
             destinationArray.substep_five = 'none';
             break;
         case "4.6":
@@ -4309,7 +4388,6 @@ function JSON_Cookie_Step_Strategy_Exploration_Containment(cookieData, completed
             $('#containment_EffectiveControlAControlMethod_other').change(function(){ Containment_Check_Boxes('#containment_EffectiveControlAControlMethod_other'); });
             destinationArray.back = '4.5';
             destinationArray.current = '4.6';
-            destinationArray.forward = '4.7';
             destinationArray.substep_six = 'none';
             break;
         case "4.7":
@@ -4319,7 +4397,6 @@ function JSON_Cookie_Step_Strategy_Exploration_Containment(cookieData, completed
             $('#containment_EffectiveControlB_uncertain').change(function(){ Containment_Check_Boxes('#containment_EffectiveControlB_uncertain'); });
             destinationArray.back = '4.6';
             destinationArray.current = '4.7';
-            destinationArray.forward = '4.8';
             destinationArray.substep_seven = 'none';
             break;
         case "4.8":
@@ -4329,7 +4406,6 @@ function JSON_Cookie_Step_Strategy_Exploration_Containment(cookieData, completed
             $('#containment_NontargetImpacts_uncertain').change(function(){ Containment_Check_Boxes('#containment_NontargetImpacts_uncertain'); });
             destinationArray.back = '4.7';
             destinationArray.current = '4.8';
-            destinationArray.forward = 'none';
             destinationArray.substep_ = 'none';
             break;
     }
@@ -4586,7 +4662,7 @@ function JSON_Cookie_Step_Strategy_Exploration_Suppression(cookieData, completed
                         SocialPoliticalADocumentation: suppressionArray.suppression.SocialPoliticalADocumentation
                     }
                 };
-                requiredField = suppressionArray.suppresion.SocialPoliticalA;
+                requiredField = suppressionArray.suppression.SocialPoliticalA;
                 break;
             case "5.2":
                 saveArray = {
@@ -4595,7 +4671,7 @@ function JSON_Cookie_Step_Strategy_Exploration_Suppression(cookieData, completed
                         SocialPoliticalBDocumentation: suppressionArray.suppression.SocialPoliticalBDocumentation
                     }
                 };
-                requiredField = suppressionArray.suppresion.SocialPoliticalB;
+                requiredField = suppressionArray.suppression.SocialPoliticalB;
                 break;
             case "5.3":
                 saveArray = {
@@ -4606,7 +4682,7 @@ function JSON_Cookie_Step_Strategy_Exploration_Suppression(cookieData, completed
                         EffectiveControlAControlMethodDescription: suppressionArray.suppression.EffectiveControlAControlMethodDescription
                     }
                 };
-                requiredField = suppressionArray.suppresion.EffectiveControlA;
+                requiredField = suppressionArray.suppression.EffectiveControlA;
                 break;
             case "5.4":
                 saveArray = {
@@ -4615,7 +4691,7 @@ function JSON_Cookie_Step_Strategy_Exploration_Suppression(cookieData, completed
                         EffectiveControlBDocumentation: suppressionArray.suppression.EffectiveControlBDocumentation
                     }
                 };
-                requiredField = suppressionArray.suppresion.EffectiveControlB;
+                requiredField = suppressionArray.suppression.EffectiveControlB;
                 break;
             case "5.5":
                 saveArray = {
@@ -4624,7 +4700,7 @@ function JSON_Cookie_Step_Strategy_Exploration_Suppression(cookieData, completed
                         NontargetImpactsDocumentation: suppressionArray.suppression.NontargetImpactsDocumentation
                     }
                 };
-                requiredField = suppressionArray.suppresion.NontagetImpacts;
+                requiredField = suppressionArray.suppression.NontagetImpacts;
                 break;
         }
         // Execute
@@ -4779,7 +4855,7 @@ function JSON_Cookie_Step_Strategy_Exploration_Suppression(cookieData, completed
         $('#content_nav_forward').click(function(){
             if(destinationArray.forward !== "none"){
                 if($('#content_nav_forward').hasClass('content_nav_base_active')){
-                    Suppresion_Substep_Save();
+                    Suppression_Substep_Save();
                     Check_Available_Steps(cookieData, completedSteps, destinationArray.forward);
                 }
             }else{
@@ -4894,11 +4970,11 @@ function JSON_Cookie_Step_Strategy_Exploration_Suppression(cookieData, completed
             $('#suppression_EffectiveControlA_yes').change(function(){ Suppression_Check_Boxes('#suppression_EffectiveControlA_yes'); });
             $('#suppression_EffectiveControlA_no').change(function(){ Suppression_Check_Boxes('#suppression_EffectiveControlA_no'); });
             $('#suppression_EffectiveControlA_uncertain').change(function(){ Suppression_Check_Boxes('#suppression_EffectiveControlA_uncertain'); });
-            $('#suppression_EffectiveControlAControlMethod_manual').change(function(){ Suppression_Check_Boxes('#suppresion_EffectiveControlAControlMethod_manual'); });
-            $('#suppression_EffectiveControlAControlMethod_mechanical').change(function(){ Suppression_Check_Boxes('#suppresion_EffectiveControlAControlMethod_mechanical'); });
-            $('#suppression_EffectiveControlAControlMethod_herbicide').change(function(){ Suppression_Check_Boxes('#suppresion_EffectiveControlAControlMethod_herbicide'); });
-            $('#suppression_EffectiveControlAControlMethod_biological').change(function(){ Suppression_Check_Boxes('#suppresion_EffectiveControlAControlMethod_biological'); });
-            $('#suppression_EffectiveControlAControlMethod_other').change(function(){ Suppression_Check_Boxes('#suppresion_EffectiveControlAControlMethod_other'); });
+            $('#suppression_EffectiveControlAControlMethod_manual').change(function(){ Suppression_Check_Boxes('#suppression_EffectiveControlAControlMethod_manual'); });
+            $('#suppression_EffectiveControlAControlMethod_mechanical').change(function(){ Suppression_Check_Boxes('#suppression_EffectiveControlAControlMethod_mechanical'); });
+            $('#suppression_EffectiveControlAControlMethod_herbicide').change(function(){ Suppression_Check_Boxes('#suppression_EffectiveControlAControlMethod_herbicide'); });
+            $('#suppression_EffectiveControlAControlMethod_biological').change(function(){ Suppression_Check_Boxes('#suppression_EffectiveControlAControlMethod_biological'); });
+            $('#suppression_EffectiveControlAControlMethod_other').change(function(){ Suppression_Check_Boxes('#suppression_EffectiveControlAControlMethod_other'); });
             destinationArray.back = '5.2';
             destinationArray.current = '5.3';
             destinationArray.substep_three = 'none';

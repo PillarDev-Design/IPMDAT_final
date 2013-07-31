@@ -457,3 +457,9 @@ body, html{
             -moz-border-radius: 15px;
             -webkit-border-radius: 15px;
         }
+        #content_uncertain_confirm_container{
+            position: absolute;
+            margin-top: 9%;
+            margin-left: 35%;
+            background: #8A8A8A;
+        }
