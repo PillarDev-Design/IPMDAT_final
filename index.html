@@ -8,6 +8,7 @@
     <script type='text/javascript' src='/static/js/JSON_Cookie_Steps_util.js'></script>
     <script type='text/javascript' src='/static/js/IPMDAT_HTML.js'></script>
     <script type='text/javascript' src='/static/js/IPMDAT_custom.js'></script>
+    <script type='text/javascript' src='/static/js/IPMDAT_records.js'></script>
     <script type='text/javascript' src='/static/js/jsDatePick.min.1.3.js'></script>
     <!-- CSS Imports -->
     <link href='/static/css/IPMDAT_style.css' rel='stylesheet' type='text/css' />
@@ -17,13 +18,127 @@
 </head>
 <body>
 <div id='site_container'>
-<div id='site_content'>
-    <div id='site_nav_container'>
-        <div id='site_nav_left_side'>
-            <div id='site_nav_left_logo'></div>
+<div id='site_menu' class='content_substep_container_active'>
+    <div id='site_menu_nav_container' class='nav_container'>
+        <div id='site_menu_nav_left_side' class='nav_left_side'>
+            <div id='site_menu_nav_left_logo' class='nav_left_logo'></div>
         </div>
-        <div id='site_nav_right_side'>
-            <div id='site_nav_right_link_container'>
+        <div id='site_menu_nav_right_side' class='nav_right_side'>
+            <div id='site_menu_nav_right_link_container' class='nav_right_link_container'>
+                <div id='site_menu_nav_right_home' class='site_nav_link'>Home</div>
+                <div id='site_menu_nav_right_about' class='site_nav_link'>About</div>
+                <div id='site_menu_nav_right_sponsers' class='site_nav_link'>Sponsers</div>
+                <div id='site_menu_nav_right_disclaimer' class='site_nav_link'>Disclaimer</div>
+                <div class='clear'></div>
+            </div>
+        </div>
+        <div class='clear'></div>
+    </div> <!-- END site_menu_nav_container -->
+    <div id='site_menu_record_container'>
+        <div id='site_menu_record_one_container' class='menu_record_container'>
+            <div id='record_one_title' class='record_title'>
+                Record One
+            </div>
+            <hr style='color: gray'/>
+            <div id='record_one_stats_container' class='stats_container'>
+                <div id='record_one_stats_type_container' class='stat_container'>
+                    <div id='record_one_stats_type_title' class='stat_title'>Record Type:</div>
+                    <div id='record_one_stats_type' class='stat_content'>N/A</div>
+                    <div class='clear'></div>
+                </div> <!-- END record_one_stats_type_container' -->
+                <div id='record_one_stats_complete_container' class='stat_container'>
+                    <div id='record_one_stats_complete_title' class='stat_title'>Steps Completed:</div>
+                    <div id='record_one_stats_complete' class='stat_content'>N/A</div>
+                    <div class='clear'></div>
+                </div> <!-- END record_one_stats_complete_container -->
+                <div id='record_one_stats_started_container' class='stat_container'>
+                    <div id='record_one_stats_started_title' class='stat_title'>Date Started:</div>
+                    <div id='record_one_stats_started' class='stat_content'>N/A</div>
+                    <div class='clear'></div>
+                </div> <!-- END record_one_stats_started_container -->
+                <div id='record_one_stats_updated_container' class='stat_container'>
+                    <div id='record_one_stats_updated_title' class='stat_title'>Date Updated:</div>
+                    <div id='record_one_stats_updated' class='stat_content'>N/A</div>
+                    <div class='clear'></div>
+                </div> <!-- END record_one_stats_updated_container -->
+            </div>
+            <div id='record_one_create' class='record_create content_substep_container_inactive'>Create</div>
+            <div id='record_one_load' class='record_load content_substep_container_inactive'>Load</div>
+            <div id='record_one_delete' class='record_delete content_substep_container_inactive'>Delete</div>
+        </div> <!-- END site_menu_record_one_container -->
+        <div id='site_menu_record_two_container' class='menu_record_container'>
+            <div id='record_two_title' class='record_title'>
+                Record Two
+            </div>
+            <hr style='color: gray'/>
+            <div id='record_two_stats_container' class='stats_container'>
+                <div id='record_two_stats_type_container' class='stat_container'>
+                    <div id='record_two_stats_type_title' class='stat_title'>Record Type:</div>
+                    <div id='record_two_stats_type' class='stat_content'>N/A</div>
+                    <div class='clear'></div>
+                </div> <!-- END record_two_stats_type_container' -->
+                <div id='record_two_stats_complete_container' class='stat_container'>
+                    <div id='record_two_stats_complete_title' class='stat_title'>Steps Completed:</div>
+                    <div id='record_two_stats_complete' class='stat_content'>N/A</div>
+                    <div class='clear'></div>
+                </div> <!-- END record_two_stats_complete_container -->
+                <div id='record_two_stats_started_container' class='stat_container'>
+                    <div id='record_two_stats_started_title' class='stat_title'>Date Started:</div>
+                    <div id='record_two_stats_started' class='stat_content'>N/A</div>
+                    <div class='clear'></div>
+                </div> <!-- END record_two_stats_started_container -->
+                <div id='record_two_stats_updated_container' class='stat_container'>
+                    <div id='record_two_stats_updated_title' class='stat_title'>Date Updated:</div>
+                    <div id='record_two_stats_updated' class='stat_content'>N/A</div>
+                    <div class='clear'></div>
+                </div> <!-- END record_two_stats_updated_container -->
+            </div>
+            <div id='record_two_create' class='record_create content_substep_container_inactive'>Create</div>
+            <div id='record_two_load' class='record_load content_substep_container_inactive'>Load</div>
+            <div id='record_two_delete' class='record_delete content_substep_container_inactive'>Delete</div>
+        </div> <!-- END site_menu_record_two_container -->
+        <div id='site_menu_record_three_container' class='menu_record_container'>
+            <div id='record_three_title' class='record_title'>
+                Record Three
+            </div>
+            <hr style='color: gray'/>
+            <div id='record_three_stats_container' class='stats_container'>
+                <div id='record_three_stats_type_container' class='stat_container'>
+                    <div id='record_three_stats_type_title' class='stat_title'>Record Type:</div>
+                    <div id='record_three_stats_type' class='stat_content'>N/A</div>
+                    <div class='clear'></div>
+                </div> <!-- END record_three_stats_type_container' -->
+                <div id='record_three_stats_complete_container' class='stat_container'>
+                    <div id='record_three_stats_complete_title' class='stat_title'>Steps Completed:</div>
+                    <div id='record_three_stats_complete' class='stat_content'>N/A</div>
+                    <div class='clear'></div>
+                </div> <!-- END record_three_stats_complete_container -->
+                <div id='record_three_stats_started_container' class='stat_container'>
+                    <div id='record_three_stats_started_title' class='stat_title'>Date Started:</div>
+                    <div id='record_three_stats_started' class='stat_content'>N/A</div>
+                    <div class='clear'></div>
+                </div> <!-- END record_three_stats_started_container -->
+                <div id='record_three_stats_updated_container' class='stat_container'>
+                    <div id='record_three_stats_updated_title' class='stat_title'>Date Updated:</div>
+                    <div id='record_three_stats_updated' class='stat_content'>N/A</div>
+                    <div class='clear'></div>
+                </div> <!-- END record_three_stats_updated_container -->
+            </div>
+            <div id='record_three_create' class='record_create content_substep_container_inactive'>Create</div>
+            <div id='record_three_load' class='record_load content_substep_container_inactive'>Load</div>
+            <div id='record_three_delete' class='record_delete content_substep_container_inactive'>Delete</div>
+        </div> <!-- END site_menu_record_three_container -->
+        <div class='clear'></div>
+    </div> <!-- END site_menu_record_container -->
+</div>
+<div class='clear'></div>
+<div id='site_content' class='content_substep_container_inactive'>
+    <div id='site_nav_container' class='nav_container'>
+        <div id='site_nav_left_side' class='nav_left_side'>
+            <div id='site_nav_left_logo' class='nav_left_logo'></div>
+        </div>
+        <div id='site_nav_right_side' class='nav_right_side'>
+            <div id='site_nav_right_link_container' class='nav_right_link_container'>
                 <div id='site_nav_right_home' class='site_nav_link'>Home</div>
                 <div id='site_nav_right_about' class='site_nav_link'>About</div>
                 <div id='site_nav_right_sponsers' class='site_nav_link'>Sponsers</div>
@@ -698,6 +813,7 @@
 <script type='text/javascript'>
     // Init
     Create_HTML();
+    Determine_Records();
 </script>
 </body>
 </html>

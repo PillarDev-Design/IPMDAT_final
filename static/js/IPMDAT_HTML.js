@@ -1604,8 +1604,4 @@ function Create_HTML(){
     for(var i=0; i<propertiesLength; i++){
         Create_Div(elementProperties[i]);
     }
-
-    // HTML generation complete, moving to IPMDAT_Init() function
-    //      located in IPMDAT_custom.js
-    IPMDAT_Init();
 };

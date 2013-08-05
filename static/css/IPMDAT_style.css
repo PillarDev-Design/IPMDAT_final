@@ -28,6 +28,15 @@ body, html{
     text-align: right;
     width: 100%;
 }
+#site_menu{
+    background-image:url('/static/img/green_background.JPG');
+    background-repeat: repeat-x;
+    height: 600px;
+    left: 13%;
+    position: relative;
+    top: 14%;
+    width: 960px;
+}
 #site_content{
     background-image:url('/static/img/green_background.JPG');
     background-repeat: repeat-x;
@@ -37,16 +46,16 @@ body, html{
     top: 14%;
     width: 960px;
 }
-#site_nav_container{
+.nav_container{
     background: white;
     height: 19%;
     position: relative;
     width: 100%;
 }
-#site_nav_left_side{
+.nav_left_side{
     float: left;
 }
-    #site_nav_left_logo{
+    .nav_left_logo{
         background-image:url('/static/img/IPMDAT_logo-FINAL_medium.png');
         background-repeat: no-repeat;
         height: 116px;
@@ -55,7 +64,7 @@ body, html{
         top: -10px;
         left: 10px;
     }
-#site_nav_right_side{
+.nav_right_side{
     float: right;
 }
     .site_nav_link{
@@ -66,6 +75,119 @@ body, html{
         margin-right: 45px;
         margin-top: 5px;
         position: relative;
+    }
+#site_menu_record_container{
+    position: relative;
+    width: 100%;
+    height: 90%;
+}
+    .menu_record_container{
+        float: left;
+        width: 30%;
+        height: 90%;
+        background: white;
+        margin-left: 24px;
+        margin-top: 10px;
+        border: 1px solid black;
+        border-radius: 25px;
+        -moz-border-radius: 25px;
+        -webkit-border-radius: 25px;
+    }
+    .record_title{
+        color: black;
+        background-color: white;
+        position: relative;
+        margin-left: 20px;
+        margin-right: 20px;
+        padding-left: 5px;
+        padding-right: 5px;
+        border-left: 1px solid black;
+        border-right: 1px solid black;
+        font-size: 2em;
+        font-weight: bold;
+        margin-top: 28px;
+        text-align: center;
+        border-radius: 5px;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+    }
+    .stats_container{
+        background: #6D965B;
+        margin: 10px;
+        padding: 10px;
+        border: 1px solid black;
+        height: 35%;
+        border-radius: 10px;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        box-shadow: 5px 5px 5px #CBE5C0 inset;
+        -moz-box-shadow: 5px 5px 5px #CBE5C0 inset;
+        -webkit-box-shadow: 5px 5px 5px #CBE5C0 inset;
+    }
+        .stat_container{
+            background: white;
+            margin-top: 8px;
+            border: 1px solid black;
+            padding: 5px;
+            border-radius: 5px;
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
+        }
+        .stat_title{
+            float: left;
+        }
+        .stat_content{
+            font-weight: bold;
+            float: right;
+        }
+    .record_create{
+        font-size: 3em;
+        background: #9DD5F4;
+        width: 80%;
+        position: relative;
+        left: 10%;
+        border: 1px solid black;
+        cursor: pointer;
+        text-align: center;
+        border-radius: 20px;
+        -moz-border-radius: 20px;
+        -webkit-border-radius: 20px;
+        box-shadow: 5px 5px 5px #BDDCE8 inset;
+        -moz-box-shadow: 5px 5px 5px #BDDCE8 inset;
+        -webkit-box-shadow: 5px 5px 5px #BDDCE8 inset;
+    }
+    .record_load{
+        font-size: 3em;
+        background: #9DD5F4;
+        width: 80%;
+        position: relative;
+        left: 10%;
+        border: 1px solid black;
+        cursor: pointer;
+        text-align: center;
+        border-radius: 20px;
+        -moz-border-radius: 20px;
+        -webkit-border-radius: 20px;
+        box-shadow: 5px 5px 5px #BDDCE8 inset;
+        -moz-box-shadow: 5px 5px 5px #BDDCE8 inset;
+        -webkit-box-shadow: 5px 5px 5px #BDDCE8 inset;
+    }
+    .record_delete{
+        font-size: 2em;
+        width: 50%;
+        background: #DB3039;
+        border: 1px solid black;
+        text-align: center;
+        margin-top: 30px;
+        position: relative;
+        left: 25%;
+        cursor: pointer;
+        border-radius: 15px;
+        -moz-border-radius: 15px;
+        -webkit-border-radius: 15px;
+        box-shadow: 5px 5px 5px #E36268 inset;
+        -moz-box-shadow: 5px 5px 5px #E36268 inset;
+        -webkit-box-shadow: 5px 5px 5px #E36268 inset;
     }
 .progress_bar_base_style{
     border: 1px solid black;

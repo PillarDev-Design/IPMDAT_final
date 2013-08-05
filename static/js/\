@@ -1,0 +1,41 @@
+/******************************************************************************\
+ * IPMDAT_records.js                                                          *
+ * -------------------------------------------------------------------------- *
+ * This file contains the record management for the IPMDAT project.           *
+\******************************************************************************/
+function Determine_Records(){
+    // 1 - Declare Variables
+    // 2 - Determine if records are created
+    // 3 - Assign functionality
+    var recordOneName = 'IPMDAT_cookie_one',
+        recordOne = $.JSONCookie(recordOneName),
+        recordOneBlank = jQuery.isEmptyObject(recordOne),
+        recordTwoName = 'IPMDAT_cookie_two',
+        recordTwo = $.JSONCookie(recordTwoName),
+        recordTwoBlank = jQuery.isEmptyObject(recordTwo),
+        recordThreeName = 'IPMDAT_cookie_three',
+        recordThree = $.JSONCookie(recordThreeName),
+        recordThreeBlank = jQuery.isEmptyObject(recordThree);
+
+    if(recordOneBlank === true){
+        $('#record_one_create').removeClass('content_substep_container_inactive').addClass('content_substep_container_active');
+    }else{
+        $('#record_one_load').removeClass('content_substep_container_inactive').addClass('content_substep_container_active');
+    }
+    if(recordTwoBlank === true){
+        $('#record_two_create').removeClass('content_substep_container_inactive').addClass('content_substep_container_active');
+    }else{
+        $('#record_two_load').removeClass('content_substep_container_inactive').addClass('content_substep_container_active');
+    }
+    if(recordThreeBlank === true){
+        $('#record_three_create').removeClass('content_substep_container_inactive').addClass('content_substep_container_active');
+    }else{
+        $('#record_three_load').removeClass('content_substep_container_inactive').addClass('content_substep_container_active');
+    }
+};
+function Create_Record(){
+};
+function Delete_Record(){
+};
+function Load_Record(){
+};
