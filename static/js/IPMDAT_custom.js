@@ -1024,7 +1024,7 @@ function Check_Available_Steps(recordNumber, cookieData, completedSteps, current
  * content - Content to be placed in div       *
  * backDestination - Pointing to previous      *
 \***********************************************/
-function Popup(originalType, newType, content, backDestination, cookieData, completedSteps, currentStep){
+function Popup(originalType, newType, content, backDestination, cookieData, completedSteps, currentStep, recordNumber){
     // For a quick fix - We're going to hard code the bypass destination.
     var bypassDestination;
     switch(currentStep){
@@ -2897,11 +2897,11 @@ function JSON_Cookie_Step_Strategy_Exploration_Eradication(recordNumber, cookieD
             switch(eradicationArray.eradication.SocialPoliticalB){
                 case "#eradication_SocialPoliticalB_yes":
                     $('#eradication_SocialPoliticalB_yes').prop('checked', true);
-                    destinationArray.forward = '3.3';
+                    destinationArray.forward = '4.1';
                     break;
                 case "#eradication_SocialPoliticalB_no":
                     $('#eradication_SocialPoliticalB_no').prop('checked', true);
-                    destinationArray.forward = '4.1';
+                    destinationArray.forward = '3.3';
                     break;
                 case "#eradication_SocialPolitical_B_uncertain":
                     $('#eradication_SocialPoliticalB_uncertain').prop('checked', true);
@@ -2919,11 +2919,11 @@ function JSON_Cookie_Step_Strategy_Exploration_Eradication(recordNumber, cookieD
             switch(eradicationArray.eradication.SocialPoliticalC){
                 case "#eradication_SocialPoliticalC_yes":
                     $('#eradication_SocialPoliticalC_yes').prop('checked', true);
-                    destinationArray.forward = '3.4';
+                    destinationArray.forward = '4.1';
                     break;
                 case "#eraidcation_SocialPolitical_C_no":
                     $('#eradication_SocialPoliticalC_no').prop('checked', true);
-                    destinationArray.forward = '4.1';
+                    destinationArray.forward = '3.4';
                     break;
                 case "#eradication_SocialPoliticalC_uncertain":
                     $('#eradication_SocialPoliticalC_uncertain').prop('checked', true);
@@ -2985,11 +2985,11 @@ function JSON_Cookie_Step_Strategy_Exploration_Eradication(recordNumber, cookieD
             switch(eradicationArray.eradication.Detection){
                 case "#eradication_Detection_yes":
                     $('#eradication_Detection_yes').prop('checked', true);
-                    destinationArray.forward = '3.7';
+                    destinationArray.forward = '4.1';
                     break;
                 case "#eradication_Detection_no":
                     $('#eradication_Detection_no').prop('checked', true);
-                    destinationArray.forward = '4.1';
+                    destinationArray.forward = '3.7';
                     break;
                 case "#eradication_Detection_uncertain":
                     $('#eradication_Detection_uncertain').prop('checked', true);
@@ -3297,19 +3297,19 @@ function JSON_Cookie_Step_Strategy_Exploration_Eradication(recordNumber, cookieD
                 destinationArray.forward = 'none'; break;
             case '#eradication_SocialPoliticalB_yes':
                 eradicationArray.eradication.SocialPoliticalB = '#eradication_SocialPoliticalB_yes';
-                destinationArray.forward = '3.3'; break;
+                destinationArray.forward = '4.1'; break;
             case '#eradication_SocialPoliticalB_no':
                 eradicationArray.eradication.SocialPoliticalB = '#eradication_SocialPoliticalB_no';
-                destinationArray.forward = '4.1'; break;
+                destinationArray.forward = '3.3'; break;
             case '#eradication_SocialPoliticalB_uncertain':
                 eradicationArray.eradication.SocialPoliticalB = '#eradication_SocialPoliticalB_uncertain';
                 destinationArray.forward = 'none'; break;
             case '#eradication_SocialPoliticalC_yes':
                 eradicationArray.eradication.SocialPoliticalC = '#eradication_SocialPoliticalC_yes';
-                destinationArray.forward = '3.4'; break;
+                destinationArray.forward = '4.1'; break;
             case '#eradication_SocialPoliticalC_no':
                 eradicationArray.eradication.SocialPoliticalC = '#eradication_SocialPoliticalC_no';
-                destinationArray.forward = '4.1'; break;
+                destinationArray.forward = '3.4'; break;
             case '#eradication_SocialPoliticalC_uncertain':
                 eradicationArray.eradication.SocialPoliticalC = '#eradication_SocialPoliticalC_uncertain';
                 destinationArray.forward = 'none'; break;
@@ -3333,10 +3333,10 @@ function JSON_Cookie_Step_Strategy_Exploration_Eradication(recordNumber, cookieD
                 destinationArray.forward = 'none'; break;
             case '#eradication_Detection_yes':
                 eradicationArray.eradication.Detection = '#eradication_Detection_yes';
-                destinationArray.forward = '3.7'; break;
+                destinationArray.forward = '4.1'; break;
             case '#eradication_Detection_no':
                 eradicationArray.eradication.Detection = '#eradication_Detection_no';
-                destinationArray.forward = '4.1'; break;
+                destinationArray.forward = '3.7'; break;
             case '#eradication_Detection_uncertain':
                 eradicationArray.eradication.Detection = '#eradication_Detection_uncertain';
                 destinationArray.forward = 'none'; break;
@@ -3416,7 +3416,7 @@ function JSON_Cookie_Step_Strategy_Exploration_Eradication(recordNumber, cookieD
                 if($('#content_nav_forward').hasClass('content_nav_base_active')){
                     Eradication_Substep_Save();
                     if(destinationArray.forward === '4.1'){
-                        Popup('eradication', 'containment', '', destinationArray.current, cookieData, completedSteps, currentStep);
+                        Popup('eradication', 'containment', '', destinationArray.current, cookieData, completedSteps, currentStep, recordNumber);
                     }
                     Check_Available_Steps(recordNumber, cookieData, completedSteps, destinationArray.forward);
                 }
@@ -3729,11 +3729,11 @@ function JSON_Cookie_Step_Strategy_Exploration_Containment(recordNumber, cookieD
             switch(containmentArray.containment.SocialPoliticalB){
                 case "#containment_SocialPoliticalB_yes":
                     $('#containment_SocialPoliticalB_yes').prop('checked', true);
-                    destinationArray.forward = '4.3';
+                    destinationArray.forward = '5.1';
                     break;
                 case "#containment_SocialPoliticalB_no":
                     $('#containment_SocialPoliticalB_no').prop('checked', true);
-                    destinationArray.forward = '5.1';
+                    destinationArray.forward = '4.3';
                     break;
                 case "#containment_SocialPoliticalB_uncertain":
                     $('#containment_SocialPoliticalB_uncertain').prop('checked', true);
@@ -3798,11 +3798,11 @@ function JSON_Cookie_Step_Strategy_Exploration_Containment(recordNumber, cookieD
             switch(containmentArray.containment.DetectingSmall){
                 case "#containment_DetectingSmall_yes":
                     $('#containment_DetectingSmall_yes').prop('checked', true);
-                    destinationArray.forward = '4.6';
+                    destinationArray.forward = '5.1';
                     break;
                 case "#containment_DetectingSmall_no":
                     $('#containment_DetectingSmall_no').prop('checked', true);
-                    destinationArray.forward = '5.1';
+                    destinationArray.forward = '4.6';
                     break;
                 case "#containment_DetectingSmall_uncertain":
                     $('#containment_DetectingSmall_uncertain').prop('checked', true);
@@ -3925,10 +3925,10 @@ function JSON_Cookie_Step_Strategy_Exploration_Containment(recordNumber, cookieD
             tempValue = formArray.containment.DetectingSmall;
             nextStep = "#content_step_strategy_exploration_containment_substep_six";
         }else if(currentStep === "4.6"){
-            tempValue = formArray.containment.SocialPoliticalA;
+            tempValue = formArray.containment.EffectiveControlA;
             nextStep = "#content_step_strategy_exploration_containment_substep_seven";
         }else if(currentStep === "4.7"){
-            tempValue = formArray.containment.SocialPoliticalB;
+            tempValue = formArray.containment.EffectiveControlB;
             nextStep = "#content_step_strategy_exploration_containment_substep_eight";
         }else if(currentStep === "4.8"){
             tempValue = formArray.containment.NontargetImpacts;
@@ -4097,10 +4097,10 @@ function JSON_Cookie_Step_Strategy_Exploration_Containment(recordNumber, cookieD
                 destinationArray.forward = 'none'; break;
             case '#containment_SocialPoliticalB_yes':
                 containmentArray.containment.SocialPoliticalB = '#containment_SocialPoliticalB_yes';
-                destinationArray.forward = '4.3'; break;
+                destinationArray.forward = '5.1'; break;
             case '#containment_SocialPoliticalB_no':
                 containmentArray.containment.SocialPoliticalB = '#containment_SocialPoliticalB_no';
-                destinationArray.forward = '5.1'; break;
+                destinationArray.forward = '4.3'; break;
             case '#containment_SocialPoliticalB_uncertain':
                 containmentArray.containment.SocialPoliticalB = '#containment_SocialPoliticalB_uncertain';
                 destinationArray.forward = 'none'; break;
@@ -4124,10 +4124,10 @@ function JSON_Cookie_Step_Strategy_Exploration_Containment(recordNumber, cookieD
                 destinationArray.forward = 'none'; break;
             case '#containment_DetectingSmall_yes':
                 containmentArray.containment.DetectingSmall = '#containment_DetectingSmall_yes';
-                destinationArray.forward = '4.6'; break;
+                destinationArray.forward = '5.1'; break;
             case '#containment_DetectingSmall_no':
                 containmentArray.containment.DetectingSmall = '#containment_DetectingSmall_no';
-                destinationArray.forward = '5.1'; break;
+                destinationArray.forward = '4.6'; break;
             case '#containment_DetectingSmall_uncertain':
                 containmentArray.containment.DetectingSmall = '#containment_DetectingSmall_uncertain';
                 destinationArray.forward = 'none'; break;
@@ -4213,7 +4213,7 @@ function JSON_Cookie_Step_Strategy_Exploration_Containment(recordNumber, cookieD
                 if($('#content_nav_forward').hasClass('content_nav_base_active')){
                     Containment_Substep_Save();
                     if(destinationArray.forward === '5.1'){
-                        Popup('containment', 'suppression', '', destinationArray.current, cookieData, completedSteps, currentStep);
+                        Popup('containment', 'suppression', '', destinationArray.current, cookieData, completedSteps, currentStep, recordNumber);
                     }
                     Check_Available_Steps(recordNumber, cookieData, completedSteps, destinationArray.forward);
                 }
@@ -4502,11 +4502,11 @@ function JSON_Cookie_Step_Strategy_Exploration_Suppression(recordNumber, cookieD
             switch(suppressionArray.suppression.SocialPoliticalB){
                 case "#suppression_SocialPoliticalB_yes":
                     $('#suppression_SocialPoliticalB_yes').prop('checked', true);
-                    destinationArray.forward = '5.3';
+                    destinationArray.forward = 'stop';
                     break;
                 case "#suppression_SocialPoliticalB_no":
                     $('#suppression_SocialPoliticalB_no').prop('checked', true);
-                    destinationArray.forward = 'stop';
+                    destinationArray.forward = '5.3';
                     break;
                 case "#suppression_SocialPoliticalB_uncertain":
                     $('#suppression_SocialPoliticalB_uncertain').prop('checked', true);
