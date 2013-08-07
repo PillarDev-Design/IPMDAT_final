@@ -417,7 +417,7 @@ function Determine_Records(){
                     .removeClass('content_substep_container_inactive')
                     .addClass('content_substep_container_active');
                 $('#record_two_confirm_no').click(function(){
-                    $('#record_one_confirm_container').fadeOut(100)
+                    $('#record_two_confirm_container').fadeOut(100)
                     .delay(150)
                     .removeClass('content_substep_container_active')
                     .addClass('content_substep_container_inactive');
@@ -436,7 +436,7 @@ function Determine_Records(){
                     .removeClass('content_substep_container_inactive')
                     .addClass('content_substep_container_active');
                 $('#record_three_confirm_no').click(function(){
-                    $('#record_one_confirm_container').fadeOut(100)
+                    $('#record_three_confirm_container').fadeOut(100)
                     .delay(150)
                     .removeClass('content_substep_container_active')
                     .addClass('content_substep_container_inactive');
