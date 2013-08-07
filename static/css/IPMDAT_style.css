@@ -189,6 +189,53 @@ body, html{
         -moz-box-shadow: 5px 5px 5px #E36268 inset;
         -webkit-box-shadow: 5px 5px 5px #E36268 inset;
     }
+    .record_confirm{
+        font-size: 2em;
+        width: 272px;
+        background: #DB3039;
+        border: 1px solid black;
+        text-align: center;
+        top: -177px;
+        height: 192px;
+        margin-top: 30px;
+        position: relative;
+        left: 7px;
+        border-radius: 15px;
+        -moz-border-radius: 15px;
+        -webkit-border-radius: 15px;
+        box-shadow: 5px 5px 5px #E36268 inset;
+        -moz-box-shadow: 5px 5px 5px #E36268 inset;
+        -webkit-box-shadow: 5px 5px 5px #E36268 inset;
+    }
+        .record_confirm_yes{
+            border: 1px solid black;
+            cursor: pointer;
+            width: 80%;
+            left: 8%;
+            position: relative;
+            background: #B8484D;
+            border-radius: 15px;
+            -moz-border-radius: 15px;
+            -webkit-border-radius: 15px;
+            box-shadow: 5px 5px 5px #CC666B inset;
+            -moz-box-shadow: 5px 5px 5px #CC666B inset;
+            -webkit-box-shadow: 5px 5px 5px #CC666B inset;
+        }
+        .record_confirm_no{
+            border: 1px solid black;
+            cursor: pointer;
+            margin-top: 30px;
+            width: 80%;
+            left: 9%;
+            position: relative;
+            background: #9DD5F4;
+            border-radius: 15px;
+            -moz-border-radius: 15px;
+            -webkit-border-radius: 15px;
+            box-shadow: 5px 5px 5px #BDDCE8 inset;
+            -moz-box-shadow: 5px 5px 5px #BDDCE8 inset;
+            -webkit-box-shadow: 5px 5px 5px #BDDCE8 inset;
+        }
 .progress_bar_base_style{
     border: 1px solid black;
     color: white;

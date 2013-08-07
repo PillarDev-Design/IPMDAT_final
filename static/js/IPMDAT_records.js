@@ -15,6 +15,7 @@ function Determine_Records(){
      * 5 - Delete_Record(recordNumber)             *
      * 6 - Load_Record(recordNumber)               *
      * 7 - Unbind_Keys(recordNumber)               *
+     * 8 - Confirm_Delete(recordNumber)            *
     \***********************************************/
     //* 1 - Declare Variables                       *
     var recordOneName = 'IPMDAT_cookie_one',
@@ -146,7 +147,7 @@ function Determine_Records(){
             .delay(150)
             .removeClass('content_substep_container_inactive')
             .addClass('content_substep_container_active')
-            .click(function(){ Delete_Record(recordOneName); });
+            .click(function(){ Confirm_Delete(recordOneName); });
         Populate_Stats(recordOneName);
     }
     if(recordTwoBlank === true){
@@ -165,7 +166,7 @@ function Determine_Records(){
             .delay(150)
             .removeClass('content_substep_container_inactive')
             .addClass('content_substep_container_active')
-            .click(function(){ Delete_Record(recordTwoName); });
+            .click(function(){ Confirm_Delete(recordTwoName); });
         Populate_Stats(recordTwoName);
     }
     if(recordThreeBlank === true){
@@ -184,7 +185,7 @@ function Determine_Records(){
             .delay(150)
             .removeClass('content_substep_container_inactive')
             .addClass('content_substep_container_active')
-            .click(function(){ Delete_Record(recordThreeName); });
+            .click(function(){ Confirm_Delete(recordThreeName); });
         Populate_Stats(recordThreeName);
     }
     //* 3 - Populate stats                          *
@@ -271,7 +272,7 @@ function Determine_Records(){
                 .delay(550)
                 .removeClass('content_substep_container_inactive')
                 .addClass('content_substep_container_active')
-                .click(function(){ Delete_Record(recordOneName); });
+                .click(function(){ Confirm_Delete(recordOneName); });
         }else if(recordNumber === recordTwoName){
             Populate_Stats(recordNumber);
             $('#record_two_create').fadeOut(100)
@@ -287,7 +288,7 @@ function Determine_Records(){
                 .delay(550)
                 .removeClass('content_substep_container_inactive')
                 .addClass('content_substep_container_active')
-                .click(function(){ Delete_Record(recordTwoName); });
+                .click(function(){ Confirm_Delete(recordTwoName); });
         }else if(recordNumber === recordThreeName){
             Populate_Stats(recordNumber);
             $('#record_three_create').fadeOut(100)
@@ -303,7 +304,7 @@ function Determine_Records(){
                 .delay(550)
                 .removeClass('content_substep_container_inactive')
                 .addClass('content_substep_container_active')
-                .click(function(){ Delete_Record(recordThreeName); });
+                .click(function(){ Confirm_Delete(recordThreeName); });
         }
     };
     //* 5 - Delete_Record(recordNumber)             *
@@ -385,6 +386,68 @@ function Determine_Records(){
                 $('#record_three_delete').unbind('click');
                 $('#record_three_load').unbind('click');
                 $('#record_three_create').unbind('click');
+                break;
+        }
+    };
+    //* 8 - Confirm_Delete(recordNumber)            *
+    function Confirm_Delete(recordNumber){
+        switch(recordNumber){
+            case recordOneName:
+                $('#record_one_confirm_container').fadeIn(500)
+                    .delay(550)
+                    .removeClass('content_substep_container_inactive')
+                    .addClass('content_substep_container_active');
+                $('#record_one_confirm_no').click(function(){
+                    $('#record_one_confirm_container').fadeOut(100)
+                    .delay(150)
+                    .removeClass('content_substep_container_active')
+                    .addClass('content_substep_container_inactive');
+                });
+                $('#record_one_confirm_yes').click(function(){
+                    $('#record_one_confirm_container').fadeOut(100)
+                    .delay(150)
+                    .removeClass('content_substep_container_active')
+                    .addClass('content_substep_container_inactive');
+                    Delete_Record(recordNumber); 
+                });
+                break;
+            case recordTwoName:
+                $('#record_two_confirm_container').fadeIn(500)
+                    .delay(550)
+                    .removeClass('content_substep_container_inactive')
+                    .addClass('content_substep_container_active');
+                $('#record_two_confirm_no').click(function(){
+                    $('#record_one_confirm_container').fadeOut(100)
+                    .delay(150)
+                    .removeClass('content_substep_container_active')
+                    .addClass('content_substep_container_inactive');
+                });
+                $('#record_two_confirm_yes').click(function(){
+                    $('#record_two_confirm_container').fadeOut(100)
+                    .delay(150)
+                    .removeClass('content_substep_container_active')
+                    .addClass('content_substep_container_inactive');
+                    Delete_Record(recordNumber); 
+                });
+                break;
+            case recordThreeName:
+                $('#record_three_confirm_container').fadeIn(500)
+                    .delay(550)
+                    .removeClass('content_substep_container_inactive')
+                    .addClass('content_substep_container_active');
+                $('#record_three_confirm_no').click(function(){
+                    $('#record_one_confirm_container').fadeOut(100)
+                    .delay(150)
+                    .removeClass('content_substep_container_active')
+                    .addClass('content_substep_container_inactive');
+                });
+                $('#record_three_confirm_yes').click(function(){
+                    $('#record_three_confirm_container').fadeOut(100)
+                    .delay(150)
+                    .removeClass('content_substep_container_active')
+                    .addClass('content_substep_container_inactive');
+                    Delete_Record(recordNumber); 
+                });
                 break;
         }
     };
