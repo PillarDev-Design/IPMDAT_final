@@ -3901,7 +3901,7 @@ function JSON_Cookie_Step_Strategy_Exploration_Containment(recordNumber, cookieD
                     destinationArray.forward = 'pause';
                     break;
             }
-            $('#containment_NontargetImpacts_documentation').prop('value', containmentArray.containment.NontargetImpacts);
+            $('#containment_NontargetImpacts_documentation').prop('value', containmentArray.containment.NontargetImpactsDocumentation);
             break;
     }
     // 4 -  Function - Containment_Substep_Form_Check(formArray)     \\

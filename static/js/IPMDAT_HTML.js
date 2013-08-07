@@ -934,7 +934,7 @@ function Create_HTML(){
     };
     elementProperties.push(temp);
     temp = {
-        targetContainer: '#one_part_NontagetImpacts_uncertain',
+        targetContainer: '#one_part_NontargetImpacts_uncertain',
         mainID: 'eradication_NontargetImpacts_uncertain',
         labelText: 'Uncertain:',
         required: false,
@@ -943,7 +943,7 @@ function Create_HTML(){
     };
     elementProperties.push(temp);
     temp = {
-        targetContainer: '#one_part_NontagetImpacts_documentation',
+        targetContainer: '#one_part_NontargetImpacts_documentation',
         mainID: 'eradication_NontagetImpacts_documentation',
         labelText: 'Documentation:',
         required: false,
@@ -1559,7 +1559,7 @@ function Create_HTML(){
     elementProperties.push(temp);
     // suppressionNontargetImpacts
     temp = {
-        targetContainer: '#one_part_suppressionNontagetImpacts_yes',
+        targetContainer: '#one_part_suppressionNontargetImpacts_yes',
         mainID: 'suppression_NontagetImpacts_yes',
         labelText: 'Yes:',
         required: false,
@@ -1568,7 +1568,7 @@ function Create_HTML(){
     };
     elementProperties.push(temp);
     temp = {
-        targetContainer: '#one_part_suppressionNontagetImpacts_no',
+        targetContainer: '#one_part_suppressionNontargetImpacts_no',
         mainID: 'suppression_NontagetImpacts_no',
         labelText: 'No:',
         required: false,
@@ -1577,7 +1577,7 @@ function Create_HTML(){
     };
     elementProperties.push(temp);
     temp = {
-        targetContainer: '#one_part_suppressionNontagetImpacts_uncertain',
+        targetContainer: '#one_part_suppressionNontargetImpacts_uncertain',
         mainID: 'suppression_NontagetImpacts_uncertain',
         labelText: 'Uncertain:',
         required: false,
