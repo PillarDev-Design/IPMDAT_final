@@ -114,6 +114,21 @@ function Save_Cookie(recordNumber, cookieData, stepNumber, completedSteps){
                 EffectiveControlBDocumentation: null,
                 NontargetImpacts: null,
                 NontargetImpactsDocumentation: null
+            },
+            // SUMMARY RECOMMENDATION (STEP 6)
+            summary: {
+                EstimatedFiveYearCost: null,
+                EstimatedFiveYearCostComments: null,
+                EstimatedCostCategory: null,
+                CostBenefitExplanation: null,
+                AssessingResource: null,
+                AssessingResourceDocumentation: null,
+                ProjectObjective: null,
+                DescriptionMonitoringPlan: null,
+                RestorationNeeds: null,
+                ReturnOnInvestment: null,
+                ReturnOnInvestmentComments: null,
+                AssessingResourceAvailability: null
             }
         };
     /*===============================================================*\
@@ -237,7 +252,24 @@ function Save_Cookie(recordNumber, cookieData, stepNumber, completedSteps){
     // 5.5
     if(savedData.suppression.NontargetImpacts !== null){ cookieArray.suppression.NontargetImpacts = savedData.suppression.NontargetImpacts; }
     if(savedData.suppression.NontargetImpactsDocumentation !== null){ cookieArray.suppression.NontargetImpactsDocumentation = savedData.suppression.NontargetImpactsDocumentation; }
-
+    // 6.1
+    if(savedData.summary.EstimatedFiveYearCost !== null){ cookieArray.summary.EstimatedFiveYearCost = savedData.summary.EstimatedFiveYearCost; }
+    if(savedData.summary.EstimatedFiveYearCostComments !== null){ cookieArray.summary.EstimatedFiveYearCostComments = savedData.summary.EstimatedFiveYearCostComments; }
+    if(savedData.summary.EstimatedCostCategory !== null){ cookieArray.summary.EstimatedCostCategory = savedData.summary.EstimatedCostCategory; }
+    if(savedData.summary.CostBenefitExplanation !== null){ cookieArray.summary.CostBenefitExplanation = savedData.summary.CostBenefitExplanation; }
+    // 6.2
+    if(savedData.summary.AssessingResource !== null){ cookieArray.summary.AssessingResource = savedData.summary.AssessingResource; }
+    if(savedData.summary.AssessingResourceDocumentation !== null){ cookieArray.summary.AssessingResourceDocumentation = savedData.summary.AssessingResourceDocumentation; }
+    // 6.3
+    // 6.4
+    if(savedData.summary.ProjectObjective !== null){ cookieArray.summary.ProjectObjective = savedData.summary.ProjectObjective; }
+    if(savedData.summary.DescriptionMonitoringPlan !== null){ cookieArray.summary.DescriptionMonitoringPlan = savedData.summary.DescriptionMonitoringPlan; }
+    if(savedData.summary.RestorationNeeds !== null){ cookieArray.summary.RestorationNeeds = savedData.summary.RestorationNeeds; }
+    // 6.5
+    if(savedData.summary.ReturnOnInvestment !== null){ cookieArray.summary.ReturnOnInvestment = savedData.summary.ReturnOnInvestment; }
+    if(savedData.summary.ReturnOnInvestmentComments !== null){ cookieArray.summary.ReturnOnInvestmentComments = savedData.summary.ReturnOnInvestmentComments; }
+    if(savedData.summary.AssessingResourceAvailability !== null){ cookieArray.summary.AssessingResourceAvailability = savedData.summary.AssessingResourceAvailability; }
+    
     // Enter New Data from cookieData
     if(stepNumber === "1.1"){
         cookieArray.projectBackground.Assessors = cookieData.projectBackground.Assessors;
@@ -353,6 +385,23 @@ function Save_Cookie(recordNumber, cookieData, stepNumber, completedSteps){
     }else if(stepNumber === "5.5"){
         cookieArray.suppression.NontargetImpacts = cookieData.suppression.NontargetImpacts;
         cookieArray.suppression.NontargetImpactsDocumentation = cookieData.suppression.NontargetImpactsDocumentation;
+    }else if(stepNumber === "6.1"){
+        cookieArray.summary.EstimatedFiveYearCost = cookieData.summary.EsimatedFiveYearCost;
+        cookieArray.summary.EstimatedFiveYearCostComments = cookieData.summary.EstimatedFiveYearCostComments;
+        cookieArray.summary.EstimatedCostCategory = cookieData.summary.EstimatedCostCategory;
+        cookieArray.summary.CostBenefitExplanation = cookieData.summary.CostBenefitExplanation;
+    }else if(stepNumber === "6.2"){
+        cookieArray.summary.AssessingResource = cookieData.summary.AssessingResource;
+        cookieArray.summary.AssessingResourceDocumentation = cookieData.summary.AssessingResourceDocumentation;
+    }else if(stepNumber === "6.3"){
+    }else if(stepNumber === "6.4"){
+        cookieArray.summary.ProjectObjective = cookieData.summary.ProjectObjective;
+        cookieArray.summary.DescriptionMonitoringPlan = cookieData.summary.DescriptionMonitoringPlan;
+        cookieArray.summary.RestorationNeeds = cookieData.summary.RestorationNeeds;
+    }else if(stepNumber === "6.5"){
+        cookieArray.summary.ReturnOnInvestment = cookieData.summary.ReturnOnInvestment;
+        cookieArray.summary.ReturnOnInvestmentComments = cookieData.summary.ReturnOnInvestmentComments;
+        cookieArray.summary.AssessingResourceAvailability = cookieData.summary.AssessingResourceAvailability;
     }
     $.JSONCookie(name, cookieArray, {path: '/'});
 };
@@ -413,6 +462,11 @@ function Check_Available_Steps(recordNumber, cookieData, completedSteps, current
     $('#content_step_strategy_exploration_suppression_substep_three').unbind('click');
     $('#content_step_strategy_exploration_suppression_substep_four').unbind('click');
     $('#content_step_strategy_exploration_suppression_substep_five').unbind('click');
+    $('#content_step_summary_recommendation_substep_one').unbind('click');
+    $('#content_step_summary_recommendation_substep_two').unbind('click');
+    $('#content_step_summary_recommendation_substep_three').unbind('click');
+    $('#content_step_summary_recommendation_substep_four').unbind('click');
+    $('#content_step_summary_recommendation_substep_five').unbind('click');
     // TODO: UPDATE HERE
     
     // Control Step Progress
@@ -549,6 +603,21 @@ function Check_Available_Steps(recordNumber, cookieData, completedSteps, current
         if(completedSteps[i] === "5.5"){
             // TODO: UPDATE HERE (TO BE DETERMINED)
         }
+        if(completedSteps[i] === "6.1"){
+            $('#content_step_summary_recommendation_substep_two').removeClass('content_substep_active').removeClass('content_substep_inactive').addClass('content_substep_available');
+        }
+        if(completedSteps[i] === "6.2"){
+            $('#content_step_summary_recommendation_substep_three').removeClass('content_substep_active').removeClass('content_substep_inactive').addClass('content_substep_available');
+        }
+        if(completedSteps[i] === "6.3"){
+            $('#content_step_summary_recommendation_substep_four').removeClass('content_substep_active').removeClass('content_substep_inactive').addClass('content_substep_available');
+        }
+        if(completedSteps[i] === "6.4"){
+            $('#content_step_summary_recommendation_substep_five').removeClass('content_substep_active').removeClass('content_substep_inactive').addClass('content_substep_available');
+        }
+        if(completedSteps[i] === "6.5"){
+            // TODO: TBD
+        }
     }
 
     // Clear All Step Containers
@@ -652,10 +721,12 @@ function Check_Available_Steps(recordNumber, cookieData, completedSteps, current
     $('#content_substep_strategy_exploration_suppression_container').removeClass('content_substep_container_active').addClass('content_substep_container_inactive');
 
     // SUMMARY RECOMMENDATION
-    if($('#content_step_summary_recommendation_container').hasClass('content_step_active')){
-        $('#content_step_summary_recommendation_container').removeClass('content_step_active').addClass('content_step_inactive');
-    }
-    // TODO: UPDATE HERE
+    $('#content_step_summary_recommendation_EstimateResource').removeClass('content_step_active').addClass('content_step_inactive');
+    $('#content_step_summary_recommendation_AssessingResource').removeClass('content_step_active').addClass('content_step_inactive');
+    $('#content_step_summary_recommendation_ProjectTimeframe').removeClass('content_step_active').addClass('content_step_inactive');
+    $('#content_step_summary_recommendation_ProjectObjectives').removeClass('content_step_active').addClass('content_step_inactive');
+    $('#content_step_summary_recommendation_ProjectSummary').removeClass('content_step_active').addClass('content_step_inactive');
+    $('#content_substep_summary_recommendation_container').removeClass('content_substep_container_active').addClass('content_substep_container_inactive');
 
     // Fire Correct Step
     // Also - we need to clear the fields in preparation for input of fields.
@@ -1014,6 +1085,47 @@ function Check_Available_Steps(recordNumber, cookieData, completedSteps, current
         }
         // Execute Step Function
         JSON_Cookie_Step_Strategy_Exploration_Suppression(recordNumber, cookieData, completedSteps, currentStep);
+    }else if((currentStep === "6.1")||(currentStep === "6.2")||(currentStep === "6.3")||(currentStep === "6.4")||(currentStep === "6.5")){
+        // Main Progress Bars
+        $('#content_progress_bar_summary_recommendation').removeClass('progress_bar_inactive').removeClass('progress_bar_available').addClass('progress_bar_active');
+        // Substep Progress Container
+        $('#content_substep_summary_recommendation_container').removeClass('content_substep_container_inactive').addClass('content_substep_container_active');
+        
+        // SubStep Progress Bars & Clear Questions
+        switch(currentStep){
+            case "6.1":
+                // Substep Progress Bar
+                $('#content_step_summary_recommendation_substep_one').removeClass('content_substep_inactive').removeClass('content_substep_available').addClass('content_substep_active');
+                // Clear Questions
+                // TODO: Add content here
+                break;
+            case "6.2":
+                // Substep Progress Bar
+                $('#content_step_summary_recommendation_substep_two').removeClass('content_substep_inactive').removeClass('content_substep_available').addClass('content_substep_active');
+                // Clear Questions
+                // TODO: Add content here
+                break;
+            case "6.3":
+                // Substep Progress Bar
+                $('#content_step_summary_recommendation_substep_three').removeClass('content_substep_inactive').removeClass('content_substep_available').addClass('content_substep_active');
+                // Clear Questions
+                // TODO: Add content here
+                break;
+            case "6.4":
+                // Substep Progress Bar
+                $('#content_step_summary_recommendation_substep_four').removeClass('content_substep_inactive').removeClass('content_substep_available').addClass('content_substep_active');
+                // Clear Questions
+                // TODO: Add content here
+                break;
+            case "6.5":
+                // Substep Progress Bar
+                $('#content_step_summary_recommendation_substep_five').removeClass('content_substep_inactive').removeClass('content_substep_available').addClass('content_substep_active');
+                // Clear Questions
+                // TODO: Add content here
+                break;
+        }
+        // Execute Step Function
+        JSON_Cookie_Step_Summary_Recommendation(recordNumber, cookieData, completedSteps, currentStep);
     }
 };
 /***********************************************\
@@ -1194,6 +1306,21 @@ function IPMDAT_Init(recordNumber){
                 EffectiveControlBDocumentation: null,
                 NontargetImpacts: null,
                 NontargetImpactsDocumentation: null
+            },
+            // SUMMARY RECOMMENDATION (STEP 6)
+            summary: {
+                EstimatedFiveYearCost: null,
+                EstimatedFiveYearCostComments: null,
+                EstimatedCostCategory: null,
+                CostBenefitExplanation: null,
+                AssessingResource: null,
+                AssessingResourceDocumentation: null,
+                ProjectObjective: null,
+                DescriptionMonitoringPlan: null,
+                RestorationNeeds: null,
+                ReturnOnInvestment: null,
+                ReturnOnInvestmentComments: null,
+                AssessingResourceAvailability: null
             }
         },
         completedSteps = [],
@@ -1308,6 +1435,21 @@ function IPMDAT_Init(recordNumber){
                 EffectiveControlBDocumentation: null,
                 NontargetImpacts: null,
                 NontargetImpactsDocumentation: null
+            },
+            // SUMMARY RECOMMENDATION (STEP 6)
+            summary: {
+                EstimatedFiveYearCost: null,
+                EstimatedFiveYearCostComments: null,
+                EstimatedCostCategory: null,
+                CostBenefitExplanation: null,
+                AssessingResource: null,
+                AssessingResourceDocumentation: null,
+                ProjectObjective: null,
+                DescriptionMonitoringPlan: null,
+                RestorationNeeds: null,
+                ReturnOnInvestment: null,
+                ReturnOnInvestmentComments: null,
+                AssessingResourceAvailability: null
             }
         };
         $.JSONCookie(name, cookieData, {path: '/'});
@@ -1606,6 +1748,12 @@ function IPMDAT_Init(recordNumber){
         completedSteps.push("5.5");
     }
     stepFail = false;
+
+    // *** 6.1 ***
+    // *** 6.2 ***
+    // *** 6.3 ***
+    // *** 6.4 ***
+    // *** 6.5 ***
 
     // Being Process
     Check_Available_Steps(recordNumber, cookieData, completedSteps, currentStep);

@@ -126,6 +126,21 @@ function Determine_Records(){
                 EffectiveControlBDocumentation: null,
                 NontargetImpacts: null,
                 NontargetImpactsDocumentation: null
+            },
+            // SUMMARY RECOMMENDATION (STEP 6)
+            summary: {
+                EstimatedFiveYearCost: null,
+                EstimatedFiveYearCostComments: null,
+                EstimatedCostCategory: null,
+                CostBenefitExplanation: null,
+                AssessingResource: null,
+                AssessingResourceDocumentation: null,
+                ProjectObjective: null,
+                DescriptionMonitoringPlan: null,
+                RestorationNeeds: null,
+                ReturnOnInvestment: null,
+                ReturnOnInvestmentComments: null,
+                AssessingResourceAvailability: null
             }
         };
 
